@@ -6,6 +6,7 @@ if(!isset($_GET["md-file"])) {
         $_GET["md-file"] = substr($_GET["md-file"], 0, -3);
     }
 }
+// TODO: Instead of dieing if there's no md-file URL param, then show listing.php which will create the links based on files in md-file/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +24,8 @@ if(!isset($_GET["md-file"])) {
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
 
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
     <style>
         body {
             padding: 10px;
@@ -93,6 +96,20 @@ if(!isset($_GET["md-file"])) {
             margin-left: 20px !important;
             margin-bottom: 10px !important;
         }
+        /* Search external */
+        .ri-google-fill {
+            background: -webkit-linear-gradient(left, rgba(66, 133, 244, 1), rgba(219, 68, 55,1 ), rgba(244, 180, 0, 1), rgba(66, 133, 244, 1), rgba(15, 157, 88,1), rgba(219, 68, 55,1 ));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            cursor: pointer;
+            margin-right: 30px;
+            opacity: .5;
+        }
+        .ri-youtube-fill {
+            color:rgba(255,0,0,1);
+            cursor: pointer;
+            opacity: .5;
+        }
     </style>
 </head>
 
@@ -124,7 +141,27 @@ if(!isset($_GET["md-file"])) {
                 });
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result;
-                $( "table" ).DataTable();
+                $( "table" ).DataTable({
+                    "drawCallback": function( settings ) {
+                        $("tr td:nth-child(1)").each((i,cellCol1)=>{
+                            let $cell = $(cellCol1);
+                            let text = $cell.text();
+
+                            let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
+                            let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
+
+                            $iconGoogle.click(()=>{
+                                window.open(`https://www.google.com/search?q=${text}`);
+                            })
+                            $iconYoutube.click(()=>{
+                                window.open(`https://www.youtube.com/results?search_query=${text}`);
+                            })
+
+                            $cell.append($("<br/>"), $iconGoogle, $iconYoutube);
+                            
+                        });
+                    }
+                });
             }).catch(err => {
                 document.querySelector(".container").innerHTML = err;
             })
