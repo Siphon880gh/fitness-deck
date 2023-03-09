@@ -87,6 +87,12 @@ if(!isset($_GET["md-file"])) {
         .h6::before {
             content: "◦\00a0";
         }
+        /* DataTable */
+        .dataTables_length {
+            float: right !important;
+            margin-left: 20px !important;
+            margin-bottom: 10px !important;
+        }
     </style>
 </head>
 
