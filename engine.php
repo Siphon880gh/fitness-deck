@@ -21,6 +21,8 @@ if(!isset($_GET["md-file"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
+
+    <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <style>
         body {
             padding: 10px;
@@ -45,35 +47,7 @@ if(!isset($_GET["md-file"])) {
                 font-size: 150%;
             }
         }
-        
-        #toc-toggler {
-            cursor: pointer;
-            position: fixed;
-            top: 0;
-            right: 20px;
-        }
-        
-        #toc {
-            display: none;
-            position: fixed;
-            top: 20px;
-            right: 0;
-            padding: 5px;
-            background-color: white;
-            line-height: 1.5rem;
-            /* If long TOC clipped off on mobile */
-            max-height: 100vh;
-            overflow-y: scroll;
-        }
-        
-        #toc-toggler:hover #toc {
-            display: block;
-        }
-        
-        #mobile-tap.active+#toc {
-            display: block;
-        }
-        
+
         .h2 {
             margin-left: 2ch;
         }
@@ -116,39 +90,14 @@ if(!isset($_GET["md-file"])) {
     </style>
 </head>
 
-<body onclick="if(!event.target.matches('#mobile-tap')) { document.querySelector('#mobile-tap').classList.remove('active'); }">
-    <div id="toc-toggler">
-        <div id="mobile-tap" onclick="event.target.classList.toggle('active')">📖</div>
-        <div id="toc"></div>
-    </div>
+<body>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script>
-        function htmlTableOfContents(elNode) {
-            var toc = document.getElementById("toc");
-            var headings = [].slice.call(elNode.querySelectorAll('h1, h2, h3, h4, h5, h6'));
-
-            headings.forEach(function(heading, i) {
-                var ref = "toc" + i;
-                if (heading.hasAttribute("id"))
-                    ref = heading.getAttribute("id");
-                else
-                    heading.setAttribute("id", ref);
-
-                var link = document.createElement("a");
-                link.setAttribute("href", "#" + ref);
-                link.textContent = heading.textContent;
-
-                var div = document.createElement("div");
-                div.classList.add(heading.tagName.toLowerCase());
-                link.addEventListener("click", (event) => {
-                    document.querySelector('#mobile-tap').classList.remove('active')
-                })
-                div.appendChild(link);
-                toc.appendChild(div);
-            });
-        }
         const isFailed = (myMarkdown) => {
             //return '<!DOCTYPE html> <html> <head> <title>File Not Found</title>".substring(0,70).toLowerCase().includes("file not found")'
             return myMarkdown.substring(0, 70).toLowerCase().includes("file not found");
@@ -169,7 +118,7 @@ if(!isset($_GET["md-file"])) {
                 });
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result;
-                htmlTableOfContents(document.querySelector(".container"))
+                $( "table" ).DataTable();
             }).catch(err => {
                 document.querySelector(".container").innerHTML = err;
             })
