@@ -134,6 +134,47 @@ if(!isset($_GET["md-file"])) {
             background-color: rgba(204, 153, 255, 1);
         }
     </style>
+    <style>
+        /*
+        css-only-tooltip version 1.0.0
+            ⓒ 2015 AHN JAE-HA http://github.com/eu81273
+            MIT License
+        */
+
+
+        [data-tooltip-text]:hover {
+            position: relative;
+        }
+
+        [data-tooltip-text]:hover:after {
+            background-color: #000000;
+            background-color: rgba(0, 0, 0, 0.8);
+
+            -webkit-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+            -moz-box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+            box-shadow: 0px 0px 3px 1px rgba(50, 50, 50, 0.4);
+
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+
+            color: #FFFFFF;
+            font-size: 12px;
+            content: attr(data-tooltip-text);
+
+            margin-bottom: 10px;
+            top: 130%;
+            left: 0;    
+            padding: 15px;
+            position: absolute;
+            width: 300px;
+            word-wrap: break-word;
+
+            z-index: 9999;
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -205,19 +246,26 @@ if(!isset($_GET["md-file"])) {
 
                     "initComplete": function(settings,json) {
 
+                        // Create info tooltip at Search
+                        let $infoIcon = $("<i class='ri-information-line'></i>");
+                        $infoIcon.attr("data-tooltip-text", "Search Tip: Search for an exercise or instruction. Say you want exercises where you 'sit upright'");
+                        $infoIcon.prependTo($("#DataTables_Table_0_filter label"))
+
+
                         // Create addressed statistic
                         let $addressed = $("<div id='addressed'><div/>")
                         $addressed.click(()=>{
                             let confirmed = confirm("Clear all addressed states?")
                             if(confirmed) {
                                 clearAddressed();
+                                rerenderAddressed();
                             }
                         })
                         $("#DataTables_Table_0_wrapper").prepend($addressed);
-                        rerenderAddressed();
 
-                        hydrateCells();
                         loadAddressed();
+                        setTimeout(rerenderAddressed, 100);
+                        hydrateCells();
 
                     }, // initComplete
                 });
