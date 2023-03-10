@@ -119,6 +119,7 @@ if(!isset($_GET["md-file"])) {
             padding: 10px;
             margin-left: 15px;
             transform: translateY(-10px);
+            cursor:  pointer;
         }
         .addressed-1 {
             background-color: rgba(204, 255, 204, 1);
@@ -165,6 +166,7 @@ if(!isset($_GET["md-file"])) {
                 document.querySelector(".container").innerHTML = result;
                 $( "table" ).DataTable({
                     "pageLength": 100,
+
                     /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
                     "drawCallback": function( settings ) {
                         $(".ri-icon-hook").remove();
@@ -172,31 +174,50 @@ if(!isset($_GET["md-file"])) {
                             
                             // Create external icons
                             let $cell = $(cellCol1);
-                            let text = $cell.text();
+                            let textExercise = $cell.text();
 
-                            let $iconGoogle = $(`<i class="ri-icon-hook ri-google-fill"></i>`);
-                            let $iconYoutube = $(`<i class="ri-icon-hook ri-youtube-fill"></i>`);
+                            let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
+                            let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
 
                             $iconGoogle.click(()=>{
-                                window.open(`https://www.google.com/search?q=${text}`);
+                                window.open(`https://www.google.com/search?q=${textExercise}`);
                             })
                             $iconYoutube.click(()=>{
-                                window.open(`https://www.youtube.com/results?search_query=${text}`);
+                                window.open(`https://www.youtube.com/results?search_query=${textExercise}`);
                             })
 
-                            let $div = $(`<div class='external-sources'></div>`)
+                            let $div = $(`<div class='ri-icon-hook'></div>`)
 
                             $div.append($iconGoogle, $iconYoutube);
                             $cell.append($div);
 
+                            // Create modelable
+                            $cell.attr("data-id", textExercise);
+
+
+                            $cell.closest("tr").find("td:not(:nth-child(1))").each((i,cell)=>{
+                                let $cell = $(cell)
+                                $cell.attr("data-id", `${textExercise}-${i}`);
+                            });
+
                         });
                     }, // drawCallback
+
                     "initComplete": function(settings,json) {
 
+                        // Create addressed statistic
                         let $addressed = $("<div id='addressed'><div/>")
+                        $addressed.click(()=>{
+                            let confirmed = confirm("Clear all addressed states?")
+                            if(confirmed) {
+                                clearAddressed();
+                            }
+                        })
                         $("#DataTables_Table_0_wrapper").prepend($addressed);
                         rerenderAddressed();
+
                         hydrateCells();
+                        loadAddressed();
 
                     }, // initComplete
                 });
@@ -239,8 +260,96 @@ if(!isset($_GET["md-file"])) {
                     }
                     rerenderAddressed();
 
+                    saveAddressed();
                 });
+            } // hydrateCells
+
+            window.dbVersion = 2.1;
+            function loadAddressed() {
+                let open = indexedDB.open("fitness-deck", window.dbVersion);
+
+                open.onsuccess = function() {
+                    let db = open.result;
+                    let tx = db.transaction("FitnessAddressedStore", "readonly");
+                    let store = tx.objectStore("FitnessAddressedStore");
+
+                    // Get all data from store
+                    let request = store.getAll();
+
+                    request.onsuccess = function() {
+                        // Logs all data to console
+                        // console.log(request.result);
+                        request.result.forEach(cellModel=>{
+                            let {id, state} = cellModel;
+                            $(`[data-id="${id}"]`)[0].className = state;
+                        })
+                    };
+
+                    tx.oncomplete = function() {
+                        db.close();
+                    };
+                };
+
+                open.onerror = function() {
+                    console.error("Error", open.error);
+                };
+            }; // loadAddressed
+            
+            function clearAddressed() {
+                
+                $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i,el)=>{
+                    $(el).removeClass("addressed-1")
+                        .removeClass("addressed-2")
+                        .removeClass("addressed-3")
+                        .removeClass("addressed-4")
+                })
+                saveAddressed();
             }
+
+            function saveAddressed() {
+
+                let open = indexedDB.open("fitness-deck", window.dbVersion);
+                open.onupgradeneeded = function() {
+                    let db = open.result;
+                    let store = db.createObjectStore("FitnessAddressedStore", {keyPath: "id"});
+                    let index = store.createIndex("cellID", ["id"]);
+                };
+                open.onsuccess = function() {
+                    // Start a new transaction
+                    let db = open.result;
+                    let tx = db.transaction("FitnessAddressedStore", "readwrite");
+                    let store = tx.objectStore("FitnessAddressedStore");
+
+                    
+                    // Clear all data from store
+                    store.clear().onsuccess = function(event) {
+                        $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i,el)=>{
+                            let id = $(el).attr("data-id");
+                            let state = $(el).attr("class");
+                            store.put({id,state});
+                        });
+                    };
+
+
+                    // Close the db when the transaction is done
+                    tx.oncomplete = function() {
+                        db.close();
+                    };
+                };
+                
+                // console.group("A")
+                $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i,el)=>{
+                    let a = $(el).attr("data-id");
+                    let b = $(el).attr("class");
+                    // console.log({a,b})
+                });
+                // console.groupEnd();
+
+                open.onerror = function() {
+                    console.error("Error", open.error);
+                };
+
+            }; // saveAddressed
     </script>
 </body>
 
