@@ -184,7 +184,10 @@ if(!isset($_GET["md-file"])) {
                                 window.open(`https://www.youtube.com/results?search_query=${text}`);
                             })
 
-                            $cell.append($("<br/>"), $iconGoogle, $iconYoutube);
+                            let $div = $(`<div class='external-sources'></div>`)
+
+                            $div.append($iconGoogle, $iconYoutube);
+                            $cell.append($div);
 
                         });
                     }, // drawCallback
