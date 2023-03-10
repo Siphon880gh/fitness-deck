@@ -142,6 +142,7 @@ if(!isset($_GET["md-file"])) {
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result;
                 $( "table" ).DataTable({
+                    "pageLength": 100,
                     "drawCallback": function( settings ) {
                         $("tr td:nth-child(1)").each((i,cellCol1)=>{
                             let $cell = $(cellCol1);
