@@ -110,6 +110,28 @@ if(!isset($_GET["md-file"])) {
             cursor: pointer;
             opacity: .5;
         }
+        #addressed::before {
+            content: "Addresssed:\00A0";
+        }
+        #addressed {
+            float: right;
+            color: #333;
+            padding: 10px;
+            margin-left: 15px;
+            transform: translateY(-10px);
+        }
+        .addressed-1 {
+            background-color: rgba(204, 255, 204, 1);
+        }
+        .addressed-2 {
+            background-color: rgba(255, 255, 153, 1);
+        }
+        .addressed-3 {
+            background-color: rgba(255, 204, 204, 1);
+        }
+        .addressed-4 {
+            background-color: rgba(204, 153, 255, 1);
+        }
     </style>
 </head>
 
@@ -148,6 +170,7 @@ if(!isset($_GET["md-file"])) {
                         $(".ri-icon-hook").remove();
                         $("tr td:nth-child(1)").each((i,cellCol1)=>{
                             
+                            // Create external icons
                             let $cell = $(cellCol1);
                             let text = $cell.text();
 
@@ -162,12 +185,59 @@ if(!isset($_GET["md-file"])) {
                             })
 
                             $cell.append($("<br/>"), $iconGoogle, $iconYoutube);
+
                         });
-                    }
+                    }, // drawCallback
+                    "initComplete": function(settings,json) {
+
+                        let $addressed = $("<div id='addressed'><div/>")
+                        $("#DataTables_Table_0_wrapper").prepend($addressed);
+                        rerenderAddressed();
+                        hydrateCells();
+
+                    }, // initComplete
                 });
             }).catch(err => {
                 document.querySelector(".container").innerHTML = err;
-            })
+            });
+
+            function rerenderAddressed() {
+                let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
+                let total = $("tbody tr").length;
+                $("#addressed").text(`${count} of ${total}`);
+            }
+
+            function hydrateCells() {
+                function clearAllAddressedFlags($el) {
+                    $el.removeClass("addressed-1")
+                    .removeClass("addressed-2")
+                    .removeClass("addressed-3")
+                    .removeClass("addressed-4")
+                }
+
+                $("tr td:not(:nth-child(1))").on("click", event=>{
+                    let el = event.target;
+                    let $el = $(el);
+
+                    let unaddressed = el.classList.length===0;
+                    if(unaddressed) {
+                        $el.addClass("addressed-1");
+                    } else if($el.hasClass("addressed-1")) {
+                        clearAllAddressedFlags($el);
+                        $el.addClass("addressed-2");
+                    } else if($el.hasClass("addressed-2")) {
+                        clearAllAddressedFlags($el);
+                        $el.addClass("addressed-3");
+                    } else if($el.hasClass("addressed-3")) {
+                        clearAllAddressedFlags($el);
+                        $el.addClass("addressed-4");
+                    } else if($el.hasClass("addressed-4")) {
+                        clearAllAddressedFlags($el);
+                    }
+                    rerenderAddressed();
+
+                });
+            }
     </script>
 </body>
 
