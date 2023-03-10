@@ -143,13 +143,16 @@ if(!isset($_GET["md-file"])) {
                 document.querySelector(".container").innerHTML = result;
                 $( "table" ).DataTable({
                     "pageLength": 100,
+                    /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
                     "drawCallback": function( settings ) {
+                        $(".ri-icon-hook").remove();
                         $("tr td:nth-child(1)").each((i,cellCol1)=>{
+                            
                             let $cell = $(cellCol1);
                             let text = $cell.text();
 
-                            let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
-                            let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
+                            let $iconGoogle = $(`<i class="ri-icon-hook ri-google-fill"></i>`);
+                            let $iconYoutube = $(`<i class="ri-icon-hook ri-youtube-fill"></i>`);
 
                             $iconGoogle.click(()=>{
                                 window.open(`https://www.google.com/search?q=${text}`);
@@ -159,7 +162,6 @@ if(!isset($_GET["md-file"])) {
                             })
 
                             $cell.append($("<br/>"), $iconGoogle, $iconYoutube);
-                            
                         });
                     }
                 });
