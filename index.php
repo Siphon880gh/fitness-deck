@@ -1,6 +1,8 @@
 <?php
 if(!isset($_GET["md-file"])) {
-    die("<span style='color:red'>Failed. No md-file URL query or GET url param.</span>");
+    // die("<span style='color:red'>Failed. No md-file URL query or GET url param.</span>");
+    include("listing.php");
+    die();
 } else {
     if (substr($_GET["md-file"], -3) === ".md") {
         $_GET["md-file"] = substr($_GET["md-file"], 0, -3);
