@@ -10,14 +10,14 @@ By Weng Fei Fung. All possible exercises and their progression variations accord
 [Visit Weng's Fitness Deck](https://wengindustry.com/tools/fitness-deck/)
 
 
-## Exercise administration
+## Exercise Administration
 
 md-file levels can only be one folder deep. Then inside a folder has MD files.
 
 
 ## Prompts
 
-### Stretches
+### Stretches:
 
 Prompts A-B
 
@@ -86,3 +86,19 @@ Was it cut off? Please continue if it was cut off
 
 https://chat.openai.com/c/1a35beb7-a105-4a96-841f-1f4d5db2bca5
 https://chat.openai.com/share/a4f633c4-4eeb-4c2c-8504-a7c2ed907388
+
+### Rehab - Shin Splints:
+
+Prompt
+```
+I keep getting shin splints from walking, jogging, running. Give me as many exercises as possible to rehab the shin splints and prevent future shin splints by getting rid of any vulnerabilities.
+
+That is the goal of the prompt. Please remember that goal for all subsequent prompts.
+
+Please give me a markdown table. First column are the exercises. In 5 columns, give the easier and harder variations based on difficulty level. Those columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
+
+Also, add a column explaining how the exercise helps the shin splint.
+```
+
+https://chat.openai.com/c/78c9c57d-9d29-4149-94c1-671e248f7c5e
+https://chat.openai.com/share/12f25b92-210a-4f9f-a9fe-7822f9b65661
