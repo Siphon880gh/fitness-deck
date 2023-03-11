@@ -210,10 +210,11 @@ if(!isset($_GET["md-file"])) {
                     return;
                 }
                 var md = window.markdownit({
-                    linkify: true
+                    linkify: true,
+                    breaks: true
                 });
                 var result = md.render(myMarkdown);
-                document.querySelector(".container").innerHTML = result;
+                document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
                 $( "table" ).DataTable({
                     "pageLength": 100,
 
