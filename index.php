@@ -218,7 +218,7 @@ if(!isset($_GET["md-file"])) {
                 });
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
-                document.querySelectorAll("a").forEach(a=>{
+                document.querySelectorAll(".container a").forEach(a=>{
                     a.setAttribute("target", "_blank");
                 })
 
