@@ -216,12 +216,15 @@ if(!isset($_GET["md-file"])) {
                     linkify: true,
                     breaks: true
                 });
+
+                // Render, take care of \n breaks, and make sure links open in new windows
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
                 document.querySelectorAll(".container a").forEach(a=>{
                     a.setAttribute("target", "_blank");
                 })
 
+                // Rerender with an interactive table
                 $( "table" ).DataTable({
                     "pageLength": 100,
 
