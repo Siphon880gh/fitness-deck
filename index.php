@@ -98,6 +98,9 @@ if(!isset($_GET["md-file"])) {
             margin-left: 20px !important;
             margin-bottom: 10px !important;
         }
+        td {
+            vertical-align: top;
+        }
         /* Search external */
         .ri-google-fill {
             background: -webkit-linear-gradient(left, rgba(66, 133, 244, 1), rgba(219, 68, 55,1 ), rgba(244, 180, 0, 1), rgba(66, 133, 244, 1), rgba(15, 157, 88,1), rgba(219, 68, 55,1 ));
@@ -215,6 +218,10 @@ if(!isset($_GET["md-file"])) {
                 });
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
+                document.querySelectorAll("a").forEach(a=>{
+                    a.setAttribute("target", "_blank");
+                })
+
                 $( "table" ).DataTable({
                     "pageLength": 100,
 
