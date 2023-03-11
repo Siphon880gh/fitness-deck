@@ -109,12 +109,12 @@ if(!isset($_GET["md-file"])) {
             -webkit-text-fill-color: transparent;
             cursor: pointer;
             margin-right: 30px;
-            opacity: .5;
+            opacity: .7;
         }
         .ri-youtube-fill {
             color:rgba(255,0,0,1);
             cursor: pointer;
-            opacity: .5;
+            opacity: .7;
         }
         #addressed::before {
             content: "Addresssed:\00A0";
