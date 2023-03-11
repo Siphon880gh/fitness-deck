@@ -135,6 +135,14 @@ if(!isset($_GET["md-file"])) {
         .addressed-4 {
             background-color: rgba(204, 153, 255, 1);
         }
+
+        @media screen and (max-width: 570px) {
+            .dataTables_wrapper .dataTables_length, .dataTables_wrapper .dataTables_filter {
+                float: none !important;
+                display: block !important;
+                margin: 10px auto !important;
+            }
+        }
     </style>
     <style>
         /*
@@ -174,12 +182,11 @@ if(!isset($_GET["md-file"])) {
 
             z-index: 9999;
         }
-
-
     </style>
 </head>
 
 <body>
+    <div style="position:absolute; top:5px; left:5px;"><a href="index.php">Directory</a></div>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
