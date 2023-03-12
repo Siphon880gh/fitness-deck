@@ -15,9 +15,29 @@ By Weng Fei Fung. All possible exercises and their progression variations accord
 md-file levels can only be one folder deep. Then inside a folder has MD files.
 
 
+## Prompts Preface
+
+I prompted ChatGPT for exercises and progression variations. Then I copied all the responses to their respective MD files. Cleaning the MD file, I used VS Code's search and replace with regex: 
+
+```
+(^[^|]*$)|\n\n
+```
+
+This regex removed all lines that don't have the character "|" or are blank lines, so explanations can be removed. Some manual removing of lines were necessary afterwards, particularly the header rows that kept repeating from subsequent prompts (I used OPT+Click / ALT+Click to select multiple rows then CMD+SHIFT+K to delete the selected rows).
+
+If you had accidentally gotten a table response that you don't like, you can use VS Code to swap columns. For example, moving the last column to the start is:
+Find: `^\|(.*)\|([\w\s\-'\(\)"]+\|)$`
+Replace: `|$2$1|`
+
+In another case, you could swap columns 1 and 2 with:
+Find: `^\|([\w\s\-'\(\)"]+)\|([\w\s\-'\(\)"]+)\|(.*)\|`
+Replace: `|$2|$1|$3|`
+
+If you have a lot of rows at the MD file and you're looking for duplicates, you can open in Fitness Deck app and sort by exercise name to find the duplicates them remove them. If there are too many rows, you can copy the rows into Excel and Home -> "Format as Table", then sort the first column ascendingly. Then copy back to the MD file.
+
 ## Prompts
 
-### Stretches:
+### Stretches (except Shoulders):
 
 Prompts A-B
 
@@ -35,12 +55,30 @@ Prompt B (may be repeated):
 Is this a good place to stop? It is if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Tell me how many exercises so far after the table.
 ```
 
+### Stretches - Shoulders
+
+Prompts A-B
+
+Same as "Stretches (except Shoulders)" Prompt A but added:
+```
+Add a column to describe if it's focused mostly on anterior, posterior, or lateral.
+```
+
+Prompt B is instead:
+```
+Are there any more exercises that focus on increasing flexibility of the Lateral deltoids that haven't been mentioned in your previous answers and are not dumbbell exercises? If so, please continue the table format for progressions.
+```
+
+But notice I'd swap out Lateral/Posterior/Anterior
+
 
 Back stretches: https://chat.openai.com/c/ab8415c3-b82d-402f-b461-b89cd5af816f
 Chest stretches: https://chat.openai.com/c/0a96d27b-a57c-45f7-8434-eb54fb4f2350
 Hips: https://chat.openai.com/c/3e48edca-8bbb-4212-97e1-49baf6314edf
 Lats: https://chat.openai.com/c/e148636d-468e-4b68-a3ab-1248429f1675
 Hamstrings: https://chat.openai.com/c/c3dff058-3ae4-4a46-8a98-db7a1928b0f9
+Qaudricceps: https://chat.openai.com/c/ed46cc6f-986c-4391-a9f7-c8d05d0576a6
+Shoulders: https://chat.openai.com/c/cc9e413d-a969-4700-8b7f-14c4522c8494
 
 ### Mobility: 
 Prompts A-D
