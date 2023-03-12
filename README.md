@@ -71,14 +71,18 @@ Are there any more exercises that focus on increasing flexibility of the Lateral
 
 But notice I'd swap out Lateral/Posterior/Anterior
 
-
-Back stretches: https://chat.openai.com/c/ab8415c3-b82d-402f-b461-b89cd5af816f
-Chest stretches: https://chat.openai.com/c/0a96d27b-a57c-45f7-8434-eb54fb4f2350
+Ankle: https://chat.openai.com/c/d8ee762f-80fe-42a4-a082-984e6b298d72
+Back: https://chat.openai.com/c/ab8415c3-b82d-402f-b461-b89cd5af816f
+Biceps: https://chat.openai.com/c/cc799b6d-179f-4bc6-ae95-1d7866edf1f7
+Calf: https://chat.openai.com/c/73ea7d9e-ffca-49fc-ac80-f347cb6e456c
+Chest: https://chat.openai.com/c/0a96d27b-a57c-45f7-8434-eb54fb4f2350
+Hamstrings: https://chat.openai.com/c/c3dff058-3ae4-4a46-8a98-db7a1928b0f9
 Hips: https://chat.openai.com/c/3e48edca-8bbb-4212-97e1-49baf6314edf
 Lats: https://chat.openai.com/c/e148636d-468e-4b68-a3ab-1248429f1675
-Hamstrings: https://chat.openai.com/c/c3dff058-3ae4-4a46-8a98-db7a1928b0f9
 Qaudricceps: https://chat.openai.com/c/ed46cc6f-986c-4391-a9f7-c8d05d0576a6
+Shins: https://chat.openai.com/c/a44104f8-b9db-4548-98c3-fa7b9eb0b074
 Shoulders: https://chat.openai.com/c/cc9e413d-a969-4700-8b7f-14c4522c8494
+Triceps: https://chat.openai.com/c/3e21f128-7b29-435b-af76-5b0b6fa55994
 
 ### Mobility: 
 Prompts A-D
