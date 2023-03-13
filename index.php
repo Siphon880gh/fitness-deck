@@ -20,7 +20,20 @@ if(!isset($_GET["md-file"])) {
         console.log({filename})
     </script>
 
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
+    <script type="text/javascript">
+        window.indexedDB;
+        window.dbVersion = 2.5;
+
+        // Safari is not allowing my implementation of indexedDB without clearing cache.
+        if ('caches' in window) {
+        caches.keys().then(function (cacheNames) {
+            cacheNames.forEach(function (cacheName) {
+            caches.delete(cacheName);
+            });
+        });
+        }
+    </script>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
@@ -309,6 +322,7 @@ if(!isset($_GET["md-file"])) {
                 }
 
                 $("tr td:not(:nth-child(1))").on("click", event=>{
+                    // alert("Will save") // Fixing mobile Safari indexedDB bug
                     let el = event.target;
                     let $el = $(el);
 
@@ -334,35 +348,72 @@ if(!isset($_GET["md-file"])) {
                 });
             } // hydrateCells
 
-            window.dbVersion = 2.1;
             function loadAddressed() {
                 let open = indexedDB.open("fitness-deck", window.dbVersion);
+                //alert(open); // Fixing mobile Safari indexedDB bug
 
                 // Create the schema if version number changes or if this is a fresh user visit
 
-                open.onupgradeneeded = function() {
-                    let db = open.result;
-                    let store = db.createObjectStore("FitnessAddressedStore", {keyPath: "id"});
-                    let index = store.createIndex("stateIndex", ["state"]);
+                open.onupgradeneeded = function(event) {
+                    // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
+                    const db = event.target.result;
+                    
+                    // Get all existing object store names
+                    var objectStoreNames = Array.from(db.objectStoreNames);
+                    
+                    // Delete each object store
+                    objectStoreNames.forEach(function(objectStoreName) {
+                        db.deleteObjectStore(objectStoreName);
+                    });
+
+                    var objectStore = db.createObjectStore("FitnessAddressedStore", { keyPath: "id" });
+
+                    // Create an index on the 'state' attribute
+                    objectStore.createIndex("stateIndex", "state");
+
+                    // alert("upgraded") // Fixing mobile Safari indexedDB bug
                 };
-
-
-                open.onsuccess = function() {
-                    let db = open.result;
+                
+                
+                open.onsuccess = function(event) {
+                    // alert("onsuccess") // Fixing mobile Safari indexedDB bug
+                    const db = event.target.result;
                     let tx = db.transaction("FitnessAddressedStore", "readonly");
                     let store = tx.objectStore("FitnessAddressedStore");
+                    var results = [];
 
+                    
+                    // alert("Ran -1") // Fixing mobile Safari indexedDB bug
+                    store.openCursor().onsuccess = function(event) {
+                            const cursor = event.target.result;
+                            // Continue all lines and push into results array
+                            // alert("Ran 0") // Fixing mobile Safari indexedDB bug
+                            if (cursor) {
+                                results.push(cursor.value);
+                                // alert("Ran 1") // Fixing mobile Safari indexedDB bug
+                                cursor.continue();
+                            } else {
+                                console.log('All objects retrieved:', results);
+                                results.forEach(cellModel=>{
+                                    let {id, state} = cellModel;
+                                    $(`[data-id="${id}"]`)[0].className = state;
+                                    // alert("Ran 2") // Fixing mobile Safari indexedDB bug
+                                })
+                            }
+                        };
+
+                    /* This is the old way that works on all browsers except mobile Safari */
                     // Get all data from store
-                    let request = store.getAll();
+                    // let request = store.getAll();
 
-                    request.onsuccess = function() {
-                        // Logs all data to console
-                        // console.log(request.result);
-                        request.result.forEach(cellModel=>{
-                            let {id, state} = cellModel;
-                            $(`[data-id="${id}"]`)[0].className = state;
-                        })
-                    };
+                    // request.onsuccess = function() {
+                    //     // Logs all data to console
+                    //     // console.log(request.result);
+                    //     request.result.forEach(cellModel=>{
+                    //         let {id, state} = cellModel;
+                    //         $(`[data-id="${id}"]`)[0].className = state;
+                    //     })
+                    // };
 
                     tx.oncomplete = function() {
                         db.close();
@@ -371,6 +422,7 @@ if(!isset($_GET["md-file"])) {
 
                 open.onerror = function() {
                     console.error("Error", open.error);
+                    // alert("Error", open.error); // Fixing mobile Safari indexedDB bug
                 };
             }; // loadAddressed
             
@@ -386,17 +438,36 @@ if(!isset($_GET["md-file"])) {
             }
 
             function saveAddressed() {
+                // alert("savedAd // Fixing mobile Safari indexedDB bugdressed")
 
                 let open = indexedDB.open("fitness-deck", window.dbVersion);
-                open.onsuccess = function() {
+                open.onsuccess = function(event) {
+                    // alert("DB opened for saving") // Fixing mobile Safari indexedDB bug
                     // Start a new transaction
-                    let db = open.result;
+                    const db = event.target.result;
+                    // Fixing mobile Safari indexedDB bug
+                    // alert(db);
+                    // alert(db.transaction);
+                    // alert(db.objectStore);
+                    // alert(Array.from(db.objectStoreNames).join(", "));
                     let tx = db.transaction("FitnessAddressedStore", "readwrite");
                     let store = tx.objectStore("FitnessAddressedStore");
+
+                    tx.onerror = function(event) {
+                        console.error("Transaction error:", event.target.error);
+                    //   alert("Transaction error:", event.target.error); // Fixing mobile Safari indexedDB bug
+                    };
+                    store.onerror = function(event) {
+                        console.error("Store error:", event.target.error);
+                    //   alert("Store error:", event.target.error); // Fixing mobile Safari indexedDB bug
+                    };
+
+                    // alert("Tx and store opened for saving") // Fixing mobile Safari indexedDB bug
 
                     
                     // Clear all data from store
                     store.clear().onsuccess = function(event) {
+                        // alert("Store resetted to add current cells") // Fixing mobile Safari indexedDB bug
                         $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i,el)=>{
                             let id = $(el).attr("data-id");
                             let state = $(el).attr("class");
