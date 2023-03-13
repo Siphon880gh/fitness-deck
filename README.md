@@ -19,9 +19,8 @@ md-file levels can only be one folder deep. Then inside a folder has MD files.
 
 I prompted ChatGPT for exercises and progression variations. Then I copied all the responses to their respective MD files. Cleaning the MD file, I used VS Code's search and replace with regex: 
 
-```
-(^[^|]*$)|\n\n
-```
+Find: `(^[^|]*$)|\n\n`
+Replace: (empty)
 
 This regex removed all lines that don't have the character "|" or are blank lines, so explanations can be removed. Some manual removing of lines were necessary afterwards, particularly the header rows that kept repeating from subsequent prompts (I used OPT+Click / ALT+Click to select multiple rows then CMD+SHIFT+K to delete the selected rows).
 
@@ -35,13 +34,56 @@ Replace: `|$2|$1|$3|`
 
 If you have a lot of rows at the MD file and you're looking for duplicates, you can open in Fitness Deck app and sort by exercise name to find the duplicates them remove them. If there are too many rows, you can copy the rows into Excel and Home -> "Format as Table", then sort the first column ascendingly. Then copy back to the MD file.
 
+When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then don't forget to fix the header (remove the Exercise number header and divider):
+Find: `^\|[0-9\.\s]+(\|.*)`
+Replace: `$1`
+
 ## Prompts
+
+
+### Bodyweight exercises:
+
+#### Prompts A-B
+
+The first column must be exercise number because the ChatGPT has a problem of keeping restarting the table because it's so many exercises and then it'd get cut off at the last row, and it would restart from the top of the tbale when you ask it to continue where it got cut off. By having an exercise number, you can forcefully tell it on the next prompt to continue from a certain exercise number.
+
+#### Prompt A:
+```
+Give me as many exercises as possible to: improve the aesthetics of the Quadriceps as a male bodybuilder with minimal or no equipment. Because I have minimum equipment, bodyweight exercises are acceptable. I do have resistance bands, bosu, medicine ball, and dumbbells.
+
+That is the goal of the prompt. Please remember that goal for all subsequent prompts.
+
+Please give me a markdown table. Column 1 is the primary key or exercise number. Column 2 are the exercise names. Column 3 explains how the exercise contributes to body aesthetics if applicable. Column 4 and onwards are 5 columns that give the easier and harder variations based on difficulty level. Those 5 columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
+```
+
+I'd swap out the back with another muscle group. You can swap out male or female, or leave out the gender.
+
+
+#### Prompt B (may be repeated):
+```
+Is this a good place to stop? It is if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Continue from the last row. Tell me how many exercises so far after the table. Please remember I do not have barbells, cable machine, and kettlebells.
+```
+
+
+#### Prompt B (if it looked like the last row in the table was cut off):
+```
+Was it cut off? Please continue if it was cut off from exercise number __
+```
+
+Back: https://chat.openai.com/c/bfa87ce3-aa4d-4344-9adb-4474fb3d9c4a
+Chest: https://chat.openai.com/c/b5f435bb-278e-46f8-a0d9-3997a3cee022
+Triceps: https://chat.openai.com/c/1bd82a6a-2097-4050-8ba7-ee58453d48dd
+Biceps: https://chat.openai.com/c/b3f5d0ec-7579-44f3-a17d-5c822dacc4cf
+Calf: https://chat.openai.com/c/0fe64d6c-6b0c-4f37-a6af-83b7702d8c51
+Lats: https://chat.openai.com/c/ac1c3f0e-9d10-4ab8-a80a-33d120d3c03d
+Hamstrings: https://chat.openai.com/c/d6d87f94-7496-4cc0-9db0-47c26aa7b54c
+
 
 ### Stretches (except Shoulders):
 
-Prompts A-B
+#### Prompts A-B
 
-Prompt A:
+#### Prompt A:
 ```
 Give me as many exercises as possible to: Stretch the quadriceps with a focus on increasing flexibility. 
 
@@ -50,21 +92,29 @@ That is the goal of the prompt. Please remember that goal for all subsequent pro
 Please give me a markdown table. First column are the exercises. In 5 columns, give the easier and harder variations based on difficulty level. Those columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
 ```
 
-Prompt B (may be repeated):
+But notice I'd swap out quadriceps.
+
+#### Prompt B (may be repeated):
 ```
 Is this a good place to stop? It is if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Tell me how many exercises so far after the table.
 ```
 
+#### Prompt B (if it looked like the last row in the table was cut off):
+```
+Was it cut off? Please continue if it was cut off
+```
+
 ### Stretches - Shoulders
 
-Prompts A-B
+#### Prompts A-B
 
+##### Prompt A appended:
 Same as "Stretches (except Shoulders)" Prompt A but added:
 ```
 Add a column to describe if it's focused mostly on anterior, posterior, or lateral.
 ```
 
-Prompt B is instead:
+##### Prompt B is instead:
 ```
 Are there any more exercises that focus on increasing flexibility of the Lateral deltoids that haven't been mentioned in your previous answers and are not dumbbell exercises? If so, please continue the table format for progressions.
 ```
@@ -85,9 +135,10 @@ Shoulders: https://chat.openai.com/c/cc9e413d-a969-4700-8b7f-14c4522c8494
 Triceps: https://chat.openai.com/c/3e21f128-7b29-435b-af76-5b0b6fa55994
 
 ### Mobility: 
-Prompts A-D
 
-Prompt A:
+#### Prompts A-D
+
+#### Prompt A:
 ```
 I will give you a list of movement patterns that contribute to overall mobility and flexibility. Please list exercises underneath them.
 
@@ -110,28 +161,27 @@ I will give you a list of movement patterns that contribute to overall mobility 
 17. Shoulder Adduction
 ```
 
-Prompt B:
+#### Prompt B:
 ```
 Please change them into a Markdown table with the columns: Exercise name, Movement pattern. All exercises must be unique at the column Exercise name. Allow duplicates at the column Movement pattern. 
 ```
 
-Prompt C:
-```
+#### Prompt C:
+```code
 Please add 5 columns that give the easier and harder variations based on difficulty level. Those columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
 ```
 
-Prompt D (may be repeated):
+#### Prompt D (if it looked like the last row in the table was cut off):
 ```
 Was it cut off? Please continue if it was cut off
 ```
-
 
 https://chat.openai.com/c/1a35beb7-a105-4a96-841f-1f4d5db2bca5
 https://chat.openai.com/share/a4f633c4-4eeb-4c2c-8504-a7c2ed907388
 
 ### Rehab - Shin Splints:
 
-Prompt
+#### Prompt
 ```
 I keep getting shin splints from walking, jogging, running. Give me as many exercises as possible to rehab the shin splints and prevent future shin splints by getting rid of any vulnerabilities.
 

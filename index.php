@@ -337,6 +337,15 @@ if(!isset($_GET["md-file"])) {
             function loadAddressed() {
                 let open = indexedDB.open("fitness-deck", window.dbVersion);
 
+                // Create the schema if version number changes or if this is a fresh user visit
+
+                open.onupgradeneeded = function() {
+                    let db = open.result;
+                    let store = db.createObjectStore("FitnessAddressedStore", {keyPath: "id"});
+                    let index = store.createIndex("stateIndex", ["state"]);
+                };
+
+
                 open.onsuccess = function() {
                     let db = open.result;
                     let tx = db.transaction("FitnessAddressedStore", "readonly");
@@ -378,11 +387,6 @@ if(!isset($_GET["md-file"])) {
             function saveAddressed() {
 
                 let open = indexedDB.open("fitness-deck", window.dbVersion);
-                open.onupgradeneeded = function() {
-                    let db = open.result;
-                    let store = db.createObjectStore("FitnessAddressedStore", {keyPath: "id"});
-                    let index = store.createIndex("cellID", ["id"]);
-                };
                 open.onsuccess = function() {
                     // Start a new transaction
                     let db = open.result;
