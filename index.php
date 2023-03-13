@@ -312,7 +312,8 @@ if(!isset($_GET["md-file"])) {
                     let el = event.target;
                     let $el = $(el);
 
-                    let unaddressed = el.classList.length===0;
+                    // let unaddressed = el.classList.length===0; // doesn't because if you had sorted on column, there's a new class .sorting_1
+                    let unaddressed = !el.className.includes("addressed")
                     if(unaddressed) {
                         $el.addClass("addressed-1");
                     } else if($el.hasClass("addressed-1")) {
