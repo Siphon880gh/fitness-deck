@@ -122,17 +122,23 @@ if(!isset($_GET["md-file"])) {
             vertical-align: top;
         }
         /* Search external */
+        .ri-icon-hook {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            margin-right: 30px;
+        }
+        .ri-icon-hook >* {
+            cursor: pointer;
+        }
         .ri-google-fill {
             background: -webkit-linear-gradient(left, rgba(66, 133, 244, 1), rgba(219, 68, 55,1 ), rgba(244, 180, 0, 1), rgba(66, 133, 244, 1), rgba(15, 157, 88,1), rgba(219, 68, 55,1 ));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            cursor: pointer;
-            margin-right: 30px;
             opacity: .7;
         }
         .ri-youtube-fill {
             color:rgba(255,0,0,1);
-            cursor: pointer;
             opacity: .7;
         }
         #addressed::before {
@@ -273,6 +279,7 @@ if(!isset($_GET["md-file"])) {
 
                             let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
                             let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
+                            let $iconInstagram = $(`<div style='background-image: url("./instagram.png"); height:23px; width:23px; background-repeat: no-repeat; background-size: contain;'></div>`);
 
                             $iconGoogle.click(()=>{
                                 window.open(`https://www.google.com/search?q=${textExercise}`);
@@ -280,10 +287,13 @@ if(!isset($_GET["md-file"])) {
                             $iconYoutube.click(()=>{
                                 window.open(`https://www.youtube.com/results?search_query=${textExercise}`);
                             })
+                            $iconInstagram.click(()=>{
+                                window.open(`https://www.instagram.com/explore/search/keyword/?q=${textExercise}`);
+                            })
 
                             let $div = $(`<div class='ri-icon-hook'></div>`)
 
-                            $div.append($iconGoogle, $iconYoutube);
+                            $div.append($iconGoogle, $iconYoutube, $iconInstagram);
                             $cell.append($div);
 
                             // Create modelable
