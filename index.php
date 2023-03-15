@@ -303,13 +303,13 @@ if(!isset($_GET["md-file"])) {
                             let $iconInstagram = $(`<div style='background-image: url("./instagram.png"); height:23px; width:23px; background-repeat: no-repeat; background-size: contain;'></div>`);
 
                             $iconGoogle.click(()=>{
-                                window.open(`https://www.google.com/search?q=${textExercise}`);
+                                window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
                             })
                             $iconYoutube.click(()=>{
-                                window.open(`https://www.youtube.com/results?search_query=${textExercise}`);
+                                window.open(`https://www.youtube.com/results?search_query=exercise ${textExercise}`);
                             })
                             $iconInstagram.click(()=>{
-                                window.open(`https://www.instagram.com/explore/search/keyword/?q=${textExercise}`);
+                                window.open(`https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}`);
                             })
 
                             let $div = $(`<div class='ri-icon-hook'></div>`)
