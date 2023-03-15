@@ -336,19 +336,103 @@ if(!isset($_GET["md-file"])) {
                         $("#DataTables_Table_0_wrapper").prepend($addressed);
 
                         loadAddressed();
-                        setTimeout(rerenderAddressedStatistic, 100);
-
-                        
-                        hydrateAddressingCells();
-                        
-
                         loadComments();
+        
+                        setTimeout(rerenderAddressedStatistic, 100);
+                        hydrateAddressingCells();
+                        rerenderHeaders();
 
                     }, // initComplete
                 });
             }).catch(err => {
                 document.querySelector(".container").innerHTML = err;
             });
+
+            function rerenderHeaders() {
+                $("th:nth-of-type(1)").css("text-transform", "uppercase");
+                $("th:last-child").css("font-style", "italic");
+
+                window.$th_variations = [];
+
+                $("th").each((i,el)=>{
+                    const $th = $(el);
+                    if(i==0) true;
+                    if($th.text().indexOf("Variation")!==-1) {
+                        $th_variations.push($th);
+                    }
+                    
+                });
+
+                /* UIUX: Visual glancing progressions */
+                /* Developer experience only. Will refactor to CSS once satisfied */
+
+                /**
+                 *
+                    #cc3300
+                    #996600
+                    #663300
+                    #339900
+                    #006600
+                    #003300
+                    #000000
+                 */
+
+
+                var th = null;
+                /* Easiest Variation */ th = $th_variations[0];
+                th.addClass("header-variation")
+                th.css("font-weight", ""); 
+                th.css("text-transform", "");
+                th.css("text-decoration", "");
+                th.css("font-style", "");
+                th.css("letter-spacing", "");
+                th.append($(`<div class='bottom-strip bottom-strip-1'></div>`))
+
+
+                /* Easier Variation */ th = $th_variations[1];
+                th.addClass("header-variation")
+                th.css("font-weight", ""); 
+                th.css("text-transform", "");
+                th.css("text-decoration", "");
+                th.css("font-style", "");
+                th.css("letter-spacing", "");
+                th.append($(`<div class='bottom-strip bottom-strip-2'></div>`))
+                
+
+                /* Standard Variation */ th = $th_variations[2];
+                th.addClass("header-variation")
+                th.css("font-weight", ""); 
+                th.css("text-transform", "");
+                th.css("text-decoration", "");
+                th.css("font-style", "");
+                th.css("letter-spacing", "");
+                // th.css("color", "ghostwhite");
+                // th.text("≪" + th.text() + "≫");
+                th.text("«" + th.text() + "»");
+                // th.text("‹" + th.text() + "›");
+                th.append($(`<div class='bottom-strip bottom-strip-3'></div>`))
+
+
+                /* Harder Variation */ th = $th_variations[3];
+                th.addClass("header-variation")
+                // th.css("font-weight", "bold"); 
+                // th.css("text-transform", "none");
+                th.css("text-decoration", "");
+                th.css("font-style", "");
+                th.css("letter-spacing", "");
+                th.append($(`<div class='bottom-strip bottom-strip-4'></div>`))
+                
+
+                /* Hardest Variation */ th = $th_variations[4];
+                th.addClass("header-variation")
+                // th.css("font-weight", "bolder"); 
+                // th.css("text-transform", "uppercase");
+                th.css("text-decoration", "");
+                th.css("font-style", "");
+                th.css("letter-spacing", "");
+                th.append($(`<div class='bottom-strip bottom-strip-5'></div>`))
+                
+            } // rerenderHeaders
 
             function rerenderAddressedStatistic() {
                 let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
@@ -653,6 +737,40 @@ if(!isset($_GET["md-file"])) {
 
             }; // saveComments
     </script>
+    <style>
+        th {
+            padding: 0 !important;
+            padding-bottom: 5px !important;
+        }
+        th.header-variation {
+            position: relative; /* So can position bottom strip */
+            border-top: 5px solid ghostwhite;
+            border-left: 5px solid ghostwhite;
+            border-radius:7px;
+        }
+        th .bottom-strip {
+            height:7.5px; 
+            width:100%; 
+            position:absolute; 
+            bottom:0; 
+            left:0;
+        }
+        th .bottom-strip-1 {
+            background-image: linear-gradient(to right, #009300, #006600);
+        }
+        th .bottom-strip-2 {
+            background-image: linear-gradient(to right, #006600, #339900);
+        }
+        th .bottom-strip-3 {
+            background-image: linear-gradient(to right, #339900, #663300);
+        }
+        th .bottom-strip-4 {
+            background-image: linear-gradient(to right, #663300, #996600);
+        }
+        th .bottom-strip-5 {
+            background-image: linear-gradient(to right, #996600, #cc3300);
+        }
+    </style>
 </body>
 
 </html>
