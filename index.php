@@ -172,6 +172,26 @@ if(!isset($_GET["md-file"])) {
                 margin: 10px auto !important;
             }
         }
+
+        #save-status {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            font-size: 90%;
+            border: 1px solid #28a745;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            z-index: 10; /* DataTables get in the way */
+            padding: 15px 30px;
+            border-radius: 15px;
+            letter-spacing: 2px;
+            display: none;
+        }
+
+        #save-status > span {
+            font-style: italic; /* Text "Saved" */
+        }
     </style>
     <style>
         /*
@@ -216,6 +236,7 @@ if(!isset($_GET["md-file"])) {
 
 <body>
     <div style="position:absolute; top:5px; left:5px;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
+    <div id="save-status">💾 Saved</div>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
@@ -315,9 +336,11 @@ if(!isset($_GET["md-file"])) {
                                     // Erased
                                     if($cell.attr("prev-contenteditable") & !enteredText.length) {
                                         saveComment($cell.attr("data-id"), enteredText);
+                                        animateSaved();
                                     } else {
                                         // Added or the same
                                         saveComment($cell.attr("data-id"), enteredText);
+                                        animateSaved();
                                     }
                                     $cell.attr("prev-contenteditable", enteredText)
                                 })
@@ -482,8 +505,15 @@ if(!isset($_GET["md-file"])) {
                     rerenderAddressedStatistic();
 
                     saveAddressed();
+                    animateSaved();
                 });
             } // hydrateAddressingCells
+
+            function animateSaved() {
+                $("#save-status").fadeIn(400, function() {
+                    $(this).delay(200).fadeOut(150);
+                });
+            }
 
             function upgradeDb(event) {
                     // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
