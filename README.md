@@ -15,29 +15,6 @@ By Weng Fei Fung. All possible exercises and their progression variations accord
 md-file levels can only be one folder deep. Then inside a folder has MD files.
 
 
-## Prompts Preface
-
-I prompted ChatGPT for exercises and progression variations. Then I copied all the responses to their respective MD files. Cleaning the MD file, I used VS Code's search and replace with regex: 
-
-Find: `(^[^|]*$)|\n\n`
-Replace: (empty)
-
-This regex removed all lines that don't have the character "|" or are blank lines, so explanations can be removed. Some manual removing of lines were necessary afterwards, particularly the header rows that kept repeating from subsequent prompts (I used OPT+Click / ALT+Click to select multiple rows then CMD+SHIFT+K to delete the selected rows).
-
-If you had accidentally gotten a table response that you don't like, you can use VS Code to swap columns. For example, moving the last column to the start is:
-Find: `^\|(.*)\|([\w\s\-'\(\)"]+\|)$`
-Replace: `|$2$1|`
-
-In another case, you could swap columns 1 and 2 with:
-Find: `^\|([\w\s\-'\(\)"]+)\|([\w\s\-'\(\)"]+)\|(.*)\|`
-Replace: `|$2|$1|$3|`
-
-If you have a lot of rows at the MD file and you're looking for duplicates, you can open in Fitness Deck app and sort by exercise name to find the duplicates them remove them. If there are too many rows, you can copy the rows into Excel and Home -> "Format as Table", then sort the first column ascendingly. Then copy back to the MD file.
-
-When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then DON'T FORGET to fix the header (remove the "Exercise No." header and divider):
-Find: `^\|[0-9\.\s]+(\|.*)`
-Replace: `$1`
-
 ## Prompts
 
 
@@ -194,3 +171,26 @@ Also, add a column explaining how the exercise helps the shin splint.
 
 https://chat.openai.com/c/78c9c57d-9d29-4149-94c1-671e248f7c5e
 https://chat.openai.com/share/12f25b92-210a-4f9f-a9fe-7822f9b65661
+
+## Prompt Responses Copied and Formatted Into MD
+
+I prompted ChatGPT for exercises and progression variations. Then I copied all the responses to their respective MD files. Cleaning the MD file, I used VS Code's search and replace with regex: 
+
+Find: `(^[^|]*$)|\n\n`
+Replace: (empty)
+
+This regex removed all lines that don't have the character "|" or are blank lines, so explanations can be removed. Some manual removing of lines were necessary afterwards, particularly the header rows that kept repeating from subsequent prompts (I used OPT+Click / ALT+Click to select multiple rows then CMD+SHIFT+K to delete the selected rows).
+
+If you had accidentally gotten a table response that you don't like, you can use VS Code to swap columns. For example, moving the last column to the start is:
+Find: `^\|(.*)\|([\w\s\-'\(\)"]+\|)$`
+Replace: `|$2$1|`
+
+In another case, you could swap columns 1 and 2 with:
+Find: `^\|([\w\s\-'\(\)"]+)\|([\w\s\-'\(\)"]+)\|(.*)\|`
+Replace: `|$2|$1|$3|`
+
+If you have a lot of rows at the MD file and you're looking for duplicates, you can open in Fitness Deck app and sort by exercise name to find the duplicates them remove them. If there are too many rows, you can copy the rows into Excel and Home -> "Format as Table", then sort the first column ascendingly. Then copy back to the MD file.
+
+When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then DON'T FORGET to fix the header (remove the "Exercise No." header and divider):
+Find: `^\|[0-9\.\s]+(\|.*)`
+Replace: `$1`
