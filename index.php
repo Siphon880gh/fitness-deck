@@ -235,7 +235,7 @@ if(!isset($_GET["md-file"])) {
 </head>
 
 <body>
-    <div style="position:absolute; top:5px; left:5px;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
+    <div id="back-to-directory"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
     <div id="save-status">💾 Saved</div>
     <div class="container"></div>
 
@@ -809,6 +809,31 @@ if(!isset($_GET["md-file"])) {
         }
         th .bottom-strip-5 {
             background-image: linear-gradient(to right, #996600, #cc3300);
+        }
+    </style>
+    <style>
+        #back-to-directory{
+            position:absolute; top:5px; left:5px;
+        } 
+        @media screen AND (max-width:844px) {
+            
+            #back-to-directory{
+                position: static;
+                margin-bottom: 13px;
+            } 
+        }
+        @media screen AND (max-width:580px) {
+            .dataTables_length {
+                display: flex !important;
+                text-align: left !important;
+            }
+            
+            .dataTables_filter  {
+                text-align: left !important;
+            }
+            .ri-information-line {
+                display: none;
+            }
         }
     </style>
 </body>
