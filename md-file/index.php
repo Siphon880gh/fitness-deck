@@ -232,42 +232,6 @@ if(!isset($_GET["md-file"])) {
             z-index: 9999;
         }
     </style>
-    <!-- Fixed visual defects from the header and column freeze plugins -->
-    <style>
-    /* 
-      Fix plugin: Right columns can scroll underneath the left fixed column(s) but
-      we make sure not a transparent background that allows beneath columns 
-      to bleed through
-    */
-    th, td { 
-        background-color: white;
-    }
-
-     /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
-     /* Make sure can scroll right columns underneath */
-     thead th[fixed-column] {
-        z-index: 10;
-     }
-     
-     
-     /* Fix plugin: When scrolling columns to the left, gaps between the columns allow
-     the beneat columns content to bleed through. We are using attributes instead of
-     classes becausae the plugin reassigns the entire class list for the tbody tr td's
-    */
-     thead th[fixed-column], tbody td[fixed-column] {
-        transform: scale(1.05);
-        text-align:left;
-        padding-left:5px !important; /* Plugin causes offset to the left about 5px */
-     }
-
-     /* Fix plugin: A duplicate table is made so that there's a scrollbody and that causes
-     a duplicate thead that takes up space causing a gap below the header row */
-     .dataTables_scrollBody thead {
-        display: none;
-     }
-
-
-    </style>
 </head>
 
 <body>
@@ -279,7 +243,6 @@ if(!isset($_GET["md-file"])) {
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/fixedcolumns/4.2.2/js/dataTables.fixedColumns.min.js"></script>
     <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
     <script>
         const isFailed = (myMarkdown) => {
@@ -313,21 +276,6 @@ if(!isset($_GET["md-file"])) {
                     }
                 })
                 myMarkdown = lines.join("\n");
-                window.fixedColumnCounts = (()=>{
-                    /*
-                     Get number of non-variation columns to the left by 
-                     counting number of vertical bars minus 1 left of first 
-                     Variation column. Later will be fixed columns.
-                    */
-                    var charPosFirstVariation = lines[0].indexOf("Variation");
-                    var substrUpToCharPos = lines[0].substr(0, charPosFirstVariation);
-                    var charPosMinusOneVerticalBar = substrUpToCharPos.lastIndexOf("|")
-                    var substrUpToCharPos = lines[0].substr(0, charPosMinusOneVerticalBar);
-                    var stripDownToVerticalBars = substrUpToCharPos.replace(/[^|]/g, ""); // eg. ||
-                    var aFixedColumnCounts = stripDownToVerticalBars.length;
-                    return aFixedColumnCounts;
-                })()
-                // console.log({fixedColumnCounts})
 
                 // Render, take care of \n breaks, and make sure links open in new windows
                 var result = md.render(myMarkdown);
@@ -339,11 +287,6 @@ if(!isset($_GET["md-file"])) {
                 // Rerender with an interactive table
                 $( "table" ).DataTable({
                     fixedHeader: true,
-                    fixedColumns: {
-                        left: window.fixedColumnCounts
-                    },
-                    // scrollX:        true,
-                    paging:         true,
                     "pageLength": 100,
 
                     /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
@@ -404,32 +347,9 @@ if(!isset($_GET["md-file"])) {
                             });
 
                         });
-                        console.log("drawn")
-
-
-                        // Fix Plugin
-                        // Fix visual defects that show up from the plugins that freeze header and columns
-                        // We are using attributes because the classList gets plainly written over by the plugin
-                        // We make sure this is in draw event because the table HTML
-                        // gets redrawn
-                        for(var i=0; i<fixedColumnCounts; i++) {
-                            $("#DataTables_Table_0 th").eq(i).attr("fixed-column", true)
-                        }
-
-                        var $bodyRows = $("tbody tr");
-                        for(var h = 0; h<$bodyRows.length; h++) {
-                            let $td_s = $bodyRows.eq(h).find("td");
-
-                            for(var i=0; i<fixedColumnCounts; i++) {
-                                $td_s.eq(i).attr("fixed-column", true)
-                            }
-                        };
-
-
                     }, // drawCallback
 
                     "initComplete": function(settings,json) {
-
 
                         // Create info tooltip at Search
                         let $infoIcon = $("<i class='ri-information-line'></i>");
@@ -454,18 +374,6 @@ if(!isset($_GET["md-file"])) {
                         setTimeout(rerenderAddressedStatistic, 100);
                         hydrateAddressingCells();
                         rerenderHeaders();
-
-
-                        // Fix Plugin: Listen for the table scroll event
-                        $('.dataTables_scrollBody').on('scroll', function() {
-                            // Calculate the horizontal scroll offset
-                            var scrollLeft = $(this).scrollLeft();
-                            console.log("Scrolled", {scrollLeft, fixedHeader})
-                            
-                            // Apply the horizontal scroll offset to the fixed header
-                            var fixedHeader = $('.fixedHeader-floating');
-                            fixedHeader.css('transform', 'translateX(' + -scrollLeft + 'px)');
-                        });
 
                     }, // initComplete
                 });
