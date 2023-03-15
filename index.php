@@ -44,6 +44,7 @@ if(!isset($_GET["md-file"])) {
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
 
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.css">
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
@@ -215,6 +216,7 @@ if(!isset($_GET["md-file"])) {
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/fixedheader/3.1.9/js/dataTables.fixedHeader.min.js"></script>
     <script>
         const isFailed = (myMarkdown) => {
             //return '<!DOCTYPE html> <html> <head> <title>File Not Found</title>".substring(0,70).toLowerCase().includes("file not found")'
@@ -257,6 +259,7 @@ if(!isset($_GET["md-file"])) {
 
                 // Rerender with an interactive table
                 $( "table" ).DataTable({
+                    fixedHeader: true,
                     "pageLength": 100,
 
                     /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
