@@ -250,6 +250,7 @@ if(!isset($_GET["md-file"])) {
      thead th {
         z-index: 7 !important;
         background-color:white;
+        padding: 0 15px !important;
      }
      thead th[fixed-column] {
         z-index: 10 !important;
