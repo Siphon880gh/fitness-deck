@@ -404,6 +404,10 @@ if(!isset($_GET["md-file"])) {
                     /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
                     "drawCallback": function( settings ) {
                         $(".ri-icon-hook").remove();
+
+                        /* Rerender social instruction icons and contenteditable comments if records found */
+                        let recordsFound = !$("tbody tr").eq(0).text().includes("No matching records found");
+                        if(recordsFound)
                         $("tr td:nth-child(1)").each((i,cellCol1)=>{
                             
                             // Create external icons
