@@ -142,7 +142,7 @@ if(!isset($_GET["md-file"])) {
             opacity: .7;
         }
         #addressed::before {
-            content: "Addresssed:\00A0";
+            content: "Marked:\00A0";
         }
         #addressed {
             float: right;
@@ -245,8 +245,17 @@ if(!isset($_GET["md-file"])) {
 
      /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
      /* Make sure can scroll right columns underneath */
+     thead th {
+        z-index: 7 !important;
+        background-color:white;
+     }
      thead th[fixed-column] {
-        z-index: 10;
+        z-index: 10 !important;
+     }
+
+     /* When fixed header row is in sticky position, make sure is on top of other elements on the z-axis */
+     .fixedHeader-floating {
+        z-index: 7 !important;
      }
      
      
@@ -266,13 +275,59 @@ if(!isset($_GET["md-file"])) {
         display: none;
      }
 
-
+     /* Fixed plugin: Pagination dropdown gets offset with the header row when scrolling horizontally. Removed because I've set to 1000 which should be 
+     sufficient. There is a page navigation at the bottom anyways */
+     .dataTables_length, #DataTables_Table_0_length {
+        display: none !important;
+     }
+     
+     #count-rows {
+        font-size:50%;
+        transform: translateY(-2.5px);
+        display: inline-block;
+     }
+     #count-rows::before {
+        content: "(";
+     }
+     #count-rows::after {
+        content: ")";
+     }
     </style>
+    <style>
+        /* Using our own custom Search since detaching it breaks DataTable */
+        #DataTables_Table_0_filter {
+            display:none !important;
+        }
+        #DataTables_Table_0_info {
+            display:none;
+        }
+        #DataTables_Table_0_previous {
+            display:none;
+        }
+        #DataTables_Table_0_paginate {
+            display:none;
+        }
+        #DataTables_Table_0_next {
+            display:none;
+        }
+    </style>
+    <script>
+        function bindToInnerSearch() {
+            let typed = $("#bind-inner-search").val();
+            $("#DataTables_Table_0_filter input").val(typed).trigger("keyup");
+            console.log(typed)
+        }
+    </script>
 </head>
 
 <body>
-    <div id="back-to-directory"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
+    <div id="back-to-directory" style="z-index:2; width:100vw; background-color:white;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
     <div id="save-status">💾 Saved</div>
+    <div style="margin-top:30px; text-align:center; width:100%; z-index:-5">
+        <label>Search:</label>
+        <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
+        <small id="count-rows"></small>
+    </div>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
@@ -344,7 +399,7 @@ if(!isset($_GET["md-file"])) {
                     },
                     // scrollX:        true,
                     paging:         true,
-                    "pageLength": 100,
+                    "pageLength": 1000,
 
                     /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
                     "drawCallback": function( settings ) {
@@ -404,7 +459,7 @@ if(!isset($_GET["md-file"])) {
                             });
 
                         });
-                        console.log("drawn")
+                        // console.log("drawn")
 
 
                         // Fix Plugin
@@ -425,6 +480,8 @@ if(!isset($_GET["md-file"])) {
                             }
                         };
 
+                        // Since we removed 1 of X, we have our own custom count:
+                        $("#count-rows").text($("tbody tr").length)
 
                     }, // drawCallback
 
@@ -440,13 +497,15 @@ if(!isset($_GET["md-file"])) {
                         // Create addressed statistic
                         let $addressed = $("<div id='addressed'><div/>")
                         $addressed.click(()=>{
-                            let confirmed = confirm("Clear all addressed states?")
+                            let confirmed = confirm("Clear all marked colors?")
                             if(confirmed) {
                                 clearAddressed();
                                 rerenderAddressedStatistic();
                             }
                         })
-                        $("#DataTables_Table_0_wrapper").prepend($addressed);
+                        // $("#DataTables_Table_0_wrapper").prepend($addressed);
+                        $addressed.css("position", "fixed").css("top", "10px").css("right", "10px").css("z-index", "2");
+                        $(".container").prepend($addressed)
 
                         loadAddressed();
                         loadComments();
@@ -454,7 +513,6 @@ if(!isset($_GET["md-file"])) {
                         setTimeout(rerenderAddressedStatistic, 100);
                         hydrateAddressingCells();
                         rerenderHeaders();
-
 
                         // Fix Plugin: Listen for the table scroll event
                         $('.dataTables_scrollBody').on('scroll', function() {
@@ -466,6 +524,12 @@ if(!isset($_GET["md-file"])) {
                             var fixedHeader = $('.fixedHeader-floating');
                             fixedHeader.css('transform', 'translateX(' + -scrollLeft + 'px)');
                         });
+
+                        // $('#DataTables_Table_0_filter').clone().prependTo('.container');
+                        // $('#DataTables_Table_0_info').detach().appendTo('.container');
+                        // $('#DataTables_Table_0_paginate').detach().appendTo('.container');
+
+                        rerenderAddressedStatistic(); // update the marked count
 
                     }, // initComplete
                 });
@@ -905,8 +969,12 @@ if(!isset($_GET["md-file"])) {
     </style>
     <style>
         #back-to-directory{
-            position:absolute; top:5px; left:5px;
+            position:fixed; top:0; padding-top:10px; left:20px;
         } 
+        #DataTables_Table_0_wrapper {
+            margin-top:25px;
+        }
+        /*
         @media screen AND (max-width:844px) {
             
             #back-to-directory{
@@ -926,7 +994,7 @@ if(!isset($_GET["md-file"])) {
             .ri-information-line {
                 display: none;
             }
-        }
+        } */
     </style>
 </body>
 
