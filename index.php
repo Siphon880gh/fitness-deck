@@ -209,7 +209,7 @@ if(!isset($_GET["md-file"])) {
 </head>
 
 <body>
-    <div style="position:absolute; top:5px; left:5px;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">Directory</button></div>
+    <div style="position:absolute; top:5px; left:5px;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
