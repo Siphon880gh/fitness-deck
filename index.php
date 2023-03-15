@@ -283,6 +283,15 @@ if(!isset($_GET["md-file"])) {
         display: none !important;
      }
      
+
+     /* Hidden search from table because it gets dragged as you scroll horizontally */
+     /* Now with our own custom search box and had to be positioned fixed */
+     .container {
+        margin-top: 75px;
+     }
+
+     /* Hidden records count from table because it gets dragged as you scroll horizontally */
+     /* Now with our own custom records count */
      #count-rows {
         font-size:50%;
         transform: translateY(-2.5px);
@@ -325,7 +334,7 @@ if(!isset($_GET["md-file"])) {
 <body>
     <div id="back-to-directory" style="z-index:2; width:100vw; background-color:white;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">🗂️ All Directories</button></div>
     <div id="save-status">💾 Saved</div>
-    <div style="margin-top:30px; text-align:center; width:100%; z-index:-5">
+    <div style="text-align:center; width:100%; z-index:0; position: fixed;left: 0; top:40px;">
         <label>Search:</label>
         <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
         <small id="count-rows"></small>
