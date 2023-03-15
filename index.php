@@ -300,7 +300,7 @@ if(!isset($_GET["md-file"])) {
 
                             let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
                             let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
-                            let $iconInstagram = $(`<div style='background-image: url("./instagram.png"); height:23px; width:23px; background-repeat: no-repeat; background-size: contain;'></div>`);
+                            let $iconInstagram = $(`<div style='background-image: url("./instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div>`);
 
                             $iconGoogle.click(()=>{
                                 window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
