@@ -156,7 +156,9 @@ if(!isset($_GET["md-file"])) {
             background-color: rgba(204, 255, 204, 1);
         }
         .addressed-2 {
-            background-color: rgba(255, 255, 153, 1);
+            /* background-color: rgba(255, 255, 153, 1); */ /*night shift mode cant see yellow */
+
+            background-color: rgba(0, 204, 204, 1);
         }
         .addressed-3 {
             background-color: rgba(255, 204, 204, 1);
