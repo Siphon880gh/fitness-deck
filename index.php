@@ -476,7 +476,7 @@ if(!isset($_GET["md-file"])) {
             } // hydrateAddressingCells
 
             function upgradeDb(event) {
-                    alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
+                    // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
                     const db = event.target.result;
                     
                     // Get all existing object store names

@@ -45,7 +45,7 @@ Replace: `$1`
 
 #### Prompts A-B
 
-The first column must be exercise number because the ChatGPT has a problem of keeping restarting the table because it's so many exercises and then it'd get cut off at the last row, and it would restart from the top of the tbale when you ask it to continue where it got cut off. By having an exercise number, you can forcefully tell it on the next prompt to continue from a certain exercise number.
+The first column must be exercise number because the ChatGPT has a problem of keeping restarting the table because it's so many exercises and then it'd get cut off at the last row, and it would restart from the top of the tabale when you ask it to continue where it got cut off. By having an exercise number, you can forcefully tell it on the next prompt to continue from a certain exercise number.
 
 #### Prompt A:
 ```
