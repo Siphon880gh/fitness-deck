@@ -34,7 +34,7 @@ Replace: `|$2|$1|$3|`
 
 If you have a lot of rows at the MD file and you're looking for duplicates, you can open in Fitness Deck app and sort by exercise name to find the duplicates them remove them. If there are too many rows, you can copy the rows into Excel and Home -> "Format as Table", then sort the first column ascendingly. Then copy back to the MD file.
 
-When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then don't forget to fix the header (remove the Exercise number header and divider):
+When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then DON'T FORGET to fix the header (remove the "Exercise No." header and divider):
 Find: `^\|[0-9\.\s]+(\|.*)`
 Replace: `$1`
 
