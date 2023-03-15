@@ -141,7 +141,7 @@ $relativePathing = ".";
 
             <footer class="container promote-features">
                 <hr>
-                Made with ❤️ by <a href="javascript:void(0)" onclick="document.querySelector('.creds-socials').classList.toggle('d-none');">Weng</a>.<br>
+                Made with ❤️ by <a href="javascript:void(0)" onclick="document.querySelector('.creds-socials').classList.toggle('d-none');">Weng</a><br>
                 <div class="creds-socials d-none">
                 <a target="_blank" href="https://github.com/Siphon880gh" rel="nofollow"><img src="https://img.shields.io/badge/GitHub--blue?style=social&amp;logo=GitHub" alt="Github" data-canonical-src="https://img.shields.io/badge/GitHub--blue?style=social&amp;logo=GitHub" style="max-width:8.5ch;"></a>
                 <a target="_blank" href="https://www.linkedin.com/in/weng-fung/" rel="nofollow"><img src="https://camo.githubusercontent.com/0f56393c2fe76a2cd803ead7e5508f916eb5f1e62358226112e98f7e933301d7/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4c696e6b6564496e2d626c75653f7374796c653d666c6174266c6f676f3d6c696e6b6564696e266c6162656c436f6c6f723d626c7565" alt="Linked-In" data-canonical-src="https://img.shields.io/badge/LinkedIn-blue?style=flat&amp;logo=linkedin&amp;labelColor=blue" style="max-width:10ch;"></a>
