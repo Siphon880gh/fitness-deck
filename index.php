@@ -404,7 +404,7 @@ if(!isset($_GET["md-file"])) {
                 })
 
                 // Rerender with an interactive table
-                $( "table" ).DataTable({
+                window.tableHook = $( "table" ).DataTable({
                     fixedHeader: true,
                     fixedColumns: {
                         left: window.fixedColumnCounts
@@ -948,6 +948,16 @@ if(!isset($_GET["md-file"])) {
                 };
 
             }; // saveComments
+
+            // Bug Fix: Fixed header plugin. When have the fixed header in sticky
+            // position because the table has been scrolled down - that header
+            // row would break if you resize the window. Solution: Redraw table
+            // when user resizes window.
+            window.addEventListener('resize', function(event) {
+                window.tableHook.draw();
+                // console.log("Redrawed table because resized window")
+            });
+
     </script>
     <style>
         th {
