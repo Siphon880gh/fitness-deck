@@ -1,4 +1,9 @@
 <?php
+// nocache
+header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+header("Cache-Control: post-check=0, pre-check=0", false);
+header("Pragma: no-cache");
+
 if(!isset($_GET["md-file"])) {
     // die("<span style='color:red'>Failed. No md-file URL query or GET url param.</span>");
     include("listing.php");
@@ -23,7 +28,7 @@ if(!isset($_GET["md-file"])) {
     <meta charset="utf-8" />
     <script type="text/javascript">
         window.indexedDB;
-        window.dbVersion = 2.5;
+        window.dbVersion = 3;
 
         // Safari is not allowing my implementation of indexedDB without clearing cache.
         if ('caches' in window) {
@@ -231,6 +236,18 @@ if(!isset($_GET["md-file"])) {
                     breaks: true
                 });
 
+                // Add Edit Comment column at the end
+                let lines = myMarkdown.split("\n");
+                lines[0]+="Edit Comments |";
+                lines[1]+="--------------|";
+                lines = lines.map((line,i)=>{
+                    if(i<=1) return line;
+                    else {
+                        return line + "  |"
+                    }
+                })
+                myMarkdown = lines.join("\n");
+
                 // Render, take care of \n breaks, and make sure links open in new windows
                 var result = md.render(myMarkdown);
                 document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
@@ -269,10 +286,28 @@ if(!isset($_GET["md-file"])) {
                             // Create modelable
                             $cell.attr("data-id", textExercise);
 
-
+                            // Add id to each column
                             $cell.closest("tr").find("td:not(:nth-child(1))").each((i,cell)=>{
                                 let $cell = $(cell)
                                 $cell.attr("data-id", `${textExercise}-${i}`);
+                            });
+
+                            $cell.closest("tr").find("td:last-child").each((i,cell)=>{
+                                let $cell = $(cell)
+                                $cell.attr("contenteditable", `true`);
+                                $cell.on("blur", (event)=>{
+                                    const enteredText = $cell.text()
+                                    console.log(enteredText);
+
+                                    // Erased
+                                    if($cell.attr("prev-contenteditable") & !enteredText.length) {
+                                        saveComment($cell.attr("data-id"), enteredText);
+                                    } else {
+                                        // Added or the same
+                                        saveComment($cell.attr("data-id"), enteredText);
+                                    }
+                                    $cell.attr("prev-contenteditable", enteredText)
+                                })
                             });
 
                         });
@@ -301,6 +336,8 @@ if(!isset($_GET["md-file"])) {
                         setTimeout(rerenderAddressed, 100);
                         hydrateCells();
 
+                        loadComments();
+
                     }, // initComplete
                 });
             }).catch(err => {
@@ -321,7 +358,7 @@ if(!isset($_GET["md-file"])) {
                     .removeClass("addressed-4")
                 }
 
-                $("tr td:not(:nth-child(1))").on("click", event=>{
+                $("tr td:not(:nth-child(1)):not(:last-child)").on("click", event=>{
                     // alert("Will save") // Fixing mobile Safari indexedDB bug
                     let el = event.target;
                     let $el = $(el);
@@ -348,31 +385,36 @@ if(!isset($_GET["md-file"])) {
                 });
             } // hydrateCells
 
+            function upgradeDb(event) {
+                    alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
+                    const db = event.target.result;
+                    
+                    // Get all existing object store names
+                    var objectStoreNames = Array.from(db.objectStoreNames);
+                    
+                    // Delete all object stores
+                    objectStoreNames.forEach(function(objectStoreName) {
+                        db.deleteObjectStore(objectStoreName);
+                    });
+
+                    // Addressed store
+                    var objectStore = db.createObjectStore("FitnessAddressedStore", { keyPath: "id" });
+                    objectStore.createIndex("stateIndex", "state");
+
+                    // Comment store
+                    var objectStore = db.createObjectStore("FitnessCommentStore", { keyPath: "id" });
+                    objectStore.createIndex("commentIndex", "comment");
+
+                    // alert("upgraded") // Fixing mobile Safari indexedDB bug
+            } // upgradeDb
+
             function loadAddressed() {
                 let open = indexedDB.open("fitness-deck", window.dbVersion);
                 //alert(open); // Fixing mobile Safari indexedDB bug
 
                 // Create the schema if version number changes or if this is a fresh user visit
 
-                open.onupgradeneeded = function(event) {
-                    // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
-                    const db = event.target.result;
-                    
-                    // Get all existing object store names
-                    var objectStoreNames = Array.from(db.objectStoreNames);
-                    
-                    // Delete each object store
-                    objectStoreNames.forEach(function(objectStoreName) {
-                        db.deleteObjectStore(objectStoreName);
-                    });
-
-                    var objectStore = db.createObjectStore("FitnessAddressedStore", { keyPath: "id" });
-
-                    // Create an index on the 'state' attribute
-                    objectStore.createIndex("stateIndex", "state");
-
-                    // alert("upgraded") // Fixing mobile Safari indexedDB bug
-                };
+                open.onupgradeneeded = upgradeDb;
                 
                 
                 open.onsuccess = function(event) {
@@ -396,6 +438,7 @@ if(!isset($_GET["md-file"])) {
                                 console.log('All objects retrieved:', results);
                                 results.forEach(cellModel=>{
                                     let {id, state} = cellModel;
+                                    console.log(cellModel)
                                     $(`[data-id="${id}"]`)[0].className = state;
                                     // alert("Ran 2") // Fixing mobile Safari indexedDB bug
                                 })
@@ -495,6 +538,114 @@ if(!isset($_GET["md-file"])) {
                 };
 
             }; // saveAddressed
+
+
+
+            function loadComments() {
+                let open = indexedDB.open("fitness-deck", window.dbVersion);
+                //alert(open); // Fixing mobile Safari indexedDB bug
+
+                // Create the schema if version number changes or if this is a fresh user visit
+
+                open.onupgradeneeded = upgradeDb;
+                
+                
+                open.onsuccess = function(event) {
+                    // alert("onsuccess") // Fixing mobile Safari indexedDB bug
+                    const db = event.target.result;
+                    let tx = db.transaction("FitnessCommentStore", "readonly");
+                    let store = tx.objectStore("FitnessCommentStore");
+                    var results = [];
+
+                    
+                    // alert("Ran -1") // Fixing mobile Safari indexedDB bug
+                    store.openCursor().onsuccess = function(event) {
+                            const cursor = event.target.result;
+                            // Continue all lines and push into results array
+                            // alert("Ran 0") // Fixing mobile Safari indexedDB bug
+                            if (cursor) {
+                                results.push(cursor.value);
+                                // alert("Ran 1") // Fixing mobile Safari indexedDB bug
+                                cursor.continue();
+                            } else {
+                                console.log('All objects retrieved:', results);
+                                results.forEach(cellModel=>{
+                                    let {id, comment} = cellModel;
+                                    console.log(cellModel)
+                                    $(`[data-id="${id}"]`).text(comment);
+                                    // alert("Ran 2") // Fixing mobile Safari indexedDB bug
+                                })
+                            }
+                        };
+
+                    /* This is the old way that works on all browsers except mobile Safari */
+                    // Get all data from store
+                    // let request = store.getAll();
+
+                    // request.onsuccess = function() {
+                    //     // Logs all data to console
+                    //     // console.log(request.result);
+                    //     request.result.forEach(cellModel=>{
+                    //         let {id, state} = cellModel;
+                    //         $(`[data-id="${id}"]`)[0].className = state;
+                    //     })
+                    // };
+
+                    tx.oncomplete = function() {
+                        db.close();
+                    };
+                };
+
+                open.onerror = function() {
+                    console.error("Error", open.error);
+                    // alert("Error", open.error); // Fixing mobile Safari indexedDB bug
+                };
+            }; // loadComments
+
+            function saveComment(id, comment) {
+                // alert("savedAd // Fixing mobile Safari indexedDB bugdressed")
+
+                let open = indexedDB.open("fitness-deck", window.dbVersion);
+                open.onsuccess = function(event) {
+                    // alert("DB opened for saving") // Fixing mobile Safari indexedDB bug
+                    // Start a new transaction
+                    const db = event.target.result;
+                    // Fixing mobile Safari indexedDB bug
+                    // alert(db);
+                    // alert(db.transaction);
+                    // alert(db.objectStore);
+                    // alert(Array.from(db.objectStoreNames).join(", "));
+                    let tx = db.transaction("FitnessCommentStore", "readwrite");
+                    let store = tx.objectStore("FitnessCommentStore");
+
+                    tx.onerror = function(event) {
+                        console.error("Transaction error:", event.target.error);
+                    //   alert("Transaction error:", event.target.error); // Fixing mobile Safari indexedDB bug
+                    };
+                    store.onerror = function(event) {
+                        console.error("Store error:", event.target.error);
+                    //   alert("Store error:", event.target.error); // Fixing mobile Safari indexedDB bug
+                    };
+
+                    // alert("Tx and store opened for saving") // Fixing mobile Safari indexedDB bug
+
+                    store.put(
+                        {id,comment}
+                    );
+
+
+                    // Close the db when the transaction is done
+                    tx.oncomplete = function() {
+                        db.close();
+                    };
+                };
+                
+
+                open.onerror = function() {
+                    console.error("Error", open.error);
+                };
+
+            }; // saveComments
     </script>
 </body>
 

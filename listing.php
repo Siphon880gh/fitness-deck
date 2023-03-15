@@ -158,11 +158,11 @@ $relativePathing = ".";
             return customIcons;
             })
             .then((customIconsConfig) => {
-            customIcons = customIconsConfig;
-            renderListing(customIcons.icons);
+                customIcons = customIconsConfig;
+                renderListing(customIcons.icons);
             })
             .catch((error) => {
-            renderListing([]);
+                renderListing([]);
             });
 
 
