@@ -1,4 +1,4 @@
-| Exercise                                     | Deltoid Aspect      | Easiest Variation       | Easier Variation      | Standard Variation    | Harder Variation     | Hardest Variation   |
+| Exercise                                     | Deltoid Aspect\n(Anterior=Front\nPosterior=Back\nLateral=Side)      | Easiest Variation       | Easier Variation      | Standard Variation    | Harder Variation     | Hardest Variation   |
 | ---------------------------------------------| ------------------- | ------------------------| --------------------- | --------------------- | -------------------- | ------------------- |
 | Anterior Shoulder Stretch with Resistance Band | Anterior | Stand upright | Hold resistance band behind back | Pull band forward | Increase tension in band |  |																						
 | Anterior Shoulder Stretch with Towel | Anterior | Stand upright | Hold towel behind the back | Gently pull towel upward | Increase tension in towel |  |																						

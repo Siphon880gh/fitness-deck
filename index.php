@@ -209,7 +209,7 @@ if(!isset($_GET["md-file"])) {
 </head>
 
 <body>
-    <div style="position:absolute; top:5px; left:5px;"><a href="index.php">Directory</a></div>
+    <div style="position:absolute; top:5px; left:5px;"><button onclick="window.location.href='index.php'" style="cursor:pointer;">Directory</button></div>
     <div class="container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
@@ -330,14 +330,17 @@ if(!isset($_GET["md-file"])) {
                             let confirmed = confirm("Clear all addressed states?")
                             if(confirmed) {
                                 clearAddressed();
-                                rerenderAddressed();
+                                rerenderAddressedStatistic();
                             }
                         })
                         $("#DataTables_Table_0_wrapper").prepend($addressed);
 
                         loadAddressed();
-                        setTimeout(rerenderAddressed, 100);
-                        hydrateCells();
+                        setTimeout(rerenderAddressedStatistic, 100);
+
+                        
+                        hydrateAddressingCells();
+                        
 
                         loadComments();
 
@@ -347,13 +350,13 @@ if(!isset($_GET["md-file"])) {
                 document.querySelector(".container").innerHTML = err;
             });
 
-            function rerenderAddressed() {
+            function rerenderAddressedStatistic() {
                 let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
                 let total = $("tbody tr").length;
                 $("#addressed").text(`${count} of ${total}`);
             }
 
-            function hydrateCells() {
+            function hydrateAddressingCells() {
                 function clearAllAddressedFlags($el) {
                     $el.removeClass("addressed-1")
                     .removeClass("addressed-2")
@@ -382,11 +385,11 @@ if(!isset($_GET["md-file"])) {
                     } else if($el.hasClass("addressed-4")) {
                         clearAllAddressedFlags($el);
                     }
-                    rerenderAddressed();
+                    rerenderAddressedStatistic();
 
                     saveAddressed();
                 });
-            } // hydrateCells
+            } // hydrateAddressingCells
 
             function upgradeDb(event) {
                     alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
