@@ -996,19 +996,19 @@ if(!isset($_GET["md-file"])) {
             left:0;
         }
         th .bottom-strip-1 {
-            background-image: linear-gradient(to right, #009300, #006600);
+            background-image: linear-gradient(to right, #003300, #006600);
         }
         th .bottom-strip-2 {
-            background-image: linear-gradient(to right, #006600, #339900);
+            background-image: linear-gradient(to right, #006600, #66B366);
         }
         th .bottom-strip-3 {
-            background-image: linear-gradient(to right, #339900, #663300);
+            background-image: linear-gradient(to right, #66B366, #996600);
         }
         th .bottom-strip-4 {
-            background-image: linear-gradient(to right, #663300, #996600);
+            background-image: linear-gradient(to right, #996600, #cc3300);
         }
         th .bottom-strip-5 {
-            background-image: linear-gradient(to right, #996600, #cc3300);
+            background-image: linear-gradient(to right, #cc3300, #663300);
         }
     </style>
     <style>
