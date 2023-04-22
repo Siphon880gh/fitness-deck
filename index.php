@@ -591,6 +591,9 @@ if(!isset($_GET["md-file"])) {
                 th.css("text-decoration", "");
                 th.css("font-style", "");
                 th.css("letter-spacing", "");
+                var text = th.text();
+                th.text("");
+                th.append($(`<div class='text-spaced'>${text}</div>`))
                 th.append($(`<div class='bottom-strip bottom-strip-1'></div>`))
 
 
@@ -601,6 +604,9 @@ if(!isset($_GET["md-file"])) {
                 th.css("text-decoration", "");
                 th.css("font-style", "");
                 th.css("letter-spacing", "");
+                var text = th.text();
+                th.text("");
+                th.append($(`<div class='text-spaced'>${text}</div>`))
                 th.append($(`<div class='bottom-strip bottom-strip-2'></div>`))
                 
 
@@ -615,6 +621,9 @@ if(!isset($_GET["md-file"])) {
                 // th.text("≪" + th.text() + "≫");
                 th.text("«" + th.text() + "»");
                 // th.text("‹" + th.text() + "›");
+                var text = th.text();
+                th.text("");
+                th.append($(`<div class='text-spaced'>${text}</div>`))
                 th.append($(`<div class='bottom-strip bottom-strip-3'></div>`))
 
 
@@ -625,6 +634,9 @@ if(!isset($_GET["md-file"])) {
                 th.css("text-decoration", "");
                 th.css("font-style", "");
                 th.css("letter-spacing", "");
+                var text = th.text();
+                th.text("");
+                th.append($(`<div class='text-spaced'>${text}</div>`))
                 th.append($(`<div class='bottom-strip bottom-strip-4'></div>`))
                 
 
@@ -635,6 +647,9 @@ if(!isset($_GET["md-file"])) {
                 th.css("text-decoration", "");
                 th.css("font-style", "");
                 th.css("letter-spacing", "");
+                var text = th.text();
+                th.text("");
+                th.append($(`<div class='text-spaced'>${text}</div>`))
                 th.append($(`<div class='bottom-strip bottom-strip-5'></div>`))
                 
             } // rerenderHeaders
@@ -963,6 +978,9 @@ if(!isset($_GET["md-file"])) {
         th {
             padding: 0 !important;
             padding-bottom: 5px !important;
+        }
+        th .text-spaced {
+            margin-bottom: 7.5px;
         }
         th.header-variation {
             position: relative; /* So can position bottom strip */
