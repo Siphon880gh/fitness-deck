@@ -194,3 +194,9 @@ If you have a lot of rows at the MD file and you're looking for duplicates, you 
 When doing bodybuilding AI prompts, you want to get an exercise number column as the first column for the explanation listed at the prompt. You may remove the first column that has the exercise number before publication with the app with the following Find and Replace, then DON'T FORGET to fix the header (remove the "Exercise No." header and divider):
 Find: `^\|[0-9\.\s]+(\|.*)`
 Replace: `$1`
+
+## Future version
+
+- Will have built in countdown timer, sets/reps counter. 
+- Will load faster by bundling assets with webpack.
+- Will load faster by rewriting code in plain javascript. To get rid of jQuery, will have to make DataTables not reliant on jQuery.
