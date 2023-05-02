@@ -1,0 +1,40 @@
+body {
+    text-align: center;
+}
+ul.dirs {
+    font-size: 140%;
+    list-style: none;
+}
+
+ul.dirs li.folder {
+    margin-top: 1.2rem;
+    font-size: 134%;
+}
+
+ul.dirs li.folder:not(.custom-icon)::before {
+    content: "📂\00a0"
+}
+
+ul.dirs li.file::before {
+    content: "\00a0\00a0\00a0\00a0\00a0-\00a0"
+}
+
+ul.dirs a {
+    text-decoration: none;
+}
+
+/* Front page listing directories right away and your credentials */
+.promote-features {
+    color: rgba(0,0,0,0.5);
+    font-size: .65rem;
+    background-color: transparent;
+    margin: 0 auto;
+    text-align: right;
+    line-height: .7rem;
+}
+.promote-features a {
+    text-decoration: none;
+}
+.creds-socials {
+    margin: 5px 0;
+}
