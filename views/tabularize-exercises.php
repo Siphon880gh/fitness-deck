@@ -84,12 +84,12 @@
                         <button class='countdown-quant' data-value="30">30</button>
                         <button class='countdown-quant' data-value="60">60</button>
                         <button class='countdown-quant' data-value="90">90</button>
-                        <hr/>
+                        <hr id="countdown-divider"/>
                         <div id="countdown-mains">
                             <button id="countdown-stop-play"></button>
                             <div id="countdown-display"></div>
                         </div>
-                    </div>
+                    </div> <!-- cp-countdown -->
                 </div>
             </li>
             <li>

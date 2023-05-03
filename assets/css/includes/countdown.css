@@ -1,5 +1,5 @@
 .countdown-finished {
-    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.65), rgba(180, 0, 0, 0.65)) !important;
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.35), rgba(180, 0, 0, 0.35)) !important;
 }
 
 #countdown-operator {
@@ -46,4 +46,50 @@
 #countdown-display:empty::before {
     content: "⏳";
     opacity: 0.5;
+}
+
+#countdown-display[data-color="red"] {
+    color: red;
+
+}
+
+#countdown-display[data-color="green"] {
+    color: green;
+
+}
+
+#countdown-display[data-color="iceblue"] {
+    color: blue;
+    opacity: 0.65;
+}
+
+#countdown-operator,
+.countdown-quant {
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 2.5px;
+    transition: all 300ms ease-in-out;
+}
+
+#countdown-operator:hover,
+.countdown-quant:hover {
+    border: 1px inset black;
+}
+
+#countdown-divider {
+    border: 1px solid black;
+    margin: 10px 0;
+}
+
+#countdown-stop-play {
+    background-color: transparent;
+    filter: grayscale(1);
+    border: 0;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+}
+
+#countdown-stop-play:hover {
+    filter: hue-rotate(45deg);
 }

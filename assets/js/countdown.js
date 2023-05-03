@@ -12,6 +12,21 @@ window.countdown = {
     timeCap: 5
 }
 
+/* View controller you pass the new status to and it'll color the countdown color */
+var controlViewColor = (newStatus) => {
+    switch (newStatus) {
+        case "PLAYING":
+            document.querySelector("#countdown-display").setAttribute("data-color", "green");
+            break;
+        case "STOPPED":
+            document.querySelector("#countdown-display").setAttribute("data-color", "red");
+            break;
+        case "PAUSED":
+            document.querySelector("#countdown-display").setAttribute("data-color", "iceblue");
+            break;
+    }
+}
+
 var poller = () => {
     console.log("Poller")
     if (window.countdown.status === "PLAYING") {
@@ -61,6 +76,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(window.countdown);
 
                 // After wanting Play
+                controlViewColor(window.countdown.status);
+
+                // After wanting Play
                 if (window.countdown.status === "PLAYING") {
                     window.countdown.timeAt = 0;
                     pollerId = setInterval(poller, 1000);
@@ -74,6 +92,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 console.log(window.countdown);
 
+                // After wanting Play
+                controlViewColor(window.countdown.status);
 
                 // After wanting Play
                 if (window.countdown.status === "PLAYING") {
