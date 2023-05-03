@@ -1,0 +1,49 @@
+.countdown-finished {
+    background-image: linear-gradient(to right, rgba(255, 0, 0, 0.65), rgba(180, 0, 0, 0.65)) !important;
+}
+
+#countdown-operator {
+    font-weight: bolder;
+    font-weight: 2px solid black;
+    width: 30px;
+}
+
+#countdown-operator::before {
+    content: "+";
+}
+
+#countdown-operator:not(.is-plus)::before {
+    content: "-";
+}
+
+#countdown-operator,
+.countdown-quant {
+    display: inline-block;
+}
+
+#cp-countdown {
+    width: max-content;
+}
+
+#countdown-mains {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#countdown-stop-play::before {
+    content: "▶️ | ⏹️";
+}
+
+#countdown-display {
+    display: inline-block;
+    width: 60px;
+    height: 20px;
+    border: 1px dashed gray;
+    text-align: center;
+}
+
+#countdown-display:empty::before {
+    content: "⏳";
+    opacity: 0.5;
+}
