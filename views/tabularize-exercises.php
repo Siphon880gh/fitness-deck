@@ -29,30 +29,30 @@
         <ul id="control-panels">
             <li>
                 <div class="icon">
-                    <div class="icon-inner">
+                    <div class="icon-inner" onclick="toggleElementRelative(event, 'li', '.control-panel')">
                         <img src="assets/icons/box.png">
                         <span>Info</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
+                <div class="control-panel cp-hidden" data-width="290px">Info of exercise</div>
             </li>
             <li>
-                <div class="icon">
+                <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
                     <div class="icon-inner">
                         <img src="assets/icons/countdown.png">
                         <span>Time</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
+                <div class="control-panel cp-hidden" data-width="290px">Countdown here</div>
             </li>
             <li>
-                <div class="icon">
+                <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
                     <div class="icon-inner">
                         <img src="assets/icons/counter.png">
                         <span>Reps</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
+                <div class="control-panel cp-hidden" data-width="120px">Reps/Sets counter here</div>
             </li>
         </ul>
     </div> <!-- bar-controls -->
@@ -72,6 +72,8 @@
         console.log({filename})
     </script>
     <script src="assets/js/tabularize-exercises.js"></script>
+    <script src="assets/js/control-bar.js"></script>
+    
 </body>
 
 </html>

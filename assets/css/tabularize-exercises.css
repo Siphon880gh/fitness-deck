@@ -1,22 +1,23 @@
 @import url('includes/control-bar.css');
 
 /* Page global  */
-body {
+.container {
     padding: 10px;
-}
-
-img {
-    display: block;
-    width: 100%;
-    margin: 10px;
 }
 
 .container {
     font-size: 100%;
 }
 
+.container img {
+    display: block;
+    width: 100%;
+    margin: 10px;
+}
+
+
 @media (min-width: 768px) {
-    img {
+    .container img {
         width: 50%;
         margin: 10px auto;
     }
