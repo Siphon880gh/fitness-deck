@@ -77,7 +77,20 @@
                         <span>Time</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="290px">Countdown here</div>
+                <div class="control-panel cp-hidden" data-width="290px">
+                    <div id="cp-countdown">
+                        <button id="countdown-operator" class='is-plus' onclick="event.target.classList.toggle('is-plus')">+/-</button>
+                        <button class='countdown-quant' data-value="10">10</button>
+                        <button class='countdown-quant' data-value="30">30</button>
+                        <button class='countdown-quant' data-value="60">60</button>
+                        <button class='countdown-quant' data-value="90">90</button>
+                        <hr/>
+                        <div id="countdown-mains">
+                            <button id="countdown-stop-play">STOP|START</button>
+                            <div id="countdown-display"></div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li>
                 <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
