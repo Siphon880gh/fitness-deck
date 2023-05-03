@@ -1,3 +1,35 @@
+<?php
+    // Give a name, otherwise leave blank to default to filename
+    // Default: $exerciseGroupName = "";
+    $exerciseGroupName = "";
+
+    // Parse the URL
+    $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://";
+    $host = $_SERVER['HTTP_HOST'];
+    $uri = $_SERVER['REQUEST_URI'];
+    $url = $protocol . $host . $uri;
+    $parsedUrl = parse_url($url);
+
+    // Get the query string
+    $queryString = $parsedUrl['query'];
+
+    // Parse the query string
+    parse_str($queryString, $queryParameters);
+
+    // Get the value of the "md-file" parameter
+    $mdFile = $queryParameters['md-file'];
+
+    // Extract the filename from the path
+    $filename = basename($mdFile);
+
+    // Remove file extension .md
+    $currentPageWithoutExtension = $filename;
+    $extensionsToRemove = ['.php', '.md'];
+    foreach ($extensionsToRemove as $extension) {
+        $currentPageWithoutExtension = str_replace($extension, '', $currentPageWithoutExtension);
+    }
+    if(strlen($exerciseGroupName)===0) $exerciseGroupName = $currentPageWithoutExtension;
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +66,9 @@
                         <span>Info</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="290px">Info of exercise</div>
+                <div class="control-panel cp-hidden" data-width="290px">
+                    <h3 style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo $exerciseGroupName; ?></h3>
+                </div>
             </li>
             <li>
                 <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
