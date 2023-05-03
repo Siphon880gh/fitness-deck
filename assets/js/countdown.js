@@ -18,7 +18,20 @@ var poller = () => {
         if (window.countdown.timeAt < window.countdown.timeCap) {
             window.countdown.timeAt = window.countdown.timeAt + 1;
             // debugger;
-            document.querySelector("#countdown-display").innerHTML = `${window.countdown.timeAt} / ${window.countdown.timeCap}`;
+
+
+            function formatSecs_MMSS(seconds) {
+                const minutes = Math.floor(seconds / 60);
+                const remainingSeconds = seconds % 60;
+
+                const formattedMinutes = String(minutes).padStart(2, '0');
+                const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+
+                return `${formattedMinutes}:${formattedSeconds}`;
+            }
+
+
+            document.querySelector("#countdown-display").innerHTML = `${formatSecs_MMSS(window.countdown.timeAt)} / ${formatSecs_MMSS(window.countdown.timeCap)}`;
 
         } else {
             document.querySelectorAll("html, #bar-controls").forEach(el => { el.classList.add("countdown-finished"); });
