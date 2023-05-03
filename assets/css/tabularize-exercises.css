@@ -238,89 +238,89 @@ th .bottom-strip-5 {
     background-image: linear-gradient(to right, #cc3300, #663300);
 }
 
-    /* 
-      Fix plugin: Right columns can scroll underneath the left fixed column(s) but
-      we make sure not a transparent background that allows beneath columns 
-      to bleed through
-    */
-    th, td { 
-        background-color: white;
-    }
-
-     /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
-     /* Make sure can scroll right columns underneath */
-     thead th {
-        z-index: 7 !important;
-        background-color:white;
-        padding: 0 15px !important;
-     }
-     thead th[fixed-column] {
-        z-index: 10 !important;
-     }
-
-     /* When fixed header row is in sticky position, make sure is on top of other elements on the z-axis */
-     .fixedHeader-floating {
-        z-index: 7 !important;
-     }
-     
-     
 /* 
-    Fix plugin: When scrolling columns to the left, gaps between the columns allow
-    the beneat columns content to bleed through. We are using attributes instead of
-    classes becausae the plugin reassigns the entire class list for the tbody tr td's
+    Fix plugin: Right columns can scroll underneath the left fixed column(s) but
+    we make sure not a transparent background that allows beneath columns 
+    to bleed through
 */
-    thead th[fixed-column], tbody td[fixed-column] {
-    transform: scale(1.05);
-    text-align:left;
-    padding-left:5px !important; /* Plugin causes offset to the left about 5px */
+th, td { 
+    background-color: white;
+}
+
+    /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
+    /* Make sure can scroll right columns underneath */
+    thead th {
+    z-index: 7 !important;
+    background-color:white;
+    padding: 0 15px !important;
+    }
+    thead th[fixed-column] {
+    z-index: 10 !important;
     }
 
-    /* Fix plugin: A duplicate table is made so that there's a scrollbody and that causes
-    a duplicate thead that takes up space causing a gap below the header row */
-    .dataTables_scrollBody thead {
-    display: none;
-    }
-
-    /* Fixed plugin: Pagination dropdown gets offset with the header row when scrolling horizontally. Removed because I've set to 1000 which should be 
-    sufficient. There is a page navigation at the bottom anyways */
-    .dataTables_length, #DataTables_Table_0_length {
-    display: none !important;
+    /* When fixed header row is in sticky position, make sure is on top of other elements on the z-axis */
+    .fixedHeader-floating {
+    z-index: 7 !important;
     }
     
+    
+/* 
+Fix plugin: When scrolling columns to the left, gaps between the columns allow
+the beneat columns content to bleed through. We are using attributes instead of
+classes becausae the plugin reassigns the entire class list for the tbody tr td's
+*/
+thead th[fixed-column], tbody td[fixed-column] {
+transform: scale(1.05);
+text-align:left;
+padding-left:5px !important; /* Plugin causes offset to the left about 5px */
+}
 
-    /* Hidden search from table because it gets dragged as you scroll horizontally */
-    /* Now with our own custom search box and had to be positioned fixed */
-    .container {
-    margin-top: 75px;
-    }
+/* Fix plugin: A duplicate table is made so that there's a scrollbody and that causes
+a duplicate thead that takes up space causing a gap below the header row */
+.dataTables_scrollBody thead {
+display: none;
+}
 
-    /* Hidden records count from table because it gets dragged as you scroll horizontally */
-    /* Now with our own custom records count */
-    #count-rows {
-    font-size:50%;
-    transform: translateY(-2.5px);
-    display: inline-block;
-    }
-    #count-rows::before {
-    content: "(";
-    }
-    #count-rows::after {
-    content: ")";
-    }
+/* Fixed plugin: Pagination dropdown gets offset with the header row when scrolling horizontally. Removed because I've set to 1000 which should be 
+sufficient. There is a page navigation at the bottom anyways */
+.dataTables_length, #DataTables_Table_0_length {
+display: none !important;
+}
 
-    /* Override DataTable search: Using our own custom Search since detaching it breaks DataTable */
-    #DataTables_Table_0_filter {
-        display:none !important;
-    }
-    #DataTables_Table_0_info {
-        display:none;
-    }
-    #DataTables_Table_0_previous {
-        display:none;
-    }
-    #DataTables_Table_0_paginate {
-        display:none;
-    }
-    #DataTables_Table_0_next {
-        display:none;
-    }
+
+/* Hidden search from table because it gets dragged as you scroll horizontally */
+/* Now with our own custom search box and had to be positioned fixed */
+.container {
+margin-top: 75px;
+}
+
+/* Hidden records count from table because it gets dragged as you scroll horizontally */
+/* Now with our own custom records count */
+#count-rows {
+font-size:50%;
+transform: translateY(-2.5px);
+display: inline-block;
+}
+#count-rows::before {
+content: "(";
+}
+#count-rows::after {
+content: ")";
+}
+
+/* Override DataTable search: Using our own custom Search since detaching it breaks DataTable */
+#DataTables_Table_0_filter {
+    display:none !important;
+}
+#DataTables_Table_0_info {
+    display:none;
+}
+#DataTables_Table_0_previous {
+    display:none;
+}
+#DataTables_Table_0_paginate {
+    display:none;
+}
+#DataTables_Table_0_next {
+    display:none;
+}

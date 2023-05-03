@@ -26,21 +26,21 @@
     <div class="container"></div>
 
     <div id="bar-controls">
-        <ul>
+        <ul id="control-panels">
             <li>
                 <i>a</i>
-                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+                <div class="control-panel cp-hidden1" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
             </li>
             <li>
                 <i>a</i>
-                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+                <div class="control-panel cp-hidden1" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
             </li>
             <li>
                 <i>a</i>
-                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+                <div class="control-panel cp-hidden1" data-width="300px">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</div>
             </li>
         </ul>
-    </div>
+    </div> <!-- bar-controls -->
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
 

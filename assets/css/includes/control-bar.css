@@ -1,0 +1,43 @@
+:root {
+    --bar-controls-height: 100px;
+}
+body {
+    /* So content doesn't go behind the fixed footer */
+    padding-bottom: 120px;
+}
+
+#bar-controls {
+    width: 100vw;
+    height: var(--bar-controls-height);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 0 5px;
+    background-color: white;
+    z-index:2;
+}
+#bar-controls ul#control-panels {
+    margin: 0;
+    padding: 0;
+    border-top: 1px inset gray;
+    list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    height: var(--bar-controls-height);
+    /* background-color: cyan; */
+    align-items: center;
+    align-content: center;
+    gap: 0;
+    transition:all 500ms ease;
+}
+#bar-controls ul#control-panels li {
+    display:flex;
+    flex-flow: row nowrap;
+    /* border:1px solid black; */
+    height: var(--bar-controls-height);
+}
+
+#bar-controls ul#control-panels li > * {
+    display: inline-block;
+}
