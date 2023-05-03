@@ -25,6 +25,23 @@
     </div>
     <div class="container"></div>
 
+    <div id="bar-controls">
+        <ul>
+            <li>
+                <i>a</i>
+                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+            </li>
+            <li>
+                <i>a</i>
+                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+            </li>
+            <li>
+                <i>a</i>
+                <span class="control-panel cp-hidden1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. At, voluptatem esse! Asperiores dicta porro aliquid, neque quisquam suscipit blanditiis. Quo enim aliquid error alias, aliquam quam repudiandae saepe dignissimos reiciendis?</span>
+            </li>
+        </ul>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
 
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
