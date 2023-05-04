@@ -31,3 +31,13 @@
 .hidden {
     display: none;
 }
+
+#reps-text-copied {
+    display: block !important;
+    transition: all 700ms ease-in-out;
+    opacity: 0.8;
+}
+
+#reps-text-copied.hidden {
+    opacity: 0;
+}

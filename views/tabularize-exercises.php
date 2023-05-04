@@ -116,7 +116,7 @@
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                         </table>
-                    </div>  <!-- reps-sets-wrapper -->
+                    </div> <!-- reps-sets-wrapper -->
                 </div>
             </li>
         </ul>
@@ -126,7 +126,12 @@
         <div class="modal-content">
         <span class="close">&times;</span>
         <h2>Reps / Sets</h2>
-        <p><textarea id="reps-text" style="width:70%; resize:none;"></textarea></p>
+            <p>
+                <div style="position:relative; width:fit-content; margin:0 auto;">
+                    <textarea id="reps-text" style="resize:none;" onclick="if(event.target.value.length===0) return; event.target.select(); document.execCommand('copy'); event.target.blur(); document.querySelector('#reps-text-copied').classList.remove('hidden'); setInterval(()=>{ document.querySelector('#reps-text-copied').classList.add('hidden') }, 500)"></textarea>
+                    <div id="reps-text-copied" class="hidden" style="position:absolute; top:0; right:2.5px;">📋</div>
+                </div>
+            </p>
         <p>
             <button onclick="resetRepsTable(); document.getElementById('modal').style.display='none';"><b>Reset</b> Reps table</button>
             &nbsp;&nbsp;
