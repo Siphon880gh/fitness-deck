@@ -8,7 +8,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener('click', function(event) {
         if (event.target == modal) {
-        modal.style.display = 'none';
+            modal.style.display = 'none';
         }
     });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" || event.keyCode === 27) {
+            modal.style.display = 'none';
+        }
+      });
 });
