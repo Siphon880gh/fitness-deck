@@ -104,15 +104,15 @@
                         <div id="r-plus"></div>
                         <table id="reps-sets-table">
                             <tr>
-                                <td class="initial" style="cursor:pointer;">Set</td>
+                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Set</td>
                                 <td class="initial">1st</td>
                             </tr>
                             <tr>
-                                <td class="initial" style="cursor:pointer;">Rep</td>
+                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Rep</td>
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                             <tr>
-                                <td class="initial" style="cursor:pointer;">Wt</td>
+                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Wt</td>
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                         </table>
@@ -139,6 +139,7 @@
     <script src="assets/js/tabularize-exercises.js"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/reps.js"></script>
     
 </body>
 
