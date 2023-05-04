@@ -287,12 +287,12 @@ function renderMDFile() {
     }
 
     const rerenderHeaders = () => {
-        $("th:nth-of-type(1)").css("text-transform", "uppercase");
-        $("th:last-child").css("font-style", "italic");
+        $(".dataTables_wrapper th:nth-of-type(1)").css("text-transform", "uppercase");
+        $(".dataTables_wrapper th:last-child").css("font-style", "italic");
     
         window.$th_variations = [];
     
-        $("th").each((i,el)=>{
+        $(".dataTables_wrapper th").each((i,el)=>{
             const $th = $(el);
             if(i==0) true;
             if($th.text().indexOf("Variation")!==-1) {
@@ -389,7 +389,7 @@ function renderMDFile() {
     
     const rerenderAddressedStatistic = () => {
         let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
-        let total = $("tbody tr").length;
+        let total = $(".dataTables_wrapper tbody tr").length;
         $("#addressed").text(`${count} of ${total}`);
     }
     
@@ -401,7 +401,7 @@ function renderMDFile() {
             .removeClass("addressed-4")
         }
     
-        $("tr td:not(:nth-child(1)):not(:last-child)").on("click", event=>{
+        $(".dataTables_wrapper tr td:not(:nth-child(1)):not(:last-child)").on("click", event=>{
             // alert("Will save") // Fixing mobile Safari indexedDB bug
             let el = event.target;
             let $el = $(el);
@@ -484,7 +484,8 @@ function renderMDFile() {
             })
     
             // Rerender with an interactive table
-            window.tableHook = $( "table" ).DataTable({
+            // Table is created by MD file rendering
+            window.tableHook = $( "table:not(#reps-sets-table)" ).DataTable({
                 fixedHeader: true,
                 fixedColumns: {
                     left: window.fixedColumnCounts
@@ -498,9 +499,9 @@ function renderMDFile() {
                     $(".ri-icon-hook").remove();
     
                     /* Rerender social instruction icons and contenteditable comments if records found */
-                    let recordsFound = !$("tbody tr").eq(0).text().includes("No matching records found");
+                    let recordsFound = !$(".dataTables_wrapper tbody tr").eq(0).text().includes("No matching records found");
                     if(recordsFound)
-                    $("tr td:nth-child(1)").each((i,cellCol1)=>{
+                    $(".dataTables_wrapper tr td:nth-child(1)").each((i,cellCol1)=>{
                         
                         // Create external icons
                         let $cell = $(cellCol1);
@@ -567,7 +568,7 @@ function renderMDFile() {
                         $("#DataTables_Table_0 th").eq(i).attr("fixed-column", true)
                     }
     
-                    var $bodyRows = $("tbody tr");
+                    var $bodyRows = $(".dataTables_wrapper tbody tr");
                     for(var h = 0; h<$bodyRows.length; h++) {
                         let $td_s = $bodyRows.eq(h).find("td");
     
@@ -577,7 +578,7 @@ function renderMDFile() {
                     };
     
                     // Since we removed 1 of X, we have our own custom count:
-                    $("#count-rows").text($("tbody tr").length)
+                    $("#count-rows").text($(".dataTables_wrapper tbody tr").length)
     
                 }, // drawCallback
     

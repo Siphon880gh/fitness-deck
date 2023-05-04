@@ -1,5 +1,6 @@
 @import url('includes/control-bar.css');
 @import url('includes/countdown.css');
+@import url('includes/reps.css');
 
 /* Page global  */
 .container {
@@ -192,7 +193,7 @@ css-only-tooltip version 1.0.0
     margin-top:25px;
 }
 
-td {
+.dataTables_wrapper td {
     vertical-align: top;
 }
 
@@ -205,39 +206,39 @@ td {
 }
 
 /* DataTables header */
-th {
+.dataTables_wrapper th {
     padding: 0 !important;
     padding-bottom: 5px !important;
 }
-th .text-spaced {
+.dataTables_wrapper th .text-spaced {
     margin-bottom: 7.5px;
 }
-th.header-variation {
+.dataTables_wrapper th.header-variation {
     position: relative; /* So can position bottom strip */
     border-top: 5px solid ghostwhite;
     border-left: 5px solid ghostwhite;
     border-radius:7px;
 }
-th .bottom-strip {
+.dataTables_wrapper th .bottom-strip {
     height:7.5px; 
     width:100%; 
     position:absolute; 
     bottom:0; 
     left:0;
 }
-th .bottom-strip-1 {
+.dataTables_wrapper th .bottom-strip-1 {
     background-image: linear-gradient(to right, #003300, #006600);
 }
-th .bottom-strip-2 {
+.dataTables_wrapper th .bottom-strip-2 {
     background-image: linear-gradient(to right, #006600, #66B366);
 }
-th .bottom-strip-3 {
+.dataTables_wrapper th .bottom-strip-3 {
     background-image: linear-gradient(to right, #66B366, #996600);
 }
-th .bottom-strip-4 {
+.dataTables_wrapper th .bottom-strip-4 {
     background-image: linear-gradient(to right, #996600, #cc3300);
 }
-th .bottom-strip-5 {
+.dataTables_wrapper th .bottom-strip-5 {
     background-image: linear-gradient(to right, #cc3300, #663300);
 }
 
@@ -246,18 +247,18 @@ th .bottom-strip-5 {
     we make sure not a transparent background that allows beneath columns 
     to bleed through
 */
-th, td { 
+.dataTables_wrapper th, td { 
     background-color: white;
 }
 
     /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
     /* Make sure can scroll right columns underneath */
-    thead th {
+    .dataTables_wrapper thead th {
     z-index: 7 !important;
     background-color:white;
     padding: 0 15px !important;
     }
-    thead th[fixed-column] {
+    .dataTables_wrapper thead th[fixed-column] {
     z-index: 10 !important;
     }
 
@@ -272,43 +273,43 @@ Fix plugin: When scrolling columns to the left, gaps between the columns allow
 the beneat columns content to bleed through. We are using attributes instead of
 classes becausae the plugin reassigns the entire class list for the tbody tr td's
 */
-thead th[fixed-column], tbody td[fixed-column] {
-transform: scale(1.05);
-text-align:left;
-padding-left:5px !important; /* Plugin causes offset to the left about 5px */
+.dataTables_wrapper thead th[fixed-column], tbody td[fixed-column] {
+    transform: scale(1.05);
+    text-align:left;
+    padding-left:5px !important; /* Plugin causes offset to the left about 5px */
 }
 
 /* Fix plugin: A duplicate table is made so that there's a scrollbody and that causes
 a duplicate thead that takes up space causing a gap below the header row */
 .dataTables_scrollBody thead {
-display: none;
+    display: none;
 }
 
 /* Fixed plugin: Pagination dropdown gets offset with the header row when scrolling horizontally. Removed because I've set to 1000 which should be 
 sufficient. There is a page navigation at the bottom anyways */
 .dataTables_length, #DataTables_Table_0_length {
-display: none !important;
+    display: none !important;
 }
 
 
 /* Hidden search from table because it gets dragged as you scroll horizontally */
 /* Now with our own custom search box and had to be positioned fixed */
 .container {
-margin-top: 75px;
+    margin-top: 75px;
 }
 
 /* Hidden records count from table because it gets dragged as you scroll horizontally */
 /* Now with our own custom records count */
 #count-rows {
-font-size:50%;
-transform: translateY(-2.5px);
-display: inline-block;
+    font-size:50%;
+    transform: translateY(-2.5px);
+    display: inline-block;
 }
 #count-rows::before {
-content: "(";
+    content: "(";
 }
 #count-rows::after {
-content: ")";
+    content: ")";
 }
 
 /* Override DataTable search: Using our own custom Search since detaching it breaks DataTable */

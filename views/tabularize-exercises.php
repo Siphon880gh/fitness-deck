@@ -66,7 +66,7 @@
                         <span>Info</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="290px">
+                <div class="control-panel cp-hidden" data-width="300px">
                     <h3 style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo $exerciseGroupName; ?></h3>
                 </div>
             </li>
@@ -77,7 +77,7 @@
                         <span>Time</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="290px">
+                <div class="control-panel cp-hidden" data-width="300px">
                     <div id="cp-countdown">
                         <button id="countdown-operator" class='is-plus' onclick="event.target.classList.toggle('is-plus')"></button>
                         <button class='countdown-quant' data-value="10">10</button>
@@ -99,7 +99,25 @@
                         <span>Reps</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="120px">Reps/Sets counter here</div>
+                <div class="control-panel cp-hidden" data-width="300px">
+                    <div id="reps-sets-wrapper">
+                        <div id="r-plus"></div>
+                        <table id="reps-sets-table">
+                            <tr>
+                                <td class="initial" style="cursor:pointer;">Set</td>
+                                <td class="initial">1st</td>
+                            </tr>
+                            <tr>
+                                <td class="initial" style="cursor:pointer;">Rep</td>
+                                <td class="initial"><input type="number" min="0"></input></td>
+                            </tr>
+                            <tr>
+                                <td class="initial" style="cursor:pointer;">Wt</td>
+                                <td class="initial"><input type="number" min="0"></input></td>
+                            </tr>
+                        </table>
+                    </div> <!-- reps-sets-wrapper -->
+                </div>
             </li>
         </ul>
     </div> <!-- bar-controls -->
