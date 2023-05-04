@@ -1,0 +1,33 @@
+#reps-sets-wrapper {
+    width: fit-content;
+    position: relative;
+}
+
+#reps-sets-wrapper #r-plus {
+    position: absolute;
+    top: 0;
+    right: -10px;
+    transition: all 500ms ease-in-out;
+    cursor: pointer;
+}
+
+#reps-sets-wrapper #r-plus::before {
+    content: "+";
+}
+
+#reps-sets-wrapper #r-plus:hover::before {
+    font-weight: bolder;
+    color: gray;
+}
+
+#reps-sets-table tr td:nth-of-type(1) {
+    font-weight: bold;
+}
+
+#reps-sets-table input {
+    width: 40px;
+}
+
+.hidden {
+    display: none;
+}
