@@ -104,15 +104,15 @@
                         <div id="r-plus"></div>
                         <table id="reps-sets-table">
                             <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Set</td>
+                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Set</td>
                                 <td class="initial">1st</td>
                             </tr>
                             <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Rep</td>
+                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Rep</td>
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                             <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="resetRepsTable();">Wt</td>
+                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Wt</td>
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                         </table>
@@ -121,6 +121,19 @@
             </li>
         </ul>
     </div> <!-- bar-controls -->
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Reps / Sets</h2>
+        <p><textarea id="reps-text" style="width:70%; resize:none;"></textarea></p>
+        <p>
+            <button onclick="resetRepsTable(); document.getElementById('modal').style.display='none';"><b>Reset</b> Reps table</button>
+            &nbsp;&nbsp;
+            <button onclick="document.getElementById('modal').style.display='none';"><b>Nevermind</b></button>
+        </p>
+        </div>
+    </div> <!-- modal -->
 
     <script src="https://cdn.jsdelivr.net/npm/markdown-it@13.0.1/dist/markdown-it.min.js"></script>
 
@@ -139,6 +152,7 @@
     <script src="assets/js/tabularize-exercises.js"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/modal.js"></script>
     <script src="assets/js/reps.js"></script>
     
 </body>

@@ -1,7 +1,16 @@
 function resetRepsTable() {
-    document.querySelectorAll("#reps-sets-table td:not(.initial)").forEach(td => { td.remove(); });
+    document.querySelectorAll("#reps-sets-table td:not(.initial)").forEach(td=>{ td.remove(); });
     document.querySelector("#r-plus").classList.remove("hidden");
-    document.querySelectorAll("#reps-sets-table input").forEach(input => { input.value = "" });
+    document.querySelectorAll("#reps-sets-table input").forEach(input=>{ input.value="" });
+}
+function optionsRepsTable() {
+    var modal = document.getElementById('modal');
+    modal.style.display = 'block';
+    document.getElementById("reps-text").value = (() => {
+        // TODO: Convert td into array of arrays
+
+        return "TODO: Textarea value of reps/sets td";
+    })(); // save to reps-text textarea value
 }
 document.addEventListener("DOMContentLoaded", () => {
     document.querySelector("#r-plus").addEventListener("click", () => {
@@ -10,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Number of sets is how many columns
         var setNum = document.querySelector("#reps-sets-table tr:nth-of-type(1)").querySelectorAll("td").length - 1;
-        console.log(window.setsLimit === setNum + 1)
+        // console.log(window.setsLimit===setNum+1)
         if (window.setsLimit === setNum + 1) {
             document.querySelector("#r-plus").classList.add("hidden")
         }
@@ -59,6 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 })())
                 tr.append(td);
             }
-        });
+        }); // iterating each tr
     })
 })
