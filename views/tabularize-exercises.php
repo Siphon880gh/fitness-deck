@@ -116,7 +116,7 @@
                                 <td class="initial"><input type="number" min="0"></input></td>
                             </tr>
                         </table>
-                    </div> <!-- reps-sets-wrapper -->
+                    </div>  <!-- reps-sets-wrapper -->
                 </div>
             </li>
         </ul>

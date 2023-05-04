@@ -1,15 +1,45 @@
 function resetRepsTable() {
-    document.querySelectorAll("#reps-sets-table td:not(.initial)").forEach(td=>{ td.remove(); });
+    document.querySelectorAll("#reps-sets-table td:not(.initial)").forEach(td => { td.remove(); });
     document.querySelector("#r-plus").classList.remove("hidden");
-    document.querySelectorAll("#reps-sets-table input").forEach(input=>{ input.value="" });
+    document.querySelectorAll("#reps-sets-table input").forEach(input => { input.value = "" });
 }
 function optionsRepsTable() {
     var modal = document.getElementById('modal');
     modal.style.display = 'block';
     document.getElementById("reps-text").value = (() => {
-        // TODO: Convert td into array of arrays
+        // Convert td into array of arrays
+        var multiArray = [];
+        document.querySelectorAll("#reps-sets-table tr").forEach((tr, rowNum) => {
+            if (rowNum === 1) {
+                var trAllTd = Array.from(tr.querySelectorAll("td"));
+                var trNonheaderTd = trAllTd.slice(1);
+                var values = trNonheaderTd.map(td => td.querySelector("input").value);
+                multiArray.push(values);
+            } else if (rowNum === 2) {
+                var trAllTd = Array.from(tr.querySelectorAll("td"));
+                var trNonheaderTd = trAllTd.slice(1);
+                var values = trNonheaderTd.map(td => td.querySelector("input").value);
+                multiArray.push(values);
+            }
+        }); // iterating each tr
+        console.log({ multiArray })
 
-        return "TODO: Textarea value of reps/sets td";
+        var sets = multiArray[0].length;
+
+        var finalText = "";
+        // Iterate set columns
+        for (var i = 0; i < sets; i++) {
+            if (multiArray[0][i].length && parseInt(multiArray[0][i]) !== 0) {
+                finalText += multiArray[0][i] // Rep
+                finalText += "x" // Rep
+                finalText += multiArray[1][i] // Wt
+                finalText += "/"
+            }
+        }
+
+        console.log(finalText);
+
+        return finalText;
     })(); // save to reps-text textarea value
 }
 document.addEventListener("DOMContentLoaded", () => {
