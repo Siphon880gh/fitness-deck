@@ -6,9 +6,6 @@
 /* Page global  */
 .container {
     padding: 10px;
-}
-
-.container {
     font-size: 100%;
 }
 
@@ -248,7 +245,7 @@ css-only-tooltip version 1.0.0
     we make sure not a transparent background that allows beneath columns 
     to bleed through
 */
-.dataTables_wrapper th, td { 
+.dataTables_wrapper th, .dataTables_wrapper td { 
     background-color: white;
 }
 
@@ -274,7 +271,7 @@ Fix plugin: When scrolling columns to the left, gaps between the columns allow
 the beneat columns content to bleed through. We are using attributes instead of
 classes becausae the plugin reassigns the entire class list for the tbody tr td's
 */
-.dataTables_wrapper thead th[fixed-column], tbody td[fixed-column] {
+.dataTables_wrapper thead th[fixed-column], .dataTables_wrapper tbody td[fixed-column] {
     transform: scale(1.05);
     text-align:left;
     padding-left:5px !important; /* Plugin causes offset to the left about 5px */
