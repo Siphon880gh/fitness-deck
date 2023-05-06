@@ -4,20 +4,36 @@ body {
 ul.dirs {
     font-size: 140%;
     list-style: none;
+    padding: 0;
 }
 
 ul.dirs li.folder {
     margin-top: 1.2rem;
     font-size: 134%;
+    text-align: center;
+    background-color: rgba(0,0,0,0.6);
+    margin: 20px auto;
+    border-radius: 10px;
+    color:ghostwhite;
+}
+
+@media screen and (min-width:768px) {
+    ul.dirs li.folder {
+        width: 75%;
+        margin: 60px auto;
+    }
+    ul.dirs li.file {
+        text-align: center;
+    }
 }
 
 ul.dirs li.folder:not(.custom-icon)::before {
     content: "📂\00a0"
 }
 
-ul.dirs li.file::before {
+/* ul.dirs li.file::before {
     content: "\00a0\00a0\00a0\00a0\00a0-\00a0"
-}
+} */
 
 ul.dirs a {
     text-decoration: none;
