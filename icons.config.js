@@ -1,16 +1,28 @@
 {
     "icons": [
         {
-            "displayName": "Stretch",
-            "replaceIcon": "<i class='fab fa-500px'></i>"
+            "displayName": "Bodybuilding - Minimum Equipment",
+            "replaceIcon": "<b style='filter:grayscale(1);'>💪</b>"
         },
         {
             "displayName": "Mobility",
-            "replaceIcon": "<i class='fa fa-shoe-prints' style='font-size:70%;'></i>"
+            "replaceIcon": "<i class='fa fa-shoe-prints' style='font-size:70%; color:lightgray;'></i>"
         },
         {
-            "displayName": "Bodyweight",
+            "displayName": "Rehab - Shin Splints",
+            "replaceIcon": "<b style='filter:grayscale(1);'>🙆‍♂️🥼</b>"
+        },
+        {
+            "displayName": "Stretch",
+            "replaceIcon": "<b style='filter:grayscale(1);'>🙆‍♂️🧘</b>"
+        },
+        {
+            "displayName": "OBSOLETED Bodyweight",
             "replaceIcon": "<i class='fas fa-universal-access'></i>"
+        },
+        {
+            "displayName": "OBSOLETED Stretch",
+            "replaceIcon": "<i class='fab fa-500px'></i>"
         }
     ]
 }
