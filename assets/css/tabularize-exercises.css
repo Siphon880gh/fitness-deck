@@ -312,8 +312,19 @@ and it goes from normal to sticky position
 */
 #DataTables_Table_0 th.dtfc-fixed-left { 
     z-index: -5 !important; 
+    background-color:white
 }
-
+#DataTables_Table_0 th:not(.dtfc-fixed-left) { 
+    z-index: -7 !important; 
+}
+table.fixedHeader-floating th.dtfc-fixed-left { 
+    z-index: 0 !important; 
+    background-color:white
+}
+table.fixedHeader-floating th:not(.dtfc-fixed-left) {
+    z-index: -5! important;
+    position: relative !important;
+}
 
 /* 
 Fix plugin: When scrolling columns to the left, gaps between the columns allow
