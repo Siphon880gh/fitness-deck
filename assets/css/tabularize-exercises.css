@@ -110,13 +110,21 @@
     /* Text "Saved" */
 }
 
-/* Search external */
+/* Social search icons */
 .ri-icon-hook {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    margin-right: 30px;
+    width: min-content;
+    gap: 15px;
 }
+
+@media screen and (max-width:768px) {
+    .ri-icon-hook {
+        gap: 7.5px;
+    }
+}
+
 
 .ri-icon-hook>* {
     cursor: pointer;
