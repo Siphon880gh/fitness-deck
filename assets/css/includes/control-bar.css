@@ -63,6 +63,7 @@ body {
     transition: all 700ms ease;
     overflow: hidden;
     white-space: nowrap;
+    transform:scale(1.25);
 }
 #bar-controls ul#control-panels li > .icon > .icon-inner:hover {
     border: 1px solid gray;
