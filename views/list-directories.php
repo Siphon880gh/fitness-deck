@@ -22,11 +22,11 @@
         
         <div class="container-fluid">
             <header class="site-header clearfix">
-                <h1 class="site-title display-3">Exercises - A.I. Variations</h1>
+                <h1 class="site-title display-3">Exercises - AI Variations</h1>
             </header>
             <section>
                 <p>
-                    <h2>What exercises do you want to do? Just pick one!</h2>
+                    <h2>Pick type of exercises!</h2>
                 </p>
             </section>
 
