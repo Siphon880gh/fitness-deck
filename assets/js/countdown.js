@@ -91,6 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (window.countdown.status === "PLAYING") {
                     window.countdown.timeAt = 0;
                     pollerId = setInterval(poller, 1000);
+                } else {
+                    clearInterval(pollerId);
                 }
 
             } else if (el.matches("#countdown-display")) {
@@ -108,6 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (window.countdown.status === "PLAYING") {
                     window.countdown.timeAt = 0;
                     pollerId = setInterval(poller, 1000);
+                } else {
+                    clearInterval(pollerId);
                 }
             } else if (el.matches(".countdown-quant")) {
                 window.countdown = {
