@@ -135,6 +135,14 @@
     opacity: .7;
 }
 
+/* Social icon will get bigger if that row is interacted with */
+tr.selected .ri-icon-hook >* { 
+    transform: scale(1.2); 
+    border: 1px solid black;
+    border-bottom: 3px solid black;
+    border-radius: 7px;
+}
+
 /* Addressed/Marking color */
 #addressed::before {
     content: "Marked:\00A0";
@@ -147,25 +155,26 @@
     margin-left: 15px;
     transform: translateY(-10px);
     cursor: pointer;
+    z-index: -15 !important;
 }
 
 .addressed-1 {
-    background-color: rgba(204, 255, 204, 1);
+    background-color: rgba(204, 255, 204, 1) !important;
 }
 
 .addressed-2 {
     /* background-color: rgba(255, 255, 153, 1); */
     /*night shift mode cant see yellow */
 
-    background-color: rgba(0, 204, 204, 1);
+    background-color: rgba(0, 204, 204, 1) !important;
 }
 
 .addressed-3 {
-    background-color: rgba(255, 204, 204, 1);
+    background-color: rgba(255, 204, 204, 1) !important;
 }
 
 .addressed-4 {
-    background-color: rgba(204, 153, 255, 1);
+    background-color: rgba(204, 153, 255, 1) !important;
 }
 
 /*

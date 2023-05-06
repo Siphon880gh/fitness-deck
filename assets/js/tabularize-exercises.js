@@ -393,6 +393,16 @@ function renderMDFile() {
         $("#addressed").text(`${count} of ${total}`);
     }
     
+    const hydrateRowHighlight = () => {
+        $(".dataTables_wrapper tr").on("click", event=>{
+            $("tr.selected").removeClass("selected");
+            var tr = event.target;
+            if(!event.target.matches("tr"))
+                tr = event.target.closest("tr");
+            $(tr).addClass("selected");
+        });
+    }
+    
     const hydrateAddressingCells = () => {
         function clearAllAddressedFlags($el) {
             $el.removeClass("addressed-1")
@@ -609,6 +619,7 @@ function renderMDFile() {
     
                     setTimeout(rerenderAddressedStatistic, 100);
                     hydrateAddressingCells();
+                    hydrateRowHighlight();
                     rerenderHeaders();
     
                     // Fix Plugin: Listen for the table scroll event

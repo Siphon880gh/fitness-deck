@@ -52,7 +52,7 @@
         <button onclick="window.location.href='index.php'">🔙 All Directories</button>
     </div>
     <div id="save-status">💾 Saved</div>
-    <div style="text-align:center; width:100%; z-index:-5; position: fixed;left: 0; top:40px;">
+    <div style="text-align:center; width:100%; z-index:-15; position: fixed;left: 0; top:40px;">
         <label>Search:</label>
         <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
         <small id="count-rows"></small>
