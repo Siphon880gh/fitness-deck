@@ -30,7 +30,18 @@ body {
     align-content: center;
     gap: 0;
     transition:all 500ms ease;
+    overflow-x: scroll;
 }
+
+@media screen and (max-width: 768px) {
+    #bar-controls ul#control-panels {
+        justify-content: center !important;
+    }
+    #bar-controls ul#control-panels li > .icon > .icon-inner {
+        transform: scale(1) !important;
+    }
+}
+
 #bar-controls ul#control-panels li {
     display:flex;
     flex-flow: row nowrap;

@@ -23,6 +23,7 @@
 
 #cp-countdown {
     width: max-content;
+    text-align: center;
 }
 
 #countdown-mains {
@@ -48,6 +49,12 @@
     opacity: 0.5;
 }
 
+@media screen and (max-width: 768px) {
+    #countdown-display:empty::before {
+        font-size: 50%;
+    }
+}
+
 #countdown-display[data-color="red"] {
     color: red;
 
@@ -70,6 +77,28 @@
     border: 1px solid transparent;
     border-radius: 2.5px;
     transition: all 300ms ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+
+    #countdown-operator,
+    .countdown-quant {
+        padding: 0 !important;
+    }
+
+    #countdown-operator {
+        width: fit-content;
+    }
+
+    #countdown-display {
+        width:65px;
+        font-size: 70%;
+        height: 18px;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 #countdown-operator:hover,
