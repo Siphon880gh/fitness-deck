@@ -48,7 +48,9 @@
 </head>
 
 <body>
-    <div id="back-to-directory" style="z-index:2; width:100vw; background-color:white;"><button onclick="window.location.href='index.php'">🔙 All Directories</button></div>
+    <div id="back-to-directory">
+        <button onclick="window.location.href='index.php'">🔙 All Directories</button>
+    </div>
     <div id="save-status">💾 Saved</div>
     <div style="text-align:center; width:100%; z-index:0; position: fixed;left: 0; top:40px;">
         <label>Search:</label>

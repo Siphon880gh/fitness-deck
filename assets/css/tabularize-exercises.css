@@ -73,7 +73,7 @@
     top: 0;
     left: 20px;
     padding-top: 10px;
-    z-index:2; 
+    z-index: -10;
 }
 
 #back-to-directory button {
@@ -303,6 +303,15 @@ css-only-tooltip version 1.0.0
 /* When fixed header row is in sticky position, make sure is on top of other elements on the z-axis */
 .fixedHeader-floating {
     z-index: 7 !important;
+}
+
+/*
+Fix plugin: Fixed Header plugin conflicting with Fixed Column plugin for DataTables causing
+the header where it's both fixed header and fixed column to double up when scrolling down
+and it goes from normal to sticky position
+*/
+#DataTables_Table_0 th.dtfc-fixed-left { 
+    z-index: -5 !important; 
 }
 
 
