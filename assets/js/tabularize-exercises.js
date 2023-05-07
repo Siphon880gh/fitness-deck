@@ -517,19 +517,19 @@ function renderMDFile() {
                         let $cell = $(cellCol1);
                         let textExercise = $cell.text();
     
-                        let $iconGoogle = $(`<i class="ri-google-fill"></i>`);
-                        let $iconYoutube = $(`<i class="ri-youtube-fill"></i>`);
-                        let $iconInstagram = $(`<div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div>`);
+                        let $iconGoogle = $(`<a href="https://www.google.com/search?q=exercise ${textExercise}" target="_blank" class="ri-google-fill"></a>`);
+                        let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=exercise ${textExercise}" target="_blank" class="ri-youtube-fill"></a>`);
+                        let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
     
-                        $iconGoogle.click(()=>{
-                            window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
-                        })
-                        $iconYoutube.click(()=>{
-                            window.open(`https://www.youtube.com/results?search_query=exercise ${textExercise}`);
-                        })
-                        $iconInstagram.click(()=>{
-                            window.open(`https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}`);
-                        })
+                        // $iconGoogle.click(()=>{
+                        //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
+                        // })
+                        // $iconYoutube.click(()=>{
+                        //     window.open(`https://www.youtube.com/results?search_query=exercise ${textExercise}`);
+                        // })
+                        // $iconInstagram.click(()=>{
+                        //     window.open(`https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}`);
+                        // })
     
                         let $div = $(`<div class='ri-icon-hook'></div>`)
     

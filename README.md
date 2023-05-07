@@ -175,14 +175,14 @@ https://chat.openai.com/share/12f25b92-210a-4f9f-a9fe-7822f9b65661
 
 ### Amending More AI to a Table
 
-#### Mobility/Stretch Hip
+#### Stretch Hip Benefits
 
 I needed another column to explain why the hip exercise is beneficial:
 
 ```
 This is a markdown table of hip exercises and their variations by difficulty. These exercises improve flexibility, stability, mobility, etc. Please add a second column on how the standard variation helps improve the hip:
 
-{Markdown format table goes here. Broken down to 10 rows including header and divider to respect ChatGPT input limit. May be even less if rows are wordy. Double check their response for being cut off}
+{Markdown format table goes here. Broken down to 10 rows including header and divider to respect ChatGPT input limit. May be even less if rows are wordy. Double check their response to check if cut off}
 ```
 
 ## Prompt Responses Copied and Formatted Into MD
