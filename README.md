@@ -38,7 +38,7 @@ I'd swap out the back with another muscle group. You can swap out male or female
 
 #### Prompt B (may be repeated):
 ```
-Is this a good place to stop? It is if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Continue from the last row. Tell me how many exercises so far after the table. Please remember I do not have barbells, cable machine, and kettlebells.
+Is this a good place to stop? Stop if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Continue from the last row. Tell me how many exercises so far after the table. Please remember I do not have barbells, cable machine, and kettlebells.
 ```
 
 
@@ -73,12 +73,17 @@ But notice I'd swap out quadriceps.
 
 #### Prompt B (may be repeated):
 ```
-Is this a good place to stop? It is if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Tell me how many exercises so far after the table.
+Is this a good place to stop? Stop if it's going to be all slight variations. Otherwise, try to give as many as possible so I can ask you less often. Please do not have duplicates. Tell me how many exercises so far after the table.
 ```
 
 #### Prompt B (if it looked like the last row in the table was cut off):
 ```
 Was it cut off? Please continue if it was cut off
+```
+
+#### Prompt B (if you spot checked many repeats and slight variations):
+```
+Is this a good place to stop? I see some repeated exercises and slight variations
 ```
 
 ### Stretches - Shoulders
