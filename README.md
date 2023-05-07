@@ -55,15 +55,16 @@ Is this a good place to stop? Stop if it's going to be all slight variations. Ot
 ```
 Was it cut off? Please continue if it was cut off from exercise number __
 ```
-
+Abs: https://chat.openai.com/c/cc72d8f5-40de-4996-b10a-a7883dde64c0
 Back: https://chat.openai.com/c/bfa87ce3-aa4d-4344-9adb-4474fb3d9c4a
-Chest: https://chat.openai.com/c/b5f435bb-278e-46f8-a0d9-3997a3cee022
-Triceps: https://chat.openai.com/c/1bd82a6a-2097-4050-8ba7-ee58453d48dd
 Biceps: https://chat.openai.com/c/b3f5d0ec-7579-44f3-a17d-5c822dacc4cf
 Calf: https://chat.openai.com/c/0fe64d6c-6b0c-4f37-a6af-83b7702d8c51
-Lats: https://chat.openai.com/c/ac1c3f0e-9d10-4ab8-a80a-33d120d3c03d
+Chest: https://chat.openai.com/c/b5f435bb-278e-46f8-a0d9-3997a3cee022
 Hamstrings: https://chat.openai.com/c/d6d87f94-7496-4cc0-9db0-47c26aa7b54c
-
+Lats: https://chat.openai.com/c/ac1c3f0e-9d10-4ab8-a80a-33d120d3c03d
+Quadriceps: https://chat.openai.com/c/4500b7b8-2499-47cf-a429-eade8efe8452
+Shoulders: https://chat.openai.com/c/04a77b21-3187-417a-83e9-be527e7aea76
+Triceps: https://chat.openai.com/c/1bd82a6a-2097-4050-8ba7-ee58453d48dd
 
 ### Stretches (except Shoulders):
 
@@ -120,6 +121,7 @@ Chest: https://chat.openai.com/c/0a96d27b-a57c-45f7-8434-eb54fb4f2350
 Hamstrings: https://chat.openai.com/c/c3dff058-3ae4-4a46-8a98-db7a1928b0f9
 Hips: https://chat.openai.com/c/3e48edca-8bbb-4212-97e1-49baf6314edf
 Lats: https://chat.openai.com/c/e148636d-468e-4b68-a3ab-1248429f1675
+Neck: https://chat.openai.com/c/8621ff15-ed79-4fa5-9ce1-f05c6ab5f639
 Qaudricceps: https://chat.openai.com/c/ed46cc6f-986c-4391-a9f7-c8d05d0576a6
 Shins: https://chat.openai.com/c/a44104f8-b9db-4548-98c3-fa7b9eb0b074
 Shoulders: https://chat.openai.com/c/cc9e413d-a969-4700-8b7f-14c4522c8494
