@@ -658,12 +658,11 @@ document.addEventListener("DOMContentLoaded", ()=>{
         window.tableHook.draw();
         // console.log("Redrawed table because resized window")
     });
-    
-    
-    /* Buf Fix: Fixed visual defects from the header and column freeze plugins */
-    function bindToInnerSearch() {
-        let typed = $("#bind-inner-search").val();
-        $("#DataTables_Table_0_filter input").val(typed).trigger("keyup");
-        console.log(typed)
-    }
 })
+
+/* Our own custom search so won't conclict with DataTables Plugins */
+function bindToInnerSearch() {
+    let typed = $("#bind-inner-search").val();
+    $("#DataTables_Table_0_filter input").val(typed).trigger("keyup");
+    console.log(typed)
+}

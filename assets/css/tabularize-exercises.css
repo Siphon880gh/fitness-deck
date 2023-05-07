@@ -412,3 +412,8 @@ sufficient. There is a page navigation at the bottom anyways */
 #DataTables_Table_0_next {
     display: none;
 }
+
+/* UX: Hide bottom border because already have border for the controls bar footer */
+table.dataTable.no-footer {
+    border-bottom: 0 !important;
+}
