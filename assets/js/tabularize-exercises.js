@@ -487,7 +487,7 @@ function renderMDFile() {
             // console.log({fixedColumnCounts})
     
             // Render, take care of \n breaks, and make sure links open in new windows
-            var result = md.render(myMarkdown);
+            var result = md.render(myMarkdown, {html:true});
             document.querySelector(".container").innerHTML = result.replaceAll("\\n","<br/>");
             document.querySelectorAll(".container a").forEach(a=>{
                 a.setAttribute("target", "_blank");
@@ -516,26 +516,30 @@ function renderMDFile() {
                         // Create external icons
                         let $cell = $(cellCol1);
                         let textExercise = $cell.text();
+
+                        // If not a note row, then add social media exercise information icons
+                        if(!textExercise.includes("*Note") && !textExercise.includes("* Note")) {
     
-                        let $iconGoogle = $(`<a href="https://www.google.com/search?q=exercise ${textExercise}" target="_blank" class="ri-google-fill"></a>`);
-                        let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=exercise ${textExercise}" target="_blank" class="ri-youtube-fill"></a>`);
-                        let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
-    
-                        // $iconGoogle.click(()=>{
-                        //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
-                        // })
-                        // $iconYoutube.click(()=>{
-                        //     window.open(`https://www.youtube.com/results?search_query=exercise ${textExercise}`);
-                        // })
-                        // $iconInstagram.click(()=>{
-                        //     window.open(`https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}`);
-                        // })
-    
-                        let $div = $(`<div class='ri-icon-hook'></div>`)
-    
-                        $div.append($iconGoogle, $iconYoutube, $iconInstagram);
-                        $cell.append($div);
-    
+                            let $iconGoogle = $(`<a href="https://www.google.com/search?q=exercise ${textExercise}" target="_blank" class="ri-google-fill"></a>`);
+                            let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=exercise ${textExercise}" target="_blank" class="ri-youtube-fill"></a>`);
+                            let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
+        
+                            // $iconGoogle.click(()=>{
+                            //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
+                            // })
+                            // $iconYoutube.click(()=>{
+                            //     window.open(`https://www.youtube.com/results?search_query=exercise ${textExercise}`);
+                            // })
+                            // $iconInstagram.click(()=>{
+                            //     window.open(`https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}`);
+                            // })
+        
+                            let $div = $(`<div class='ri-icon-hook'></div>`)
+                            $div.append($iconGoogle, $iconYoutube, $iconInstagram);
+
+                            $cell.append($div);
+                        } // If not a note row
+
                         // Create modelable
                         $cell.attr("data-id", textExercise);
     

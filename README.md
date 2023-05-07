@@ -20,17 +20,26 @@ md-file levels can only be one folder deep. Then inside a folder has MD files.
 
 ### Bodyweight exercises:
 
-#### Prompts A-B
+#### Prompts A-B Explained
 
 The first column must be exercise number because the ChatGPT has a problem of keeping restarting the table because it's so many exercises and then it'd get cut off at the last row, and it would restart from the top of the tabale when you ask it to continue where it got cut off. By having an exercise number, you can forcefully tell it on the next prompt to continue from a certain exercise number.
 
-#### Prompt A:
+#### Prompt A (Not Shoulder):
 ```
 Give me as many exercises as possible to: improve the aesthetics of the Quadriceps as a male bodybuilder with minimal or no equipment. Because I have minimum equipment, bodyweight exercises are acceptable. I do have resistance bands, bosu, medicine ball, and dumbbells.
 
 That is the goal of the prompt. Please remember that goal for all subsequent prompts.
 
 Please give me a markdown table. Column 1 is the primary key or exercise number. Column 2 are the exercise names. Column 3 explains how the exercise contributes to body aesthetics if applicable. Column 4 and onwards are 5 columns that give the easier and harder variations based on difficulty level. Those 5 columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
+```
+
+#### Prompt A (Shoulder):
+```
+Give me as many exercises as possible to: improve the aesthetics of the Shoulders as a male bodybuilder with minimal or no equipment. Because I have minimum equipment, bodyweight exercises are acceptable. I do have resistance bands, bosu, medicine ball, and dumbbells.
+
+That is the goal of the prompt. Please remember that goal for all subsequent prompts.
+
+Please give me a markdown table. Column 1 is the primary key or exercise number. Column 2 is the exercise names. Column 3 to describe if it's focused mostly on anterior, posterior, and/or lateral. Next column explains how the exercise contributes to body aesthetics if applicable. Next 5 columns give the easier and harder variations based on difficulty level. Those 5 columns are: Easiest Variation, Easier variation, Standard variation, Harder variation, Hardest variation.
 ```
 
 I'd swap out the back with another muscle group. You can swap out male or female, or leave out the gender.
