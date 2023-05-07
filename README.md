@@ -188,7 +188,6 @@ Also, add a column explaining how the exercise helps the shin splint.
 https://chat.openai.com/c/78c9c57d-9d29-4149-94c1-671e248f7c5e
 https://chat.openai.com/share/12f25b92-210a-4f9f-a9fe-7822f9b65661
 
-
 ### Amending More AI to a Table
 
 #### Stretch Hip Benefits
