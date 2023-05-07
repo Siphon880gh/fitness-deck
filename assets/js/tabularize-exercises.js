@@ -502,7 +502,7 @@ function renderMDFile() {
                 },
                 // scrollX:        true,
                 paging:         true,
-                "pageLength": 1000,
+                pageLength: 1000,
     
                 /* drawCallback: Gets called every row drawn or re-drawn, including changing the view by ascending/descending/filtering */
                 "drawCallback": function( settings ) {
