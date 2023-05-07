@@ -41,7 +41,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 dirsEl.append((() => {
                     const liEl = document.createElement("li");
                     liEl.textContent = folderName;
-                    liEl.classList.add("folder")
+                    liEl.classList.add("folder");
+
+                    // Jumpable links
+                    var idFolderName = (function extractAlphanumericHyphenable({inputString}) {
+                        var extracted = inputString.replace(/[^a-zA-Z0-9\-]/g, '');
+                        var lowercased = extracted.toLowerCase();
+                        return lowercased;
+                      })({
+                        inputString: folderName
+                    });
+                    liEl.setAttribute("id", idFolderName)
+                    liEl.onclick = ()=>{ 
+                        window.location.hash = idFolderName;
+                    }
 
                     const matchedCustomIcon = customIcons.filter(customIcon => customIcon.displayName === folderName);
                     if (matchedCustomIcon.length) {

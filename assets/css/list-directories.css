@@ -15,6 +15,7 @@ ul.dirs li.folder {
     margin: 20px auto;
     border-radius: 10px;
     color:ghostwhite;
+    cursor:pointer;
 }
 
 @media screen and (min-width:768px) {
