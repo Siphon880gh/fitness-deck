@@ -66,6 +66,37 @@ Quadriceps: https://chat.openai.com/c/4500b7b8-2499-47cf-a429-eade8efe8452
 Shoulders: https://chat.openai.com/c/04a77b21-3187-417a-83e9-be527e7aea76
 Triceps: https://chat.openai.com/c/1bd82a6a-2097-4050-8ba7-ee58453d48dd
 
+### Cardio 10-Minute Burns:
+
+#### Prompts A:
+
+```
+I want exercises and progressions from easiest, easier, standard, harder, and hardest variations for: drills to burn calories.
+
+Give me a table of exercises. Column 1 are the exercises and drills; for example, monster walk or high knee jumps. Then column 2 and onwards are the progressions or variation 
+```
+
+#### Prompt B:
+
+```
+Are there more? You can draw from basketball drills, dancing, anything, as long as it is intense enough to burn calories with.
+```
+
+#### Prompt C:
+
+```
+Are there more? Make sure they burn enough calories and can be done long enough to be worth being in your table.
+```
+
+#### Prompt D:
+
+```
+Is this a good place to stop? Stop if it's going to be all slight variations. I want drills, dances, etc that can be done at home that can be great for burning off fat. Please do not have duplicates. Continue from the last row. Tell me how many exercises so far after the table.
+```
+
+https://chat.openai.com/c/148c9189-0994-447c-8e7a-f5a6757347f2
+
+
 ### Stretches (except Shoulders):
 
 #### Prompts A-B

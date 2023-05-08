@@ -5,6 +5,10 @@
             "replaceIcon": "<b style='filter:grayscale(1);'>💪</b>"
         },
         {
+            "displayName": "Cardio",
+            "replaceIcon": "<b style='filter:grayscale(1);'>🏃</b>"
+        },
+        {
             "displayName": "Mobility",
             "replaceIcon": "<i class='fa fa-shoe-prints' style='font-size:70%; color:lightgray;'></i>"
         },
