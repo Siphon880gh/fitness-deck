@@ -519,10 +519,12 @@ function renderMDFile() {
 
                         // If not a note row, then add social media exercise information icons
                         if(!textExercise.includes("*Note") && !textExercise.includes("* Note")) {
-    
-                            let $iconGoogle = $(`<a href="https://www.google.com/search?q=exercise ${textExercise}" target="_blank" class="ri-google-fill"></a>`);
-                            let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=exercise ${textExercise}" target="_blank" class="ri-youtube-fill"></a>`);
-                            let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=exercise ${textExercise}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
+                            // Add the word "exercise" in the query if not a stretch
+                            let query = textExercise + ((/stretch|exercise/i).test(textExercise)?"":" exercise");
+                            
+                            let $iconGoogle = $(`<a href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="ri-google-fill"></a>`);
+                            let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="ri-youtube-fill"></a>`);
+                            let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=${query}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
         
                             // $iconGoogle.click(()=>{
                             //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
