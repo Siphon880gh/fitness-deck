@@ -24,17 +24,18 @@ document.addEventListener("DOMContentLoaded", ()=>{
         function renderListing(customIcons) {
 
             const handleLastOpened = event => {
-                const textContent = event.target.textContent
+                //const textContent = event.target.textContent
+                const href = event.target.dataset.href
                 const shortDate = (new Date()).getMonth()+"/"+(new Date()).getDate()
                 let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
                 if(lastOpened) {
                     lastOpened = JSON.parse(lastOpened)
                     // lastOpened is an array of dates left to right: most recent, last recent, oldest
                     if(lastOpened.length===3) lastOpened.pop(); // self mutates removing the oldest date at the right side
-                    lastOpened = [shortDate, ...lastOpened];
+                    lastOpened = [{href, shortDate}, ...lastOpened];
                     console.log("Clicked. Append date to LocalStorage");
                 } else {
-                    lastOpened = [shortDate];
+                    lastOpened = [{href, shortDate}];
                     console.log("Clicked. One date to LocalStorage");
                 }
                 localStorage.setItem("FitnessDeck__lastOpened", JSON.stringify(lastOpened))
@@ -88,6 +89,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
                 const aEl = document.createElement("a");
                 aEl.href = "?md-file=" + dir;
+                aEl.dataset.href = "?md-file=" + dir;
                 aEl.textContent = fileName.substr(0, fileName.length - 3);
                 aEl.onclick = handleLastOpened;
 
@@ -103,6 +105,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
                 const aEl = document.createElement("a");
                 aEl.href = "?md-file=" + dir;
+                aEl.dataset.href = "?md-file=" + dir;
                 aEl.textContent = fileName.substr(0, fileName.length - 3);
                 aEl.onclick = handleLastOpened;
 
