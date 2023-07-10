@@ -20,6 +20,10 @@
             $jumbo = "container bg-light text-start px-5 py-4 rounded-3 my-4";
         ?>
         
+        <div id="directories-options">
+            <i class="fas fa-eye clickable" onclick="document.querySelectorAll('.last-opened').forEach(el=>el.classList.toggle('hidden'))"></i>
+        </div>
+        
         <div class="container-fluid">
             <header class="site-header clearfix">
                 <h1 class="site-title display-3">Exercises - AI Variations</h1>

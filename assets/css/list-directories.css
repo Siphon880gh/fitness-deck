@@ -1,6 +1,24 @@
 body {
     text-align: center;
 }
+
+.clickable {
+    cursor: pointer;
+    transition: color 300ms ease;
+}
+.clickable:hover {
+    color: royalblue;
+}
+
+.hidden {
+    display: none;
+}
+
+
+#directories-options {
+    position: fixed; top: 10px; right:10px;
+}
+
 ul.dirs {
     font-size: 140%;
     list-style: none;
