@@ -69,7 +69,7 @@
         }
         </script>
 
-        <script src="assets/js/list-directories.js"></script>
+        <script src="assets/js/list-directories.js?v=2"></script>
         
 </body>
 </html>
