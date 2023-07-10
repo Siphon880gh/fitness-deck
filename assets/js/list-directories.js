@@ -25,17 +25,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
             const handleLastOpened = event => {
                 //const textContent = event.target.textContent
-                const href = event.target.dataset.href
+                const path = event.target.dataset.path
                 const shortDate = (new Date()).getMonth()+"/"+(new Date()).getDate()
                 let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
                 if(lastOpened) {
                     lastOpened = JSON.parse(lastOpened)
                     // lastOpened is an array of dates left to right: most recent, last recent, oldest
                     if(lastOpened.length===3) lastOpened.pop(); // self mutates removing the oldest date at the right side
-                    lastOpened = [{href, shortDate}, ...lastOpened];
+                    lastOpened = [{path, shortDate}, ...lastOpened];
                     console.log("Clicked. Append date to LocalStorage");
                 } else {
-                    lastOpened = [{href, shortDate}];
+                    lastOpened = [{path, shortDate}];
                     console.log("Clicked. One date to LocalStorage");
                 }
                 localStorage.setItem("FitnessDeck__lastOpened", JSON.stringify(lastOpened))
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
                 const aEl = document.createElement("a");
                 aEl.href = "?md-file=" + dir;
-                aEl.dataset.href = "?md-file=" + dir;
+                aEl.dataset.path = dir;
                 aEl.textContent = fileName.substr(0, fileName.length - 3);
                 aEl.onclick = handleLastOpened;
 
@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
                 const aEl = document.createElement("a");
                 aEl.href = "?md-file=" + dir;
-                aEl.dataset.href = "?md-file=" + dir;
+                aEl.dataset.path = dir;
                 aEl.textContent = fileName.substr(0, fileName.length - 3);
                 aEl.onclick = handleLastOpened;
 
@@ -114,6 +114,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 })());
             }
             });
+
+            // Add last 3 opened dates
+            let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
+            if(lastOpened) {
+                lastOpened = JSON.parse(lastOpened)
+                lastOpened.forEach(obj=>{
+                    console.log(obj)
+                    if(document.querySelector(`[data-path='${obj.path}']`)) {
+                        document.querySelector(`[data-path='${obj.path}']`).insertAdjacentElement('afterend', (()=>{
+                            let spanEl = document.createElement("span");
+                            spanEl.textContent = obj.shortDate;
+                            spanEl.className = "last-opened hidden"; // Hidden initially until you click Eye icon
+                            return spanEl;
+                        })())
+                    }
+                })
+            }
+
         } // renderListing
         } // initIndexUI
         initIndexUI();
