@@ -412,6 +412,16 @@ function renderMDFile() {
                 .removeClass("addressed-4")
         }
 
+        $(".dataTables_wrapper tr td:not(:last-child)").on("contextmenu", event => {
+            if(event.target.classList.toString().includes("addressed"))
+                event.preventDefault();
+
+            $(event.target)
+                .removeClass("addressed-1")
+                .removeClass("addressed-2")
+                .removeClass("addressed-3")
+                .removeClass("addressed-4")
+        });
         $(".dataTables_wrapper tr td:not(:last-child)").on("click", event => {
             // alert("Will save") // Fixing mobile Safari indexedDB bug
             let el = event.target;
