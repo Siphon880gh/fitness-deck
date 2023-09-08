@@ -412,9 +412,11 @@ function renderMDFile() {
                 .removeClass("addressed-4")
         }
 
-        $(".dataTables_wrapper tr td:not(:nth-child(1)):not(:last-child)").on("click", event => {
+        $(".dataTables_wrapper tr td:not(:last-child)").on("click", event => {
             // alert("Will save") // Fixing mobile Safari indexedDB bug
             let el = event.target;
+            if(el.matches(".ri-icon-hook") || el.matches(".btn-action")) return;
+            
             let $el = $(el);
 
             // let unaddressed = el.classList.length===0; // doesn't because if you had sorted on column, there's a new class .sorting_1
@@ -523,9 +525,9 @@ function renderMDFile() {
                                 // Add the word "exercise" in the query if not a stretch
                                 let query = textExercise + ((/stretch|exercise/i).test(textExercise) ? "" : " exercise");
 
-                                let $iconGoogle = $(`<a href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="ri-google-fill"></a>`);
-                                let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="ri-youtube-fill"></a>`);
-                                let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=${query}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
+                                let $iconGoogle = $(`<a href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="btn-action ri-google-fill"></a>`);
+                                let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="btn-action ri-youtube-fill"></a>`);
+                                let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=${query}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div class="btn-action" style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
 
                                 // $iconGoogle.click(()=>{
                                 //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
@@ -546,8 +548,8 @@ function renderMDFile() {
                             // Create modelable
                             $cell.attr("data-id", textExercise);
 
-                            // Add id to each column
-                            $cell.closest("tr").find("td:not(:nth-child(1))").each((i, cell) => {
+                            // Add id to each column so you can load color-marked cells
+                            $cell.closest("tr").find("td:not(:last-child)").each((i, cell) => {
                                 let $cell = $(cell)
                                 $cell.attr("data-id", `${textExercise}-${i}`);
                             });
