@@ -6,7 +6,6 @@
 | Single Leg Forward Bend | Bend knee slightly | Reach for calf | Reach for foot | Grab toes | Pull foot towards head |
 | Pyramid Pose | Use blocks under hands | Hands on shins | Fingertips on floor | Hands flat on floor | Reach back foot with opposite hand |
 | Lunge Hamstring Stretch | Hands on front knee | Hands on floor beside front foot | Hands on blocks | Reach for front foot | Extend back leg upward |
-| Standing Quad Stretch | Hold onto a wall for balance | Bend knee slightly | Hold ankle with same-side hand | Reach for foot with opposite hand | Lift back leg higher |
 | Reclined Hand-to-Big-Toe Pose | Use a strap around foot | Hold shin | Hold big toe with same-side hand | Extend leg upward | Hold both big toes |
 | Standing Splits | Use blocks under hands | Fingertips on floor | Hands flat on floor | Place hands on calves | Hold ankles with both hands |
 | Wall Hamstring Stretch | Lie on back, place leg against wall | Raise leg slightly | Extend leg upward | Use strap around foot | Flex foot towards face |
