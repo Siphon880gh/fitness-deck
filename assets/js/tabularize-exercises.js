@@ -89,6 +89,7 @@ function loadAddressed() {
 
         tx.oncomplete = function () {
             db.close();
+            rerenderAddressedStatistic();
         };
     };
 
@@ -388,7 +389,7 @@ function renderMDFile() {
 
     } // rerenderHeaders
 
-    const rerenderAddressedStatistic = () => {
+    window.rerenderAddressedStatistic = () => {
         let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
         let total = $(".dataTables_wrapper tbody tr").length;
         $("#addressed").text(`${count} of ${total}`);
@@ -678,7 +679,7 @@ function renderMDFile() {
                     // loadAddressed();
                     // loadComments();
 
-                    setTimeout(rerenderAddressedStatistic, 100);
+                    // setTimeout(rerenderAddressedStatistic, 100);
                     hydrateAddressingCells();
                     hydrateRowHighlight();
                     rerenderHeaders();
@@ -698,7 +699,7 @@ function renderMDFile() {
                     // $('#DataTables_Table_0_info').detach().appendTo('.container');
                     // $('#DataTables_Table_0_paginate').detach().appendTo('.container');
 
-                    rerenderAddressedStatistic(); // update the marked count
+                    // rerenderAddressedStatistic(); // update the marked count
 
                 }, // initComplete
             });
