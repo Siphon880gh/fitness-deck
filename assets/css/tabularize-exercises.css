@@ -425,9 +425,11 @@ table.dataTable.no-footer {
 }
 
 .btn-switch-mode:not(.active) { 
-    filter:invert(0);
+    filter:invert(1);
+    opacity:0.25;
 }
 
 .btn-switch-mode.active { 
-    filter:invert(1); 
+    filter:invert(0);
+    opacity:.8; 
 }
