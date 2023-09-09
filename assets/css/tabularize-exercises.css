@@ -423,3 +423,11 @@ sufficient. There is a page navigation at the bottom anyways */
 table.dataTable.no-footer {
     border-bottom: 0 !important;
 }
+
+.btn-switch-mode:not(.active) { 
+    filter:invert(0);
+}
+
+.btn-switch-mode.active { 
+    filter:invert(1); 
+}

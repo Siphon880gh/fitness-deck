@@ -416,13 +416,39 @@ function renderMDFile() {
             if(event.target.classList.toString().includes("addressed"))
                 event.preventDefault();
 
-            $(event.target)
-                .removeClass("addressed-1")
-                .removeClass("addressed-2")
-                .removeClass("addressed-3")
-                .removeClass("addressed-4")
+            clearAllAddressedFlags($(event.target));
+
+            rerenderAddressedStatistic();
+            saveAddressed();
+            animateSaved();
         });
-        $(".dataTables_wrapper tr td:not(:last-child)").on("click", event => {
+
+        window.mode = "COLOR";
+        window.prevSocial = "goog";
+        window.setPrevSocial = function(newSocial) {
+            window.prevSocial = newSocial;
+            $(".btn-switch-mode").css("background-image", `url("./assets/icons/${newSocial}.png")`)
+        };
+        window.switchMode = function() {
+            if(window.mode==="COLOR") {
+                window.mode = "INSTRUCTIONS";
+                $(".btn-switch-mode").addClass("active");
+            } else {
+                window.mode = "COLOR";
+                $(".btn-switch-mode").removeClass("active");
+            }
+        }
+        function openInstructions(event) {
+            let el = event.target;
+            let pattern = event.target.closest("tr").querySelector("td:first-child").querySelector(`#${window.prevSocial}`).getAttribute("pattern");
+            let baseExerciseName = event.target.closest("tr").querySelector("td:first-child").textContent;
+            pattern = pattern.replace("{query}", baseExerciseName + " " + el.textContent);
+            window.open(pattern)
+            // debugger;
+        } // openInstructions
+
+        function causeColorChange(event) {
+
             // alert("Will save") // Fixing mobile Safari indexedDB bug
             let el = event.target;
             if(el.matches(".ri-icon-hook") || el.matches(".btn-action")) return;
@@ -445,10 +471,20 @@ function renderMDFile() {
             } else if ($el.hasClass("addressed-4")) {
                 clearAllAddressedFlags($el);
             }
-            rerenderAddressedStatistic();
 
+            rerenderAddressedStatistic();
             saveAddressed();
             animateSaved();
+        } // causeColorChange
+        $(".dataTables_wrapper tr td:not(:last-child)").on("click", event => {
+
+            if(window.mode==="COLOR") {
+                causeColorChange(event);
+            } else if(window.mode==="INSTRUCTIONS") {
+                openInstructions(event);
+            }
+
+
         });
     } // hydrateAddressingCells
 
@@ -535,9 +571,10 @@ function renderMDFile() {
                                 // Add the word "exercise" in the query if not a stretch
                                 let query = textExercise + ((/stretch|exercise/i).test(textExercise) ? "" : " exercise");
 
-                                let $iconGoogle = $(`<a href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="btn-action ri-google-fill"></a>`);
-                                let $iconYoutube = $(`<a href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="btn-action ri-youtube-fill"></a>`);
-                                let $iconInstagram = $(`<a href="https://www.instagram.com/explore/search/keyword/?q=${query}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div class="btn-action" style='background-image: url("./assets/icons/instagram.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
+                                let $iconGoogle = $(`<a onclick='setPrevSocial("goog")' id='goog' pattern="https://www.google.com/search?q={query}&tbm=isch" href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="btn-action ri-google-fill"></a>`);
+                                let $iconYoutube = $(`<a onclick='setPrevSocial("yt")'  id='yt' pattern="https://www.youtube.com/results?search_query={query}" href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="btn-action ri-youtube-fill"></a>`);
+                                let $iconInstagram = $(`<a onclick='setPrevSocial("insta")' id='insta' pattern="https://www.instagram.com/explore/search/keyword/?q={query}" href="https://www.instagram.com/explore/search/keyword/?q=${query}" target="_blank" style="display:flex; flex-flow:column nowrap; justify-content:flex-end;"><div class="btn-action" style='background-image: url("./assets/icons/insta.png"); height:1em; width:1em; background-repeat: no-repeat; background-size: contain;'></div></a>`);
+                                let $iconColorVsSocial = $(`<div class="btn-action btn-switch-mode" style='background-image: url("./assets/icons/goog.png"); position:absolute; opacity:0.25; top:3px; right:15px; height:1em; width:1em; background-repeat: no-repeat; background-size: contain;' onClick='event.stopPropagation();event.preventDefault(); switchMode();'></div>`);
 
                                 // $iconGoogle.click(()=>{
                                 //     window.open(`https://www.google.com/search?q=exercise ${textExercise}`);
@@ -550,7 +587,7 @@ function renderMDFile() {
                                 // })
 
                                 let $div = $(`<div class='ri-icon-hook'></div>`)
-                                $div.append($iconGoogle, $iconYoutube, $iconInstagram);
+                                $div.append($iconGoogle, $iconYoutube, $iconInstagram, $iconColorVsSocial);
 
                                 $cell.append($div);
                             } // If not a note row
