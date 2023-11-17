@@ -229,6 +229,54 @@ css-only-tooltip version 1.0.0
     z-index: 9999;
 }
 
+/* Borders */
+.dataTables_wrapper table tr {
+    border: 1px solid black;
+}
+
+.dataTables_wrapper table tbody tr.odd {
+    background-color: #f2f2f2 !important; /* Light gray background */
+}
+
+
+/* Compact rows */
+/* Change the display types for table, tbody, tr, td */
+.dataTables_wrapper table tr {
+    display: block;
+}
+.dataTables_wrapper table th {
+    height: 65px;
+    min-height: 65px;
+    max-height: 65px;
+}
+.dataTables_wrapper table td,
+.dataTables_wrapper table th {
+    min-width:188px;
+    max-width:188px;
+    width:188px;
+    margin:5px !important;
+}
+.dtfc-fixed-left {
+    background-color:white;
+}
+.dataTables_wrapper table tbody tr.odd:not(.selected) .dtfc-fixed-left {
+    background-color: #f2f2f2; /* Light gray background */
+}
+.dataTables_wrapper table tbody tr.selected .dtfc-fixed-left,
+.dataTables_wrapper table tbody tr.selected td:not(.dtfc-fixed-left) {
+    background-color: #B0BED9; /* Light gray background */
+}
+
+.compact-row {
+    height: 65px; /* Or any height you prefer for the compact state */
+    overflow: clip;
+    position: relative;
+    text-overflow: ellipsis;
+}
+
+
+/* Top components */
+
 #top-bar {
     z-index: 1; 
 }
@@ -315,7 +363,7 @@ css-only-tooltip version 1.0.0
 */
 .dataTables_wrapper th,
 .dataTables_wrapper td {
-    background-color: white;
+    /* background-color: white; */
 }
 
 /* Fix plugin: Fixed column classes will be added left of "Variation columns" */
@@ -363,7 +411,7 @@ classes becausae the plugin reassigns the entire class list for the tbody tr td'
 */
 .dataTables_wrapper thead th[fixed-column],
 .dataTables_wrapper tbody td[fixed-column] {
-    transform: scale(1.05);
+    /* transform: scale(1.05); */
     text-align: left;
     padding-left: 5px !important;
     /* Plugin causes offset to the left about 5px */

@@ -49,7 +49,7 @@
 
 <body>
 
-    <div id="top-bar" style="display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; padding-top:20px; position:fixed; left:0; padding-left:10px; padding-right:10px;">
+    <div id="top-bar" style="display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; /*padding-top:20px;*/ position:fixed; left:0; padding-left:10px; padding-right:10px;">
 
         <div id="back-to-directory">
             <button onclick="window.location.href='index.php'">🔙 Directory</button>

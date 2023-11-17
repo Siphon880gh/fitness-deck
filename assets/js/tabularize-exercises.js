@@ -458,7 +458,7 @@ function renderMDFile() {
 
             // let unaddressed = el.classList.length===0; // doesn't because if you had sorted on column, there's a new class .sorting_1
             let unaddressed = !el.className.includes("addressed")
-            if (unaddressed) {
+            if (!$el.closest("tr").hasClass("compact-row") && unaddressed) {
                 $el.addClass("addressed-1");
             } else if ($el.hasClass("addressed-1")) {
                 clearAllAddressedFlags($el);
@@ -545,12 +545,28 @@ function renderMDFile() {
 
             // Rerender with an interactive table
             // Table is created by MD file rendering
+
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
                 fixedHeader: true,
                 fixedColumns: {
                     left: window.fixedColumnCounts
                 },
-                // scrollX:        true,
+                // fixedColumns: {
+                //     left: 1
+                // },
+                createdRow: function(row, data, dataIndex) {
+                    $(row).addClass('compact-row');
+                    
+                    // Event listener for row clicks
+                    $(row).on('click', function () {
+                        setTimeout(()=>{
+                            if($(this).hasClass('compact-row')) {
+                                $(this).removeClass('compact-row');
+                            }
+                        }, 200);
+                    });
+                },
+                // scrollX: true,
                 paging: true,
                 pageLength: 1000,
 
@@ -656,7 +672,6 @@ function renderMDFile() {
                 }, // drawCallback
 
                 "initComplete": function (settings, json) {
-
 
                     // Create info tooltip at Search
                     let $infoIcon = $("<i class='ri-information-line'></i>");
