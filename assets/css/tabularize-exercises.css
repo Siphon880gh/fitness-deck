@@ -229,6 +229,13 @@ css-only-tooltip version 1.0.0
     z-index: 9999;
 }
 
+#top-bar {
+    z-index: 1; 
+}
+#top-bar.active {
+    z-index: 9999; 
+}
+
 /* DataTable */
 
 .dataTables_length {

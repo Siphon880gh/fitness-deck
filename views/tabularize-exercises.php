@@ -49,7 +49,7 @@
 
 <body>
 
-    <div id="top-bar" style="display:flex; width:100%; z-index: 9999; position: relative; justify-content:space-evenly; margin-top:20px; position:fixed; left:0; padding-left:10px; padding-right:10px;">
+    <div id="top-bar" style="display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; padding-top:20px; position:fixed; left:0; padding-left:10px; padding-right:10px;">
 
         <div id="back-to-directory">
             <button onclick="window.location.href='index.php'">🔙 Directory</button>
@@ -98,7 +98,7 @@
 
 
     <div id="toggle-eye" style="position:fixed; right:10px; bottom:10px;">
-        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active')"></i>
+        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active');  $('#top-bar').toggleClass('active')"></i>
     </div>
 
     <div id="bar-controls">

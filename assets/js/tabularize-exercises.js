@@ -588,7 +588,9 @@ function renderMDFile() {
                                 // })
 
                                 let $div = $(`<div class='ri-icon-hook'></div>`)
-                                $div.append($iconGoogle, $iconYoutube, $iconInstagram, $iconColorVsSocial);
+                                // Low quality hits anyways:
+                                // $div.append($iconGoogle, $iconYoutube, $iconInstagram, $iconColorVsSocial);
+                                $div.append($iconGoogle);
 
                                 $cell.append($div);
                             } // If not a note row
