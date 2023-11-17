@@ -165,9 +165,6 @@ tr.selected .ri-icon-hook >* {
 #addressed {
     float: right;
     color: #333;
-    padding: 10px;
-    margin-left: 15px;
-    transform: translateY(-10px);
     cursor: pointer;
     z-index: -15 !important;
 }
@@ -258,6 +255,7 @@ css-only-tooltip version 1.0.0
 }
 .dtfc-fixed-left {
     background-color:white;
+    border-left:1.5px solid black !important;
 }
 .dataTables_wrapper table tbody tr.odd:not(.selected) .dtfc-fixed-left {
     background-color: #f2f2f2; /* Light gray background */

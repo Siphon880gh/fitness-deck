@@ -496,6 +496,7 @@ function renderMDFile() {
     }
 
 
+    window.rowCountRendering = 1;
     fetch(encodeURI(filename), {
         cache: "no-cache"
     }).then(response => response.text())
@@ -547,15 +548,23 @@ function renderMDFile() {
             // Table is created by MD file rendering
 
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
+                responsive: true,
                 fixedHeader: true,
-                fixedColumns: {
-                    left: window.fixedColumnCounts
-                },
                 // fixedColumns: {
-                //     left: 1
+                //     left: window.fixedColumnCounts
                 // },
+                fixedColumns: {
+                    left: 1
+                },
                 createdRow: function(row, data, dataIndex) {
                     $(row).addClass('compact-row');
+
+                    const commentColumn = $(row).find("td").length-1;
+                    $(row).find("td").each((i, td)=>{
+                        if(i!==commentColumn)
+                            $(td).text(window.rowCountRendering + ". " + $(td).text().trim());
+                    })
+                    window.rowCountRendering++;
                     
                     // Event listener for row clicks
                     $(row).on('click', function () {

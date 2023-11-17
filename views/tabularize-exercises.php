@@ -36,7 +36,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
 
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
@@ -49,15 +49,14 @@
 
 <body>
 
-    <div id="top-bar" style="display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; /*padding-top:20px;*/ position:fixed; left:0; padding-left:10px; padding-right:10px;">
+    <div id="top-bar" style="margin-top:3px; min-height:38px; max-height:38px; height:38px; display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; /*padding-top:20px;*/ position:fixed; left:0; padding-left:15px; padding-right:15px;">
 
         <div id="back-to-directory">
             <button onclick="window.location.href='index.php'">🔙 Directory</button>
         </div>
         <div id="save-status">💾 Saved</div>
-        <div style="text-align:center; padding-left:5px; padding-right:5px;">
-            <label>Search:</label>
-            <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
+        <div style="text-align:center; padding-left:5px; padding-right:5px; max-width:165px; overflow:scroll;">
+            <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()" style="width:10ch;" placeholder="Search">
             <small id="count-rows"></small>
         </div>
     </div>
