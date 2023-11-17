@@ -326,6 +326,7 @@ function renderMDFile() {
         th.css("text-decoration", "");
         th.css("font-style", "");
         th.css("letter-spacing", "");
+        th.text("‹" + th.text());
         var text = th.text();
         th.text("");
         th.append($(`<div class='text-spaced'>${text}</div>`))
@@ -339,6 +340,7 @@ function renderMDFile() {
         th.css("text-decoration", "");
         th.css("font-style", "");
         th.css("letter-spacing", "");
+        th.text("«" + th.text());
         var text = th.text();
         th.text("");
         th.append($(`<div class='text-spaced'>${text}</div>`))
@@ -369,6 +371,7 @@ function renderMDFile() {
         th.css("text-decoration", "");
         th.css("font-style", "");
         th.css("letter-spacing", "");
+        th.text(th.text() + "»");
         var text = th.text();
         th.text("");
         th.append($(`<div class='text-spaced'>${text}</div>`))
@@ -382,6 +385,7 @@ function renderMDFile() {
         th.css("text-decoration", "");
         th.css("font-style", "");
         th.css("letter-spacing", "");
+        th.text(th.text() + "›");
         var text = th.text();
         th.text("");
         th.append($(`<div class='text-spaced'>${text}</div>`))
