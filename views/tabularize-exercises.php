@@ -59,6 +59,42 @@
     </div>
     <div class="container"></div>
 
+    <style>
+    #toggle-eye {
+        font-size: 20px;
+        z-index: 10;
+    }
+    @media screen AND (max-width:768px) {
+
+        #toggle-eye {
+            font-size: 28px;
+        }
+    }
+    #toggle-eye i {
+        cursor: pointer;
+    }
+    #toggle-eye i:not(.active) {
+        color: gray;
+    }
+    #bar-controls {
+        max-width:0 !important;
+        margin-left: 100vw;
+        opacity: 0;
+        transition: max-width 0.5s ease-in-out, margin-left 0.5s ease-in-out, opacity 0.75s ease-in-out;
+    }
+    #bar-controls.active {
+        max-width:100% !important;
+        margin-left: 0;
+        opacity: 1;
+    }
+
+    </style>
+
+
+    <div id="toggle-eye" style="position:fixed; right:10px; bottom:10px;">
+        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active')"></i>
+    </div>
+
     <div id="bar-controls">
         <ul id="control-panels">
             <li>
