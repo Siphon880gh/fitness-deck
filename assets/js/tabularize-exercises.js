@@ -392,7 +392,7 @@ function renderMDFile() {
     window.rerenderAddressedStatistic = () => {
         let count = $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").length;
         let total = $(".dataTables_wrapper tbody tr").length;
-        $("#addressed").text(`${count} of ${total}`);
+        $("#addressed").text(`${count}/${total}`);
     }
 
     const hydrateRowHighlight = () => {
@@ -672,8 +672,8 @@ function renderMDFile() {
                         }
                     })
                     // $("#DataTables_Table_0_wrapper").prepend($addressed);
-                    $addressed.css("position", "fixed").css("top", "10px").css("right", "10px").css("z-index", "2");
-                    $(".container").prepend($addressed)
+                    // $addressed.css("position", "fixed").css("top", "10px").css("right", "10px").css("z-index", "2");
+                    $("#top-bar").append($addressed)
 
                     // Moved to drawing because sometimes this loads before DOM is enriched with attributes
                     // loadAddressed();

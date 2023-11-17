@@ -48,16 +48,22 @@
 </head>
 
 <body>
-    <div id="back-to-directory">
-        <button onclick="window.location.href='index.php'">🔙 All Directories</button>
+
+    <div id="top-bar" style="display:flex; width:100%; z-index: 9999; position: relative; justify-content:space-evenly; margin-top:20px; position:fixed; left:0; padding-left:10px; padding-right:10px;">
+
+        <div id="back-to-directory">
+            <button onclick="window.location.href='index.php'">🔙 Directory</button>
+        </div>
+        <div id="save-status">💾 Saved</div>
+        <div style="text-align:center; padding-left:5px; padding-right:5px;">
+            <label>Search:</label>
+            <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
+            <small id="count-rows"></small>
+        </div>
     </div>
-    <div id="save-status">💾 Saved</div>
-    <div style="text-align:center; width:100%; z-index:-15; position: fixed;left: 0; top:40px;">
-        <label>Search:</label>
-        <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()">
-        <small id="count-rows"></small>
+
+    <div class="container" style="display:flex;">
     </div>
-    <div class="container"></div>
 
     <style>
     #toggle-eye {

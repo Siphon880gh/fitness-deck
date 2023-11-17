@@ -69,10 +69,10 @@
 
 /* Page structure */
 #back-to-directory {
-    position: fixed;
-    top: 0;
-    left: 20px;
-    padding-top: 10px;
+    /* position: fixed;
+    top: 0; */
+    /* left: 20px; */
+    /* padding-top: 10px; */
     z-index: -10;
 }
 
@@ -159,7 +159,7 @@ tr.selected .ri-icon-hook >* {
     font-size: 16px !important;
 }
 #addressed::before {
-    content: "Marked Cells:\00A0";
+    content: "Marked:\00A0";
 }
 
 #addressed {
@@ -379,13 +379,13 @@ sufficient. There is a page navigation at the bottom anyways */
 /* Hidden search from table because it gets dragged as you scroll horizontally */
 /* Now with our own custom search box and had to be positioned fixed */
 .container {
-    margin-top: 75px;
+    padding-top: 100px;
 }
 
 /* Hidden records count from table because it gets dragged as you scroll horizontally */
 /* Now with our own custom records count */
 #count-rows {
-    font-size: 50%;
+    font-size: 90%;
     transform: translateY(-2.5px);
     display: inline-block;
 }
