@@ -36,7 +36,8 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Fitness Deck - <?php echo $_GET["md-file"]; ?>">
     <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
 
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
@@ -45,9 +46,24 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tabularize-exercises.css">
+    <style>
+    @media screen and (orientation: landscape) {
+    #DataTables_Table_0_wrapper {
+            width:100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+    #DataTables_Table_0_wrapper table.dataTable thead th:nth-child(1),
+    #DataTables_Table_0_wrapper table.dataTable tbody td:nth-child(1) {
+            padding-left: 35px !important;
+        
+        }
+    }
+    </style>
 </head>
 
 <body>
+    <!-- <div id="backdrop-inset">&nbsp;</div> -->
 
     <div id="top-bar" style="margin-top:3px; min-height:38px; max-height:38px; height:38px; display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; /*padding-top:20px;*/ position:fixed; left:0; padding-left:15px; padding-right:15px;">
 

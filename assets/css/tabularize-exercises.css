@@ -279,7 +279,7 @@ css-only-tooltip version 1.0.0
     z-index: 1; 
 }
 #top-bar.active {
-    z-index: 9999; 
+    z-index: 200; 
 }
 
 /* DataTable */
@@ -399,7 +399,11 @@ table.fixedHeader-floating th.dtfc-fixed-left {
 }
 table.fixedHeader-floating th:not(.dtfc-fixed-left) {
     z-index: -5! important;
-    position: relative !important;
+    position: relative !important; /* Re-enables z-index */
+}
+#DataTables_Table_0 > thead > tr > th:nth-child(2) {
+    z-index: -7! important;
+    position: relative !important; /* Re-enables z-index */
 }
 
 /* 
@@ -432,7 +436,7 @@ sufficient. There is a page navigation at the bottom anyways */
 /* Hidden search from table because it gets dragged as you scroll horizontally */
 /* Now with our own custom search box and had to be positioned fixed */
 .container {
-    padding-top: 100px;
+    padding-top: 30px;
 }
 
 /* Hidden records count from table because it gets dragged as you scroll horizontally */
