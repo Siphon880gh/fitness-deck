@@ -21,7 +21,8 @@
         ?>
         
         <div id="directories-options">
-            <i class="fas fa-eye clickable" onclick="document.querySelectorAll('.last-opened').forEach(el=>el.classList.toggle('hidden'))"></i>
+            <i class="fas fa-eye clickable" onclick="document.querySelectorAll('.last-opened').forEach(el=>el.classList.toggle('hidden'))"></i><br/>
+            <i class="fas fa-sort clickable" onclick="if(window.sortedByArea) { window.location.reload() } else { sortIntoAreas(); }"></i><br/>
         </div>
         
         <div class="container-fluid">
@@ -36,7 +37,6 @@
 
             <main class="site-body">
                 <article class="intro <?php echo $jumbo; ?>" data-page=0>
-                    <!-- <h2 class="intro-title display-5">Choose a quiz:</h2> -->
                     <section class="dirs-wrapper my-4">
                         <ul class="dirs">
 
@@ -69,7 +69,8 @@
         }
         </script>
 
-        <script src="assets/js/list-directories.js?v=2"></script>
+        <script src="assets/js/list-directories.js"></script>
+        <script src="assets/js/common-sense-directories.js"></script>
         
 </body>
 </html>
