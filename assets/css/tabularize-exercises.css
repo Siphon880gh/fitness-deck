@@ -490,3 +490,7 @@ table.dataTable.no-footer {
     filter:invert(0);
     opacity:.8; 
 }
+
+.hidden {
+    display: none !important;
+}

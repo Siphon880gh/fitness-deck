@@ -114,6 +114,8 @@
 
     <div id="toggle-eye" style="position:fixed; right:10px; bottom:10px;">
         <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active');  $('#top-bar').toggleClass('active')"></i>
+        <span>&nbsp;&nbsp;</span>
+        <i class="fas fa-filter" onclick="cycleMode()"></i>
     </div>
 
     <div id="bar-controls">

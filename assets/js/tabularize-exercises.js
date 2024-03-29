@@ -758,3 +758,29 @@ function bindToInnerSearch() {
     $("#DataTables_Table_0_filter input").val(typed).trigger("keyup");
     console.log(typed)
 }
+
+
+
+window.modeAt = 0;
+const cycleMode = () => {
+    window.modeAt = (window.modeAt%5)+1 // Cycles through 1,2,3,4
+
+    if(window.modeAt===5) {
+        document.querySelectorAll("tr.hidden").forEach(tr=>{
+            $(tr).removeClass("hidden")
+        });
+    } else {
+        document.querySelectorAll("tr").forEach(tr=>{
+            if(!$(tr).find(`td.addressed-${modeAt}`).length) {
+                $(tr).addClass("hidden")
+            } else {
+                $(tr).removeClass("hidden")
+            }
+        });
+
+        if(document.querySelectorAll("tr:not(.hidden").length===0) {
+            // window.modeAt = 4;
+            cycleMode();
+        }
+    }
+}
