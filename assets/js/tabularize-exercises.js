@@ -500,7 +500,7 @@ function renderMDFile() {
     }
 
 
-    window.rowCountRendering = 1;
+    // window.rowCountRendering = 1;
     fetch(encodeURI(filename), {
         cache: "no-cache"
     }).then(response => response.text())
@@ -563,12 +563,13 @@ function renderMDFile() {
                 createdRow: function(row, data, dataIndex) {
                     $(row).addClass('compact-row');
 
-                    const commentColumn = $(row).find("td").length-1;
-                    $(row).find("td").each((i, td)=>{
-                        if(i!==commentColumn)
-                            $(td).text(window.rowCountRendering + ". " + $(td).text().trim());
-                    })
-                    window.rowCountRendering++;
+                    // const commentColumn = $(row).find("td").length-1;
+                    // $(row).find("td").each((i, td)=>{
+                    //     if(i!==commentColumn)
+                    //         // $(td).text(window.rowCountRendering + ". " + $(td).text().trim());
+                    //         $(td).text($(row).index() + ". " + $(td).text().trim());
+                    // })
+                    // window.rowCountRendering++;
                     
                     // Event listener for row clicks
                     $(row).on('click', function () {
