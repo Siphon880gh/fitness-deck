@@ -22,7 +22,7 @@
         
         <div id="directories-options">
             <i class="fas fa-eye clickable" onclick="document.querySelectorAll('.last-opened').forEach(el=>el.classList.toggle('hidden'))"></i><br/>
-            <i class="fas fa-sort clickable" onclick="if(window.sortedByArea) { window.location.reload() } else { sortIntoAreas(); }"></i><br/>
+            <i class="fas fa-sort clickable" onclick="toggleIndexMode()"></i><br/>
         </div>
         
         <div class="container-fluid">
@@ -69,8 +69,8 @@
         }
         </script>
 
-        <script src="assets/js/list-directories.js"></script>
         <script src="assets/js/common-sense-directories.js"></script>
+        <script src="assets/js/list-directories.js"></script>
         
 </body>
 </html>
