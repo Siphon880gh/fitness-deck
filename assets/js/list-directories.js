@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 if(lastOpened) {
                     lastOpened = JSON.parse(lastOpened)
                     // lastOpened is an array of dates left to right: most recent, last recent, oldest
-                    if(lastOpened.length===3) lastOpened.pop(); // self mutates removing the oldest date at the right side
+                    if(lastOpened.length===8) lastOpened.pop(); // self mutates removing the oldest date at the right side
                     lastOpened = [{path, shortDate}, ...lastOpened];
                     console.log("Clicked. Append date to LocalStorage");
                 } else {
@@ -119,13 +119,14 @@ document.addEventListener("DOMContentLoaded", ()=>{
             let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
             if(lastOpened) {
                 lastOpened = JSON.parse(lastOpened)
-                lastOpened.forEach(obj=>{
+                lastOpened.forEach((obj,zIndex)=>{
                     console.log(obj)
                     if(document.querySelector(`[data-path='${obj.path}']`)) {
                         document.querySelector(`[data-path='${obj.path}']`).insertAdjacentElement('afterend', (()=>{
                             let spanEl = document.createElement("span");
                             spanEl.textContent = obj.shortDate;
                             spanEl.className = "last-opened hidden"; // Hidden initially until you click Eye icon
+                            spanEl.style.zIndex = zIndex;
                             return spanEl;
                         })())
                     }
