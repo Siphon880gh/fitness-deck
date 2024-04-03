@@ -45,7 +45,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=1.4">
     <style>
     @media screen and (orientation: landscape) {
     #DataTables_Table_0_wrapper {
@@ -215,7 +215,7 @@
         eval("var filename = 'md-file/<?php echo $_GET["md-file"]; ?>.md'");
         console.log({filename})
     </script>
-    <script src="assets/js/tabularize-exercises.js"></script>
+    <script src="assets/js/tabularize-exercises.js?v=1.4"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

@@ -3,6 +3,12 @@
 @import url('modal.css');
 @import url('includes/reps.css');
 
+
+.hidden {
+    display: none !important;
+}
+
+
 /* Page global  */
 .container {
     padding: 10px;
@@ -117,6 +123,8 @@
     justify-content: space-between;
     width: min-content;
     gap: 15px;
+    float: right;
+    margin-right: 10px;
 }
 
 @media screen and (max-width:768px) {
@@ -152,6 +160,7 @@ tr.selected .ri-icon-hook >* {
     border-top: 0;
     border-left: 0;
     border-radius: 7px;
+    z-index: 100 !important;
 }
 
 /* Addressed/Marking color */
@@ -265,11 +274,14 @@ css-only-tooltip version 1.0.0
     background-color: #B0BED9; /* Light gray background */
 }
 
-.compact-row {
-    height: 65px; /* Or any height you prefer for the compact state */
-    overflow: clip;
-    position: relative;
+.compact-row, .compact-row td:not([fixed-column]) {
+    overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap; /* Ensures text is in one line */
+    height: 65px;
+}
+.compact-row td[fixed-column] {
+    white-space: normal;
 }
 
 /* Top components */
@@ -320,8 +332,8 @@ css-only-tooltip version 1.0.0
 .dataTables_wrapper th.header-variation {
     position: relative;
     /* So can position bottom strip */
-    border-top: 5px solid ghostwhite;
-    border-left: 5px solid ghostwhite;
+    /* border-top: 5px solid ghostwhite;
+    border-left: 5px solid ghostwhite; */
     border-radius: 7px;
 }
 
@@ -368,7 +380,8 @@ css-only-tooltip version 1.0.0
 .dataTables_wrapper thead th {
     z-index: 7 !important;
     background-color: white;
-    padding: 0 15px !important;
+    /* padding: 0 15px !important; */
+    padding: 0 !important;
 }
 
 .dataTables_wrapper thead th[fixed-column] {
@@ -415,6 +428,7 @@ classes becausae the plugin reassigns the entire class list for the tbody tr td'
     /* transform: scale(1.05); */
     text-align: left;
     padding-left: 5px !important;
+    /* padding-left: 0 !important; */
     /* Plugin causes offset to the left about 5px */
 }
 
@@ -490,6 +504,6 @@ table.dataTable.no-footer {
     opacity:.8; 
 }
 
-.hidden {
-    display: none !important;
+table.dataTable tbody th, table.dataTable tbody td {
+    padding: 0 !important;
 }

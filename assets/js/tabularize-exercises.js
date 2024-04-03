@@ -554,6 +554,7 @@ function renderMDFile() {
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
                 responsive: true,
                 fixedHeader: true,
+                ordering: false, // This will disable sorting on all columns
                 // fixedColumns: {
                 //     left: window.fixedColumnCounts
                 // },
@@ -574,6 +575,7 @@ function renderMDFile() {
                     // Event listener for row clicks
                     $(row).on('click', function () {
                         setTimeout(()=>{
+                            $(".dataTables_wrapper tr:not(.compact-row)").addClass("compact-row");
                             if($(this).hasClass('compact-row')) {
                                 $(this).removeClass('compact-row');
                             }
