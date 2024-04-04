@@ -68,8 +68,10 @@
 
 
     <div id="toggle-btns">
-        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')"></i>
         <i class="fas fa-filter" onclick="cycleMode()"></i>
+        <i class="fas fa-random" onclick="goRandomRow()"></i>
+        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')"></i>
+
     </div>
 
     <div id="bar-controls">

@@ -277,6 +277,33 @@ function saveComment(id, comment) {
 
 }; // saveComments
 
+function goRandomRow() {
+
+    var selTable = "#DataTables_Table_0 tbody"
+    var selRow = "tr:not(:has(.addressed-1)):not(:has(.addressed-2)):not(:has(.addressed-3)):not(:has(.addressed-4))";
+    exec(selTable, selRow);
+
+    function exec(selTable, selRow) {
+        var table = document.querySelector(selTable);
+        var rows = table.querySelectorAll(selRow)
+        if (rows.length <= 1) return; // Only header row present
+
+        // Selecting a random row (excluding the header)
+        var randomIndex = Math.floor(Math.random() * (rows.length - 1)) + 1;
+        var selectedRow = rows[randomIndex];
+
+        // Scrolling to the selected row
+        selectedRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+        // Wait for scrolling to finish before clicking the row
+        setTimeout(() => {
+            // Triggering a click event on the selected row
+            selectedRow.click();
+        }, 500); // Adjust timeout based on your needs
+    };
+
+}
+
 
 // Render MD File
 function renderMDFile() {
@@ -418,7 +445,7 @@ function renderMDFile() {
         }
 
         $(".dataTables_wrapper tr td:not(:last-child)").on("contextmenu", event => {
-            if(event.target.classList.toString().includes("addressed"))
+            if (event.target.classList.toString().includes("addressed"))
                 event.preventDefault();
 
             clearAllAddressedFlags($(event.target));
@@ -430,12 +457,12 @@ function renderMDFile() {
 
         window.mode = "COLOR";
         window.prevSocial = "goog";
-        window.setPrevSocial = function(newSocial) {
+        window.setPrevSocial = function (newSocial) {
             window.prevSocial = newSocial;
             $(".btn-switch-mode").css("background-image", `url("./assets/icons/${newSocial}.png")`)
         };
-        window.switchMode = function() {
-            if(window.mode==="COLOR") {
+        window.switchMode = function () {
+            if (window.mode === "COLOR") {
                 window.mode = "INSTRUCTIONS";
                 $(".btn-switch-mode").addClass("active");
             } else {
@@ -456,8 +483,8 @@ function renderMDFile() {
 
             // alert("Will save") // Fixing mobile Safari indexedDB bug
             let el = event.target;
-            if(el.matches(".ri-icon-hook") || el.matches(".btn-action")) return;
-            
+            if (el.matches(".ri-icon-hook") || el.matches(".btn-action")) return;
+
             let $el = $(el);
 
             // let unaddressed = el.classList.length===0; // doesn't because if you had sorted on column, there's a new class .sorting_1
@@ -483,9 +510,9 @@ function renderMDFile() {
         } // causeColorChange
         $(".dataTables_wrapper tr td:not(:last-child)").on("click", event => {
 
-            if(window.mode==="COLOR") {
+            if (window.mode === "COLOR") {
                 causeColorChange(event);
-            } else if(window.mode==="INSTRUCTIONS") {
+            } else if (window.mode === "INSTRUCTIONS") {
                 openInstructions(event);
             }
 
@@ -561,7 +588,7 @@ function renderMDFile() {
                 fixedColumns: {
                     left: 1
                 },
-                createdRow: function(row, data, dataIndex) {
+                createdRow: function (row, data, dataIndex) {
                     $(row).addClass('compact-row');
 
                     // const commentColumn = $(row).find("td").length-1;
@@ -571,12 +598,12 @@ function renderMDFile() {
                     //         $(td).text($(row).index() + ". " + $(td).text().trim());
                     // })
                     // window.rowCountRendering++;
-                    
+
                     // Event listener for row clicks
                     $(row).on('click', function () {
-                        setTimeout(()=>{
+                        setTimeout(() => {
                             $(".dataTables_wrapper tr:not(.compact-row)").addClass("compact-row");
-                            if($(this).hasClass('compact-row')) {
+                            if ($(this).hasClass('compact-row')) {
                                 $(this).removeClass('compact-row');
                             }
                         }, 200);
@@ -766,22 +793,22 @@ function bindToInnerSearch() {
 
 window.modeAt = 0;
 const cycleMode = () => {
-    window.modeAt = (window.modeAt%5)+1 // Cycles through 1,2,3,4
+    window.modeAt = (window.modeAt % 5) + 1 // Cycles through 1,2,3,4
 
-    if(window.modeAt===5) {
-        document.querySelectorAll("tr.hidden").forEach(tr=>{
+    if (window.modeAt === 5) {
+        document.querySelectorAll("tr.hidden").forEach(tr => {
             $(tr).removeClass("hidden")
         });
     } else {
-        document.querySelectorAll("tr").forEach(tr=>{
-            if(!$(tr).find(`td.addressed-${modeAt}`).length) {
+        document.querySelectorAll("tr").forEach(tr => {
+            if (!$(tr).find(`td.addressed-${modeAt}`).length) {
                 $(tr).addClass("hidden")
             } else {
                 $(tr).removeClass("hidden")
             }
         });
 
-        if(document.querySelectorAll("tr:not(.hidden").length===0) {
+        if (document.querySelectorAll("tr:not(.hidden").length === 0) {
             // window.modeAt = 4;
             cycleMode();
         }
