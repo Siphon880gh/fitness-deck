@@ -12,11 +12,19 @@ By Weng Fei Fung. All possible exercises and their progression variations accord
 
 ## Exercise Administration
 
-md-file levels can only be one folder deep. Then inside a folder has MD files.
+md-file levels can only be one folder deep. Then inside a folder has MD files. 
+
+Here proves it:
+```
+const fileName = dir.split("/")[1];
+```
+
+The foldername would be at `[0]`
+
+Developers can feel free to contribute to a multi level organization. I recommend counting the forward slashes then using hash or other data structure, to track and then render the listing differently.
 
 
 ## Prompts
-
 
 ### Bodyweight exercises:
 
