@@ -22,7 +22,7 @@
         
         <div id="directories-options">
             <i class="fas fa-eye clickable" onclick="document.querySelectorAll('.last-opened').forEach(el=>el.classList.toggle('hidden'))"></i><br/>
-            <i class="fas fa-sort clickable" onclick="toggleIndexMode()"></i><br/>
+            <i class="fas fa-sort clickable" onclick="toggleIndexMode(); document.querySelector('.fa-eye').classList.add('invisible');"></i><br/>
         </div>
         
         <div class="container-fluid">

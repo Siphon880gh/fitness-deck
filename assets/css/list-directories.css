@@ -33,7 +33,7 @@ ul.dirs li.file:hover .last-opened {
 
 #directories-options {
     position: fixed;
-    top: 10px;
+    top: 40px;
     right:15px;
     font-size: 150%;
 }
