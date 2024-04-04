@@ -646,3 +646,19 @@ table.dataTable thead td {
 body>table>thead>tr>th.sorting_disabled.dtfc-fixed-left {
     position: unset !important;
 }
+
+tbody tr td:nth-child(2)::before {
+    content: "1.\00a0";
+}
+tbody tr td:nth-child(3)::before {
+    content: "2.\00a0";
+}
+tbody tr td:nth-child(4)::before {
+    content: "3.\00a0";
+}
+tbody tr td:nth-child(5)::before {
+    content: "4.\00a0";
+}
+tbody tr td:nth-child(6)::before {
+    content: "5.\00a0";
+}
