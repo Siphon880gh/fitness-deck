@@ -1,10 +1,7 @@
 :root {
     --bar-controls-height: 100px;
 }
-body {
-    /* So content doesn't go behind the fixed footer */
-    padding-bottom: 120px;
-}
+
 
 #bar-controls {
     width: 100vw;

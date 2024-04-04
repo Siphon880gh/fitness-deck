@@ -45,27 +45,13 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=1.4">
-    <style>
-    @media screen and (orientation: landscape) {
-    #DataTables_Table_0_wrapper {
-            width:100%;
-            box-sizing: border-box;
-            position: relative;
-        }
-    #DataTables_Table_0_wrapper table.dataTable thead th:nth-child(1),
-    #DataTables_Table_0_wrapper table.dataTable tbody td:nth-child(1) {
-            padding-left: 35px !important;
-        
-        }
-    }
-    </style>
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.2">
 </head>
 
 <body>
     <!-- <div id="backdrop-inset">&nbsp;</div> -->
 
-    <div id="top-bar" style="margin-top:3px; min-height:38px; max-height:38px; height:38px; display:flex; width:100%; background-color:white; position: relative; justify-content:space-evenly; /*padding-top:20px;*/ position:fixed; left:0; padding-left:15px; padding-right:15px;">
+    <div id="top-bar">
 
         <div id="back-to-directory">
             <button onclick="window.location.href='index.php'">🔙 Directory</button>
@@ -80,41 +66,9 @@
     <div class="container" style="display:flex;">
     </div>
 
-    <style>
-    #toggle-eye {
-        font-size: 20px;
-        z-index: 10;
-    }
-    @media screen AND (max-width:768px) {
 
-        #toggle-eye {
-            font-size: 28px;
-        }
-    }
-    #toggle-eye i {
-        cursor: pointer;
-    }
-    #toggle-eye i:not(.active) {
-        color: gray;
-    }
-    #bar-controls {
-        max-width:0 !important;
-        margin-left: 100vw;
-        opacity: 0;
-        transition: max-width 0.5s ease-in-out, margin-left 0.5s ease-in-out, opacity 0.75s ease-in-out;
-    }
-    #bar-controls.active {
-        max-width:100% !important;
-        margin-left: 0;
-        opacity: 1;
-    }
-
-    </style>
-
-
-    <div id="toggle-eye" style="position:fixed; right:10px; bottom:10px;">
-        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active');  $('#top-bar').toggleClass('active')"></i>
-        <span>&nbsp;&nbsp;</span>
+    <div id="toggle-btns">
+        <i class="fas fa-eye" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active')"></i>
         <i class="fas fa-filter" onclick="cycleMode()"></i>
     </div>
 
@@ -215,7 +169,7 @@
         eval("var filename = 'md-file/<?php echo $_GET["md-file"]; ?>.md'");
         console.log({filename})
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=1.4"></script>
+    <script src="assets/js/tabularize-exercises.js?v=3.2"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

@@ -10,8 +10,16 @@
 
 
 /* Page global  */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+
+    /* So content doesn't go behind the fixed footer */
+    padding-bottom: 120px;
+}
+
 .container {
-    padding: 10px;
+    padding: 0 !important;
     font-size: 100%;
 }
 
@@ -22,7 +30,7 @@
 }
 
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     .container {
         font-size: 150%;
     }
@@ -31,7 +39,7 @@
         width: 50%;
         margin: 10px auto;
     }
-}
+} */
 
 .h2 {
     margin-left: 2ch;
@@ -74,6 +82,46 @@
 }
 
 /* Page structure */
+
+#toggle-btns {
+    font-size: 20px;
+    z-index: 10;
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    gap: 20px;
+}
+
+@media screen AND (max-width:768px) {
+
+    #toggle-btns {
+        font-size: 28px;
+    }
+}
+
+#toggle-btns i {
+    cursor: pointer;
+}
+
+#toggle-btns i:not(.active) {
+    color: gray;
+}
+
+#bar-controls {
+    max-width: 0 !important;
+    margin-left: 100vw;
+    opacity: 0;
+    transition: max-width 0.5s ease-in-out, margin-left 0.5s ease-in-out, opacity 0.75s ease-in-out;
+}
+
+#bar-controls.active {
+    max-width: 100% !important;
+    margin-left: 0;
+    opacity: 1;
+}
+
 #back-to-directory {
     /* position: fixed;
     top: 0; */
@@ -153,10 +201,11 @@
 }
 
 /* Social icon will get bigger if that row is interacted with */
-tr.selected .ri-icon-hook >* { 
-    transform: scale(1.2); 
+tr.selected .ri-icon-hook>* {
+    transform: scale(1.2);
     border: 1px solid black;
-    border-bottom: 3px solid black;
+    /* border-bottom: 3px solid black; */
+    margin-top: 2.5px;
     border-top: 0;
     border-left: 0;
     border-radius: 7px;
@@ -167,6 +216,7 @@ tr.selected .ri-icon-hook >* {
 #addressed {
     font-size: 16px !important;
 }
+
 #addressed::before {
     content: "Marked:\00A0";
 }
@@ -238,10 +288,12 @@ css-only-tooltip version 1.0.0
 /* Borders */
 .dataTables_wrapper table tr {
     border: 1px solid black;
+    border-left: 0 !important;
 }
 
 .dataTables_wrapper table tbody tr.odd {
-    background-color: #f2f2f2 !important; /* Light gray background */
+    background-color: #f2f2f2 !important;
+    /* Light gray background */
 }
 
 
@@ -250,47 +302,78 @@ css-only-tooltip version 1.0.0
 .dataTables_wrapper table tr {
     display: block;
 }
+
 .dataTables_wrapper table th {
     height: 65px;
     min-height: 65px;
     max-height: 65px;
 }
+
 .dataTables_wrapper table td,
 .dataTables_wrapper table th {
-    min-width:188px;
-    max-width:188px;
-    width:188px;
-    margin:5px !important;
-}
-.dtfc-fixed-left {
-    background-color:white;
-    border-left:1.5px solid black !important;
-}
-.dataTables_wrapper table tbody tr.odd:not(.selected) .dtfc-fixed-left {
-    background-color: #f2f2f2; /* Light gray background */
-}
-.dataTables_wrapper table tbody tr.selected .dtfc-fixed-left,
-.dataTables_wrapper table tbody tr.selected td:not(.dtfc-fixed-left) {
-    background-color: #B0BED9; /* Light gray background */
+    min-width: 188px;
+    max-width: 188px;
+    width: 188px;
+    margin: 5px !important;
 }
 
-.compact-row, .compact-row td:not([fixed-column]) {
+.dtfc-fixed-left {
+    background-color: white;
+    /* border-left:1.5px solid black !important; */
+    border-left: 0 !important;
+}
+
+.dataTables_wrapper table tbody tr.odd:not(.selected) .dtfc-fixed-left {
+    background-color: #f2f2f2;
+    /* Light gray background */
+}
+
+.dataTables_wrapper table tbody tr.selected .dtfc-fixed-left,
+.dataTables_wrapper table tbody tr.selected td:not(.dtfc-fixed-left) {
+    background-color: #B0BED9;
+    /* Light gray background */
+}
+
+.compact-row,
+.compact-row td:not([fixed-column]) {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; /* Ensures text is in one line */
+    white-space: nowrap;
+    /* Ensures text is in one line */
     height: 65px;
 }
+
 .compact-row td[fixed-column] {
     white-space: normal;
+}
+
+#DataTables_Table_0>tbody>tr.selected>td.dtfc-fixed-left {
+    border: 1px dashed black !important;
 }
 
 /* Top components */
 
 #top-bar {
-    z-index: 1; 
+    margin: 0;
+    margin-top: 3px;
+    padding: 0 10px;
+
+    min-height: 38px;
+    max-height: 38px;
+    height: 38px;
+
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+
+    position: fixed;
+    left: 0;
+    width: calc(100vw - 20px);
+    z-index: 1;
 }
+
 #top-bar.active {
-    z-index: 200; 
+    z-index: 200;
 }
 
 /* DataTable */
@@ -309,7 +392,7 @@ css-only-tooltip version 1.0.0
     vertical-align: top;
 }
 
-@media screen and (max-width: 570px) {
+/* @media screen and (max-width: 570px) {
 
     .dataTables_wrapper .dataTables_length,
     .dataTables_wrapper .dataTables_filter {
@@ -317,7 +400,7 @@ css-only-tooltip version 1.0.0
         display: block !important;
         margin: 10px auto !important;
     }
-}
+} */
 
 /* DataTables header */
 .dataTables_wrapper th {
@@ -382,11 +465,16 @@ css-only-tooltip version 1.0.0
     background-color: white;
     /* padding: 0 15px !important; */
     padding: 0 !important;
+    font-weight: 100;
+    font-size: 1.2rem;
 }
 
-.dataTables_wrapper thead th[fixed-column] {
+/* .dataTables_wrapper thead th[fixed-column] {
     z-index: 10 !important;
-}
+} */
+/* .dataTables_wrapper tbody td[fixed-column] {
+    z-index: 10 !important;
+} */
 
 /* When fixed header row is in sticky position, make sure is on top of other elements on the z-axis */
 .fixedHeader-floating {
@@ -398,24 +486,30 @@ Fix plugin: Fixed Header plugin conflicting with Fixed Column plugin for DataTab
 the header where it's both fixed header and fixed column to double up when scrolling down
 and it goes from normal to sticky position
 */
-#DataTables_Table_0 th.dtfc-fixed-left { 
-    z-index: -5 !important; 
-    background-color:white
+#DataTables_Table_0 th.dtfc-fixed-left {
+    z-index: -5 !important;
+    background-color: white
 }
-#DataTables_Table_0 th:not(.dtfc-fixed-left) { 
-    z-index: -7 !important; 
+
+#DataTables_Table_0 th:not(.dtfc-fixed-left) {
+    z-index: -7 !important;
 }
-table.fixedHeader-floating th.dtfc-fixed-left { 
-    z-index: 0 !important; 
-    background-color:white
+
+table.fixedHeader-floating th.dtfc-fixed-left {
+    z-index: 0 !important;
+    background-color: white
 }
+
 table.fixedHeader-floating th:not(.dtfc-fixed-left) {
-    z-index: -5! important;
-    position: relative !important; /* Re-enables z-index */
+    z-index: -5 ! important;
+    position: relative !important;
+    /* Re-enables z-index */
 }
-#DataTables_Table_0 > thead > tr > th:nth-child(2) {
-    z-index: -7! important;
-    position: relative !important; /* Re-enables z-index */
+
+#DataTables_Table_0>thead>tr>th:nth-child(2) {
+    z-index: -7 ! important;
+    position: relative !important;
+    /* Re-enables z-index */
 }
 
 /* 
@@ -427,7 +521,7 @@ classes becausae the plugin reassigns the entire class list for the tbody tr td'
 .dataTables_wrapper tbody td[fixed-column] {
     /* transform: scale(1.05); */
     text-align: left;
-    padding-left: 5px !important;
+    /* padding-left: 5px !important; */
     /* padding-left: 0 !important; */
     /* Plugin causes offset to the left about 5px */
 }
@@ -494,16 +588,57 @@ table.dataTable.no-footer {
     border-bottom: 0 !important;
 }
 
-.btn-switch-mode:not(.active) { 
-    filter:invert(1);
-    opacity:0.25;
+.btn-switch-mode:not(.active) {
+    filter: invert(1);
+    opacity: 0.25;
 }
 
-.btn-switch-mode.active { 
-    filter:invert(0);
-    opacity:.8; 
+.btn-switch-mode.active {
+    filter: invert(0);
+    opacity: .8;
 }
 
-table.dataTable tbody th, table.dataTable tbody td {
+table.dataTable tbody th,
+table.dataTable tbody td {
     padding: 0 !important;
+    padding-left: 2.5px !important;
+}
+
+/* @media screen and (orientation: landscape) {
+    #DataTables_Table_0_wrapper {
+            width:100%;
+            box-sizing: border-box;
+            position: relative;
+        }
+} */
+/* #DataTables_Table_0_wrapper table.dataTable thead th:nth-child(1),
+    #DataTables_Table_0_wrapper table.dataTable tbody td:nth-child(1) {
+            padding-left: 35px !important;
+        
+        }
+    } */
+
+
+/* The sticky overriding top header when small screen */
+table.dataTable.fixedHeader-floating {
+    /* height: 60px !important;
+    min-height: 60px !important; */
+    padding: 10px 0 0 0 !important;
+    table-layout: unset !important;
+}
+
+table.dataTable.fixedHeader-floating th {
+    /* height: 60px !important;
+    min-height: 60px !important; */
+    padding-bottom: 20px !important;
+    height: 100%;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+    padding: 0 !important;
+}
+
+body>table>thead>tr>th.sorting_disabled.dtfc-fixed-left {
+    position: unset !important;
 }
