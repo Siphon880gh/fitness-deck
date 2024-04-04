@@ -87,11 +87,15 @@ body {
     font-size: 20px;
     z-index: 10;
     position: fixed;
-    top: 50px;
+    bottom: 10px;
     right: 10px;
     display: flex;
     flex-flow: column-reverse nowrap;
     gap: 20px;
+    transition: bottom 300ms ease-out;
+}
+#toggle-btns.out-of-way {
+    bottom: 110px;
 }
 
 @media screen AND (max-width:768px) {
