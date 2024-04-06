@@ -45,7 +45,7 @@
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.2">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.3">
 </head>
 
 <body>
@@ -171,7 +171,7 @@
         eval("var filename = 'md-file/<?php echo $_GET["md-file"]; ?>.md'");
         console.log({filename})
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=3.2"></script>
+    <script src="assets/js/tabularize-exercises.js?v=3.3"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

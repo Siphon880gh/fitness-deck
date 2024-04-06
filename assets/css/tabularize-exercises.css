@@ -390,6 +390,9 @@ css-only-tooltip version 1.0.0
 
 #DataTables_Table_0_wrapper {
     margin-top: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    border-left: 1px solid black;
 }
 
 .dataTables_wrapper td {
