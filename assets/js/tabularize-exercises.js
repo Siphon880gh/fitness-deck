@@ -12,10 +12,19 @@ if ('caches' in window) {
     });
 }
 
+// getWebpageIdentifier
+function getWebpageIdentifier() {
+    const mdFile = (new URLSearchParams(window.location.search)).get("md-file")
+    if (mdFile) return mdFile;
+    else return "ERROR";
+} // getWebpageIdentifier
+
 // Database CRUD
 function upgradeDb(event) {
     // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
     const db = event.target.result;
+
+    alert("upgrade needed")
 
     // Get all existing object store names
     var objectStoreNames = Array.from(db.objectStoreNames);
@@ -44,7 +53,6 @@ function loadAddressed() {
 
     open.onupgradeneeded = upgradeDb;
 
-
     open.onsuccess = function (event) {
         // alert("onsuccess") // Fixing mobile Safari indexedDB bug
         const db = event.target.result;
@@ -54,25 +62,30 @@ function loadAddressed() {
 
 
         // alert("Ran -1") // Fixing mobile Safari indexedDB bug
-        store.openCursor().onsuccess = function (event) {
-            const cursor = event.target.result;
+        // store.openCursor().onsuccess = function (event) {
+            // const cursor = event.target.result;
             // Continue all lines and push into results array
             // alert("Ran 0") // Fixing mobile Safari indexedDB bug
-            if (cursor) {
-                results.push(cursor.value);
-                // alert("Ran 1") // Fixing mobile Safari indexedDB bug
-                cursor.continue();
-            } else {
-                console.log('All objects retrieved:', results);
-                results.forEach(cellModel => {
-                    let { id, state } = cellModel;
-                    console.log(cellModel)
-                    if ($(`[data-id="${id}"]`)[0])
-                        $(`[data-id="${id}"]`)[0].className = state;
-                    // alert("Ran 2") // Fixing mobile Safari indexedDB bug
-                })
-            }
-        };
+            // if (cursor) {
+            //     results.push(cursor.value);
+            //     // alert("Ran 1") // Fixing mobile Safari indexedDB bug
+            //     cursor.continue();
+            // } else {
+
+        const request = store.get(getWebpageIdentifier());
+
+        request.onsuccess = function () {
+            const hasPrev = request.result?true:false;
+            const prevData = hasPrev?request.result.value:{}
+            console.log({prevData})
+            Object.entries(prevData).forEach(([key, value]) => {
+                // console.log(`Key: ${key}, Value: ${value}`);
+                if ($(`[data-id="${key}"]`)[0])
+                    $(`[data-id="${key}"]`)[0].className = value;
+            });
+
+        } // on success
+
 
         /* This is the old way that works on all browsers except mobile Safari */
         // Get all data from store
@@ -110,7 +123,7 @@ function clearAddressed() {
     saveAddressed();
 }
 
-function saveAddressed() {
+async function saveAddressed() {
     // alert("savedAd // Fixing mobile Safari indexedDB bugdressed")
 
     let open = indexedDB.open("fitness-deck", window.dbVersion);
@@ -139,14 +152,24 @@ function saveAddressed() {
 
 
         // Clear all data from store
-        store.clear().onsuccess = function (event) {
-            // alert("Store resetted to add current cells") // Fixing mobile Safari indexedDB bug
-            $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i, el) => {
-                let id = $(el).attr("data-id");
-                let state = $(el).attr("class");
-                store.put({ id, state });
-            });
-        };
+        // store.clear().onsuccess = function (event,a,b) {
+
+            
+            // request.onsuccess = function(event) {
+
+                let refreshData = {};
+
+                // alert("Store resetted to add current cells") // Fixing mobile Safari indexedDB bug
+                $(".addressed-1,.addressed-2,.addressed-3,.addressed-4").each((i, el) => {
+                    let cellId = $(el).attr("data-id");
+                    let state = $(el).attr("class");
+                    refreshData[cellId] = state;
+                    // store.put({ id: getWebpageIdentifier(), cell:cellId, state });
+                });
+                store.put({ id: getWebpageIdentifier(), value: refreshData });
+            // };
+
+        // };
 
 
         // Close the db when the transaction is done
