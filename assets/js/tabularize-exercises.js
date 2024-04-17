@@ -601,6 +601,7 @@ function renderMDFile() {
             // Rerender with an interactive table
             // Table is created by MD file rendering
 
+            debugger;
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
                 responsive: true,
                 fixedHeader: true,
