@@ -24,7 +24,7 @@ function upgradeDb(event) {
     // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
     const db = event.target.result;
 
-    alert("upgrade needed")
+    // alert("upgrade needed")
 
     // Get all existing object store names
     var objectStoreNames = Array.from(db.objectStoreNames);
@@ -601,7 +601,7 @@ function renderMDFile() {
             // Rerender with an interactive table
             // Table is created by MD file rendering
 
-            debugger;
+            // debugger;
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
                 responsive: true,
                 fixedHeader: true,
