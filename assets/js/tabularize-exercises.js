@@ -605,7 +605,7 @@ function renderMDFile() {
             window.tableHook = $("table:not(#reps-sets-table)").DataTable({
                 responsive: true,
                 fixedHeader: true,
-                ordering: false, // This will disable sorting on all columns
+                ordering: true, // This will disable sorting on all columns
                 // fixedColumns: {
                 //     left: window.fixedColumnCounts
                 // },
