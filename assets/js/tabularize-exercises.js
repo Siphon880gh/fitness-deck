@@ -654,6 +654,8 @@ function renderMDFile() {
                             if (!textExercise.includes("*Note") && !textExercise.includes("* Note")) {
                                 // Add the word "exercise" in the query if not a stretch
                                 let query = textExercise + ((/stretch|exercise/i).test(textExercise) ? "" : " exercise");
+                                query = query.replace(/^[\s\W]+/, ''); // Remove trailing " EXERCISE", "- EXERCISE", "-- EXERCISE", "-+ EXERCISE", etc so becomes "EXERCISE"
+                                query = query.replace(/\s*\([^)]*\)\s*/g, ' ').trim(); // Remove one or more parentheses comments
 
                                 let $iconGoogle = $(`<a onclick='setPrevSocial("goog")' id='goog' pattern="https://www.google.com/search?q={query}&tbm=isch" href="https://www.google.com/search?q=${query}&tbm=isch" target="_blank" class="btn-action ri-google-fill"></a>`);
                                 let $iconYoutube = $(`<a onclick='setPrevSocial("yt")'  id='yt' pattern="https://www.youtube.com/results?search_query={query}" href="https://www.youtube.com/results?search_query=${query}" target="_blank" class="btn-action ri-youtube-fill"></a>`);
