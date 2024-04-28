@@ -652,6 +652,10 @@ function renderMDFile() {
 
                             // If not a note row, then add social media exercise information icons
                             if (!textExercise.includes("*Note") && !textExercise.includes("* Note")) {
+
+                                var mutedParenthesesComments = textExercise.replace(/\((.*?)\)/g, '<span class="text-parentheses">($1)</span>');
+                                $cell.html(mutedParenthesesComments);
+
                                 // Add the word "exercise" in the query if not a stretch
                                 let query = textExercise + ((/stretch|exercise/i).test(textExercise) ? "" : " exercise");
                                 query = query.replace(/^[\s\W]+/, ''); // Remove trailing " EXERCISE", "- EXERCISE", "-- EXERCISE", "-+ EXERCISE", etc so becomes "EXERCISE"

@@ -81,6 +81,15 @@ body {
     content: "◦\00a0";
 }
 
+.text-parentheses {
+    font-size: 90%;
+    color: #6c757d !important;
+    font-weight: 200;
+}
+.text-parentheses.more {
+    display: none;
+}
+
 /* Page structure */
 
 #toggle-btns {
