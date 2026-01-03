@@ -4,7 +4,10 @@ Prompt:
 Execute the prompt with inputs.
 
 ## Inputs:
-All md files in `md-file/Bodybuilding - Minimum Equipment/` except Back.up.md
+All md files in:
+- `md-file/Cardio/`
+- `md-file/Mobility/`
+- `md-file/Rehab - Shin Splints/`
 
 ## Outputs:
 Save as an "up.md" version, eg `Back.up.md` for `Back.md`
