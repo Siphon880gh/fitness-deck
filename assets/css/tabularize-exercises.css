@@ -674,3 +674,147 @@ tbody tr td:nth-child(5)::before {
 tbody tr td:nth-child(6)::before {
     content: "5.\00a0";
 }
+
+/* Notes Panel (slide-in from right) */
+#notes-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 300ms ease-out, visibility 300ms ease-out;
+}
+
+#notes-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#notes-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 90vw;
+    max-width: 480px;
+    height: 100vh;
+    background: linear-gradient(135deg, #fefae0 0%, #faedcd 100%);
+    box-shadow: -4px 0 24px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transform: translateX(100%);
+    transition: transform 350ms cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+#notes-panel.active {
+    transform: translateX(0);
+}
+
+#notes-panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, #d4a373 0%, #ccd5ae 100%);
+    border-bottom: 2px solid #bc6c25;
+    flex-shrink: 0;
+}
+
+#notes-panel-header h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #3d2c1e;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+#notes-close {
+    background: #bc6c25;
+    border: none;
+    color: #fefae0;
+    font-size: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 200ms ease, transform 200ms ease;
+}
+
+#notes-close:hover {
+    background: #9a5a1f;
+    transform: scale(1.1);
+}
+
+#notes-panel-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    color: #3d2c1e;
+    line-height: 1.7;
+}
+
+#notes-panel-content h1 {
+    font-size: 1.6rem;
+    border-bottom: 2px solid #d4a373;
+    padding-bottom: 8px;
+    margin-top: 0;
+    color: #6b4423;
+}
+
+#notes-panel-content h2 {
+    font-size: 1.3rem;
+    margin-top: 24px;
+    margin-bottom: 8px;
+    color: #7c5a3b;
+}
+
+#notes-panel-content h3 {
+    font-size: 1.1rem;
+    margin-top: 16px;
+    color: #8b6f4e;
+}
+
+#notes-panel-content ul {
+    padding-left: 24px;
+    margin: 12px 0;
+}
+
+#notes-panel-content li {
+    margin-bottom: 6px;
+}
+
+#notes-panel-content hr {
+    border: none;
+    border-top: 1px dashed #bc6c25;
+    margin: 20px 0;
+}
+
+#notes-panel-content em {
+    color: #7c5a3b;
+    font-style: italic;
+}
+
+#notes-panel-content strong {
+    color: #5c3d1e;
+}
+
+#notes-panel-content p {
+    margin: 10px 0;
+}
+
+/* Book icon styling */
+#btn-notes {
+    color: #d4a373 !important;
+}
+
+#btn-notes.active {
+    color: #bc6c25 !important;
+}

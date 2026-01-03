@@ -29,6 +29,11 @@
         $currentPageWithoutExtension = str_replace($extension, '', $currentPageWithoutExtension);
     }
     if(strlen($exerciseGroupName)===0) $exerciseGroupName = $currentPageWithoutExtension;
+
+    // Check if a supplementary .up.md file exists
+    $dirPath = dirname($mdFile);
+    $upMdFile = $dirPath . '/' . $currentPageWithoutExtension . '.up.md';
+    $upMdExists = file_exists('md-file/' . $upMdFile);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,7 +50,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.3">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.4">
 </head>
 
 <body>
@@ -68,12 +73,29 @@
 
 
     <div id="toggle-btns">
+        <?php if($upMdExists): ?>
+        <i id="btn-notes" class="fas fa-book" onclick="toggleNotesPanel()"></i>
+        <?php endif; ?>
         <i class="fas fa-filter" onclick="cycleMode()"></i>
         <i class="fas fa-random" onclick="goRandomRow()"></i>
         <i class="fas fa-eye" onclick='$(".text-parentheses").toggleClass("more")'></i>
         <i class="fas fa-tachometer-alt" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')"></i>
 
     </div>
+
+    <!-- Notes slide-in panel -->
+    <?php if($upMdExists): ?>
+    <div id="notes-overlay" onclick="closeNotesPanel()"></div>
+    <div id="notes-panel">
+        <div id="notes-panel-header">
+            <h3>📓 Notes</h3>
+            <button id="notes-close" onclick="closeNotesPanel()">✕</button>
+        </div>
+        <div id="notes-panel-content">
+            Loading...
+        </div>
+    </div>
+    <?php endif; ?>
 
     <div id="bar-controls">
         <ul id="control-panels">
@@ -171,8 +193,12 @@
         // PHP brings in Google Sheet Data directly is faster
         eval("var filename = 'md-file/<?php echo $_GET["md-file"]; ?>.md'");
         console.log({filename})
+        
+        // Notes panel (.up.md file)
+        var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
+        var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=3.3"></script>
+    <script src="assets/js/tabularize-exercises.js?v=3.4"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

@@ -32,6 +32,11 @@ function debugFilenames($filepaths) {
 $filepaths = glob_recursive("$relativePathing/md-file/*\.md");
 //debugFilenames($filepaths);
 
+// Filter out .up.md files (supplementary notes files)
+$filepaths = array_values(array_filter($filepaths, function($filepath) {
+    return substr($filepath, -6) !== '.up.md';
+}));
+
 $associativeArray = array_map(function($filepath) {
     return ['folder' => basename(dirname($filepath)), 'file' => substr(basename($filepath), 0, -3)];
 }, $filepaths);

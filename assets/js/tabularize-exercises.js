@@ -821,6 +821,78 @@ function bindToInnerSearch() {
 
 
 
+/* Notes Panel Functions */
+window.notesPanelLoaded = false;
+
+function toggleNotesPanel() {
+    const panel = document.getElementById('notes-panel');
+    const overlay = document.getElementById('notes-overlay');
+    const btnNotes = document.getElementById('btn-notes');
+    
+    if (!panel || !overlay) return;
+    
+    const isActive = panel.classList.contains('active');
+    
+    if (isActive) {
+        closeNotesPanel();
+    } else {
+        panel.classList.add('active');
+        overlay.classList.add('active');
+        btnNotes?.classList.add('active');
+        
+        // Load content if not already loaded
+        if (!window.notesPanelLoaded && window.upMdExists) {
+            loadNotesContent();
+        }
+    }
+}
+
+function closeNotesPanel() {
+    const panel = document.getElementById('notes-panel');
+    const overlay = document.getElementById('notes-overlay');
+    const btnNotes = document.getElementById('btn-notes');
+    
+    panel?.classList.remove('active');
+    overlay?.classList.remove('active');
+    btnNotes?.classList.remove('active');
+}
+
+function loadNotesContent() {
+    const contentEl = document.getElementById('notes-panel-content');
+    if (!contentEl) return;
+    
+    fetch(encodeURI(window.upMdFilename), { cache: "no-cache" })
+        .then(response => {
+            if (!response.ok) throw new Error('File not found');
+            return response.text();
+        })
+        .then(markdown => {
+            var md = window.markdownit({
+                linkify: true,
+                breaks: true
+            });
+            var rendered = md.render(markdown);
+            contentEl.innerHTML = rendered;
+            window.notesPanelLoaded = true;
+            
+            // Make links open in new window
+            contentEl.querySelectorAll('a').forEach(a => {
+                a.setAttribute('target', '_blank');
+            });
+        })
+        .catch(err => {
+            contentEl.innerHTML = '<p style="color: #bc6c25;">Unable to load notes file.</p>';
+            console.error('Notes panel error:', err);
+        });
+}
+
+// Close panel on Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeNotesPanel();
+    }
+});
+
 window.modeAt = 0;
 const cycleMode = () => {
     window.modeAt = (window.modeAt % 5) + 1 // Cycles through 1,2,3,4
