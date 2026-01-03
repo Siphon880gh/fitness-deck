@@ -879,11 +879,184 @@ function loadNotesContent() {
             contentEl.querySelectorAll('a').forEach(a => {
                 a.setAttribute('target', '_blank');
             });
+            
+            // Build section navigation
+            buildSectionNav();
         })
         .catch(err => {
             contentEl.innerHTML = '<p style="color: #bc6c25;">Unable to load notes file.</p>';
             console.error('Notes panel error:', err);
         });
+}
+
+/* Section Navigation for Notes Panel */
+window.currentSectionIndex = 0;
+window.noteSections = [];
+window.isJumpingToSection = false;
+
+function buildSectionNav() {
+    const contentEl = document.getElementById('notes-panel-content');
+    const h2s = contentEl.querySelectorAll('h2');
+    
+    if (h2s.length < 2) return; // Need at least 2 sections for nav
+    
+    // Store sections with their elements and titles
+    window.noteSections = Array.from(h2s).map((h2, index) => ({
+        element: h2,
+        title: h2.textContent.trim(),
+        index: index
+    }));
+    
+    // Add IDs to h2s for scrolling
+    window.noteSections.forEach((section, i) => {
+        section.element.id = `notes-section-${i}`;
+    });
+    
+    // Create section nav container
+    const navContainer = document.createElement('div');
+    navContainer.id = 'notes-section-nav';
+    navContainer.className = 'collapsed'; // Start collapsed
+    
+    // Build all section items
+    let navHTML = '<div class="section-nav-list">';
+    
+    // Previous sections (above current)
+    navHTML += '<div class="section-nav-prev-list"></div>';
+    
+    // Current section indicator
+    navHTML += '<div class="section-nav-current"></div>';
+    
+    // Next sections (below current)
+    navHTML += '<div class="section-nav-next-list"></div>';
+    
+    navHTML += '</div>';
+    
+    // Add expand/collapse toggle
+    navHTML += '<div class="section-nav-toggle" onclick="toggleSectionNav()"><span class="toggle-icon">▾</span></div>';
+    
+    navContainer.innerHTML = navHTML;
+    
+    // Insert nav after header
+    const header = document.getElementById('notes-panel-header');
+    header.parentNode.insertBefore(navContainer, header.nextSibling);
+    
+    // Set up scroll observer
+    setupSectionObserver();
+    updateSectionNav();
+}
+
+function setupSectionObserver() {
+    const contentEl = document.getElementById('notes-panel-content');
+    
+    const observer = new IntersectionObserver((entries) => {
+        // Skip observer updates during programmatic jumps
+        if (window.isJumpingToSection) return;
+        
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                const index = parseInt(id.replace('notes-section-', ''));
+                if (!isNaN(index)) {
+                    window.currentSectionIndex = index;
+                    updateSectionNav();
+                }
+            }
+        });
+    }, {
+        root: contentEl,
+        threshold: 0.5,
+        rootMargin: '-20% 0px -60% 0px'
+    });
+    
+    window.noteSections.forEach(section => {
+        observer.observe(section.element);
+    });
+}
+
+function updateSectionNav() {
+    const sections = window.noteSections;
+    const current = window.currentSectionIndex;
+    
+    const navContainer = document.getElementById('notes-section-nav');
+    const prevList = document.querySelector('.section-nav-prev-list');
+    const currentEl = document.querySelector('.section-nav-current');
+    const nextList = document.querySelector('.section-nav-next-list');
+    
+    // Build previous sections
+    let prevHTML = '';
+    for (let i = 0; i < current; i++) {
+        prevHTML += `<div class="section-item section-prev" onclick="jumpToSection(${i})">
+            <span class="section-arrow">↑</span>
+            <span class="section-title">${sections[i].title}</span>
+        </div>`;
+    }
+    prevList.innerHTML = prevHTML;
+    
+    // Build current section
+    currentEl.innerHTML = `<div class="section-item section-active">
+        <span class="section-marker">●</span>
+        <span class="section-title">${sections[current].title}</span>
+    </div>`;
+    
+    // Build next sections
+    let nextHTML = '';
+    for (let i = current + 1; i < sections.length; i++) {
+        nextHTML += `<div class="section-item section-next" onclick="jumpToSection(${i})">
+            <span class="section-arrow">↓</span>
+            <span class="section-title">${sections[i].title}</span>
+        </div>`;
+    }
+    nextList.innerHTML = nextHTML;
+    
+    // Scroll nav to keep current section visible
+    scrollNavToCurrentSection();
+}
+
+function scrollNavToCurrentSection() {
+    const navList = document.querySelector('.section-nav-list');
+    const currentEl = document.querySelector('.section-nav-current');
+    
+    if (!navList || !currentEl) return;
+    
+    // Get positions
+    const listRect = navList.getBoundingClientRect();
+    const currentRect = currentEl.getBoundingClientRect();
+    
+    // Calculate where current section is relative to the list container
+    const currentTop = currentRect.top - listRect.top + navList.scrollTop;
+    const listHeight = navList.clientHeight;
+    
+    // Scroll to center the current section in the list
+    const targetScroll = currentTop - (listHeight / 2) + (currentRect.height / 2);
+    
+    navList.scrollTo({
+        top: Math.max(0, targetScroll),
+        behavior: 'smooth'
+    });
+}
+
+function jumpToSection(index) {
+    const section = window.noteSections[index];
+    if (section) {
+        // Pause observer during jump
+        window.isJumpingToSection = true;
+        window.currentSectionIndex = index;
+        updateSectionNav();
+        
+        section.element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        
+        // Re-enable observer after scroll completes
+        setTimeout(() => {
+            window.isJumpingToSection = false;
+        }, 500);
+    }
+}
+
+function toggleSectionNav() {
+    const nav = document.getElementById('notes-section-nav');
+    if (nav) {
+        nav.classList.toggle('collapsed');
+    }
 }
 
 // Close panel on Escape key
