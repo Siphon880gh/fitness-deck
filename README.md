@@ -24,6 +24,31 @@ The foldername would be at `[0]`
 
 Developers can feel free to contribute to a multi level organization. I recommend counting the forward slashes then using hash or other data structure, to track and then render the listing differently.
 
+## Supplementary Notes (.up.md files)
+
+You can author supplementary notes for any exercise file by creating a file with the same name but with `.up.md` extension.
+
+### Authoring Notes
+
+For example, if you have `Back.md`, create `Back.up.md` in the same folder:
+```
+md-file/Stretch/Back.md      <- Exercise table
+md-file/Stretch/Back.up.md   <- Supplementary notes
+```
+
+The `.up.md` file supports standard Markdown formatting (headings, lists, links, etc.).
+
+### How Users View Notes
+
+When a `.up.md` file exists for an exercise:
+- A 📖 book icon appears as the first button in the bottom-right toggle buttons
+- Clicking the icon slides in a notes panel from the right
+- Users can dismiss the panel by:
+  - Clicking the ✕ close button
+  - Clicking the dark overlay
+  - Pressing the Escape key
+
+Note: `.up.md` files are automatically hidden from the main directory listing.
 
 ## Prompts
 
