@@ -991,3 +991,49 @@ tbody tr td:nth-child(6)::before {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+
+/* Filter Toast */
+.filter-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 9999;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.filter-toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.filter-toast.green {
+    background-color: rgba(204, 255, 204, 1);
+    color: #2d5a2d;
+}
+
+.filter-toast.cyan {
+    background-color: rgba(0, 204, 204, 1);
+    color: #004d4d;
+}
+
+.filter-toast.pink {
+    background-color: rgba(255, 204, 204, 1);
+    color: #8b3a3a;
+}
+
+.filter-toast.purple {
+    background-color: rgba(204, 153, 255, 1);
+    color: #4a2d6e;
+}
+
+.filter-toast.all {
+    background-color: #333;
+    color: #fff;
+}

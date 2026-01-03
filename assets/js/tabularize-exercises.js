@@ -1067,13 +1067,22 @@ document.addEventListener('keydown', function(e) {
 });
 
 window.modeAt = 0;
-const cycleMode = () => {
-    window.modeAt = (window.modeAt % 5) + 1 // Cycles through 1,2,3,4
+window.cycleMode = () => {
+    window.modeAt = (window.modeAt % 5) + 1 // Cycles through 1,2,3,4,5
+
+    const modeInfo = {
+        1: { label: 'Filter in: Green', colorClass: 'green' },
+        2: { label: 'Filter in: Cyan', colorClass: 'cyan' },
+        3: { label: 'Filter in: Pink', colorClass: 'pink' },
+        4: { label: 'Filter in: Purple', colorClass: 'purple' },
+        5: { label: 'Filter in: No Colors', colorClass: 'all' }
+    };
 
     if (window.modeAt === 5) {
         document.querySelectorAll("tr.hidden").forEach(tr => {
             $(tr).removeClass("hidden")
         });
+        showFilterToast(modeInfo[5].label, modeInfo[5].colorClass);
     } else {
         document.querySelectorAll("tr").forEach(tr => {
             if (!$(tr).find(`td.addressed-${modeAt}`).length) {
@@ -1084,8 +1093,31 @@ const cycleMode = () => {
         });
 
         if (document.querySelectorAll("tr:not(.hidden").length === 0) {
-            // window.modeAt = 4;
             cycleMode();
+        } else {
+            showFilterToast(modeInfo[window.modeAt].label, modeInfo[window.modeAt].colorClass);
         }
     }
+}
+
+function showFilterToast(message, colorClass) {
+    let toast = document.getElementById('filter-toast');
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'filter-toast';
+        toast.className = 'filter-toast';
+        document.body.appendChild(toast);
+    }
+    
+    toast.className = 'filter-toast ' + colorClass;
+    toast.textContent = message;
+    
+    // Trigger reflow to restart animation
+    toast.offsetHeight;
+    toast.classList.add('show');
+    
+    clearTimeout(window.filterToastTimeout);
+    window.filterToastTimeout = setTimeout(() => {
+        toast.classList.remove('show');
+    }, 1500);
 }
