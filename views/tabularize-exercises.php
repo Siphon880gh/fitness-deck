@@ -57,7 +57,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.4">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.22">
 </head>
 
 <body class="fd-table">
@@ -141,67 +141,114 @@
 
     <div id="bar-controls">
         <ul id="control-panels">
-            <li>
-                <div class="icon">
-                    <div class="icon-inner" onclick="toggleElementRelative(event, 'li', '.control-panel')">
+            <li id="session-exercise-item">
+                <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
+                    <div class="icon-inner" id="session-exercise-chip">
                         <img src="assets/icons/box.png" alt="">
-                        <span>Info</span>
+                        <span>Exercise</span>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="300px">
-                    <h3 style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo htmlspecialchars($exerciseGroupName); ?></h3>
-                </div>
-            </li>
-            <li>
-                <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
-                    <div class="icon-inner">
-                        <img src="assets/icons/countdown.png" alt="">
-                        <span>Time</span>
-                    </div>
-                </div>
-                <div class="control-panel cp-hidden" data-width="300px">
-                    <div id="cp-countdown">
-                        <button id="countdown-operator" class='is-plus' onclick="event.target.classList.toggle('is-plus')"></button>
-                        <button class='countdown-quant' data-value="10">10</button>
-                        <button class='countdown-quant' data-value="30">30</button>
-                        <button class='countdown-quant' data-value="60">60</button>
-                        <button class='countdown-quant' data-value="90">90</button>
-                        <hr id="countdown-divider"/>
-                        <div id="countdown-mains">
-                            <button id="countdown-stop-play"></button>
-                            <div id="countdown-display"></div>
+                <div class="control-panel cp-hidden" data-width="320px" id="session-exercise-panel">
+                    <div id="session-exercise">
+                        <div id="session-exercise-popover" class="session-exercise-popover" hidden role="status" aria-live="polite">
+                            <strong>Assign an exercise first</strong>
+                            <span>Click an exercise card on the deck, or pick one from the dropdown.</span>
                         </div>
-                    </div> <!-- cp-countdown -->
-                </div>
-            </li>
-            <li>
-                <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
-                    <div class="icon-inner">
-                        <img src="assets/icons/counter.png" alt="">
-                        <span>Reps</span>
+                        <div class="session-exercise-head">
+                            <div id="session-exercise-name" class="session-exercise-empty" data-exercise="">No exercise assigned</div>
+                            <button type="button" id="session-exercise-clear" class="session-exercise-clear-link" title="Clear assigned exercise">Clear</button>
+                        </div>
+                        <div class="session-exercise-actions">
+                            <label class="session-exercise-pick-label">
+                                <span class="visually-hidden">Pick exercise</span>
+                                <select id="session-exercise-pick" aria-label="Pick exercise from this page">
+                                    <option value="">Pick…</option>
+                                </select>
+                            </label>
+                        </div>
                     </div>
                 </div>
-                <div class="control-panel cp-hidden" data-width="300px">
-                    <div id="reps-sets-wrapper">
-                        <div id="r-plus"></div>
-                        <table id="reps-sets-table">
-                            <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Set</td>
-                                <td class="initial">1st</td>
-                            </tr>
-                            <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Rep</td>
-                                <td class="initial"><input type="number" min="0"></input></td>
-                            </tr>
-                            <tr>
-                                <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Wt</td>
-                                <td class="initial"><input type="number" min="0"></input></td>
-                            </tr>
-                        </table>
-                    </div> <!-- reps-sets-wrapper -->
+            </li>
+            <li class="session-work-group" aria-label="Duration and sets">
+                <div class="session-work-shell">
+                    <span class="session-work-label">Duration &amp; sets</span>
+                    <div class="session-work-items">
+                        <div class="session-work-item session-needs-exercise" id="session-time-item">
+                            <div class="icon">
+                                <div class="icon-inner is-disabled" id="session-time-chip" role="button" tabindex="0" aria-label="Session timer" aria-disabled="true" title="Assign an exercise first">
+                                    <img src="assets/icons/countdown.png" alt="">
+                                    <span>Time</span>
+                                </div>
+                            </div>
+                            <div class="control-panel cp-hidden" data-width="300px" id="session-time-panel">
+                                <div id="cp-countdown">
+                                    <button id="countdown-operator" class='is-plus' onclick="event.target.classList.toggle('is-plus')"></button>
+                                    <button class='countdown-quant' data-value="10">10</button>
+                                    <button class='countdown-quant' data-value="15">15</button>
+                                    <button class='countdown-quant' data-value="30">30</button>
+                                    <button class='countdown-quant' data-value="60">60</button>
+                                    <hr id="countdown-divider"/>
+                                    <div id="countdown-mains">
+                                        <button id="countdown-stop-play"></button>
+                                        <div id="countdown-display"></div>
+                                    </div>
+                                </div> <!-- cp-countdown -->
+                            </div>
+                        </div>
+                        <div class="session-work-item session-needs-exercise" id="session-reps-item">
+                            <div class="icon">
+                                <div class="icon-inner" id="session-reps-chip" role="button" tabindex="0" aria-label="Reps and sets">
+                                    <i class="fas fa-dumbbell" aria-hidden="true"></i>
+                                    <span>Reps</span>
+                                </div>
+                            </div>
+                            <div class="control-panel cp-hidden" data-width="300px" id="session-reps-panel">
+                                <div id="reps-sets-wrapper">
+                                    <div id="r-plus"></div>
+                                    <table id="reps-sets-table">
+                                        <tr>
+                                            <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Set</td>
+                                            <td class="initial">1st</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Rep</td>
+                                            <td class="initial"><input type="number" min="0"></input></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="initial" style="cursor:pointer;" onclick="optionsRepsTable();">Wt</td>
+                                            <td class="initial"><input type="number" min="0"></input></td>
+                                        </tr>
+                                    </table>
+                                </div> <!-- reps-sets-wrapper -->
+                            </div>
+                        </div>
+                        <div class="session-work-item session-reset-item">
+                            <button type="button" id="session-reset-btn" class="session-reset-btn" title="Reset duration and sets only">
+                                <i class="fas fa-undo" aria-hidden="true"></i>
+                                <span>Reset</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </li>
         </ul>
+        <div class="session-end-stack" id="session-end-stack">
+            <div class="control-panel cp-hidden session-history-panel" id="session-history-panel" data-width="360px">
+                <div id="session-history">
+                    <div id="session-history-list" class="session-history-empty">No saved sessions yet</div>
+                </div>
+            </div>
+            <div class="session-end-actions">
+                <button type="button" class="session-end-btn" id="session-history-chip" aria-label="Session history" aria-expanded="false">
+                    <i class="fas fa-history" aria-hidden="true"></i>
+                    <span>History</span>
+                </button>
+                <button type="button" class="session-end-btn is-disabled" id="session-save-btn" aria-label="Save session to history" aria-disabled="true" title="Assign an exercise first">
+                    <i class="fas fa-save" aria-hidden="true"></i>
+                    <span>Save</span>
+                </button>
+            </div>
+        </div>
     </div> <!-- bar-controls -->
 
     <div id="credits-modal" class="modal fd-credits-modal" hidden>
@@ -248,11 +295,12 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=5.2"></script>
-    <script src="assets/js/control-bar.js"></script>
-    <script src="assets/js/countdown.js"></script>
+    <script src="assets/js/tabularize-exercises.js?v=5.4"></script>
+    <script src="assets/js/control-bar.js?v=5.6"></script>
+    <script src="assets/js/countdown.js?v=5.6"></script>
     <script src="assets/js/modal.js"></script>
-    <script src="assets/js/reps.js"></script>
+    <script src="assets/js/reps.js?v=5.5"></script>
+    <script src="assets/js/session-history.js?v=5.14"></script>
     
 </body>
 

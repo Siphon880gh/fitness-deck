@@ -1,145 +1,393 @@
 :root {
-    --bar-controls-height: 100px;
+    --bar-controls-height: 8rem;
 }
 
-
 #bar-controls {
+    --session-end-rail-width: 9rem;
     width: 100vw;
     height: var(--bar-controls-height);
     position: fixed;
     bottom: 0;
     left: 0;
-    padding: 0 5px;
-    background-color: white;
-    z-index:2;
+    padding: 0;
+    background-color: var(--fd-bg-elevated);
+    border-top: 1px solid var(--fd-border);
+    box-shadow: 0 -8px 28px oklch(0.22 0.02 145 / 0.06);
+    z-index: 2;
+    font-family: var(--fd-font-body);
+    color: var(--fd-ink);
+    overflow: visible;
 }
+
 #bar-controls ul#control-panels {
     margin: 0;
-    padding: 0;
-    border-top: 1px inset gray;
+    padding: 0.55rem var(--session-end-rail-width) 0.55rem 0.85rem;
     list-style: none;
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-around;
-    height: var(--bar-controls-height);
-    /* background-color: cyan; */
-    align-items: center;
-    align-content: center;
-    gap: 0;
-    transition:all 500ms ease;
-    overflow-x: scroll;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0.65rem;
+    height: 100%;
+    box-sizing: border-box;
+    transition: all 300ms var(--fd-ease);
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 @media screen and (max-width: 768px) {
-    #bar-controls ul#control-panels {
-        justify-content: center !important;
+    #bar-controls {
+        --session-end-rail-width: 7.75rem;
     }
-    #bar-controls ul#control-panels li > .icon > .icon-inner {
-        transform: scale(1) !important;
+
+    #bar-controls ul#control-panels {
+        justify-content: flex-start;
+        gap: 0.45rem;
+        padding: 0.45rem var(--session-end-rail-width) 0.45rem 0.55rem;
     }
 }
 
 #bar-controls ul#control-panels li {
-    display:flex;
+    display: flex;
     flex-flow: row nowrap;
-    /* border:1px solid black; */
-    height: var(--bar-controls-height);
+    align-items: center;
+    gap: 0.55rem;
+    height: 100%;
+    flex-shrink: 0;
 }
 
-#bar-controls ul#control-panels li > * {
-    display: inline-block;
-}
-#bar-controls ul#control-panels li > .icon {
-    min-width: 85px;
-    display:flex;
+#bar-controls ul#control-panels li > .icon,
+#bar-controls .session-work-item > .icon {
+    min-width: auto;
+    display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
 }
-#bar-controls ul#control-panels li > .icon > .icon-inner {
-    max-width: 55px;
-    width:fit-content;
-    height:17px;
-    font-size: 80%;
-    color: white;
-    background-color: black;
-    border-radius: 10px;
-    padding-bottom:5px;
-    padding-left:10px;
-    padding-right:10px;
-    cursor:pointer;
-    transition: all 700ms ease;
+
+#bar-controls ul#control-panels li > .icon > .icon-inner,
+#bar-controls .session-work-item > .icon > .icon-inner {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    width: fit-content;
+    max-width: none;
+    min-height: 2.25rem;
+    height: auto;
+    padding: 0.4rem 0.7rem;
+    font-family: var(--fd-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--fd-ink-muted);
+    background: var(--fd-bg);
+    border: 1px solid var(--fd-border);
+    border-radius: var(--fd-radius);
+    box-shadow: none;
+    cursor: pointer;
     overflow: hidden;
     white-space: nowrap;
-    transform:scale(1.25);
-}
-#bar-controls ul#control-panels li > .icon > .icon-inner:hover {
-    border: 1px solid gray;
-    filter: invert(1);
-}
-#bar-controls ul#control-panels li > .icon > .icon-inner > img {
-    width: 15px;
-    height: 15px;
-    filter: grayscale(1) invert(1);
-    transform:translateY(2.5px);
-}
-#bar-controls ul#control-panels li .control-panel {
-    display: inline-block;
-    opacity: 1;
-    transition: width 0.6s cubic-bezier(0, 0.2, 0.8, 1), opacity 0.6s cubic-bezier(0, 0.2, 0.8, 1);
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    overflow-y: hidden;
-    padding: 0 10px;
+    transform: none;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
-#bar-controls ul#control-panels li .control-panel.cp-hidden {
-    display: inline-block;
+#bar-controls ul#control-panels li > .icon > .icon-inner:hover,
+#bar-controls ul#control-panels li > .icon > .icon-inner:focus-visible,
+#bar-controls .session-work-item > .icon > .icon-inner:hover,
+#bar-controls .session-work-item > .icon > .icon-inner:focus-visible {
+    color: var(--fd-accent-hover);
+    border-color: var(--fd-accent);
+    filter: none;
+    outline: none;
+}
+
+#bar-controls ul#control-panels li > .icon > .icon-inner > img,
+#bar-controls .session-work-item > .icon > .icon-inner > img {
+    width: 0.95rem;
+    height: 0.95rem;
+    filter: none;
+    opacity: 0.75;
+    transform: none;
+    flex-shrink: 0;
+}
+
+#bar-controls ul#control-panels li > .icon > .icon-inner > i.fas,
+#bar-controls ul#control-panels li > .icon > .icon-inner > i.far,
+#bar-controls .session-work-item > .icon > .icon-inner > i.fas,
+#bar-controls .session-work-item > .icon > .icon-inner > i.far {
+    font-size: 0.9rem;
+    line-height: 1;
+    width: 1rem;
+    text-align: center;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+#bar-controls ul#control-panels li .icon-inner > span,
+#bar-controls .session-work-item .icon-inner > span {
+    max-width: none;
+    width: auto;
+    margin: 0;
+    height: auto;
+    line-height: 1.2;
+    display: inline;
+    transition: none;
+}
+
+/* Collapsed: icon only (label on hover) — direct li panels + work items */
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):has(.cp-hidden) > .icon,
+#bar-controls .session-work-item:has(.cp-hidden) > .icon {
+    min-width: auto;
+    margin: 0;
+}
+
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):has(.cp-hidden) > .icon .icon-inner > span,
+#bar-controls .session-work-item:has(.cp-hidden) > .icon .icon-inner > span {
+    max-width: 0;
     width: 0;
+    margin: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-width 0.2s ease, opacity 0.15s ease;
+}
+
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):has(.cp-hidden) > .icon .icon-inner:hover > span,
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):has(.cp-hidden) > .icon .icon-inner:focus-visible > span,
+#bar-controls .session-work-item:has(.cp-hidden) > .icon .icon-inner:hover > span,
+#bar-controls .session-work-item:has(.cp-hidden) > .icon .icon-inner:focus-visible > span {
+    max-width: 5rem;
+    width: auto;
+    opacity: 1;
+    margin-left: 0;
+}
+
+/* Expanded panel: accent chip like .fd-tool.active */
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):not(:has(.cp-hidden)) > .icon > .icon-inner,
+#bar-controls .session-work-item:not(:has(.cp-hidden)) > .icon > .icon-inner {
+    background: var(--fd-accent);
+    border-color: var(--fd-accent);
+    color: oklch(0.98 0.01 160);
+    max-width: none;
+}
+
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):not(:has(.cp-hidden)) .icon-inner > span,
+#bar-controls .session-work-item:not(:has(.cp-hidden)) .icon-inner > span {
+    display: inline !important;
+    width: auto;
+    max-width: none;
+    opacity: 1;
+}
+
+#bar-controls ul#control-panels li:not(.session-work-group):not(.session-end-stack):not(:has(.cp-hidden)) > .icon > .icon-inner > img,
+#bar-controls .session-work-item:not(:has(.cp-hidden)) > .icon > .icon-inner > img {
+    filter: brightness(0) invert(1);
+    opacity: 1;
+}
+
+/* Right-end rail: sibling of #control-panels so list overflow/padding cannot clip it. */
+#bar-controls .session-end-stack {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: var(--session-end-rail-width);
+    z-index: 4;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#bar-controls .session-end-stack > .session-end-actions {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: var(--fd-accent-soft);
+    border-left: 2px solid var(--fd-accent);
+}
+
+#bar-controls .session-end-stack .session-end-btn {
+    flex: 1 1 50%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.6rem;
+    width: 100%;
+    margin: 0;
+    padding: 0 0.85rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: var(--fd-accent-hover);
+    font-family: var(--fd-font-body);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+#bar-controls .session-end-stack .session-end-btn + .session-end-btn {
+    border-top: 1px solid oklch(0.42 0.08 160 / 0.22);
+}
+
+#bar-controls .session-end-stack .session-end-btn > i {
+    width: 1.2rem;
+    font-size: 1.05rem;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+#bar-controls .session-end-stack .session-end-btn:hover,
+#bar-controls .session-end-stack .session-end-btn:focus-visible {
+    background: oklch(1 0 0 / 0.45);
+    color: var(--fd-accent-hover);
+    outline: none;
+}
+
+#bar-controls .session-end-stack #session-history-chip.is-open,
+#bar-controls .session-end-stack #session-save-btn:not(.is-disabled):hover,
+#bar-controls .session-end-stack #session-save-btn:not(.is-disabled):focus-visible {
+    background: var(--fd-accent);
+    color: oklch(0.98 0.01 160);
+}
+
+#bar-controls .session-end-stack #session-save-btn.is-disabled {
+    background: transparent;
+    color: oklch(0.42 0.08 160 / 0.5);
+}
+
+#bar-controls .session-end-stack #session-save-btn.is-disabled:hover,
+#bar-controls .session-end-stack #session-save-btn.is-disabled:focus-visible {
+    background: oklch(1 0 0 / 0.35);
+    color: var(--fd-accent-hover);
+}
+
+#bar-controls ul#control-panels li .control-panel,
+#bar-controls .session-work-item .control-panel {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: stretch;
+    opacity: 1;
+    overflow: hidden;
+    padding: 0.35rem 0.65rem;
+    margin: 0;
+    min-height: 0;
+    height: calc(var(--bar-controls-height) - 2.4rem);
+    box-sizing: border-box;
+    background: var(--fd-bg-elevated);
+    border: 1px solid var(--fd-border);
+    border-radius: var(--fd-radius);
+    transition: width 0.35s var(--fd-ease), opacity 0.25s ease, padding 0.25s ease, border-color 0.2s ease;
+}
+
+#bar-controls ul#control-panels li:not(.session-work-group) .control-panel {
+    height: calc(var(--bar-controls-height) - 1.4rem);
+    background: var(--fd-bg);
+}
+
+#bar-controls ul#control-panels li .control-panel.cp-hidden,
+#bar-controls .session-work-item .control-panel.cp-hidden {
+    display: flex;
+    width: 0 !important;
+    min-width: 0;
     height: 0;
     opacity: 0;
+    padding: 0;
+    margin: 0;
+    border-width: 0;
+    overflow: hidden;
+    pointer-events: none;
 }
 
-/* Make label only appear next to icon when expanded. This requires :has to work
-   If :has does not work, it falls back to just ignoring these effects */
-#bar-controls ul#control-panels li:not(:has(.cp-hidden)) > .icon > .icon-inner {
-    border: 1px solid red;
+/* Duration & sets cluster: Time + Reps + Reset */
+#bar-controls li.session-work-group {
+    align-items: stretch;
+}
+
+#bar-controls .session-work-shell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    height: 100%;
+    padding: 0.35rem 0.55rem;
+    box-sizing: border-box;
+    background: var(--fd-bg);
+    border: 1px solid var(--fd-border);
+    border-radius: var(--fd-radius-lg);
+}
+
+/* Extra breathing room when Time or Reps panel is open */
+#bar-controls .session-work-shell:has(.control-panel:not(.cp-hidden)) {
+    padding: 0.55rem 0.8rem 0.6rem;
+    gap: 0.4rem;
+}
+
+#bar-controls .session-work-shell .session-work-item .control-panel {
+    height: calc(var(--bar-controls-height) - 3.5rem);
+    max-height: 100%;
+}
+
+#bar-controls .session-work-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fd-ink-faint);
+    line-height: 1;
+    padding-left: 0.15rem;
+}
+
+#bar-controls .session-work-items {
     display: flex;
     flex-flow: row nowrap;
-    justify-content: center;
-    align-content: center;
     align-items: center;
+    gap: 0.4rem;
 }
-#bar-controls ul#control-panels li:has(.cp-hidden) > .icon {
-    min-width: min-content;
-    margin: 0 10px;
-    display:flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-}
-#bar-controls ul#control-panels li .icon-inner > span {
-    max-width: 35px;
-    margin-left: 5px;
+
+#bar-controls .session-work-item {
     display: flex;
-    flex-flow: column center;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 0.4rem;
+    flex-shrink: 0;
+}
+
+#bar-controls .session-reset-btn {
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    height: 25px;
-    line-height: 25px;
-    margin-top: 5px;
-    transition: all 500ms ease;
+    gap: 0.35rem;
+    min-height: 2.25rem;
+    padding: 0.4rem 0.7rem;
+    font-family: var(--fd-font-body);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--fd-ink-muted);
+    background: var(--fd-bg-elevated);
+    border: 1px dashed var(--fd-border);
+    border-radius: var(--fd-radius);
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
-#bar-controls ul#control-panels li:has(.cp-hidden) .icon-inner > span {
-    width:0;
-    overflow: hidden;
-    transition: all 500ms ease;
+
+#bar-controls .session-reset-btn:hover,
+#bar-controls .session-reset-btn:focus-visible {
+    color: var(--fd-accent-hover);
+    border-color: var(--fd-accent);
+    background: var(--fd-accent-soft);
+    outline: none;
 }
-#bar-controls ul#control-panels li .icon-inner:hover > span {
-    width:30px;
-    transition: all 500ms ease;
-}
-#bar-controls ul#control-panels li:not(:has(.cp-hidden)) .icon-inner > span {
-    display: inline-block !important;
-    width:30px;
-    transition: all 500ms ease;
+
+#bar-controls .session-reset-btn i {
+    font-size: 0.85rem;
 }

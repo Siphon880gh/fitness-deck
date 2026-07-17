@@ -3,6 +3,7 @@
 @import url('includes/countdown.css');
 @import url('modal.css');
 @import url('includes/reps.css');
+@import url('includes/session-history.css');
 
 
 .hidden {
@@ -274,7 +275,7 @@ body {
 }
 
 #toggle-btns.out-of-way {
-    bottom: 110px;
+    bottom: calc(var(--bar-controls-height, 7.25rem) + 12px);
 }
 
 .fd-tool {

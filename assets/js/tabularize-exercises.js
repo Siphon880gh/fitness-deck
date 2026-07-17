@@ -1,7 +1,7 @@
 /** Database */
 
 window.indexedDB;
-window.dbVersion = 3;
+window.dbVersion = 4;
 
 // Database: Safari is not allowing my implementation of indexedDB without clearing cache.
 if ('caches' in window) {
@@ -24,26 +24,102 @@ function upgradeDb(event) {
     // alert("onupgradeneeded") // Fixing mobile Safari indexedDB bug
     const db = event.target.result;
 
-    // alert("upgrade needed")
+    // Create missing stores only — never wipe existing user data on version bumps.
+    if (!db.objectStoreNames.contains("FitnessAddressedStore")) {
+        var addressedStore = db.createObjectStore("FitnessAddressedStore", { keyPath: "id" });
+        addressedStore.createIndex("stateIndex", "state");
+    }
 
-    // Get all existing object store names
-    var objectStoreNames = Array.from(db.objectStoreNames);
+    if (!db.objectStoreNames.contains("FitnessCommentStore")) {
+        var commentStore = db.createObjectStore("FitnessCommentStore", { keyPath: "id" });
+        commentStore.createIndex("commentIndex", "comment");
+    }
 
-    // Delete all object stores
-    objectStoreNames.forEach(function (objectStoreName) {
-        db.deleteObjectStore(objectStoreName);
-    });
-
-    // Addressed store
-    var objectStore = db.createObjectStore("FitnessAddressedStore", { keyPath: "id" });
-    objectStore.createIndex("stateIndex", "state");
-
-    // Comment store
-    var objectStore = db.createObjectStore("FitnessCommentStore", { keyPath: "id" });
-    objectStore.createIndex("commentIndex", "comment");
+    if (!db.objectStoreNames.contains("FitnessSessionHistoryStore")) {
+        var historyStore = db.createObjectStore("FitnessSessionHistoryStore", { keyPath: "id" });
+        historyStore.createIndex("pageKeyIndex", "pageKey", { unique: false });
+        historyStore.createIndex("createdAtIndex", "createdAt", { unique: false });
+    }
 
     // alert("upgraded") // Fixing mobile Safari indexedDB bug
 } // upgradeDb
+
+function openFitnessDb() {
+    return new Promise(function (resolve, reject) {
+        var open = indexedDB.open("fitness-deck", window.dbVersion);
+        open.onupgradeneeded = upgradeDb;
+        open.onsuccess = function () {
+            resolve(open.result);
+        };
+        open.onerror = function () {
+            reject(open.error);
+        };
+    });
+}
+
+function newSessionHistoryId() {
+    if (typeof crypto !== "undefined" && typeof crypto.randomUUID === "function") {
+        return crypto.randomUUID();
+    }
+    return "sess-" + Date.now() + "-" + Math.floor(Math.random() * 1e9);
+}
+
+/** Load session history for a page (newest first). */
+function loadSessionHistory(pageKey) {
+    var key = pageKey || getWebpageIdentifier();
+    return openFitnessDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+            var tx = db.transaction("FitnessSessionHistoryStore", "readonly");
+            var store = tx.objectStore("FitnessSessionHistoryStore");
+            var index = store.index("pageKeyIndex");
+            var request = index.getAll(key);
+            request.onsuccess = function () {
+                var rows = request.result || [];
+                rows.sort(function (a, b) {
+                    return String(b.createdAt || "").localeCompare(String(a.createdAt || ""));
+                });
+                resolve(rows);
+            };
+            request.onerror = function () {
+                reject(request.error);
+            };
+        });
+    });
+}
+
+/** Insert or update a session history entry. */
+function saveSessionHistoryEntry(entry) {
+    return openFitnessDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+            var tx = db.transaction("FitnessSessionHistoryStore", "readwrite");
+            var store = tx.objectStore("FitnessSessionHistoryStore");
+            var request = store.put(entry);
+            request.onsuccess = function () {
+                resolve(entry);
+            };
+            request.onerror = function () {
+                reject(request.error);
+            };
+        });
+    });
+}
+
+/** Delete one session history entry by id. */
+function deleteSessionHistoryEntry(id) {
+    return openFitnessDb().then(function (db) {
+        return new Promise(function (resolve, reject) {
+            var tx = db.transaction("FitnessSessionHistoryStore", "readwrite");
+            var store = tx.objectStore("FitnessSessionHistoryStore");
+            var request = store.delete(id);
+            request.onsuccess = function () {
+                resolve(id);
+            };
+            request.onerror = function () {
+                reject(request.error);
+            };
+        });
+    });
+}
 
 function loadAddressed() {
     let open = indexedDB.open("fitness-deck", window.dbVersion);
@@ -320,6 +396,9 @@ function goRandomRow() {
     setTimeout(() => {
         document.querySelectorAll(".fd-ex.is-selected").forEach(el => el.classList.remove("is-selected"));
         selected.classList.add("is-selected");
+        if (window.sessionHistoryUi?.setAssignedExercise && selected.dataset.exercise) {
+            window.sessionHistoryUi.setAssignedExercise(selected.dataset.exercise);
+        }
     }, 400);
 }
 
@@ -353,6 +432,9 @@ function jumpToExerciseCard(card) {
         el.classList.remove("is-selected", "is-jump-flash");
     });
     card.classList.add("is-selected", "is-jump-flash");
+    if (window.sessionHistoryUi?.setAssignedExercise && card.dataset.exercise) {
+        window.sessionHistoryUi.setAssignedExercise(card.dataset.exercise);
+    }
     card.scrollIntoView({ behavior: "smooth", block: "start" });
     setTimeout(() => card.classList.remove("is-jump-flash"), 1400);
 }
@@ -629,6 +711,9 @@ function hydrateDeckInteractions() {
             const card = step.closest(".fd-ex");
             document.querySelectorAll(".fd-ex.is-selected").forEach(el => el.classList.remove("is-selected"));
             card?.classList.add("is-selected");
+            if (window.sessionHistoryUi?.setAssignedExercise && card?.dataset.exercise) {
+                window.sessionHistoryUi.setAssignedExercise(card.dataset.exercise);
+            }
             causeColorChange(step);
         });
         step.addEventListener("contextmenu", event => {
@@ -646,6 +731,9 @@ function hydrateDeckInteractions() {
             if (event.target.closest(".fd-step, .fd-ex-comment, .ri-icon-hook, .fd-ex-detail-btn, a")) return;
             document.querySelectorAll(".fd-ex.is-selected").forEach(el => el.classList.remove("is-selected"));
             card.classList.add("is-selected");
+            if (window.sessionHistoryUi?.setAssignedExercise && card.dataset.exercise) {
+                window.sessionHistoryUi.setAssignedExercise(card.dataset.exercise);
+            }
         });
     });
 }
@@ -919,6 +1007,7 @@ function renderMDFile() {
             loadComments();
             $("#count-rows").text(document.querySelectorAll(".fd-ex").length);
             rerenderAddressedStatistic();
+            document.dispatchEvent(new CustomEvent("fd-deck-ready"));
         })
         .catch(err => {
             document.querySelector(".container").innerHTML = String(err);

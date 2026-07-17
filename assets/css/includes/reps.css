@@ -1,14 +1,18 @@
 #reps-sets-wrapper {
     width: fit-content;
     position: relative;
+    font-family: var(--fd-font-body);
 }
 
 #reps-sets-wrapper #r-plus {
     position: absolute;
     top: 0;
-    right: -5px;
-    transition: all 500ms ease-in-out;
+    right: -0.55rem;
+    transition: color 0.15s ease;
     cursor: pointer;
+    color: var(--fd-accent);
+    font-weight: 700;
+    line-height: 1;
 }
 
 #reps-sets-wrapper #r-plus::before {
@@ -16,16 +20,46 @@
 }
 
 #reps-sets-wrapper #r-plus:hover::before {
-    font-weight: bolder;
-    color: gray;
+    color: var(--fd-accent-hover);
+}
+
+#reps-sets-table {
+    border-collapse: separate;
+    border-spacing: 0.25rem 0.15rem;
+    font-size: 0.78rem;
 }
 
 #reps-sets-table tr td:nth-of-type(1) {
-    font-weight: bold;
+    font-weight: 700;
+    color: var(--fd-ink-muted);
+    padding-right: 0.25rem;
+}
+
+#reps-sets-table td {
+    color: var(--fd-ink);
+}
+
+/* Neutralize legacy DataTables column numbering from tabularize-exercises.css */
+#reps-sets-table tbody tr td:nth-child(n)::before,
+#reps-sets-table tr td:nth-child(n)::before {
+    content: none !important;
 }
 
 #reps-sets-table input {
-    width: 40px;
+    width: 2.75rem;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid var(--fd-border);
+    border-radius: var(--fd-radius);
+    background: var(--fd-bg-elevated);
+    color: var(--fd-ink);
+    font-family: var(--fd-font-body);
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+}
+
+#reps-sets-table input:focus {
+    outline: none;
+    border-color: var(--fd-accent);
 }
 
 .hidden {

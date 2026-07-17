@@ -5,11 +5,27 @@ window.countdown = {
     timeAt: 0,
     timeCap: 0
 }
-// Set defaults
+// Set defaults — start at 00:00; user adds time with +
 window.countdown = {
     ...countdown,
     timeAt: 0,
-    timeCap: 30
+    timeCap: 0
+}
+
+function formatSecs_MMSS(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const formattedMinutes = String(minutes).padStart(2, '0');
+    const formattedSeconds = String(remainingSeconds).padStart(2, '0');
+    return `${formattedMinutes}:${formattedSeconds}`;
+}
+
+function refreshCountdownDisplay() {
+    var display = document.querySelector("#countdown-display");
+    if (!display || !window.countdown) return;
+    var at = parseInt(window.countdown.timeAt, 10) || 0;
+    var cap = parseInt(window.countdown.timeCap, 10) || 0;
+    display.textContent = `${formatSecs_MMSS(at)} / ${formatSecs_MMSS(cap)}`;
 }
 
 /* View controller you pass the new status to and it'll color the countdown color */
@@ -32,22 +48,7 @@ var poller = () => {
     if (window.countdown.status === "PLAYING") {
         if (window.countdown.timeAt < window.countdown.timeCap) {
             window.countdown.timeAt = window.countdown.timeAt + 1;
-            // debugger;
-
-
-            function formatSecs_MMSS(seconds) {
-                const minutes = Math.floor(seconds / 60);
-                const remainingSeconds = seconds % 60;
-
-                const formattedMinutes = String(minutes).padStart(2, '0');
-                const formattedSeconds = String(remainingSeconds).padStart(2, '0');
-
-                return `${formattedMinutes}:${formattedSeconds}`;
-            }
-
-
-            document.querySelector("#countdown-display").innerHTML = `${formatSecs_MMSS(window.countdown.timeAt)} / ${formatSecs_MMSS(window.countdown.timeCap)}`;
-
+            refreshCountdownDisplay();
         } else {
             // Change page red
             document.querySelectorAll("html, #bar-controls").forEach(el => { el.classList.add("countdown-finished"); });
@@ -67,7 +68,9 @@ var poller = () => {
 }
 pollerId = null;
 document.addEventListener("DOMContentLoaded", () => {
-    var display = document.querySelector("#countdown-display")
+    refreshCountdownDisplay();
+    controlViewColor("STOPPED");
+
     document.querySelectorAll(".countdown-quant, #countdown-display, #countdown-stop-play").forEach(el => {
         el.addEventListener("click", () => {
             var wasFinished = document.querySelectorAll(".countdown-finished");
@@ -90,15 +93,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 // After wanting Play
                 if (window.countdown.status === "PLAYING") {
                     window.countdown.timeAt = 0;
+                    refreshCountdownDisplay();
                     pollerId = setInterval(poller, 1000);
                 } else {
                     clearInterval(pollerId);
+                    refreshCountdownDisplay();
                 }
 
             } else if (el.matches("#countdown-display")) {
                 window.countdown = {
                     ...countdown,
-                    timeAt: window.countdown.status === "PLAYING" ? 0 : window.timeCap,
+                    timeAt: window.countdown.status === "PLAYING" ? 0 : window.countdown.timeCap,
                     status: window.countdown.status === "PLAYING" ? "PAUSED" : "PLAYING"
                 }
                 console.log(window.countdown);
@@ -109,9 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 // After wanting Play
                 if (window.countdown.status === "PLAYING") {
                     window.countdown.timeAt = 0;
+                    refreshCountdownDisplay();
                     pollerId = setInterval(poller, 1000);
                 } else {
                     clearInterval(pollerId);
+                    refreshCountdownDisplay();
                 }
             } else if (el.matches(".countdown-quant")) {
                 window.countdown = {
@@ -129,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     })()
                 }
                 console.log(window.countdown);
+                refreshCountdownDisplay();
             } // if,else's
         }) // click
     }); // any will be clicked
