@@ -863,7 +863,13 @@ function renderMDFile() {
                         rerenderAddressedStatistic();
                     }
                 });
-                document.getElementById("top-bar")?.appendChild(addressed);
+                const actions = document.querySelector(".fd-top-actions");
+                const searchWrap = actions?.querySelector(".fd-search-wrap");
+                if (actions && searchWrap) {
+                    actions.insertBefore(addressed, searchWrap);
+                } else {
+                    document.getElementById("top-bar")?.appendChild(addressed);
+                }
             }
 
             hydrateDeckInteractions();

@@ -383,20 +383,28 @@ body {
     text-overflow: ellipsis;
 }
 
-.fd-search-wrap {
+.fd-top-actions {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 0.1rem;
+    align-items: center;
+    gap: 0.45rem;
     flex-shrink: 0;
-    max-width: 11rem;
-    order: 4;
+    margin-left: auto;
+    order: 3;
+}
+
+.fd-search-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
 }
 
 #bind-inner-search {
-    width: 10ch;
-    min-width: 8rem;
-    padding: 0.35rem 0.5rem;
+    width: 9rem;
+    min-width: 7.5rem;
+    height: 2rem;
+    box-sizing: border-box;
+    padding: 0 2.1rem 0 0.55rem;
     border: 1px solid var(--fd-border);
     border-radius: var(--fd-radius);
     font-family: inherit;
@@ -411,8 +419,16 @@ body {
 }
 
 #count-rows {
+    position: absolute;
+    right: 0.45rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 0.7rem;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
     color: var(--fd-ink-faint);
+    pointer-events: none;
+    line-height: 1;
 }
 
 .fd-legend {
@@ -691,22 +707,46 @@ css-only-tooltip version 1.0.0
 #addressed {
     position: static;
     float: none;
+    display: inline-flex;
+    align-items: center;
     flex-shrink: 0;
-    align-self: center;
+    height: 2rem;
+    box-sizing: border-box;
     font-size: 0.75rem !important;
     font-weight: 600;
+    font-variant-numeric: tabular-nums;
     color: var(--fd-ink-muted);
     background: var(--fd-bg);
-    padding: 0.25rem 0.5rem;
+    padding: 0 0.6rem;
     border-radius: var(--fd-radius);
     border: 1px solid var(--fd-border);
     z-index: 2 !important;
     white-space: nowrap;
-    order: 3;
+    cursor: pointer;
+    line-height: 1;
 }
 
 #addressed::before {
     content: "Marked ";
+}
+
+@media (max-width: 520px) {
+    .fd-top-actions {
+        gap: 0.3rem;
+    }
+
+    #bind-inner-search {
+        width: 6.5rem;
+        min-width: 6.5rem;
+    }
+
+    #addressed::before {
+        content: "";
+    }
+
+    #addressed {
+        padding: 0 0.45rem;
+    }
 }
 
 /* DataTable */
@@ -884,22 +924,6 @@ sufficient. There is a page navigation at the bottom anyways */
 /* Now with our own custom search box and had to be positioned fixed */
 .container {
     padding-top: 30px;
-}
-
-/* Hidden records count from table because it gets dragged as you scroll horizontally */
-/* Now with our own custom records count */
-#count-rows {
-    font-size: 90%;
-    transform: translateY(-2.5px);
-    display: inline-block;
-}
-
-#count-rows::before {
-    content: "(";
-}
-
-#count-rows::after {
-    content: ")";
 }
 
 /* Override DataTable search: Using our own custom Search since detaching it breaks DataTable */

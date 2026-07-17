@@ -57,7 +57,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.0">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.1">
 </head>
 
 <body class="fd-table">
@@ -72,9 +72,11 @@
             <span class="fd-table-program"><?php echo htmlspecialchars($programName); ?></span>
             <span class="fd-table-group"><?php echo htmlspecialchars($exerciseGroupName); ?></span>
         </div>
-        <div class="fd-search-wrap">
-            <input id="bind-inner-search" type="search" oninput="bindToInnerSearch()" placeholder="Search" aria-label="Search exercises">
-            <small id="count-rows"></small>
+        <div class="fd-top-actions">
+            <div class="fd-search-wrap">
+                <input id="bind-inner-search" type="search" oninput="bindToInnerSearch()" placeholder="Search" aria-label="Search exercises">
+                <small id="count-rows" aria-live="polite"></small>
+            </div>
         </div>
         <div id="save-status">Saved</div>
     </div>
@@ -246,7 +248,7 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=5.0"></script>
+    <script src="assets/js/tabularize-exercises.js?v=5.1"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>
