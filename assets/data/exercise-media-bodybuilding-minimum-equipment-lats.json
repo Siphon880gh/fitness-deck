@@ -1,0 +1,94 @@
+{
+  "pageKey": "Bodybuilding - Minimum Equipment/Lats",
+  "attribution": {
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "links": [
+      {
+        "label": "Kaggle dataset",
+        "url": "https://www.kaggle.com/datasets/exercisedb/fitness-exercises-dataset/data"
+      },
+      {
+        "label": "ExerciseDB OSS API",
+        "url": "https://oss.exercisedb.dev"
+      },
+      {
+        "label": "exercises-dataset",
+        "url": "https://github.com/anil-g11h/exercises-dataset"
+      }
+    ]
+  },
+  "byExercise": {
+    "Pull-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0651-0V2YQjW.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0651-0V2YQjW.jpg",
+      "sourceName": "pull up (neutral grip)",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Chin-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
+      "sourceName": "chin-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Inverted Rows": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0499-bZGHsAZ.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0499-bZGHsAZ.jpg",
+      "sourceName": "inverted row",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Commando Pull-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0651-0V2YQjW.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0651-0V2YQjW.jpg",
+      "sourceName": "pull up (neutral grip)",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Archer Pull-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3293-72BC5Za.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3293-72BC5Za.jpg",
+      "sourceName": "archer pull up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Scapular Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0688-uTBt1HV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0688-uTBt1HV.jpg",
+      "sourceName": "scapular pull-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "L-Sit Pull-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3418-d1GgzTU.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3418-d1GgzTU.jpg",
+      "sourceName": "l-pull-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1327-VnfUNW7.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1327-VnfUNW7.jpg",
+      "sourceName": "close grip chin-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Kneeling Lat Pulldowns": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Kneeling Lat Pullovers": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Scapular Pull-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0688-uTBt1HV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0688-uTBt1HV.jpg",
+      "sourceName": "scapular pull-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Kneeling Lat Pushdowns": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    }
+  }
+}

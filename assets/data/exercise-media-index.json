@@ -1,0 +1,150 @@
+{
+  "updatedAt": "2026-07-17T04:47:19+00:00",
+  "catalogSource": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/data/exercises.json",
+  "pages": {
+    "Bodybuilding - Minimum Equipment/Chest": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Chest.md",
+      "mdMtimeMs": 1685418239000,
+      "mdSha256": "18952712cdbd69d637896128c6d16b8a3b7d806782debd221612868cb006320b",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-chest.json",
+      "bodyParts": [
+        "chest"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 122,
+      "matchedCount": 56,
+      "unmatchedCount": 66
+    },
+    "Bodybuilding - Minimum Equipment/Abs": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Abs.md",
+      "mdMtimeMs": 1688117714000,
+      "mdSha256": "ff03278171a691a42a7d7fa74804d77e76da2ce580623bf29ff4be25c1854959",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-abs.json",
+      "bodyParts": [
+        "waist"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 98,
+      "matchedCount": 28,
+      "unmatchedCount": 70
+    },
+    "Bodybuilding - Minimum Equipment/Back": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Back.md",
+      "mdMtimeMs": 1685418496000,
+      "mdSha256": "2a6fdf365fe0bab82189f3d5d12929ae91193b2c8fed40c118e4a8d009437329",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-back.json",
+      "bodyParts": [
+        "back"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 86,
+      "matchedCount": 11,
+      "unmatchedCount": 75
+    },
+    "Bodybuilding - Minimum Equipment/Lats": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Lats.md",
+      "mdMtimeMs": 1685427290000,
+      "mdSha256": "0615515ceca0d4be8ce22ccde7ca700540fd20fc3d69df6d8369bb1f6a3fa70f",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-lats.json",
+      "bodyParts": [
+        "back"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 87,
+      "matchedCount": 12,
+      "unmatchedCount": 75
+    },
+    "Bodybuilding - Minimum Equipment/Biceps": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Biceps.md",
+      "mdMtimeMs": 1685425571000,
+      "mdSha256": "d8270192e4b7b9a5cc804c6f799b2e3ff0cb6dad286d3bdda52a12e10ba2168e",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-biceps.json",
+      "bodyParts": [
+        "upper arms"
+      ],
+      "targets": [
+        "biceps"
+      ],
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 100,
+      "matchedCount": 5,
+      "unmatchedCount": 95
+    },
+    "Bodybuilding - Minimum Equipment/Triceps": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Triceps.md",
+      "mdMtimeMs": 1685418210000,
+      "mdSha256": "c1eed31e057e76e5642818dd3831db1a79514994de71b6aceedff460aa62ce3f",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-triceps.json",
+      "bodyParts": [
+        "upper arms"
+      ],
+      "targets": [
+        "triceps"
+      ],
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 100,
+      "matchedCount": 22,
+      "unmatchedCount": 78
+    },
+    "Bodybuilding - Minimum Equipment/Shoulders": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Shoulders.md",
+      "mdMtimeMs": 1688116729000,
+      "mdSha256": "a5f894e02a594cdf3ead55a73ffe5a2f2dde3c9ce7b7d5b372b2873360c3c6c8",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-shoulders.json",
+      "bodyParts": [
+        "shoulders"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 30,
+      "matchedCount": 10,
+      "unmatchedCount": 20
+    },
+    "Bodybuilding - Minimum Equipment/Hamstrings": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Hamstrings.md",
+      "mdMtimeMs": 1685428302000,
+      "mdSha256": "9e3e5562414e93e79fd6a4dac812e2d2222d72ccdefb07800ad93ad906620ace",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-hamstrings.json",
+      "bodyParts": [
+        "upper legs"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 50,
+      "matchedCount": 18,
+      "unmatchedCount": 32
+    },
+    "Bodybuilding - Minimum Equipment/Quadriceps": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Quadriceps.md",
+      "mdMtimeMs": 1688112209000,
+      "mdSha256": "7df4bcfd7c8b8868b9827f2eef80e85497a2ba3bc11c92b7e56e5355caa25f5a",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-quadriceps.json",
+      "bodyParts": [
+        "upper legs"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 151,
+      "matchedCount": 21,
+      "unmatchedCount": 130
+    },
+    "Bodybuilding - Minimum Equipment/Calf": {
+      "mdPath": "md-file/Bodybuilding - Minimum Equipment/Calf.md",
+      "mdMtimeMs": 1685425111000,
+      "mdSha256": "61867d1163e29d61f92a684b5f4d8d4b7a47fdb0191508b45b2da1f012665bc1",
+      "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-calf.json",
+      "bodyParts": [
+        "lower legs"
+      ],
+      "targets": null,
+      "lastSyncedAt": "2026-07-17T04:47:19+00:00",
+      "exerciseCount": 50,
+      "matchedCount": 8,
+      "unmatchedCount": 42
+    }
+  }
+}

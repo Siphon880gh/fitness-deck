@@ -1,0 +1,154 @@
+{
+  "pageKey": "Bodybuilding - Minimum Equipment/Triceps",
+  "attribution": {
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "links": [
+      {
+        "label": "Kaggle dataset",
+        "url": "https://www.kaggle.com/datasets/exercisedb/fitness-exercises-dataset/data"
+      },
+      {
+        "label": "ExerciseDB OSS API",
+        "url": "https://oss.exercisedb.dev"
+      },
+      {
+        "label": "exercises-dataset",
+        "url": "https://github.com/anil-g11h/exercises-dataset"
+      }
+    ]
+  },
+  "byExercise": {
+    "Diamond Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
+      "sourceName": "close-grip push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Tricep Dips": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1755-bZq4bwK.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1755-bZq4bwK.jpg",
+      "sourceName": "weighted tricep dips",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Tricep Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Overhead Tricep Extension": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1738-5fKX7wi.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1738-5fKX7wi.jpg",
+      "sourceName": "dumbbell seated reverse grip one arm overhead tricep extension",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Incline Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0490-1YB40kg.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0490-1YB40kg.jpg",
+      "sourceName": "incline close-grip push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Pike Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Bench Press": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0030-J6Dx1Mu.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0030-J6Dx1Mu.jpg",
+      "sourceName": "barbell close-grip bench press",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Triangle Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Handstand Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
+      "sourceName": "handstand push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Russian Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Plyometric Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
+      "sourceName": "close-grip push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Pike Handstand Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
+      "sourceName": "handstand push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Hindu Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Push-Up to Side Plank": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0717-wpbD28t.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0717-wpbD28t.jpg",
+      "sourceName": "side push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Push-Ups on Bosu": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
+      "sourceName": "close-grip push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Diamond Push-Ups on Bosu": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Spiderman Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Pike Handstand Push-Ups with Bosu": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
+      "sourceName": "handstand push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Close Grip Push-Ups on Bosu with Resistance Band": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
+      "sourceName": "close-grip push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Diamond Push-Ups on Bosu with Resistance Band": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
+      "sourceName": "diamond push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    }
+  }
+}

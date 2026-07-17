@@ -669,26 +669,35 @@ function getPageMediaKey() {
     return mdFile.replace(/\.md$/i, "");
 }
 
-function mediaManifestPathForPage(pageKey) {
-    // Pilot: Bodybuilding Chest only
-    if (pageKey === "Bodybuilding - Minimum Equipment/Chest") {
-        return "assets/data/exercise-media-chest.json";
+window.__fdMediaIndexPromise = null;
+
+function loadExerciseMediaIndex() {
+    if (!window.__fdMediaIndexPromise) {
+        window.__fdMediaIndexPromise = fetch("assets/data/exercise-media-index.json", { cache: "no-cache" })
+            .then(r => (r.ok ? r.json() : null))
+            .catch(() => null);
     }
-    return null;
+    return window.__fdMediaIndexPromise;
 }
 
-function attachExerciseMedia(manifest) {
-    if (!manifest || !manifest.byExercise) return;
+function mediaManifestPathForPage(pageKey, index) {
+    const entry = index?.pages?.[pageKey];
+    return entry?.manifest || null;
+}
+
+function attachExerciseMedia(manifest, root = document) {
+    if (!manifest || !manifest.byExercise) return 0;
     const byExercise = manifest.byExercise;
     let attached = 0;
+    const scope = root.querySelectorAll ? root : document;
 
-    document.querySelectorAll(".fd-ex").forEach(card => {
+    scope.querySelectorAll(".fd-ex").forEach(card => {
         const name = card.dataset.exercise;
         const media = byExercise[name];
         if (!media || !media.gifUrl) return;
 
         const slot = card.querySelector(".fd-ex-media");
-        if (!slot) return;
+        if (!slot || slot.querySelector(".fd-ex-figure")) return;
 
         const figure = document.createElement("figure");
         figure.className = "fd-ex-figure";
@@ -715,6 +724,13 @@ function attachExerciseMedia(manifest) {
         attached++;
     });
 
+    return attached;
+}
+
+function bindExerciseGifLazyLoad(root = document) {
+    const gifs = root.querySelectorAll(".fd-ex-gif");
+    if (!gifs.length) return;
+
     // Promote to animated GIF when visible (saves bandwidth)
     if ("IntersectionObserver" in window) {
         const io = new IntersectionObserver((entries) => {
@@ -727,15 +743,11 @@ function attachExerciseMedia(manifest) {
                 io.unobserve(img);
             });
         }, { rootMargin: "120px 0px" });
-        document.querySelectorAll(".fd-ex-gif").forEach(img => io.observe(img));
+        gifs.forEach(img => io.observe(img));
     } else {
-        document.querySelectorAll(".fd-ex-gif").forEach(img => {
+        gifs.forEach(img => {
             if (img.dataset.gifUrl) img.src = img.dataset.gifUrl;
         });
-    }
-
-    if (manifest.attribution && attached > 0) {
-        renderMediaAttribution(manifest.attribution, attached);
     }
 }
 
@@ -803,16 +815,30 @@ function renderMediaAttribution(attribution, count) {
     `;
 }
 
-function loadExerciseMediaForPage() {
+function loadExerciseMediaManifest() {
     const pageKey = getPageMediaKey();
-    const path = mediaManifestPathForPage(pageKey);
-    if (!path) return Promise.resolve();
-    return fetch(path, { cache: "force-cache" })
-        .then(r => (r.ok ? r.json() : null))
-        .then(manifest => {
-            if (manifest) attachExerciseMedia(manifest);
+    return loadExerciseMediaIndex()
+        .then(index => {
+            const path = mediaManifestPathForPage(pageKey, index);
+            if (!path) return null;
+            return fetch(path, { cache: "force-cache" }).then(r => (r.ok ? r.json() : null));
         })
-        .catch(err => console.warn("Exercise media load failed", err));
+        .catch(err => {
+            console.warn("Exercise media load failed", err);
+            return null;
+        });
+}
+
+function loadExerciseMediaForPage(root = document) {
+    return loadExerciseMediaManifest()
+        .then(manifest => {
+            if (!manifest) return;
+            const attached = attachExerciseMedia(manifest, root);
+            bindExerciseGifLazyLoad(root);
+            if (manifest.attribution && attached > 0) {
+                renderMediaAttribution(manifest.attribution, attached);
+            }
+        });
 }
 
 // Render MD File as exercise cards with difficulty ladders
@@ -824,9 +850,12 @@ function renderMDFile() {
         return "ERROR: Not able to read. Has it been published? Contact author.";
     };
 
+    // Fetch media in parallel so cards paint with the media layout already applied
+    const mediaPromise = loadExerciseMediaManifest();
+
     fetch(encodeURI(filename), { cache: "no-cache" })
         .then(response => response.text())
-        .then(myMarkdown => {
+        .then(async myMarkdown => {
             if (isFailed(myMarkdown)) {
                 document.querySelector(".container").innerHTML = getFailed();
                 return;
@@ -851,8 +880,21 @@ function renderMDFile() {
             }
 
             const deck = buildExerciseDeck(table);
+            const manifest = await mediaPromise;
+            let attached = 0;
+            if (manifest) {
+                attached = attachExerciseMedia(manifest, deck);
+            }
+
             host.innerHTML = "";
             host.appendChild(deck);
+
+            if (manifest) {
+                bindExerciseGifLazyLoad(deck);
+                if (manifest.attribution && attached > 0) {
+                    renderMediaAttribution(manifest.attribution, attached);
+                }
+            }
 
             if (!document.getElementById("addressed")) {
                 const addressed = document.createElement("div");
@@ -877,7 +919,6 @@ function renderMDFile() {
             loadComments();
             $("#count-rows").text(document.querySelectorAll(".fd-ex").length);
             rerenderAddressedStatistic();
-            loadExerciseMediaForPage();
         })
         .catch(err => {
             document.querySelector(".container").innerHTML = String(err);

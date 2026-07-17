@@ -50,6 +50,24 @@ When a `.up.md` file exists for an exercise:
 
 Note: `.up.md` files are automatically hidden from the main directory listing.
 
+## Agent skills
+
+Project agent skills live in [`.agents/skills/`](.agents/skills/). See [AGENTS.md](AGENTS.md) — agents should list skills by scanning that directory (not a hardcoded list).
+
+### Exercise images / animations
+
+When you add or rename exercises in a markdown table, media mappings can go stale. Use the **add-exercise-media** skill to sync open-source ExerciseDB / Kaggle / GitHub demo GIFs with mtime+sha tracking.
+
+- Skill: [`.agents/skills/add-exercise-media/SKILL.md`](.agents/skills/add-exercise-media/SKILL.md)
+- Human guide: [README-Skill add images to new exercises.md](README-Skill%20add%20images%20to%20new%20exercises.md)
+
+```bash
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
+```
+
+In the app, pages with matches show demos on cards; **Credits** at the bottom opens attribution.
+
 ## Future version
 
 - Will have built in countdown timer, sets/reps counter. 

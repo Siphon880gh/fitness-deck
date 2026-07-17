@@ -244,6 +244,35 @@ body {
     color: var(--fd-accent-hover);
 }
 
+/* Icon-only until hover / focus / open */
+#btn-filter {
+    gap: 0;
+    padding: 0.55rem;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, gap 0.2s ease, padding 0.2s ease;
+}
+
+#btn-filter > span {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    white-space: nowrap;
+    transition: max-width 0.2s ease, opacity 0.15s ease;
+}
+
+#btn-filter:hover,
+#btn-filter:focus-visible,
+#btn-filter.active {
+    gap: 0.45rem;
+    padding: 0.55rem 0.75rem;
+}
+
+#btn-filter:hover > span,
+#btn-filter:focus-visible > span,
+#btn-filter.active > span {
+    max-width: 4rem;
+    opacity: 1;
+}
+
 #toggle-btns.out-of-way {
     bottom: 110px;
 }
@@ -727,7 +756,7 @@ css-only-tooltip version 1.0.0
 }
 
 #addressed::before {
-    content: "Marked ";
+    content: "Marked\00a0";
 }
 
 @media (max-width: 520px) {
@@ -1462,13 +1491,17 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
 
 .fd-ex.has-media {
     display: grid;
-    grid-template-columns: 7.5rem 1fr;
-    gap: 0.75rem 1rem;
+    grid-template-columns: minmax(7.75rem, 9rem) minmax(0, 1fr);
+    column-gap: 1.75rem;
+    row-gap: 0.85rem;
     align-items: start;
 }
 
 .fd-ex.has-media .fd-ex-media {
     grid-row: 1 / span 4;
+    grid-column: 1;
+    min-width: 0;
+    align-self: start;
 }
 
 .fd-ex.has-media .fd-ex-head,
@@ -1476,6 +1509,13 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
 .fd-ex.has-media .fd-ladder,
 .fd-ex.has-media .fd-ex-comment {
     grid-column: 2;
+    min-width: 0;
+}
+
+.fd-ex.has-media .fd-ex-head {
+    align-self: start;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .fd-ex-media[hidden] {
@@ -1484,24 +1524,28 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
 
 .fd-ex-figure {
     margin: 0;
-    position: sticky;
-    top: 4.25rem;
 }
 
-.fd-ex-gif {
+/* Beat .container img { margin: 10px; width: 100% } which misaligns + overflows */
+.container .fd-ex-gif,
+.fd-ex .fd-ex-gif {
     display: block;
     width: 100%;
+    max-width: 100%;
+    margin: 0;
     aspect-ratio: 1;
     object-fit: cover;
     border-radius: var(--fd-radius);
     background: oklch(0.94 0.02 145);
     border: 1px solid var(--fd-border);
+    box-sizing: border-box;
 }
 
 .fd-ex-media-cap {
-    margin-top: 0.3rem;
+    margin: 0.65rem 0 0;
+    padding: 0 0.1rem;
     font-size: 0.68rem;
-    line-height: 1.25;
+    line-height: 1.35;
     color: var(--fd-ink-faint);
     text-transform: capitalize;
 }
@@ -1624,25 +1668,32 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
     font-size: 0.8rem;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 720px) {
     .fd-ex.has-media {
         grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 1.25rem;
     }
 
     .fd-ex.has-media .fd-ex-media {
         grid-row: auto;
+        grid-column: 1;
     }
 
     .fd-ex.has-media .fd-ex-head,
     .fd-ex.has-media .fd-ex-meta,
     .fd-ex.has-media .fd-ladder,
     .fd-ex.has-media .fd-ex-comment {
-        grid-column: auto;
+        grid-column: 1;
     }
 
     .fd-ex-figure {
         position: static;
-        max-width: 11rem;
+        max-width: 13rem;
+    }
+
+    .fd-ex-media-cap {
+        margin-top: 0.7rem;
     }
 }
 
@@ -1761,6 +1812,7 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
     text-transform: uppercase;
     color: var(--fd-ink-faint);
     padding-top: 0.15rem;
+    white-space: nowrap;
 }
 
 .fd-step-label::before {
@@ -1772,6 +1824,7 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
     font-size: 0.92rem;
     line-height: 1.35;
     color: var(--fd-ink);
+    overflow-wrap: break-word;
 }
 
 .fd-step.addressed-1,
@@ -1812,17 +1865,43 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
 @media (min-width: 720px) {
     .fd-ladder {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, minmax(0, 1fr));
         gap: 0.4rem;
+        max-width: 100%;
     }
 
     .fd-step {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
+        min-width: 0;
         min-height: 5.5rem;
     }
 
     .fd-step-label {
         padding-top: 0;
         margin-bottom: 0.25rem;
+    }
+
+    .fd-step:not(.is-empty):hover,
+    .fd-step:not(.is-empty):focus-visible {
+        transform: none;
+    }
+
+    /* Must follow the 5-col rules above or media cards keep the cramped grid */
+    .fd-ex.has-media .fd-ladder {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        max-width: 100%;
+    }
+
+    .fd-ex.has-media .fd-step {
+        grid-template-columns: 6.25rem minmax(0, 1fr);
+        min-width: 0;
+        min-height: 0;
+    }
+
+    .fd-ex.has-media .fd-step-label {
+        padding-top: 0.15rem;
+        margin-bottom: 0;
     }
 }

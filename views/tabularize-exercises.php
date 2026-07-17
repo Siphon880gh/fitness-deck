@@ -57,7 +57,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.1">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.4">
 </head>
 
 <body class="fd-table">
@@ -105,16 +105,16 @@
             </div>
             <button type="button" class="fd-filter-clear" id="fd-filter-clear">Clear all</button>
         </div>
+        <button type="button" id="btn-filter" class="fd-tool" onclick="toggleFilterPanel()" aria-label="Filters" aria-expanded="false" aria-controls="fd-filter-panel">
+            <i class="fas fa-filter" aria-hidden="true"></i>
+            <span>Filter</span>
+        </button>
         <?php if($upMdExists): ?>
         <button type="button" id="btn-notes" class="fd-tool" onclick="toggleNotesPanel()" aria-label="Outline — groupings and your comments">
             <i class="fas fa-list-ul" aria-hidden="true"></i>
             <span>Outline</span>
         </button>
         <?php endif; ?>
-        <button type="button" id="btn-filter" class="fd-tool" onclick="toggleFilterPanel()" aria-label="Filters" aria-expanded="false" aria-controls="fd-filter-panel">
-            <i class="fas fa-filter" aria-hidden="true"></i>
-            <span>Filter</span>
-        </button>
         <button type="button" class="fd-tool" onclick="goRandomRow()" aria-label="Jump to random unmarked exercise">
             <i class="fas fa-random" aria-hidden="true"></i>
             <span>Random</span>
@@ -248,7 +248,7 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=5.1"></script>
+    <script src="assets/js/tabularize-exercises.js?v=5.2"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>
