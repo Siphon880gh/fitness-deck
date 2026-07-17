@@ -1,10 +1,15 @@
-// Re-sorts to be toe to head or pull/push/legs
+// Loads goal-grouped listing markup into .intro
 
 function sortIntoAreas() {
-
-    fetch("assets/js/common-sense-view.html")
-    .then(response => response.text())
-    .then(html => {
-        document.querySelector(".intro").innerHTML = html;
-    })
-} // sortIntoAreas
+    return fetch("assets/js/common-sense-view.html")
+        .then(response => response.text())
+        .then(html => {
+            document.querySelector(".intro").innerHTML = html;
+            if (typeof window.hydrateDirectoryLinks === "function") {
+                window.hydrateDirectoryLinks();
+            }
+            if (typeof window.annotateLastOpenedOnLinks === "function") {
+                window.annotateLastOpenedOnLinks();
+            }
+        });
+}

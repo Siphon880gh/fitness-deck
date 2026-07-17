@@ -1121,3 +1121,20 @@ function showFilterToast(message, colorClass) {
         toast.classList.remove('show');
     }, 1500);
 }
+
+/* First-run legend: teach colors/comments/tools once */
+(function initFirstRunLegend() {
+    const KEY = "FitnessDeck__legendDismissed";
+    const legend = document.getElementById("first-run-legend");
+    const dismissBtn = document.getElementById("dismiss-legend");
+    if (!legend || !dismissBtn) return;
+
+    if (localStorage.getItem(KEY) !== "1") {
+        legend.hidden = false;
+    }
+
+    dismissBtn.addEventListener("click", () => {
+        localStorage.setItem(KEY, "1");
+        legend.hidden = true;
+    });
+})();

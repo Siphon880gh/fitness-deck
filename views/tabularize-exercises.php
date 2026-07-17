@@ -30,6 +30,12 @@
     }
     if(strlen($exerciseGroupName)===0) $exerciseGroupName = $currentPageWithoutExtension;
 
+    // Program folder label for chrome
+    $programName = dirname($mdFile);
+    if ($programName === '.' || $programName === '') {
+        $programName = '';
+    }
+
     // Check if a supplementary .up.md file exists
     $dirPath = dirname($mdFile);
     $upMdFile = $dirPath . '/' . $currentPageWithoutExtension . '.up.md';
@@ -42,45 +48,68 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="description" content="Fitness Deck - <?php echo $_GET["md-file"]; ?>">
-    <title>Fitness Deck - <?php echo $_GET["md-file"]; ?></title>
+    <meta name="description" content="Fitness Deck — <?php echo htmlspecialchars($exerciseGroupName); ?>">
+    <title>Fitness Deck — <?php echo htmlspecialchars($exerciseGroupName); ?></title>
 
     <link href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" rel="stylesheet"/>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.9/css/fixedHeader.dataTables.css">
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=3.4">
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=4.0">
 </head>
 
-<body>
-    <!-- <div id="backdrop-inset">&nbsp;</div> -->
-
+<body class="fd-table">
     <div id="top-bar">
-
         <div id="back-to-directory">
-            <button onclick="window.location.href='index.php'">🔙 Directory</button>
+            <button type="button" class="fd-back-btn" onclick="window.location.href='index.php'" aria-label="Back to directory">
+                <i class="fas fa-arrow-left" aria-hidden="true"></i>
+                <span>Directory</span>
+            </button>
         </div>
-        <div id="save-status">💾 Saved</div>
-        <div style="text-align:center; padding-left:5px; padding-right:5px; max-width:165px; overflow:scroll;">
-            <input id="bind-inner-search" type="text" oninput="bindToInnerSearch()" style="width:10ch;" placeholder="Search">
+        <div class="fd-table-title">
+            <span class="fd-table-program"><?php echo htmlspecialchars($programName); ?></span>
+            <span class="fd-table-group"><?php echo htmlspecialchars($exerciseGroupName); ?></span>
+        </div>
+        <div class="fd-search-wrap">
+            <input id="bind-inner-search" type="search" oninput="bindToInnerSearch()" placeholder="Search" aria-label="Search exercises">
             <small id="count-rows"></small>
         </div>
+        <div id="save-status">Saved</div>
+    </div>
+
+    <div id="first-run-legend" class="fd-legend" hidden>
+        <p>Tap a variation cell to mark it—colors mean what you decide. Use the last column for comments. Tools below: notes, filter, random uncolored, detail, session timer/reps.</p>
+        <button type="button" id="dismiss-legend" class="fd-legend-dismiss">Got it</button>
     </div>
 
     <div class="container" style="display:flex;">
     </div>
 
-
-    <div id="toggle-btns">
+    <div id="toggle-btns" class="fd-tools" role="toolbar" aria-label="Session tools">
         <?php if($upMdExists): ?>
-        <i id="btn-notes" class="fas fa-book" onclick="toggleNotesPanel()"></i>
+        <button type="button" id="btn-notes" class="fd-tool" onclick="toggleNotesPanel()" aria-label="Notes">
+            <i class="fas fa-book" aria-hidden="true"></i>
+            <span>Notes</span>
+        </button>
         <?php endif; ?>
-        <i class="fas fa-filter" onclick="cycleMode()"></i>
-        <i class="fas fa-random" onclick="goRandomRow()"></i>
-        <i class="fas fa-eye" onclick='$(".text-parentheses").toggleClass("more")'></i>
-        <i class="fas fa-tachometer-alt" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')"></i>
-
+        <button type="button" class="fd-tool" onclick="cycleMode()" aria-label="Filter by mark color">
+            <i class="fas fa-filter" aria-hidden="true"></i>
+            <span>Filter</span>
+        </button>
+        <button type="button" class="fd-tool" onclick="goRandomRow()" aria-label="Jump to random unmarked exercise">
+            <i class="fas fa-random" aria-hidden="true"></i>
+            <span>Random</span>
+        </button>
+        <button type="button" class="fd-tool" onclick='$(".text-parentheses").toggleClass("more")' aria-label="Toggle detail text in parentheses">
+            <i class="fas fa-eye" aria-hidden="true"></i>
+            <span>Detail</span>
+        </button>
+        <button type="button" class="fd-tool fd-tool-session" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')" aria-label="Session timer and reps">
+            <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
+            <span>Session</span>
+        </button>
     </div>
 
     <!-- Notes slide-in panel -->
@@ -88,8 +117,8 @@
     <div id="notes-overlay" onclick="closeNotesPanel()"></div>
     <div id="notes-panel">
         <div id="notes-panel-header">
-            <h3>📓 Notes</h3>
-            <button id="notes-close" onclick="closeNotesPanel()">✕</button>
+            <h3>Notes</h3>
+            <button id="notes-close" type="button" onclick="closeNotesPanel()" aria-label="Close notes">✕</button>
         </div>
         <div id="notes-panel-content">
             Loading...
@@ -102,18 +131,18 @@
             <li>
                 <div class="icon">
                     <div class="icon-inner" onclick="toggleElementRelative(event, 'li', '.control-panel')">
-                        <img src="assets/icons/box.png">
+                        <img src="assets/icons/box.png" alt="">
                         <span>Info</span>
                     </div>
                 </div>
                 <div class="control-panel cp-hidden" data-width="300px">
-                    <h3 style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo $exerciseGroupName; ?></h3>
+                    <h3 style="max-width:300px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><?php echo htmlspecialchars($exerciseGroupName); ?></h3>
                 </div>
             </li>
             <li>
                 <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
                     <div class="icon-inner">
-                        <img src="assets/icons/countdown.png">
+                        <img src="assets/icons/countdown.png" alt="">
                         <span>Time</span>
                     </div>
                 </div>
@@ -135,7 +164,7 @@
             <li>
                 <div class="icon" onclick="toggleElementRelative(event, 'li', '.control-panel')">
                     <div class="icon-inner">
-                        <img src="assets/icons/counter.png">
+                        <img src="assets/icons/counter.png" alt="">
                         <span>Reps</span>
                     </div>
                 </div>
@@ -169,7 +198,7 @@
             <p>
                 <div style="position:relative; width:fit-content; margin:0 auto;">
                     <textarea id="reps-text" style="resize:none;" onclick="if(event.target.value.length===0) return; event.target.select(); document.execCommand('copy'); event.target.blur(); document.querySelector('#reps-text-copied').classList.remove('hidden'); setInterval(()=>{ document.querySelector('#reps-text-copied').classList.add('hidden') }, 500)"></textarea>
-                    <div id="reps-text-copied" class="hidden" style="position:absolute; top:0; right:2.5px;">📋</div>
+                    <div id="reps-text-copied" class="hidden" style="position:absolute; top:0; right:2.5px;">Copied</div>
                 </div>
             </p>
         <p>
@@ -198,7 +227,7 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=3.4"></script>
+    <script src="assets/js/tabularize-exercises.js?v=4.0"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

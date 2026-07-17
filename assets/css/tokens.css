@@ -1,0 +1,35 @@
+/* Fitness Deck shared design tokens */
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Figtree:wght@400;500;600;700&display=swap');
+
+:root {
+    --fd-bg: oklch(0.97 0.012 145);
+    --fd-bg-elevated: oklch(0.995 0.004 145);
+    --fd-ink: oklch(0.22 0.02 145);
+    --fd-ink-muted: oklch(0.42 0.02 145);
+    --fd-ink-faint: oklch(0.55 0.015 145);
+    --fd-accent: oklch(0.42 0.08 160);
+    --fd-accent-hover: oklch(0.36 0.09 160);
+    --fd-accent-soft: oklch(0.92 0.04 160);
+    --fd-border: oklch(0.88 0.015 145);
+    --fd-shadow: 0 12px 40px oklch(0.22 0.02 145 / 0.08);
+    --fd-radius: 6px;
+    --fd-radius-lg: 12px;
+    --fd-font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --fd-font-body: "Figtree", "Segoe UI", sans-serif;
+    --fd-space-xs: 0.35rem;
+    --fd-space-sm: 0.75rem;
+    --fd-space-md: 1.25rem;
+    --fd-space-lg: 2rem;
+    --fd-space-xl: 3rem;
+    --fd-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

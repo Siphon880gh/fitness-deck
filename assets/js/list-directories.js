@@ -1,181 +1,228 @@
+function getLastOpened() {
+    const raw = localStorage.getItem("FitnessDeck__lastOpened");
+    if (!raw) return [];
+    try {
+        const parsed = JSON.parse(raw);
+        return Array.isArray(parsed) ? parsed : [];
+    } catch (err) {
+        return [];
+    }
+}
+
+function formatPathLabel(path) {
+    if (!path) return "";
+    const parts = path.replace(/\.md$/i, "").split("/");
+    if (parts.length < 2) return parts[0] || path;
+    return parts[1] + " · " + parts[0];
+}
+
+function renderContinueSession() {
+    const section = document.getElementById("continue-session");
+    const link = document.getElementById("continue-link");
+    if (!section || !link) return;
+
+    const lastOpened = getLastOpened();
+    if (!lastOpened.length) {
+        section.hidden = true;
+        return;
+    }
+
+    const latest = lastOpened[0];
+    const titleEl = link.querySelector(".fd-continue-title");
+    const metaEl = link.querySelector(".fd-continue-meta");
+    const label = formatPathLabel(latest.path);
+
+    titleEl.textContent = label;
+    metaEl.textContent = latest.shortDate ? "Opened " + latest.shortDate : "Resume your last table";
+    link.href = "?md-file=" + latest.path;
+    link.dataset.path = latest.path;
+    section.hidden = false;
+
+    link.onclick = handleLastOpened;
+}
+
+function handleLastOpened(event) {
+    const path = event.currentTarget.dataset.path;
+    if (!path) return;
+
+    const shortDate = (new Date()).getMonth() + 1 + "/" + (new Date()).getDate();
+    let lastOpened = getLastOpened();
+    lastOpened = lastOpened.filter(item => item.path !== path);
+    if (lastOpened.length >= 8) lastOpened.pop();
+    lastOpened = [{ path, shortDate }, ...lastOpened];
+    localStorage.setItem("FitnessDeck__lastOpened", JSON.stringify(lastOpened));
+}
+
+window.hydrateDirectoryLinks = function hydrateDirectoryLinks() {
+    document.querySelectorAll('a[data-path]').forEach(aEl => {
+        aEl.onclick = handleLastOpened;
+    });
+};
+
+window.annotateLastOpenedOnLinks = function annotateLastOpenedOnLinks() {
+    document.querySelectorAll(".last-opened").forEach(el => el.remove());
+    const lastOpened = getLastOpened();
+    lastOpened.forEach((obj, zIndex) => {
+        const link = Array.from(document.querySelectorAll("ul.dirs a[data-path]")).find(
+            el => el.dataset.path === obj.path
+        );
+        if (!link) return;
+        const spanEl = document.createElement("span");
+        spanEl.textContent = obj.shortDate;
+        spanEl.className = "last-opened";
+        spanEl.style.zIndex = zIndex;
+        link.insertAdjacentElement("afterend", spanEl);
+    });
+};
+
+function syncModeButtons(mode) {
+    const areasBtn = document.getElementById("mode-areas");
+    const alphabBtn = document.getElementById("mode-alphab");
+    if (!areasBtn || !alphabBtn) return;
+    areasBtn.setAttribute("aria-pressed", mode === "AREAS" ? "true" : "false");
+    alphabBtn.setAttribute("aria-pressed", mode === "ALPHAB" ? "true" : "false");
+}
+
 function initIndexAllUI() {
     const dirsEl = document.querySelector(".dirs");
-    dirsEl.innerHTML = ""; // So can be reinit
+    if (!dirsEl) return;
+    dirsEl.innerHTML = "";
 
     fetch("icons.config.js")
-        .then((response) => {
-            let customIcons = { icons: [] };
-            if (response.ok) {
-                return response.json();
-            }
-            return customIcons;
+        .then(response => (response.ok ? response.json() : { icons: [] }))
+        .then(customIconsConfig => {
+            renderListing(customIconsConfig.icons || []);
         })
-        .then((customIconsConfig) => {
-            customIcons = customIconsConfig;
-            renderListing(customIcons.icons);
-        })
-        .catch((error) => {
+        .catch(() => {
             renderListing([]);
         });
 
-
     function renderListing(customIcons) {
-        console.log("Rendering listing");
+        const dirs = (window.dirs || []).slice().sort();
 
-        const handleLastOpened = event => {
-            //const textContent = event.target.textContent
-            const path = event.target.dataset.path
-            const shortDate = (new Date()).getMonth() + "/" + (new Date()).getDate()
-            let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
-            if (lastOpened) {
-                lastOpened = JSON.parse(lastOpened)
-                // lastOpened is an array of dates left to right: most recent, last recent, oldest
-                if (lastOpened.length === 8) lastOpened.pop(); // self mutates removing the oldest date at the right side
-                lastOpened = [{ path, shortDate }, ...lastOpened];
-                console.log("Clicked. Append date to LocalStorage");
-            } else {
-                lastOpened = [{ path, shortDate }];
-                console.log("Clicked. One date to LocalStorage");
-            }
-            localStorage.setItem("FitnessDeck__lastOpened", JSON.stringify(lastOpened))
-        }
-
-        // window.dirs = window.dirs.reverse();
-
-        window.dirs = window.dirs.sort();
-        window.dirs.forEach(dir => {
-            const isSegmentedPath = dir.split("/").length;
-            if (isSegmentedPath) {
-                let folderName = dir.split("/")[0];
-                // If was password protected, remove password from the folder name
-                // -aa Test Category => Test Category
-                // TODO: Will implement password protected dirs later
-                if (folderName.length && folderName[0] === '-') {
+        dirs.forEach(dir => {
+            const segments = dir.split("/");
+            if (segments.length >= 2) {
+                let folderName = segments[0];
+                if (folderName.length && folderName[0] === "-") {
                     folderName = folderName.split(" ").slice(1).join(" ");
                 }
-                // console.log(folderName);
-
-                const fileName = dir.split("/")[1];
+                const fileName = segments[1];
                 const isFirstListing = !Boolean(document.querySelector(`[data-folder="${folderName}"]`));
+
                 if (isFirstListing) {
-                    dirsEl.append((() => {
-                        const liEl = document.createElement("li");
-                        liEl.textContent = folderName;
-                        liEl.classList.add("folder");
+                    const liEl = document.createElement("li");
+                    liEl.textContent = folderName;
+                    liEl.classList.add("folder");
 
-                        // Jumpable links
-                        var idFolderName = (function extractAlphanumericHyphenable({ inputString }) {
-                            var extracted = inputString.replace(/[^a-zA-Z0-9\-]/g, '');
-                            var lowercased = extracted.toLowerCase();
-                            return lowercased;
-                        })({
-                            inputString: folderName
-                        });
-                        liEl.setAttribute("id", idFolderName)
-                        liEl.onclick = (event) => {
-                            window.location.hash = idFolderName;
-                        }
+                    const idFolderName = folderName.replace(/[^a-zA-Z0-9\-]/g, "").toLowerCase();
+                    liEl.id = idFolderName;
+                    liEl.onclick = () => {
+                        window.location.hash = idFolderName;
+                    };
 
-                        const matchedCustomIcon = customIcons.filter(customIcon => customIcon.displayName === folderName);
-                        if (matchedCustomIcon.length) {
-                            liEl.classList.add("custom-icon")
-                            liEl.innerHTML = matchedCustomIcon[0].replaceIcon + "&nbsp;" + liEl.innerHTML
-                        }
-                        liEl.setAttribute("data-folder", folderName);
-                        return liEl;
-                    })())
+                    const matchedCustomIcon = customIcons.filter(customIcon => customIcon.displayName === folderName);
+                    if (matchedCustomIcon.length) {
+                        liEl.classList.add("custom-icon");
+                        liEl.innerHTML = matchedCustomIcon[0].replaceIcon + "&nbsp;" + liEl.textContent;
+                    }
+                    liEl.setAttribute("data-folder", folderName);
+                    dirsEl.append(liEl);
                 }
-                dirsEl.append((() => {
-                    const liEl = document.createElement("li");
-                    liEl.classList.add("file")
 
-                    const aEl = document.createElement("a");
-                    aEl.href = "?md-file=" + dir;
-                    aEl.dataset.path = dir;
-                    aEl.textContent = fileName.substr(0, fileName.length - 3);
-                    aEl.onclick = handleLastOpened;
-
-                    liEl.append(aEl);
-                    return liEl;
-                })());
-            } // isSegmentedPath
-            else { // is not segmented with slashes, so is root file
-
-                dirsEl.append((() => {
-                    const liEl = document.createElement("li");
-                    liEl.classList.add("file")
-
-                    const aEl = document.createElement("a");
-                    aEl.href = "?md-file=" + dir;
-                    aEl.dataset.path = dir;
-                    aEl.textContent = fileName.substr(0, fileName.length - 3);
-                    aEl.onclick = handleLastOpened;
-
-                    liEl.append(aEl);
-                    return liEl;
-                })());
+                const fileLi = document.createElement("li");
+                fileLi.classList.add("file");
+                const aEl = document.createElement("a");
+                aEl.href = "?md-file=" + dir;
+                aEl.dataset.path = dir;
+                aEl.textContent = fileName.replace(/\.md$/i, "");
+                aEl.onclick = handleLastOpened;
+                fileLi.append(aEl);
+                dirsEl.append(fileLi);
+            } else {
+                const fileLi = document.createElement("li");
+                fileLi.classList.add("file");
+                const aEl = document.createElement("a");
+                aEl.href = "?md-file=" + dir;
+                aEl.dataset.path = dir;
+                aEl.textContent = dir.replace(/\.md$/i, "");
+                aEl.onclick = handleLastOpened;
+                fileLi.append(aEl);
+                dirsEl.append(fileLi);
             }
         });
 
-        // Add last 3 opened dates
-        let lastOpened = localStorage.getItem("FitnessDeck__lastOpened");
-        if (lastOpened) {
-            lastOpened = JSON.parse(lastOpened)
-            lastOpened.forEach((obj, zIndex) => {
-                // console.log(obj)
-                if (document.querySelector(`[data-path='${obj.path}']`)) {
-                    document.querySelector(`[data-path='${obj.path}']`).insertAdjacentElement('afterend', (() => {
-                        let spanEl = document.createElement("span");
-                        spanEl.textContent = obj.shortDate;
-                        spanEl.className = "last-opened hidden"; // Hidden initially until you click Eye icon
-                        spanEl.style.zIndex = zIndex;
-                        return spanEl;
-                    })())
-                }
-            })
-        }
-
-    } // renderListing
-} // initIndexAllUI
-// initIndexAllUI();
-
-const intIndexBinnedUI = () => {
-    sortIntoAreas()
-}
-
-const toggleIndexMode = () => {
-    let initMode = localStorage.getItem("FitnessDeck__indexMode");
-    if (initMode && initMode === "ALPHAB" || initMode === "AREAS") {
-        if (initMode === "AREAS") {
-
-            localStorage.setItem("FitnessDeck__indexMode", "ALPHAB");
-            // Already live
-            window.location.reload()
-        } else {
-
-            localStorage.setItem("FitnessDeck__indexMode", "AREAS");
-            intIndexBinnedUI()
-        }
-    } else {
-        localStorage.setItem("FitnessDeck__indexMode", "AREAS");
-        initIndexAllUI() // Other than Default
+        annotateLastOpenedOnLinks();
     }
 }
+
+const intIndexBinnedUI = () => sortIntoAreas();
+
+const setIndexMode = (mode) => {
+    localStorage.setItem("FitnessDeck__indexMode", mode);
+    syncModeButtons(mode);
+    if (mode === "ALPHAB") {
+        // Ensure .dirs exists if AREAS previously replaced .intro
+        const intro = document.querySelector(".intro");
+        if (intro && !intro.querySelector(".dirs")) {
+            intro.innerHTML = '<section class="dirs-wrapper"><ul class="dirs"></ul></section>';
+        }
+        initIndexAllUI();
+    } else {
+        intIndexBinnedUI();
+    }
+};
 
 const loadIndexInitial = () => {
     let initMode = localStorage.getItem("FitnessDeck__indexMode");
-    if (initMode && initMode === "ALPHAB" || initMode === "AREAS") {
-        if (initMode === "ALPHAB") {
-            initIndexAllUI()
-        } else {
-            intIndexBinnedUI()
-        }
-    } else {
-        localStorage.setItem("FitnessDeck__indexMode", "ALPHAB");
-        initIndexAllUI() // Default
+    if (initMode !== "ALPHAB" && initMode !== "AREAS") {
+        initMode = "AREAS";
+        localStorage.setItem("FitnessDeck__indexMode", "AREAS");
     }
-} // loadIndexInitial
+    syncModeButtons(initMode);
+    if (initMode === "ALPHAB") {
+        initIndexAllUI();
+    } else {
+        intIndexBinnedUI();
+    }
+};
+
+function bindGoalChips() {
+    document.querySelectorAll(".fd-chip").forEach(chip => {
+        chip.addEventListener("click", event => {
+            const href = chip.getAttribute("href");
+            if (!href || href.charAt(0) !== "#") return;
+            event.preventDefault();
+
+            document.querySelectorAll(".fd-chip").forEach(c => c.classList.remove("is-active"));
+            chip.classList.add("is-active");
+
+            // Goal headings only exist in AREAS mode
+            if (localStorage.getItem("FitnessDeck__indexMode") !== "AREAS") {
+                setIndexMode("AREAS");
+                setTimeout(() => {
+                    const target = document.querySelector(href);
+                    if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                }, 120);
+                return;
+            }
+
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        });
+    });
+}
+
+function bindModeToggle() {
+    document.getElementById("mode-areas")?.addEventListener("click", () => setIndexMode("AREAS"));
+    document.getElementById("mode-alphab")?.addEventListener("click", () => setIndexMode("ALPHAB"));
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadIndexInitial()
-})
+    renderContinueSession();
+    bindGoalChips();
+    bindModeToggle();
+    loadIndexInitial();
+});
