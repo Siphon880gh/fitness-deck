@@ -446,6 +446,45 @@ function getExerciseCommentText(exerciseName) {
     return (card?.querySelector(".fd-ex-comment")?.textContent || "").trim();
 }
 
+function getCardMarkColor(card) {
+    if (!card) return null;
+    for (let n = 1; n <= 4; n++) {
+        if (card.querySelector(`.fd-step.addressed-${n}`)) return n;
+    }
+    return null;
+}
+
+function syncNotesMarks() {
+    const contentEl = document.getElementById("notes-panel-content");
+    if (!contentEl || !window.notesPanelLoaded) return;
+
+    contentEl.querySelectorAll("li.fd-notes-jump[data-exercise-name]").forEach(li => {
+        const exerciseName = li.dataset.exerciseName;
+        const card = Array.from(document.querySelectorAll(".fd-ex[data-exercise]"))
+            .find(el => el.dataset.exercise === exerciseName);
+        const mark = getCardMarkColor(card);
+        let icon = li.querySelector(":scope > .fd-notes-mark-icon");
+
+        if (!mark) {
+            icon?.remove();
+            return;
+        }
+
+        if (!icon) {
+            icon = document.createElement("span");
+            icon.className = "fd-notes-mark-icon";
+            icon.setAttribute("aria-hidden", "true");
+            icon.innerHTML = '<i class="fas fa-paint-brush"></i>';
+            const nested = li.querySelector(":scope > ul, :scope > ol, :scope > .fd-notes-user-comment");
+            if (nested) li.insertBefore(icon, nested);
+            else li.appendChild(icon);
+        }
+
+        icon.dataset.mark = String(mark);
+        icon.title = "Marked";
+    });
+}
+
 function syncNotesComments() {
     const contentEl = document.getElementById("notes-panel-content");
     if (!contentEl || !window.notesPanelLoaded) return;
@@ -503,7 +542,7 @@ function linkNotesToExercises() {
         li.tabIndex = 0;
         li.title = "Jump to " + card.dataset.exercise;
         const go = (event) => {
-            if (event.target.closest(".fd-notes-user-comment")) return;
+            if (event.target.closest(".fd-notes-user-comment, .fd-notes-mark-icon")) return;
             event.preventDefault();
             event.stopPropagation();
             jumpToExerciseCard(card);
@@ -515,6 +554,7 @@ function linkNotesToExercises() {
     });
 
     syncNotesComments();
+    syncNotesMarks();
 }
 
 function shortDifficultyLabel(headerText, index) {
@@ -678,8 +718,17 @@ function buildExerciseDeck(tableEl) {
 }
 
 function hydrateDeckInteractions() {
+    const DRAG_RESET_PX = 8;
+
     function clearAllAddressedFlags($el) {
         $el.removeClass("addressed-1 addressed-2 addressed-3 addressed-4");
+    }
+
+    function persistMarkClear($el) {
+        clearAllAddressedFlags($el);
+        rerenderAddressedStatistic();
+        saveAddressed();
+        animateSaved();
     }
 
     function causeColorChange(el) {
@@ -706,8 +755,77 @@ function hydrateDeckInteractions() {
     }
 
     document.querySelectorAll(".fd-step").forEach(step => {
+        let dragReset = null;
+        const ladder = step.closest(".fd-ladder");
+
+        const abandonDragReset = () => {
+            if (!dragReset) return;
+            window.removeEventListener("pointermove", onWindowPointerMove, true);
+            window.removeEventListener("pointerup", onWindowPointerUp, true);
+            window.removeEventListener("pointercancel", onWindowPointerCancel, true);
+            dragReset = null;
+        };
+
+        const onWindowPointerCancel = (event) => {
+            if (!dragReset || event.pointerId !== dragReset.pointerId) return;
+            step.dataset.fdDragCleared = "";
+            abandonDragReset();
+        };
+
+        const onWindowPointerMove = (event) => {
+            if (!dragReset || event.pointerId !== dragReset.pointerId) return;
+            const under = document.elementFromPoint(event.clientX, event.clientY);
+            // Page scroll moves the ladder out from under the pointer — do not clear
+            if (!ladder || !under || !ladder.contains(under)) {
+                dragReset.leftLadder = true;
+            }
+            const dx = event.clientX - dragReset.startX;
+            const dy = event.clientY - dragReset.startY;
+            if (Math.hypot(dx, dy) >= DRAG_RESET_PX) dragReset.moved = true;
+        };
+
+        const onWindowPointerUp = (event) => {
+            if (!dragReset || event.pointerId !== dragReset.pointerId) return;
+            let cleared = false;
+            const under = document.elementFromPoint(event.clientX, event.clientY);
+            const releasedInLadder = !!(under && ladder && ladder.contains(under));
+            // Same UI = the variation ladder (covers both vertical list and 5-col grid)
+            if (
+                dragReset.moved &&
+                !dragReset.leftLadder &&
+                releasedInLadder &&
+                step.className.includes("addressed")
+            ) {
+                persistMarkClear($(step));
+                cleared = true;
+            }
+            step.dataset.fdDragCleared = cleared ? "1" : "";
+            abandonDragReset();
+        };
+
+        step.addEventListener("pointerdown", event => {
+            if (event.button !== 0) return;
+            if (step.classList.contains("is-empty")) return;
+            if (!step.className.includes("addressed")) return;
+            abandonDragReset();
+            dragReset = {
+                pointerId: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                moved: false,
+                leftLadder: false
+            };
+            window.addEventListener("pointermove", onWindowPointerMove, true);
+            window.addEventListener("pointerup", onWindowPointerUp, true);
+            window.addEventListener("pointercancel", onWindowPointerCancel, true);
+        });
+
         step.addEventListener("click", event => {
             event.stopPropagation();
+            if (step.dataset.fdDragCleared === "1") {
+                step.dataset.fdDragCleared = "";
+                return;
+            }
             const card = step.closest(".fd-ex");
             document.querySelectorAll(".fd-ex.is-selected").forEach(el => el.classList.remove("is-selected"));
             card?.classList.add("is-selected");
@@ -719,10 +837,7 @@ function hydrateDeckInteractions() {
         step.addEventListener("contextmenu", event => {
             if (!step.className.includes("addressed")) return;
             event.preventDefault();
-            clearAllAddressedFlags($(step));
-            rerenderAddressedStatistic();
-            saveAddressed();
-            animateSaved();
+            persistMarkClear($(step));
         });
     });
 
@@ -742,8 +857,11 @@ window.rerenderAddressedStatistic = () => {
     const count = document.querySelectorAll(".fd-step.addressed-1, .fd-step.addressed-2, .fd-step.addressed-3, .fd-step.addressed-4").length;
     const total = document.querySelectorAll(".fd-ex").length;
     const el = document.getElementById("addressed");
-    if (el) el.textContent = `${count}/${total}`;
+    const countEl = el?.querySelector(".fd-addressed-count");
+    if (countEl) countEl.textContent = `${count}/${total}`;
+    else if (el) el.textContent = `${count}/${total}`;
     updateColorSwatchAvailability();
+    syncNotesMarks();
 };
 
 const animateSaved = () => {
@@ -987,6 +1105,10 @@ function renderMDFile() {
             if (!document.getElementById("addressed")) {
                 const addressed = document.createElement("div");
                 addressed.id = "addressed";
+                addressed.innerHTML =
+                    '<i class="fas fa-paint-brush fd-mark-brush" aria-hidden="true"></i>' +
+                    '<span class="fd-addressed-label">Marked</span>' +
+                    '<span class="fd-addressed-count">0/0</span>';
                 addressed.addEventListener("click", () => {
                     if (confirm("Clear all marked colors?")) {
                         clearAddressed();

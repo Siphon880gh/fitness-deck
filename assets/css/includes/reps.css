@@ -4,6 +4,13 @@
     font-family: var(--fd-font-body);
 }
 
+@media screen and (max-width: 768px) {
+    #reps-sets-wrapper {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+}
+
 #reps-sets-wrapper #r-plus {
     position: absolute;
     top: 0;

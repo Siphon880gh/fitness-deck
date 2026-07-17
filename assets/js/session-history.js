@@ -168,10 +168,18 @@
     function toggleWorkPanel(panelId) {
         var panel = document.getElementById(panelId);
         var wasHidden = panel?.classList.contains("cp-hidden");
-        document.querySelectorAll("#control-panels .control-panel").forEach(function (p) {
-            p.classList.add("cp-hidden");
+        document.querySelectorAll(".control-panel").forEach(function (p) {
+            if (p !== panel) p.classList.add("cp-hidden");
         });
-        if (panel && wasHidden) panel.classList.remove("cp-hidden");
+        if (panel) panel.classList.toggle("cp-hidden", !wasHidden);
+        if (panel && wasHidden) {
+            var item = panel.closest(".session-accordion-item");
+            if (item) {
+                requestAnimationFrame(function () {
+                    item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                });
+            }
+        }
         if (typeof syncSessionBarHistoryExpanded === "function") {
             syncSessionBarHistoryExpanded();
         }
@@ -214,11 +222,19 @@
     }
 
     function openExercisePanel() {
-        document.querySelectorAll("#control-panels .control-panel").forEach(function (p) {
+        document.querySelectorAll(".control-panel").forEach(function (p) {
             p.classList.add("cp-hidden");
         });
         var panel = document.getElementById("session-exercise-panel");
-        if (panel) panel.classList.remove("cp-hidden");
+        if (panel) {
+            panel.classList.remove("cp-hidden");
+            var item = panel.closest(".session-accordion-item");
+            if (item) {
+                requestAnimationFrame(function () {
+                    item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                });
+            }
+        }
         if (typeof syncSessionBarHistoryExpanded === "function") {
             syncSessionBarHistoryExpanded();
         }
@@ -254,11 +270,19 @@
     }
 
     function openRepsPanel() {
-        document.querySelectorAll("#control-panels .control-panel").forEach(function (p) {
+        document.querySelectorAll(".control-panel").forEach(function (p) {
             p.classList.add("cp-hidden");
         });
         var panel = document.getElementById("session-reps-panel");
-        if (panel) panel.classList.remove("cp-hidden");
+        if (panel) {
+            panel.classList.remove("cp-hidden");
+            var item = panel.closest(".session-accordion-item");
+            if (item) {
+                requestAnimationFrame(function () {
+                    item.scrollIntoView({ block: "nearest", behavior: "smooth" });
+                });
+            }
+        }
         if (typeof syncSessionBarHistoryExpanded === "function") {
             syncSessionBarHistoryExpanded();
         }
@@ -580,7 +604,7 @@
         var panel = document.getElementById("session-history-panel");
         if (!panel) return;
         var willOpen = panel.classList.contains("cp-hidden");
-        document.querySelectorAll("#control-panels .control-panel").forEach(function (p) {
+        document.querySelectorAll(".control-panel").forEach(function (p) {
             if (p !== panel) p.classList.add("cp-hidden");
         });
         panel.classList.toggle("cp-hidden", !willOpen);

@@ -12,6 +12,14 @@
     font-family: var(--fd-font-body);
 }
 
+@media screen and (max-width: 768px) {
+    #cp-countdown {
+        width: 100%;
+        max-width: 22rem;
+        margin: 0 auto;
+    }
+}
+
 #countdown-operator,
 .countdown-quant {
     display: inline-flex;
@@ -60,27 +68,48 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    justify-content: space-between;
-    gap: 0.45rem;
+    justify-content: center;
+    gap: 0.55rem;
 }
 
-#countdown-stop-play {
-    background: transparent;
-    border: 0;
+#countdown-play,
+#countdown-stop {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.25rem;
+    min-height: 2.25rem;
+    margin: 0;
+    padding: 0.35rem;
+    background: var(--fd-bg-elevated);
+    border: 1px solid var(--fd-border);
+    border-radius: var(--fd-radius);
     cursor: pointer;
-    padding: 0.15rem;
-    filter: none;
-    opacity: 0.85;
-    transition: opacity 0.2s ease;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, background 0.15s ease, border-color 0.15s ease;
 }
 
-#countdown-stop-play::before {
-    content: "▶️ | ⏹️";
+#countdown-play::before {
+    content: "▶️";
+    font-size: 0.95rem;
+    line-height: 1;
 }
 
-#countdown-stop-play:hover {
+#countdown-stop::before {
+    content: "⏹️";
+    font-size: 0.95rem;
+    line-height: 1;
+}
+
+#countdown-play:hover,
+#countdown-stop:hover,
+#countdown-play:focus-visible,
+#countdown-stop:focus-visible {
     opacity: 1;
-    filter: none;
+    border-color: var(--fd-accent);
+    background: var(--fd-accent-soft);
+    outline: none;
 }
 
 #countdown-display {

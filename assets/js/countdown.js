@@ -71,35 +71,42 @@ document.addEventListener("DOMContentLoaded", () => {
     refreshCountdownDisplay();
     controlViewColor("STOPPED");
 
-    document.querySelectorAll(".countdown-quant, #countdown-display, #countdown-stop-play").forEach(el => {
+    function clearCountdownFinished() {
+        document.querySelectorAll(".countdown-finished").forEach(el => {
+            el.classList.remove("countdown-finished");
+        });
+    }
+
+    function startCountdown() {
+        if (pollerId) clearInterval(pollerId);
+        window.countdown = {
+            ...countdown,
+            status: "PLAYING",
+            timeAt: 0
+        };
+        controlViewColor("PLAYING");
+        refreshCountdownDisplay();
+        pollerId = setInterval(poller, 1000);
+    }
+
+    function stopCountdown() {
+        if (pollerId) clearInterval(pollerId);
+        window.countdown = {
+            ...countdown,
+            status: "STOPPED"
+        };
+        controlViewColor("STOPPED");
+        refreshCountdownDisplay();
+    }
+
+    document.querySelectorAll(".countdown-quant, #countdown-display, #countdown-play, #countdown-stop").forEach(el => {
         el.addEventListener("click", () => {
-            var wasFinished = document.querySelectorAll(".countdown-finished");
-            if (wasFinished) {
-                wasFinished.forEach(el => {
-                    el.classList.remove("countdown-finished");
-                });
-            }
+            clearCountdownFinished();
 
-            if (el.matches("#countdown-stop-play")) {
-                window.countdown = {
-                    ...countdown,
-                    status: window.countdown.status === "PLAYING" ? "STOPPED" : "PLAYING"
-                }
-                console.log(window.countdown);
-
-                // After wanting Play
-                controlViewColor(window.countdown.status);
-
-                // After wanting Play
-                if (window.countdown.status === "PLAYING") {
-                    window.countdown.timeAt = 0;
-                    refreshCountdownDisplay();
-                    pollerId = setInterval(poller, 1000);
-                } else {
-                    clearInterval(pollerId);
-                    refreshCountdownDisplay();
-                }
-
+            if (el.matches("#countdown-play")) {
+                startCountdown();
+            } else if (el.matches("#countdown-stop")) {
+                stopCountdown();
             } else if (el.matches("#countdown-display")) {
                 window.countdown = {
                     ...countdown,
