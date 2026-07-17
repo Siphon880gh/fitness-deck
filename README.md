@@ -10,6 +10,27 @@ By Weng Fei Fung. All possible exercises and their progression variations accord
 
 [Visit Weng's Fitness Deck](https://wengindustry.com/tools/fitness-deck/)
 
+## How it works
+
+Pick a program from the home page (or continue where you left off). Progress stays on this device—no accounts.
+
+![Home — continue and program goals](docs/screenshots/home.png)
+
+Browse muscle/area pages under each goal (Stretch, Build, Mobility, Rehab, Cardio). Toggle **By goal** or **A–Z**.
+
+![Program listing by goal](docs/screenshots/programs.png)
+
+Open a page to see exercise cards with a difficulty ladder (easiest → hardest). Tap a step to mark it; colors mean whatever you need (progress, reviewed, focus). Many pages include open-source demo GIFs.
+
+![Exercise card with demo and marked difficulty](docs/screenshots/session.png)
+
+Use the **Session** tool for a timer, sets/reps, and save to history. Open **History** to edit or delete past saves.
+
+![Session bar and history](docs/screenshots/session-history.png)
+
+Pages with author notes (`.up.md`) show an **Outline** panel—groupings, jump links to exercises, and your comments.
+
+![Outline notes panel](docs/screenshots/outline.png)
 
 ## Exercise Administration
 
