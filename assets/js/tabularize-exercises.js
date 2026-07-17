@@ -323,6 +323,74 @@ function isEmptyVariation(text) {
     return !t || t === "-" || t === "n/a" || t === ".." || t === "…";
 }
 
+function slugifyExercise(name) {
+    return String(name || "")
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, "-")
+        .replace(/^-|-$/g, "")
+        .slice(0, 80);
+}
+
+function normalizeExerciseMatch(name) {
+    return String(name || "")
+        .toLowerCase()
+        .replace(/\([^)]*\)/g, " ")
+        .replace(/[^a-z0-9\s]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim();
+}
+
+function jumpToExerciseCard(card) {
+    if (!card) return;
+    closeNotesPanel();
+    document.querySelectorAll(".fd-ex.is-selected, .fd-ex.is-jump-flash").forEach(el => {
+        el.classList.remove("is-selected", "is-jump-flash");
+    });
+    card.classList.add("is-selected", "is-jump-flash");
+    card.scrollIntoView({ behavior: "smooth", block: "start" });
+    setTimeout(() => card.classList.remove("is-jump-flash"), 1400);
+}
+
+function linkNotesToExercises() {
+    const contentEl = document.getElementById("notes-panel-content");
+    if (!contentEl) return;
+
+    const byNorm = new Map();
+    document.querySelectorAll(".fd-ex[data-exercise]").forEach(card => {
+        const name = card.dataset.exercise;
+        const key = normalizeExerciseMatch(name);
+        if (key) byNorm.set(key, card);
+    });
+    if (!byNorm.size) return;
+
+    contentEl.querySelectorAll("li").forEach(li => {
+        // Prefer this item's own text, not nested list text
+        const own = Array.from(li.childNodes)
+            .filter(n => n.nodeType === Node.TEXT_NODE || (n.nodeType === Node.ELEMENT_NODE && !["UL", "OL"].includes(n.tagName)))
+            .map(n => n.textContent || "")
+            .join(" ")
+            .trim();
+        if (!own) return;
+
+        const card = byNorm.get(normalizeExerciseMatch(own));
+        if (!card) return;
+
+        li.classList.add("fd-notes-jump");
+        li.setAttribute("role", "link");
+        li.tabIndex = 0;
+        li.title = "Jump to " + card.dataset.exercise;
+        const go = (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            jumpToExerciseCard(card);
+        };
+        li.addEventListener("click", go);
+        li.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") go(event);
+        });
+    });
+}
+
 function shortDifficultyLabel(headerText, index) {
     const h = (headerText || "").toLowerCase();
     if (h.includes("easiest")) return "Easiest";
@@ -374,6 +442,7 @@ function buildExerciseDeck(tableEl) {
         const card = document.createElement("article");
         card.className = "fd-ex";
         card.dataset.exercise = rawName;
+        card.id = "exercise-" + slugifyExercise(rawName);
 
         const mediaSlot = document.createElement("div");
         mediaSlot.className = "fd-ex-media";
@@ -817,6 +886,9 @@ function loadNotesContent() {
             contentEl.querySelectorAll('a').forEach(a => {
                 a.setAttribute('target', '_blank');
             });
+
+            // List items that match deck exercises jump-scroll to that card
+            linkNotesToExercises();
             
             // Build section navigation
             buildSectionNav();

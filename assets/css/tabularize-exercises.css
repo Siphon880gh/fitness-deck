@@ -988,6 +988,23 @@ tbody tr td:nth-child(6)::before {
     margin-bottom: 6px;
 }
 
+#notes-panel-content li.fd-notes-jump {
+    cursor: pointer;
+    color: var(--fd-accent-hover);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-color: oklch(0.42 0.08 160 / 0.35);
+    width: fit-content;
+}
+
+#notes-panel-content li.fd-notes-jump:hover,
+#notes-panel-content li.fd-notes-jump:focus-visible {
+    color: var(--fd-accent);
+    text-decoration-color: var(--fd-accent);
+    outline: none;
+}
+
 #notes-panel-content hr {
     border: none;
     border-top: 1px dashed var(--fd-border);
@@ -1256,7 +1273,12 @@ body.fd-table:has(#first-run-legend:not([hidden])) .container.fd-deck-host {
     border: 1px solid var(--fd-border);
     border-radius: var(--fd-radius-lg);
     padding: 0.9rem 1rem 1rem;
+    scroll-margin-top: 4.5rem;
     transition: border-color 0.2s ease, box-shadow 0.25s var(--fd-ease);
+}
+
+.fd-ex.is-jump-flash {
+    box-shadow: 0 0 0 2px var(--fd-accent), var(--fd-shadow);
 }
 
 .fd-ex.has-media {
