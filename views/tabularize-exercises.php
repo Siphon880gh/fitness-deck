@@ -57,7 +57,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=4.0">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=4.3">
 </head>
 
 <body class="fd-table">
@@ -80,7 +80,7 @@
     </div>
 
     <div id="first-run-legend" class="fd-legend" hidden>
-        <p>Tap a variation cell to mark it—colors mean what you decide. Use the last column for comments. Tools below: notes, filter, random uncolored, detail, session timer/reps.</p>
+        <p>Each exercise shows a difficulty ladder—tap a step to mark it (colors mean what you decide). Add notes in Comments. Tools: notes, filter, random, detail, session.</p>
         <button type="button" id="dismiss-legend" class="fd-legend-dismiss">Got it</button>
     </div>
 
@@ -191,6 +191,14 @@
         </ul>
     </div> <!-- bar-controls -->
 
+    <div id="credits-modal" class="modal fd-credits-modal" hidden>
+        <div class="modal-content fd-credits-content" role="dialog" aria-modal="true" aria-labelledby="credits-modal-title">
+            <button type="button" class="fd-credits-close" id="credits-modal-close" aria-label="Close credits">&times;</button>
+            <h2 id="credits-modal-title">Credits</h2>
+            <div id="credits-modal-body"></div>
+        </div>
+    </div>
+
     <div id="modal" class="modal">
         <div class="modal-content">
         <span class="close">&times;</span>
@@ -227,7 +235,7 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=4.0"></script>
+    <script src="assets/js/tabularize-exercises.js?v=4.3"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>
