@@ -13,16 +13,18 @@ Skill: [.agents/skills/add-exercise-media/SKILL.md](.agents/skills/add-exercise-
 
 ## What this module does
 
-Maps exercise names on selected markdown pages to hosted GIF/image URLs from open ExerciseDB-related datasets. The session page loads an index → page manifest → attaches demos on cards and a Credits modal. A Python sync script keeps manifests fresh using markdown mtime + sha256 so new/renamed rows get matched without dumping binaries into the repo.
+Maps exercise names on markdown pages to hosted GIF/image URLs from open ExerciseDB-related datasets. The session page loads an index → page manifest → attaches demos on cards and a Credits modal. A Python sync script discovers **all** `md-file/**/*.md` pages (except `.up.md`) and keeps manifests fresh using markdown sha256 + exercise-name snapshots so new/renamed rows get matched without dumping binaries into the repo.
 
 ---
 
 ## Tech stack (this module)
 
-- Frontend attach: functions in `assets/js/tabularize-exercises.js` (media block roughly mid-file, after deck build helpers)
-- Data: `assets/data/exercise-media-index.json` + `assets/data/exercise-media-*.json`
-- Sync: `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py` (~506 lines)
-- Credits modal markup: near the bottom of `views/tabularize-exercises.php` (`#credits-modal`)
+| Piece | Location | ~lines |
+|-------|----------|--------|
+| Frontend attach | `tabularize-exercises.js` (media block mid-file) | (shared) |
+| Index + manifests | `assets/data/exercise-media-index.json` + `exercise-media-*.json` | — |
+| Sync script | `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py` | ~627 |
+| Credits modal | near bottom of `views/tabularize-exercises.php` (`#credits-modal`) | — |
 
 ---
 
@@ -30,7 +32,7 @@ Maps exercise names on selected markdown pages to hosted GIF/image URLs from ope
 
 ```
 md-file/.../Page.md
-     ↑ mtime/sha tracked
+     ↑ mtime/sha + exerciseNames tracked
 sync_exercise_media.py  →  exercise-media-index.json
                         →  exercise-media-<slug>.json  (byExercise + attribution)
 session page
@@ -38,14 +40,16 @@ session page
   → Credits button + modal (attribution.links)
 ```
 
+Default CLI with no `--page` processes **every** discovered md page. Tuned catalog filters live in `PAGE_FILTERS`; unknown pages use `default_page_filter` (full catalog, lower `min_score`).
+
 ---
 
 ## Relevant file tree
 
 ```
 assets/data/
-  exercise-media-index.json
-  exercise-media-bodybuilding-minimum-equipment-*.json
+  exercise-media-index.json          # ~27 pages (all current programs)
+  exercise-media-*.json              # Bodybuilding, Stretch, Cardio, Mobility, Rehab…
 .agents/skills/add-exercise-media/
   SKILL.md
   scripts/sync_exercise_media.py
@@ -53,7 +57,7 @@ assets/js/tabularize-exercises.js   # load / attach / credits
 views/tabularize-exercises.php      # #credits-modal shell
 ```
 
-Current index covers **10** Bodybuilding — Minimum Equipment pages (Abs, Back, Biceps, Calf, Chest, Hamstrings, Lats, Quadriceps, Shoulders, Triceps). Stretch/Cardio/etc. have no manifests unless added to `PAGE_FILTERS` and synced.
+Programs currently indexed: Bodybuilding — Minimum Equipment (10), Stretch (14), Cardio/10-Minute Burns, Mobility/Mobility, Rehab — Shin Splints.
 
 ---
 
@@ -63,7 +67,9 @@ Current index covers **10** Bodybuilding — Minimum Equipment pages (Abs, Back,
 
 Top-level: `updatedAt`, `catalogSource`, `pages` map keyed by `Folder/Page` (no `.md`).
 
-Each page entry includes: `mdPath`, `mdMtimeMs`, `mdSha256`, `manifest` path, optional `bodyParts`/`targets`, sync stats (`matchedCount`, `unmatchedCount`, `lastSyncedAt`).
+Each page entry includes: `mdPath`, `mdMtimeMs`, `mdSha256`, `exerciseNames` (snapshot), `manifest` path, optional `bodyParts`/`targets`, sync stats (`matchedCount`, `unmatchedCount`, `lastSyncedAt`).
+
+Stale when: never synced, sha changed, or **new exercise names** vs last snapshot. Permanently unmatched names alone do not force a rerun.
 
 ### Manifest shape (per-page JSON)
 
@@ -81,40 +87,42 @@ Keys must match `card.dataset.exercise` (raw table name).
 2. `loadExerciseMediaIndex()` — cached promise, `cache: "no-cache"`
 3. `mediaManifestPathForPage` → fetch manifest (`force-cache`)
 4. `attachExerciseMedia`:
-   - Fill `.fd-ex-media` with static `imageUrl` first, swap to `gifUrl` via IntersectionObserver when near viewport
+   - Fill `.fd-ex-media` with static `imageUrl` first; swap to `gifUrl` via IntersectionObserver near viewport
    - Mark card `has-media`
-5. `renderMediaAttribution` — inject `#fd-media-attribution` Credits button; populate modal body
+5. `renderMediaAttribution` — `#fd-media-attribution` Credits button + modal body
 
-Credits open/close helpers bind once (`window.__fdCreditsModalBound`); Escape handled with other modals.
+Credits bind once (`window.__fdCreditsModalBound`); Escape handled with other modals.
 
 ### Sync script (`sync_exercise_media.py`)
 
-Near the top: `REPO_ROOT`, `CATALOG_URL`, `MEDIA_BASE`, `ATTRIBUTION`, `PAGE_FILTERS` (per-page `body_parts` / `targets` / `min_score` / `manual` name aliases).
+Near the top: `REPO_ROOT`, `CATALOG_URL`, `MEDIA_BASE`, `ATTRIBUTION`, `PAGE_FILTERS`.
+
+Around the middle: `default_page_filter`, `discover_page_keys` (all md except `.up.md`), match/score helpers, `sync_page`.
 
 Typical CLI:
 
 ```bash
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
-python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Bodybuilding - Minimum Equipment/Back"
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Stretch/Hips"
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
 ```
 
-Incremental behavior: keep existing `byExercise` for unchanged names; match new names; drop removed; rewrite manifest + index. `--force` rematches everything on selected pages.
+`--check` exit `0` = nothing to do; `1` = at least one selected page is stale. Incremental: keep existing `byExercise` for unchanged names; match new; drop removed; rewrite manifest + index. `--force` rematches selected pages.
 
 ---
 
 ## Licensing / product rules
 
 - Do **not** vendor large GIF trees into git; use hosted dataset URLs.
-- Non-commercial + attribution required (ExerciseDB / Gym visual via AscendAPI)—Credits copy is already in the UI and script `ATTRIBUTION`.
-- Prefer running the skill after md-file edits on configured pages.
+- Non-commercial + attribution required (ExerciseDB / Gym visual via AscendAPI)—Credits copy is in the UI and script `ATTRIBUTION`.
+- Prefer running the skill after md-file edits (page or all).
 
 ---
 
 ## Safe-edit notes
 
-1. New muscle page: add filter entry to `PAGE_FILTERS` in the sync script, run sync for that `--page`, confirm Credits still opens.
-2. Renamed exercises: sync drops old keys; manual aliases help fuzzy/catalog mismatches.
+1. New page under `md-file/`: discovery picks it up automatically; add a `PAGE_FILTERS` entry when catalog body_parts/targets/manual aliases improve match quality.
+2. Renamed exercises: sync drops old keys; `manual` aliases help catalog mismatches.
 3. Frontend matching is **exact string** on `byExercise` keys—typos in md names break demos.
 4. Discover the skill via `.agents/skills/*/SKILL.md` (see [AGENTS.md](AGENTS.md)); do not assume a fixed skill inventory.

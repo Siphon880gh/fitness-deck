@@ -509,7 +509,7 @@ function syncNotesComments() {
         note.textContent = comment;
     });
 
-    applyNotesCommentFilter();
+    applyNotesFilters();
 }
 
 function linkNotesToExercises() {
@@ -862,6 +862,7 @@ window.rerenderAddressedStatistic = () => {
     else if (el) el.textContent = `${count}/${total}`;
     updateColorSwatchAvailability();
     syncNotesMarks();
+    applyNotesFilters();
 };
 
 const animateSaved = () => {
@@ -1168,25 +1169,95 @@ function applyExerciseFilters() {
     return visible;
 }
 
-function applyNotesCommentFilter() {
+const FD_COLOR_FILTER_LABELS = {
+    1: "Green",
+    2: "Cyan",
+    3: "Pink",
+    4: "Purple"
+};
+
+const FD_COMMENT_FILTER_LABELS = {
+    with: "With comments",
+    without: "No comments"
+};
+
+function getNotesJumpCard(li) {
+    const exerciseName = li.dataset.exerciseName;
+    if (!exerciseName) return null;
+    return Array.from(document.querySelectorAll(".fd-ex[data-exercise]"))
+        .find(el => el.dataset.exercise === exerciseName) || null;
+}
+
+function notesFiltersActive() {
+    const { commentMode, colorMode } = window.fdFilterState;
+    return commentMode !== "all" || colorMode !== 5;
+}
+
+function getNotesFilterLabels() {
+    const { commentMode, colorMode } = window.fdFilterState;
+    const labels = [];
+    if (commentMode !== "all" && FD_COMMENT_FILTER_LABELS[commentMode]) {
+        labels.push(FD_COMMENT_FILTER_LABELS[commentMode]);
+    }
+    if (colorMode !== 5 && FD_COLOR_FILTER_LABELS[colorMode]) {
+        labels.push(FD_COLOR_FILTER_LABELS[colorMode]);
+    }
+    return labels;
+}
+
+function syncNotesFilterBanner() {
     const contentEl = document.getElementById("notes-panel-content");
     if (!contentEl || !window.notesPanelLoaded) return;
 
-    const mode = window.fdFilterState.commentMode;
+    let banner = contentEl.querySelector(":scope > .fd-notes-filter-banner");
+    const active = notesFiltersActive();
+
+    if (!active) {
+        banner?.remove();
+        return;
+    }
+
+    if (!banner) {
+        banner = document.createElement("div");
+        banner.className = "fd-notes-filter-banner";
+        banner.innerHTML =
+            '<div class="fd-notes-filter-banner-text">' +
+            '<span class="fd-notes-filter-banner-label">Filtered</span>' +
+            '<span class="fd-notes-filter-banner-detail"></span>' +
+            "</div>" +
+            '<button type="button" class="fd-notes-filter-clear">Clear filter</button>';
+        banner.querySelector(".fd-notes-filter-clear").addEventListener("click", clearAllFilters);
+        contentEl.insertBefore(banner, contentEl.firstChild);
+    }
+
+    const detail = banner.querySelector(".fd-notes-filter-banner-detail");
+    if (detail) detail.textContent = getNotesFilterLabels().join(" · ");
+}
+
+function applyNotesFilters() {
+    const contentEl = document.getElementById("notes-panel-content");
+    if (!contentEl || !window.notesPanelLoaded) return;
+
+    const { commentMode, colorMode } = window.fdFilterState;
+    const filtering = notesFiltersActive();
 
     contentEl.querySelectorAll("li.fd-notes-jump").forEach(li => {
         const hasComment = !!li.querySelector(":scope > .fd-notes-user-comment");
-        const show =
-            mode === "all" ||
-            (mode === "with" && hasComment) ||
-            (mode === "without" && !hasComment);
-        li.classList.toggle("hidden", !show);
+        const matchesComment =
+            commentMode === "all" ||
+            (commentMode === "with" && hasComment) ||
+            (commentMode === "without" && !hasComment);
+        const mark = getCardMarkColor(getNotesJumpCard(li));
+        const matchesColor = colorMode === 5 || mark === colorMode;
+        li.classList.toggle("hidden", !(matchesComment && matchesColor));
     });
 
     // When filtering, hide non-exercise list lines (variations, etc.)
     contentEl.querySelectorAll("li:not(.fd-notes-jump)").forEach(li => {
-        li.classList.toggle("hidden", mode !== "all");
+        li.classList.toggle("hidden", filtering);
     });
+
+    syncNotesFilterBanner();
 }
 
 function syncFilterPanelUI() {
@@ -1225,7 +1296,10 @@ function updateColorSwatchAvailability() {
         }
     });
     syncFilterPanelUI();
-    if (clearedColor) applyExerciseFilters();
+    if (clearedColor) {
+        applyExerciseFilters();
+        applyNotesFilters();
+    }
 }
 
 function setCommentFilter(mode) {
@@ -1237,7 +1311,7 @@ function setCommentFilter(mode) {
     }
     syncFilterPanelUI();
     applyExerciseFilters();
-    applyNotesCommentFilter();
+    applyNotesFilters();
 }
 
 function setColorFilter(mode) {
@@ -1251,6 +1325,7 @@ function setColorFilter(mode) {
     }
     syncFilterPanelUI();
     applyExerciseFilters();
+    applyNotesFilters();
 }
 
 function clearAllFilters() {
@@ -1260,7 +1335,7 @@ function clearAllFilters() {
     // Keep search as typed; clear means comment + color filters
     syncFilterPanelUI();
     applyExerciseFilters();
-    applyNotesCommentFilter();
+    applyNotesFilters();
 }
 
 function toggleFilterPanel() {

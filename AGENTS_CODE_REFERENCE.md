@@ -9,8 +9,9 @@ AI-oriented codebase map for safe modification, feature tracing, and implementat
 | File | Scope |
 |------|--------|
 | [AGENTS_CODE_REFERENCE-directory.md](AGENTS_CODE_REFERENCE-directory.md) | Home listing, goal chips, continue-session, A–Z vs By goal |
-| [AGENTS_CODE_REFERENCE-session.md](AGENTS_CODE_REFERENCE-session.md) | Exercise cards, IndexedDB marks/comments, filters, Outline notes, session timer/reps |
-| [AGENTS_CODE_REFERENCE-media.md](AGENTS_CODE_REFERENCE-media.md) | Demo GIF manifests, Credits modal, sync skill/script |
+| [AGENTS_CODE_REFERENCE-session.md](AGENTS_CODE_REFERENCE-session.md) | Exercise cards, IndexedDB marks/comments, filters, Outline notes |
+| [AGENTS_CODE_REFERENCE-session-history.md](AGENTS_CODE_REFERENCE-session-history.md) | Session bar: assign exercise, timer/sets, save/edit/delete history |
+| [AGENTS_CODE_REFERENCE-media.md](AGENTS_CODE_REFERENCE-media.md) | Demo GIF manifests (all pages), Credits modal, sync skill/script |
 
 Also see [AGENTS.md](AGENTS.md) for how to discover project skills under `.agents/skills/`.
 
@@ -20,7 +21,7 @@ When context is tight: prefer this file first; open a companion only for the mod
 
 ## What the app does
 
-**Fitness Deck** is a local/static PHP + browser app that turns markdown exercise tables into interactive “decks.” Users pick a program/muscle page, mark difficulty steps with cycling colors, leave per-exercise comments, optionally open author Outline notes (`.up.md`), and (on synced pages) see open-source demo GIFs. Progress stays on-device—no accounts.
+**Fitness Deck** is a local/static PHP + browser app that turns markdown exercise tables into interactive “decks.” Users pick a program/muscle page, mark difficulty steps with cycling colors, leave per-exercise comments, open author Outline notes (`.up.md`), run a Session bar (assign exercise → duration/sets → save history), and see open-source demo GIFs on synced pages. Progress stays on-device—no accounts.
 
 Live demo path (production): `https://wengindustry.com/tools/fitness-deck/`
 
@@ -33,7 +34,7 @@ Live demo path (production): `https://wengindustry.com/tools/fitness-deck/`
 | Server | PHP (thin router + view includes); no framework |
 | Content | Markdown tables under `md-file/` (one folder deep) |
 | Client | Vanilla JS + jQuery + markdown-it; DataTables CSS still linked but UI is card-based |
-| Persistence | IndexedDB (`fitness-deck`) + localStorage prefs |
+| Persistence | IndexedDB (`fitness-deck` v4) + localStorage prefs |
 | Styling | CSS variables in `assets/css/tokens.css`; page CSS in `list-directories.css` / `tabularize-exercises.css` |
 | Media sync | Python script under `.agents/skills/add-exercise-media/` → JSON manifests in `assets/data/` |
 | CDN | Font Awesome, Remix Icon, jQuery, DataTables, markdown-it |
@@ -48,9 +49,10 @@ Browser
   │    ├─ no ?md-file → list-directories (programs)
   │    └─ ?md-file=Folder/Page → tabularize-exercises (session)
   ├─ fetch md-file/...md → markdown-it → HTML table → card deck
-  ├─ optional fetch ...up.md → Outline panel
+  ├─ optional fetch ...up.md → Outline panel (+ mark icons + comments)
   ├─ optional fetch exercise-media-index.json → page manifest → GIFs
-  └─ IndexedDB / localStorage for marks, comments, UI prefs
+  ├─ Session bar → assign exercise → duration/sets → IndexedDB history
+  └─ IndexedDB / localStorage for marks, comments, history, UI prefs
 ```
 
 Content and progress are intentionally decoupled: editing markdown never requires a DB migration; client stores are keyed by page path / exercise name.
@@ -63,32 +65,34 @@ Content and progress are intentionally decoupled: editing markdown never require
 fitness-deck/
 ├── index.php                         # Router (~15 lines)
 ├── AGENTS.md                         # Agent skill discovery rules
-├── icons.config.js                   # Folder icon overrides (JSON)
+├── icons.config.js                   # Folder icon overrides
 ├── md-file/                          # Content: Folder/Page.md (+ optional Page.up.md)
 │   ├── Bodybuilding - Minimum Equipment/
 │   ├── Stretch/ | Cardio/ | Mobility/ | Rehab - Shin Splints/
 ├── views/
 │   ├── list-directories.php          # Directory shell
-│   ├── tabularize-exercises.php      # Session shell
+│   ├── tabularize-exercises.php      # Session shell (~304 lines)
 │   └── includes/ld-include.php       # Glob md-file → window.dirs
 ├── assets/
-│   ├── css/tokens.css                # Shared design tokens
+│   ├── css/tokens.css
 │   ├── css/list-directories.css
-│   ├── css/tabularize-exercises.css  # Largest stylesheet (~1.8k lines)
+│   ├── css/tabularize-exercises.css  # Imports includes/* (~1954 lines)
+│   ├── css/includes/
+│   │   ├── control-bar.css | countdown.css | reps.css
+│   │   └── session-history.css       # History panel + end toolbar (~436)
 │   ├── js/
-│   │   ├── list-directories.js       # Listing modes, continue, chips
-│   │   ├── common-sense-directories.js + common-sense-view.html  # By-goal HTML
-│   │   ├── tabularize-exercises.js   # Core session logic (~1.4k lines)
+│   │   ├── list-directories.js
+│   │   ├── common-sense-directories.js + common-sense-view.html
+│   │   ├── tabularize-exercises.js   # Deck, filters, Outline, IDB (~1616)
+│   │   ├── session-history.js        # Assign / save / history UI (~800)
 │   │   ├── countdown.js | reps.js | control-bar.js | modal.js
 │   └── data/
-│       ├── exercise-media-index.json
-│       └── exercise-media-*.json     # Per-page byExercise maps
+│       ├── exercise-media-index.json # ~27 pages keyed Folder/Page
+│       └── exercise-media-*.json
 └── .agents/skills/add-exercise-media/
     ├── SKILL.md
-    └── scripts/sync_exercise_media.py
+    └── scripts/sync_exercise_media.py (~627 lines)
 ```
-
-Line counts (approx.): `tabularize-exercises.js` ~1374; `tabularize-exercises.css` ~1827; `list-directories.js` ~228; `sync_exercise_media.py` ~506; `tabularize-exercises.php` ~259.
 
 ---
 
@@ -112,22 +116,25 @@ if(!isset($_GET["md-file"])) {
 
 1. `ld-include.php` recursively globs `md-file/**/*.md`, drops `*.up.md`, builds `$relativePaths` like `Stretch/Back.md`.
 2. PHP injects `window.dirs` into the page.
-3. `list-directories.js` on DOMContentLoaded: continue-session card, goal chips, mode toggle (`AREAS` vs `ALPHAB` in localStorage).
-4. AREAS mode fetches `common-sense-view.html` (curated goal grouping). ALPHAB rebuilds `<ul.dirs>` from `window.dirs`.
+3. `list-directories.js`: continue-session card, goal chips, mode toggle (`AREAS` vs `ALPHAB`).
+4. AREAS fetches curated `common-sense-view.html`; ALPHAB rebuilds from `window.dirs`.
 
-### 3. Session
+### 3. Session (deck + Outline)
 
-1. PHP sets `filename`, `upMdExists`, `upMdFilename` for JS.
-2. `tabularize-exercises.js` → `renderMDFile()` fetches the markdown, appends an “Edit Comments” column, renders with markdown-it, then `buildExerciseDeck()` replaces the table with `.fd-ex` cards.
-3. `hydrateDeckInteractions()` wires color cycles on `.fd-step`; blur on comments saves to IndexedDB.
-4. `loadExerciseMediaForPage()` may attach demos + Credits.
-5. Outline button (if `.up.md` exists) loads notes, jump-links matching exercise names, section nav for `h2`s.
+1. PHP sets `filename`, `upMdExists`, `upMdFilename`; shells tools, Outline, Session bar, Credits/reps modals.
+2. `tabularize-exercises.js` → `renderMDFile()` → `buildExerciseDeck()` → hydrate → load marks/comments → media.
+3. Outline (if `.up.md`): jump links, user comments under jumps, brush icons for marked colors (`syncNotesMarks`).
+4. Selecting a card (or Outline jump) can assign that exercise into the Session bar via `window.sessionHistoryUi`.
 
-### 4. Content contract
+### 4. Session bar + history
 
-Markdown tables expect: **Exercise** name in column 0, columns matching `/variation/i` as the difficulty ladder, last column treated as comments (runtime-augmented). Parentheticals in names become muteable “Detail” spans.
+Accordion in `#bar-controls`: Exercise → Duration → Sets → Reset; toolbar History + Save. Saves go to IndexedDB `FitnessSessionHistoryStore`. Details: [session-history companion](AGENTS_CODE_REFERENCE-session-history.md).
 
-Folder depth: **one level only** under `md-file/` (`Folder/File.md`). Listing code uses `dir.split("/")[0|1]`.
+### 5. Content contract
+
+Markdown tables: **Exercise** in column 0; headers matching `/variation/i` = difficulty ladder; last column = comments (runtime-augmented). Parentheticals in names → muteable “Detail” spans.
+
+Folder depth: **one level only** under `md-file/` (`Folder/File.md`).
 
 ---
 
@@ -135,32 +142,34 @@ Folder depth: **one level only** under `md-file/` (`Folder/File.md`). Listing co
 
 | Store | Key / shape | Purpose |
 |-------|-------------|---------|
-| IndexedDB `fitness-deck` v3 | Object stores `FitnessAddressedStore`, `FitnessCommentStore` | Per-page color marks; per-exercise comments |
+| IndexedDB `fitness-deck` v4 | `FitnessAddressedStore` | Per-page color marks |
+| | `FitnessCommentStore` | Per-exercise comments |
+| | `FitnessSessionHistoryStore` | Saved sessions (pageKey, exercise, sets, duration) |
 | localStorage | `FitnessDeck__lastOpened` | Recent paths for Continue |
 | localStorage | `FitnessDeck__indexMode` | `AREAS` \| `ALPHAB` |
 | localStorage | `FitnessDeck__legendDismissed` | First-run legend |
 
-Addressed colors: classes `addressed-1`…`addressed-4` on ladder steps; cycle on click, clear on contextmenu when marked.
+`upgradeDb` **creates missing stores only**—it does not wipe existing data on version bumps. Address colors: classes `addressed-1`…`addressed-4` on ladder steps.
 
 ---
 
 ## Recent direction (from git history)
 
-- Visual redesign (tokens, directory hero, card deck instead of dense DataTable UX).
-- Filters panel (comments + color swatches) + toast feedback.
-- Outline panel UX (notes + jump anchors).
-- Exercise demo media for Bodybuilding Minimum Equipment pages via manifests + sync skill.
-- Parenthesis muting in exercise names; hardened link/query cleanup.
+- Session bar redesign: accordion chips, assign-exercise guards, Reset (duration/sets only), History + Save end toolbar.
+- Session history persisted in IndexedDB (edit/delete; confirm before discard on exercise switch).
+- Outline jump items show marked-color brush icons.
+- Exercise demo media synced across **all** program pages (~27), not only Bodybuilding.
 
 ---
 
 ## Safe-modification notes for AI
 
 1. **Prefer editing content in `md-file/`** over inventing UI for new exercises.
-2. After adding/renaming Bodybuilding exercises, run the media sync skill (`--check` then sync)—see media companion.
+2. After adding/renaming exercises, run the media sync skill (`--check` then sync)—see media companion.
 3. Do not vendor thousands of GIF binaries; manifests use hosted URLs.
 4. Keep `md-file` one folder deep unless you also upgrade listing parsing.
-5. Cache-bust query on session assets (`?v=…` on CSS/JS in the PHP view) when shipping client changes.
+5. Cache-bust `?v=…` on CSS/JS in the PHP view when shipping client changes.
 6. Scan `.agents/skills/` live for skills; do not hardcode a skill list from memory.
+7. Do not recreate IndexedDB stores on upgrade; add stores/indexes only (see `upgradeDb` near the top of `tabularize-exercises.js`).
 
 Refer to companion files for module-level detail before loading whole 1k+ line sources into context.
