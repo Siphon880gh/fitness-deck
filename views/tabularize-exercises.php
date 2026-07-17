@@ -57,7 +57,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/tokens.css">
-    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=4.4">
+    <link rel="stylesheet" href="assets/css/tabularize-exercises.css?v=5.0">
 </head>
 
 <body class="fd-table">
@@ -80,7 +80,7 @@
     </div>
 
     <div id="first-run-legend" class="fd-legend" hidden>
-        <p>Each exercise shows a difficulty ladder—tap a step to mark it (colors mean what you decide). Add notes in Comments. Tools: notes, filter, random, detail, session.</p>
+        <p>Each exercise shows a difficulty ladder—tap a step to mark it (colors mean what you decide). Add notes in Comments. Tools: outline, filter, random, session.</p>
         <button type="button" id="dismiss-legend" class="fd-legend-dismiss">Got it</button>
     </div>
 
@@ -88,13 +88,28 @@
     </div>
 
     <div id="toggle-btns" class="fd-tools" role="toolbar" aria-label="Session tools">
+        <div id="fd-filter-panel" class="fd-filter-panel" hidden>
+            <p class="fd-filter-panel-label">Comments</p>
+            <div class="fd-filter-panel-row" role="group" aria-label="Comment filters">
+                <button type="button" class="fd-filter-chip" data-comment-filter="with" aria-pressed="false">With comments</button>
+                <button type="button" class="fd-filter-chip" data-comment-filter="without" aria-pressed="false">No comments</button>
+            </div>
+            <p class="fd-filter-panel-label">Color</p>
+            <div class="fd-filter-colors" role="group" aria-label="Color filters">
+                <button type="button" class="fd-color-swatch" data-color-filter="1" aria-label="Filter green marks" title="Green"></button>
+                <button type="button" class="fd-color-swatch" data-color-filter="2" aria-label="Filter cyan marks" title="Cyan"></button>
+                <button type="button" class="fd-color-swatch" data-color-filter="3" aria-label="Filter pink marks" title="Pink"></button>
+                <button type="button" class="fd-color-swatch" data-color-filter="4" aria-label="Filter purple marks" title="Purple"></button>
+            </div>
+            <button type="button" class="fd-filter-clear" id="fd-filter-clear">Clear all</button>
+        </div>
         <?php if($upMdExists): ?>
-        <button type="button" id="btn-notes" class="fd-tool" onclick="toggleNotesPanel()" aria-label="Notes">
-            <i class="fas fa-book" aria-hidden="true"></i>
-            <span>Notes</span>
+        <button type="button" id="btn-notes" class="fd-tool" onclick="toggleNotesPanel()" aria-label="Outline — groupings and your comments">
+            <i class="fas fa-list-ul" aria-hidden="true"></i>
+            <span>Outline</span>
         </button>
         <?php endif; ?>
-        <button type="button" class="fd-tool" onclick="cycleMode()" aria-label="Filter by mark color">
+        <button type="button" id="btn-filter" class="fd-tool" onclick="toggleFilterPanel()" aria-label="Filters" aria-expanded="false" aria-controls="fd-filter-panel">
             <i class="fas fa-filter" aria-hidden="true"></i>
             <span>Filter</span>
         </button>
@@ -102,23 +117,19 @@
             <i class="fas fa-random" aria-hidden="true"></i>
             <span>Random</span>
         </button>
-        <button type="button" class="fd-tool" onclick='$(".text-parentheses").toggleClass("more")' aria-label="Toggle detail text in parentheses">
-            <i class="fas fa-eye" aria-hidden="true"></i>
-            <span>Detail</span>
-        </button>
         <button type="button" class="fd-tool fd-tool-session" onclick="$(this).toggleClass('active'); $('#bar-controls').toggleClass('active'); $('#top-bar').toggleClass('active'); document.querySelector('#toggle-btns').classList.toggle('out-of-way')" aria-label="Session timer and reps">
             <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
             <span>Session</span>
         </button>
     </div>
 
-    <!-- Notes slide-in panel -->
+    <!-- Outline slide-in panel (.up.md groupings + your comments) -->
     <?php if($upMdExists): ?>
     <div id="notes-overlay" onclick="closeNotesPanel()"></div>
     <div id="notes-panel">
         <div id="notes-panel-header">
-            <h3>Notes</h3>
-            <button id="notes-close" type="button" onclick="closeNotesPanel()" aria-label="Close notes">✕</button>
+            <h3>Outline</h3>
+            <button id="notes-close" type="button" onclick="closeNotesPanel()" aria-label="Close outline">✕</button>
         </div>
         <div id="notes-panel-content">
             Loading...
@@ -235,7 +246,7 @@
         var upMdExists = <?php echo $upMdExists ? 'true' : 'false'; ?>;
         var upMdFilename = 'md-file/<?php echo $upMdFile; ?>';
     </script>
-    <script src="assets/js/tabularize-exercises.js?v=4.4"></script>
+    <script src="assets/js/tabularize-exercises.js?v=5.0"></script>
     <script src="assets/js/control-bar.js"></script>
     <script src="assets/js/countdown.js"></script>
     <script src="assets/js/modal.js"></script>

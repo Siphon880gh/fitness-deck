@@ -106,6 +106,8 @@ function loadAddressed() {
         tx.oncomplete = function () {
             db.close();
             rerenderAddressedStatistic();
+            updateColorSwatchAvailability();
+            applyExerciseFilters();
         };
     };
 
@@ -231,6 +233,8 @@ function loadComments() {
                     $(`[data-id="${id}"]`).text(comment);
                     // alert("Ran 2") // Fixing mobile Safari indexedDB bug
                 })
+                syncNotesComments();
+                applyExerciseFilters();
             }
         };
 
@@ -293,6 +297,8 @@ function saveComment(id, comment) {
         // Close the db when the transaction is done
         tx.oncomplete = function () {
             db.close();
+            syncNotesComments();
+            applyExerciseFilters();
         };
     };
 
@@ -351,6 +357,40 @@ function jumpToExerciseCard(card) {
     setTimeout(() => card.classList.remove("is-jump-flash"), 1400);
 }
 
+function getExerciseCommentText(exerciseName) {
+    const card = Array.from(document.querySelectorAll(".fd-ex[data-exercise]")).find(
+        el => el.dataset.exercise === exerciseName
+    );
+    return (card?.querySelector(".fd-ex-comment")?.textContent || "").trim();
+}
+
+function syncNotesComments() {
+    const contentEl = document.getElementById("notes-panel-content");
+    if (!contentEl || !window.notesPanelLoaded) return;
+
+    contentEl.querySelectorAll("li.fd-notes-jump[data-exercise-name]").forEach(li => {
+        const exerciseName = li.dataset.exerciseName;
+        const comment = getExerciseCommentText(exerciseName);
+        let note = li.querySelector(":scope > .fd-notes-user-comment");
+
+        if (!comment) {
+            note?.remove();
+            return;
+        }
+
+        if (!note) {
+            note = document.createElement("div");
+            note.className = "fd-notes-user-comment";
+            const nested = li.querySelector(":scope > ul, :scope > ol");
+            if (nested) li.insertBefore(note, nested);
+            else li.appendChild(note);
+        }
+        note.textContent = comment;
+    });
+
+    applyNotesCommentFilter();
+}
+
 function linkNotesToExercises() {
     const contentEl = document.getElementById("notes-panel-content");
     if (!contentEl) return;
@@ -366,7 +406,7 @@ function linkNotesToExercises() {
     contentEl.querySelectorAll("li").forEach(li => {
         // Prefer this item's own text, not nested list text
         const own = Array.from(li.childNodes)
-            .filter(n => n.nodeType === Node.TEXT_NODE || (n.nodeType === Node.ELEMENT_NODE && !["UL", "OL"].includes(n.tagName)))
+            .filter(n => n.nodeType === Node.TEXT_NODE || (n.nodeType === Node.ELEMENT_NODE && !["UL", "OL", "DIV"].includes(n.tagName)))
             .map(n => n.textContent || "")
             .join(" ")
             .trim();
@@ -376,10 +416,12 @@ function linkNotesToExercises() {
         if (!card) return;
 
         li.classList.add("fd-notes-jump");
+        li.dataset.exerciseName = card.dataset.exercise;
         li.setAttribute("role", "link");
         li.tabIndex = 0;
         li.title = "Jump to " + card.dataset.exercise;
         const go = (event) => {
+            if (event.target.closest(".fd-notes-user-comment")) return;
             event.preventDefault();
             event.stopPropagation();
             jumpToExerciseCard(card);
@@ -389,6 +431,8 @@ function linkNotesToExercises() {
             if (event.key === "Enter" || event.key === " ") go(event);
         });
     });
+
+    syncNotesComments();
 }
 
 function shortDifficultyLabel(headerText, index) {
@@ -454,7 +498,30 @@ function buildExerciseDeck(tableEl) {
 
         const title = document.createElement("h3");
         title.className = "fd-ex-name";
+        const hasParenDetail = /\([^)]+\)/.test(rawName);
         title.innerHTML = rawName.replace(/\((.*?)\)/g, '<span class="text-parentheses">($1)</span>');
+
+        const titleWrap = document.createElement("div");
+        titleWrap.className = "fd-ex-title-wrap";
+        titleWrap.appendChild(title);
+
+        if (hasParenDetail) {
+            card.classList.add("has-detail");
+            const detailBtn = document.createElement("button");
+            detailBtn.type = "button";
+            detailBtn.className = "fd-ex-detail-btn";
+            detailBtn.textContent = "Detail";
+            detailBtn.setAttribute("aria-expanded", "false");
+            detailBtn.setAttribute("aria-label", "Show name details");
+            detailBtn.addEventListener("click", (event) => {
+                event.stopPropagation();
+                const open = card.classList.toggle("is-detail-open");
+                detailBtn.setAttribute("aria-expanded", open ? "true" : "false");
+                detailBtn.setAttribute("aria-label", open ? "Hide name details" : "Show name details");
+                detailBtn.textContent = open ? "Hide" : "Detail";
+            });
+            titleWrap.appendChild(detailBtn);
+        }
 
         const icons = document.createElement("div");
         icons.className = "ri-icon-hook";
@@ -472,7 +539,7 @@ function buildExerciseDeck(tableEl) {
             icons.appendChild(g);
         }
 
-        head.appendChild(title);
+        head.appendChild(titleWrap);
         head.appendChild(icons);
         card.appendChild(head);
 
@@ -576,7 +643,7 @@ function hydrateDeckInteractions() {
 
     document.querySelectorAll(".fd-ex").forEach(card => {
         card.addEventListener("click", event => {
-            if (event.target.closest(".fd-step, .fd-ex-comment, .ri-icon-hook, a")) return;
+            if (event.target.closest(".fd-step, .fd-ex-comment, .ri-icon-hook, .fd-ex-detail-btn, a")) return;
             document.querySelectorAll(".fd-ex.is-selected").forEach(el => el.classList.remove("is-selected"));
             card.classList.add("is-selected");
         });
@@ -588,6 +655,7 @@ window.rerenderAddressedStatistic = () => {
     const total = document.querySelectorAll(".fd-ex").length;
     const el = document.getElementById("addressed");
     if (el) el.textContent = `${count}/${total}`;
+    updateColorSwatchAvailability();
 };
 
 const animateSaved = () => {
@@ -810,20 +878,188 @@ function renderMDFile() {
         });
 }
 
+window.fdFilterState = {
+    search: "",
+    colorMode: 5, // 5 = no color filter
+    commentMode: "all" // all | with | without
+};
+
+function cardHasComment(card) {
+    return !!((card.querySelector(".fd-ex-comment")?.textContent || "").trim());
+}
+
+function applyExerciseFilters() {
+    const { search, colorMode, commentMode } = window.fdFilterState;
+    let visible = 0;
+
+    document.querySelectorAll(".fd-ex").forEach(card => {
+        const text = (card.textContent || "").toLowerCase();
+        const matchesSearch = !search || text.includes(search);
+        const matchesColor = colorMode === 5 || !!card.querySelector(`.fd-step.addressed-${colorMode}`);
+        const hasComment = cardHasComment(card);
+        const matchesComment =
+            commentMode === "all" ||
+            (commentMode === "with" && hasComment) ||
+            (commentMode === "without" && !hasComment);
+        const show = matchesSearch && matchesColor && matchesComment;
+        card.classList.toggle("hidden", !show);
+        if (show) visible++;
+    });
+
+    $("#count-rows").text(visible);
+    return visible;
+}
+
+function applyNotesCommentFilter() {
+    const contentEl = document.getElementById("notes-panel-content");
+    if (!contentEl || !window.notesPanelLoaded) return;
+
+    const mode = window.fdFilterState.commentMode;
+
+    contentEl.querySelectorAll("li.fd-notes-jump").forEach(li => {
+        const hasComment = !!li.querySelector(":scope > .fd-notes-user-comment");
+        const show =
+            mode === "all" ||
+            (mode === "with" && hasComment) ||
+            (mode === "without" && !hasComment);
+        li.classList.toggle("hidden", !show);
+    });
+
+    // When filtering, hide non-exercise list lines (variations, etc.)
+    contentEl.querySelectorAll("li:not(.fd-notes-jump)").forEach(li => {
+        li.classList.toggle("hidden", mode !== "all");
+    });
+}
+
+function syncFilterPanelUI() {
+    const { commentMode, colorMode } = window.fdFilterState;
+
+    document.querySelectorAll("#fd-filter-panel [data-comment-filter]").forEach(btn => {
+        const active = btn.dataset.commentFilter === commentMode;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    document.querySelectorAll("#fd-filter-panel .fd-color-swatch").forEach(btn => {
+        const value = Number(btn.dataset.colorFilter);
+        const active = colorMode === value;
+        btn.classList.toggle("is-active", active);
+        btn.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+
+    const filterBtn = document.getElementById("btn-filter");
+    const hasActive = commentMode !== "all" || colorMode !== 5;
+    filterBtn?.classList.toggle("has-active-filter", hasActive);
+}
+
+function updateColorSwatchAvailability() {
+    let clearedColor = false;
+    document.querySelectorAll("#fd-filter-panel .fd-color-swatch").forEach(btn => {
+        const value = Number(btn.dataset.colorFilter);
+        const count = document.querySelectorAll(`.fd-step.addressed-${value}`).length;
+        const available = count > 0;
+        btn.classList.toggle("is-unavailable", !available);
+        btn.disabled = !available;
+        if (!available && window.fdFilterState.colorMode === value) {
+            window.fdFilterState.colorMode = 5;
+            window.modeAt = 5;
+            clearedColor = true;
+        }
+    });
+    syncFilterPanelUI();
+    if (clearedColor) applyExerciseFilters();
+}
+
+function setCommentFilter(mode) {
+    // Toggle off if the same chip is clicked again
+    if (window.fdFilterState.commentMode === mode) {
+        window.fdFilterState.commentMode = "all";
+    } else {
+        window.fdFilterState.commentMode = mode;
+    }
+    syncFilterPanelUI();
+    applyExerciseFilters();
+    applyNotesCommentFilter();
+}
+
+function setColorFilter(mode) {
+    const value = Number(mode);
+    if (window.fdFilterState.colorMode === value) {
+        window.fdFilterState.colorMode = 5;
+        window.modeAt = 5;
+    } else {
+        window.fdFilterState.colorMode = value;
+        window.modeAt = value;
+    }
+    syncFilterPanelUI();
+    applyExerciseFilters();
+}
+
+function clearAllFilters() {
+    window.fdFilterState.commentMode = "all";
+    window.fdFilterState.colorMode = 5;
+    window.modeAt = 5;
+    // Keep search as typed; clear means comment + color filters
+    syncFilterPanelUI();
+    applyExerciseFilters();
+    applyNotesCommentFilter();
+}
+
+function toggleFilterPanel() {
+    const panel = document.getElementById("fd-filter-panel");
+    const btn = document.getElementById("btn-filter");
+    if (!panel || !btn) return;
+
+    const opening = panel.hidden;
+    if (opening) {
+        updateColorSwatchAvailability();
+        panel.hidden = false;
+        btn.classList.add("active");
+        btn.setAttribute("aria-expanded", "true");
+    } else {
+        panel.hidden = true;
+        btn.classList.remove("active");
+        btn.setAttribute("aria-expanded", "false");
+    }
+}
+
+function closeFilterPanel() {
+    const panel = document.getElementById("fd-filter-panel");
+    const btn = document.getElementById("btn-filter");
+    if (!panel) return;
+    panel.hidden = true;
+    btn?.classList.remove("active");
+    btn?.setAttribute("aria-expanded", "false");
+}
+
+function bindFilterPanel() {
+    document.querySelectorAll("#fd-filter-panel [data-comment-filter]").forEach(btn => {
+        btn.addEventListener("click", () => setCommentFilter(btn.dataset.commentFilter || "all"));
+    });
+    document.querySelectorAll("#fd-filter-panel .fd-color-swatch").forEach(btn => {
+        btn.addEventListener("click", () => {
+            if (btn.disabled) return;
+            setColorFilter(btn.dataset.colorFilter);
+        });
+    });
+    document.getElementById("fd-filter-clear")?.addEventListener("click", clearAllFilters);
+
+    document.addEventListener("click", (event) => {
+        const panel = document.getElementById("fd-filter-panel");
+        if (!panel || panel.hidden) return;
+        if (event.target.closest("#fd-filter-panel, #btn-filter")) return;
+        closeFilterPanel();
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+    bindFilterPanel();
     renderMDFile();
 });
 
 function bindToInnerSearch() {
-    const typed = ($("#bind-inner-search").val() || "").toLowerCase().trim();
-    const cards = document.querySelectorAll(".fd-ex");
-    let visible = 0;
-    cards.forEach(card => {
-        const match = !typed || (card.textContent || "").toLowerCase().includes(typed);
-        card.classList.toggle("hidden", !match);
-        if (match) visible++;
-    });
-    $("#count-rows").text(visible);
+    window.fdFilterState.search = ($("#bind-inner-search").val() || "").toLowerCase().trim();
+    applyExerciseFilters();
 }
 
 
@@ -1073,42 +1309,14 @@ function toggleSectionNav() {
 document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closeNotesPanel();
+        closeFilterPanel();
     }
 });
 
 window.modeAt = 0;
 window.cycleMode = () => {
-    window.modeAt = (window.modeAt % 5) + 1; // Cycles through 1,2,3,4,5
-
-    const modeInfo = {
-        1: { label: "Filter in: Green", colorClass: "green" },
-        2: { label: "Filter in: Cyan", colorClass: "cyan" },
-        3: { label: "Filter in: Pink", colorClass: "pink" },
-        4: { label: "Filter in: Purple", colorClass: "purple" },
-        5: { label: "Filter in: No Colors", colorClass: "all" }
-    };
-
-    const cards = document.querySelectorAll(".fd-ex");
-    if (window.modeAt === 5) {
-        cards.forEach(card => card.classList.remove("hidden"));
-        showFilterToast(modeInfo[5].label, modeInfo[5].colorClass);
-        $("#count-rows").text(cards.length);
-        return;
-    }
-
-    let visible = 0;
-    cards.forEach(card => {
-        const has = card.querySelector(`.fd-step.addressed-${window.modeAt}`);
-        card.classList.toggle("hidden", !has);
-        if (has) visible++;
-    });
-
-    if (visible === 0) {
-        cycleMode();
-    } else {
-        showFilterToast(modeInfo[window.modeAt].label, modeInfo[window.modeAt].colorClass);
-        $("#count-rows").text(visible);
-    }
+    // Kept for compatibility; Filter tool opens the panel instead.
+    toggleFilterPanel();
 };
 
 function showFilterToast(message, colorClass) {
