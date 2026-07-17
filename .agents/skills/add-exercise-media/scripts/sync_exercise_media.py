@@ -2,15 +2,20 @@
 """
 Sync open-source exercise demo media onto Fitness Deck markdown pages.
 
-Tracks md-file mtime + sha256 in assets/data/exercise-media-index.json.
-When a page changes, rematches only new/renamed exercises; keeps existing
-mappings unless --force is passed.
+Modes:
+  - All pages (default): discover every md-file/**/*.md (except .up.md)
+  - One page: --page "Folder/File"
+
+Internal state (assets/data/exercise-media-index.json):
+  mdSha256 + exerciseNames from last sync. Without --force, only pages that
+  need work are updated (never synced, sha changed, or new exercise names).
 
 Usage:
+  python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
   python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
   python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Bodybuilding - Minimum Equipment/Back"
   python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
-  python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
+  python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check --page "Stretch/Hips"
 """
 
 from __future__ import annotations
@@ -202,7 +207,70 @@ PAGE_FILTERS = {
             "Single-Leg Calf Raises on Bosu Ball": "one leg floor calf raise",
         },
     },
+    # Stretch — search full catalog; boost names containing stretch
+    "Stretch/Abs": {"body_parts": None, "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
+    "Stretch/Ankle": {"body_parts": None, "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "ankle"], "manual": {}},
+    "Stretch/Back": {"body_parts": ["back"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
+    "Stretch/Biceps": {"body_parts": ["upper arms"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
+    "Stretch/Calf": {"body_parts": ["lower legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "calf"], "manual": {}},
+    "Stretch/Chest": {"body_parts": ["chest"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
+    "Stretch/Hamstrings": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "hamstring"], "manual": {}},
+    "Stretch/Hips": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "hip"], "manual": {}},
+    "Stretch/Lats": {"body_parts": ["back"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "lat"], "manual": {}},
+    "Stretch/Neck": {"body_parts": ["neck"], "targets": None, "min_score": 0.5, "prefer_tokens": ["stretch", "neck"], "manual": {}},
+    "Stretch/Quadriceps": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "quad"], "manual": {}},
+    "Stretch/Shins": {"body_parts": ["lower legs"], "targets": None, "min_score": 0.5, "prefer_tokens": ["stretch", "shin", "tibialis"], "manual": {}},
+    "Stretch/Shoulders": {"body_parts": ["shoulders"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
+    "Stretch/Triceps": {"body_parts": ["upper arms"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "tricep"], "manual": {}},
+    "Mobility/Mobility": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.55,
+        "prefer_tokens": ["mobility", "stretch", "circle"],
+        "manual": {},
+    },
+    "Cardio/10-Minute Burns": {
+        "body_parts": ["cardio"],
+        "targets": None,
+        "min_score": 0.55,
+        "prefer_tokens": ["jump", "burpee", "run", "jack"],
+        "manual": {
+            "Jumping Jacks": "jumping jack",
+            "Burpees": "burpee",
+            "High Knees": "high knee",
+            "Mountain Climbers": "mountain climber",
+        },
+    },
+    "Rehab - Shin Splints/Rehab Shin Splints": {
+        "body_parts": ["lower legs"],
+        "targets": None,
+        "min_score": 0.5,
+        "prefer_tokens": ["calf", "tibialis", "shin", "stretch"],
+        "manual": {},
+    },
 }
+
+
+def default_page_filter(page_key: str) -> dict:
+    """Fallback config for any md page not listed in PAGE_FILTERS."""
+    return {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.58,
+        "prefer_tokens": [],
+        "manual": {},
+    }
+
+
+def discover_page_keys() -> list[str]:
+    keys = []
+    for path in sorted(MD_ROOT.rglob("*.md")):
+        if path.name.endswith(".up.md"):
+            continue
+        rel = path.relative_to(MD_ROOT).as_posix()
+        if rel.endswith(".md"):
+            keys.append(rel[:-3])
+    return keys
 
 
 def utc_now() -> str:
@@ -302,7 +370,7 @@ def filter_catalog(catalog: list[dict], body_parts, targets) -> list[dict]:
     return out
 
 
-def score(our_n: str, ex: dict) -> float:
+def score(our_n: str, ex: dict, prefer_tokens=None) -> float:
     a = set(our_n.split())
     b = set(ex["norm"].split())
     if not a or not b:
@@ -310,24 +378,30 @@ def score(our_n: str, ex: dict) -> float:
     j = len(a & b) / len(a | b)
     cov = len(a & b) / len(a)
     s = 0.55 * j + 0.45 * cov
-    prefer = {"body weight", "dumbbell", "band", "stability ball", "medicine ball", "bosu ball", "assisted"}
+    prefer_eq = {"body weight", "dumbbell", "band", "stability ball", "medicine ball", "bosu ball", "assisted"}
     avoid = {"barbell", "cable", "smith machine", "leverage machine"}
     eq = ex["equipment"]
-    if eq in prefer:
+    if eq in prefer_eq:
         s += 0.06
     if any(x in eq for x in avoid):
         s -= 0.08
     if our_n == ex["norm"] or our_n in ex["norm"] or ex["norm"] in our_n:
         s += 0.25
+    for tok in prefer_tokens or []:
+        if tok and tok in ex["norm"]:
+            s += 0.08
     return s
 
 
-def resolve_by_source_name(pool: list[dict], source_name: str):
+def resolve_by_source_name(pool: list[dict], source_name: str, full_catalog_pool=None):
     key = norm(source_name)
-    for ex in pool:
-        if ex["norm"] == key or key in ex["norm"] or ex["norm"] in key:
-            return ex
-    # search wider names only within pool first; caller may pass full filtered pool
+    search_spaces = [pool]
+    if full_catalog_pool is not None:
+        search_spaces.append(full_catalog_pool)
+    for space in search_spaces:
+        for ex in space:
+            if ex["norm"] == key or key in ex["norm"] or ex["norm"] in key:
+                return ex
     best = None
     best_s = 0.0
     for ex in pool:
@@ -338,16 +412,17 @@ def resolve_by_source_name(pool: list[dict], source_name: str):
     return best if best_s >= 0.5 else None
 
 
-def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dict, force: bool) -> dict:
+def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dict, force: bool, full_pool=None) -> dict:
     min_score = cfg.get("min_score", 0.8)
     manual = cfg.get("manual") or {}
+    prefer_tokens = cfg.get("prefer_tokens") or []
     result = {} if force else dict(existing)
+    search_pool = pool if pool else (full_pool or [])
 
-    # Manual overrides always applied
     for our, src in manual.items():
         if our not in names:
             continue
-        ex = resolve_by_source_name(pool, src)
+        ex = resolve_by_source_name(search_pool, src, full_catalog_pool=full_pool)
         if not ex:
             continue
         result[our] = {
@@ -363,11 +438,18 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
         n = norm(name)
         best = None
         best_s = 0.0
-        for ex in pool:
-            s = score(n, ex)
+        for ex in search_pool:
+            s = score(n, ex, prefer_tokens=prefer_tokens)
             if s > best_s:
                 best_s = s
                 best = ex
+        # Fall back to full catalog if body-part pool is weak
+        if (best_s < min_score) and full_pool and full_pool is not search_pool:
+            for ex in full_pool:
+                s = score(n, ex, prefer_tokens=prefer_tokens)
+                if s > best_s:
+                    best_s = s
+                    best = ex
         if best and best_s >= min_score:
             result[name] = {
                 "gifUrl": best["gifUrl"],
@@ -376,7 +458,6 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
                 "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
             }
 
-    # Drop mappings for exercises no longer in the page
     name_set = set(names)
     return {k: v for k, v in result.items() if k in name_set}
 
@@ -386,18 +467,19 @@ def sync_page(page_key: str, catalog: list[dict], index: dict, force: bool, chec
     if not md_path.exists():
         return {"pageKey": page_key, "status": "missing-md"}
 
-    cfg = PAGE_FILTERS.get(page_key)
-    if not cfg:
-        return {"pageKey": page_key, "status": "no-filter-config"}
+    cfg = PAGE_FILTERS.get(page_key) or default_page_filter(page_key)
 
     mtime_ms = file_mtime_ms(md_path)
     digest = sha256_file(md_path)
     prev = (index.get("pages") or {}).get(page_key) or {}
-    changed = force or prev.get("mdSha256") != digest or prev.get("mdMtimeMs") != mtime_ms
+    sha_changed = prev.get("mdSha256") != digest
     manifest_rel = prev.get("manifest") or f"assets/data/{slugify_page_key(page_key)}"
     manifest_path = REPO_ROOT / manifest_rel
 
     names = parse_exercise_names(md_path)
+    prev_names = set(prev.get("exerciseNames") or [])
+    added_since_sync = [n for n in names if n not in prev_names]
+
     existing = {}
     if manifest_path.exists():
         try:
@@ -405,18 +487,25 @@ def sync_page(page_key: str, catalog: list[dict], index: dict, force: bool, chec
         except Exception:
             existing = {}
 
-    existing_keys = set(existing.keys())
-    new_names = [n for n in names if n not in existing_keys]
-    needs_work = changed or (not manifest_path.exists()) or bool(new_names) or force
+    # Needs rerun when: never synced, md content hash changed, new exercise rows since last sync, or --force
+    needs_work = (
+        force
+        or not prev
+        or not manifest_path.exists()
+        or sha_changed
+        or bool(added_since_sync)
+    )
 
     if check_only:
         return {
             "pageKey": page_key,
             "status": "stale" if needs_work else "ok",
-            "changed": changed,
-            "newExercises": new_names,
+            "shaChanged": sha_changed,
+            "addedSinceSync": added_since_sync,
             "exerciseCount": len(names),
             "matchedCount": len(existing),
+            "unmatchedCount": max(0, len(names) - len(existing)),
+            "lastSyncedAt": prev.get("lastSyncedAt"),
         }
 
     if not needs_work:
@@ -425,14 +514,17 @@ def sync_page(page_key: str, catalog: list[dict], index: dict, force: bool, chec
             "status": "ok",
             "exerciseCount": len(names),
             "matchedCount": len(existing),
+            "unmatchedCount": max(0, len(names) - len(existing)),
         }
 
+    full_pool = filter_catalog(catalog, None, None)
     pool = filter_catalog(catalog, cfg.get("body_parts"), cfg.get("targets"))
-    # If target filter yields too few, fall back to body_parts only
     if cfg.get("targets") and len(pool) < 15:
         pool = filter_catalog(catalog, cfg.get("body_parts"), None)
+    if not pool:
+        pool = full_pool
 
-    by_exercise = match_exercises(names, pool, cfg, existing, force=force)
+    by_exercise = match_exercises(names, pool, cfg, existing, force=force, full_pool=full_pool)
 
     payload = {
         "pageKey": page_key,
@@ -449,6 +541,7 @@ def sync_page(page_key: str, catalog: list[dict], index: dict, force: bool, chec
         "manifest": manifest_rel,
         "bodyParts": cfg.get("body_parts"),
         "targets": cfg.get("targets"),
+        "exerciseNames": names,
         "lastSyncedAt": utc_now(),
         "exerciseCount": len(names),
         "matchedCount": len(by_exercise),
@@ -458,21 +551,33 @@ def sync_page(page_key: str, catalog: list[dict], index: dict, force: bool, chec
     return {
         "pageKey": page_key,
         "status": "synced",
-        "newExercises": new_names,
+        "addedSinceSync": added_since_sync,
         "exerciseCount": len(names),
         "matchedCount": len(by_exercise),
+        "unmatchedCount": len(names) - len(by_exercise),
         "manifest": manifest_rel,
     }
 
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Sync exercise media manifests")
-    parser.add_argument("--page", help="Single pageKey, e.g. Bodybuilding - Minimum Equipment/Back")
-    parser.add_argument("--force", action="store_true", help="Rematch all exercises on selected pages")
-    parser.add_argument("--check", action="store_true", help="Report stale pages without writing")
+    parser.add_argument(
+        "--page",
+        help='One page only (e.g. "Bodybuilding - Minimum Equipment/Back"). Omit to process all md-file pages.',
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Rematch selected page(s) even if index says up to date",
+    )
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Only report stale vs ok from index state (no writes); exit 1 if any stale",
+    )
     args = parser.parse_args()
 
-    pages = [args.page] if args.page else list(PAGE_FILTERS.keys())
+    pages = [args.page] if args.page else discover_page_keys()
     index = load_index()
 
     catalog = None
@@ -489,16 +594,32 @@ def main() -> int:
             results.append(sync_page(page_key, catalog, index, force=args.force, check_only=False))
 
     if not args.check:
+        # Drop index entries for deleted pages
+        living = set(pages)
+        index["pages"] = {k: v for k, v in (index.get("pages") or {}).items() if k in living}
         save_index(index)
 
     stale = [r for r in results if r.get("status") in ("stale", "synced")]
+    ok = [r for r in results if r.get("status") == "ok"]
+
+    # Compact summary
+    print("\n=== Summary ===")
     for r in results:
-        print(json.dumps(r, indent=2))
+        pk = r.get("pageKey", "?")
+        short = pk.split("/")[-1] if pk else "?"
+        folder = pk.split("/")[0] if "/" in pk else ""
+        status = r.get("status")
+        matched = r.get("matchedCount", 0)
+        total = r.get("exerciseCount", 0)
+        unmatched = r.get("unmatchedCount", max(0, total - matched))
+        print(f"{status:8} {folder}/{short}: {matched}/{total} matched ({unmatched} unmatched)")
 
     if args.check:
+        print(f"\nok={len(ok)} stale={len([r for r in results if r.get('status')=='stale'])}")
         return 1 if any(r.get("status") == "stale" for r in results) else 0
+
     print(f"\nDone. Updated index: {INDEX_PATH.relative_to(REPO_ROOT)}")
-    print(f"Pages touched: {len(stale)} / {len(results)}")
+    print(f"Pages synced this run: {len(stale)} / {len(results)}")
     return 0
 
 

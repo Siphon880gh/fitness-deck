@@ -1,6 +1,6 @@
 # Skill: Add images to new exercises
 
-This document describes the **add-exercise-media** project skill: how to attach open-source exercise animations to Fitness Deck pages without letting manifests go stale when you add rows to markdown tables.
+This document describes the **add-exercise-media** project skill: attach open-source exercise animations to Fitness Deck pages, for **one page or all pages**, using internal state so only pages that need updates are rewritten.
 
 ## Skill location
 
@@ -12,11 +12,23 @@ This document describes the **add-exercise-media** project skill: how to attach 
 
 Ask an agent to follow that skill, or run the sync script yourself locally.
 
+## One page vs all pages
+
+| Goal | Command |
+|------|---------|
+| See what needs updating (all pages) | `.../sync_exercise_media.py --check` |
+| Update only pages that need it (all) | `.../sync_exercise_media.py` |
+| One page check | `.../sync_exercise_media.py --check --page "Stretch/Hips"` |
+| One page update if needed | `.../sync_exercise_media.py --page "Stretch/Hips"` |
+| Force rematch | add `--force` (with or without `--page`) |
+
+The sync script reads `assets/data/exercise-media-index.json`. For each page it compares the markdown **sha256** and the list of **exercise names** from the last sync. If nothing changed, that page is skipped (`ok`). If the file changed or new rows appeared, it matches media for new names only (existing matches are kept).
+
 ## Why tracking exists
 
 Exercise pages live in `md-file/**/*.md`. Media mappings live in `assets/data/exercise-media-*.json`.
 
-If you **add new exercises** to a markdown table, old manifests do not automatically grow. The sync script compares each page’s markdown **mtime + sha256** (stored in `assets/data/exercise-media-index.json`) and, when the file changed, matches media for **new exercise names only** (existing matches are kept).
+Without the index, adding rows would leave demos missing forever—or force rematching everything. State-aware sync grows manifests only when needed.
 
 ## Sources
 
@@ -33,37 +45,40 @@ Attribution (shown in the in-app **Credits** modal):
 From the repository root:
 
 ```bash
-# See which pages are stale / have new unmatched exercises
+# All pages — report stale (exit 0 = nothing to do)
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
 
-# Incremental sync for all configured pages
+# All pages — sync only what the index says needs work
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
 
 # One page
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check --page "Bodybuilding - Minimum Equipment/Shoulders"
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Bodybuilding - Minimum Equipment/Shoulders"
 
-# Rematch all names on configured pages
+# Force rematch
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force --page "Stretch/Hips"
 ```
 
 ## Workflow after editing exercises
 
 1. Edit `md-file/.../SomeMuscle.md` (add/rename/remove exercise rows).
-2. Run `--check` (optional) then sync without `--force`.
-3. Commit updated `assets/data/exercise-media-*.json` and `exercise-media-index.json` with the markdown change.
-4. Open the page in the app: cards with matches show a demo GIF; bottom **Credits** opens the attribution modal.
+2. Prefer one-page sync for that file; use all-pages sync if you edited many files.
+3. Run `--check` (optional) then sync without `--force`.
+4. Commit updated `assets/data/exercise-media-*.json` and `exercise-media-index.json` with the markdown change.
+5. Open the page in the app: matched cards show a demo GIF; bottom **Credits** opens attribution.
 
-## Adding a new muscle page to the sync list
+## Improving match quality (optional)
 
-Edit `PAGE_FILTERS` in `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py` with:
+Edit `PAGE_FILTERS` in `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py`:
 
-- `body_parts` — ExerciseDB body part filter (e.g. `chest`, `back`, `waist`)
-- `targets` — optional muscle target filter (e.g. `biceps`, `lats`)
+- `body_parts` / `targets` — catalog filters
 - `min_score` — auto-match threshold
-- `manual` — optional exact-ish aliases `{ "Our Name": "catalog name" }`
+- `manual` — `{ "Our Name": "catalog name" }`
+- `prefer_tokens` — boost catalog names containing these tokens
 
-Then run sync for that page.
+Pages without an entry still sync using defaults.
 
 ## Frontend wiring
 
-`assets/js/tabularize-exercises.js` loads `assets/data/exercise-media-index.json`, then the page’s `manifest`. No hardcoded per-muscle list is required once the index entry exists.
+`assets/js/tabularize-exercises.js` loads `assets/data/exercise-media-index.json`, then the page’s `manifest`.

@@ -48,10 +48,34 @@
       "sourceName": "single leg calf raise (on a dumbbell)",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Mountain Climbers": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
+      "sourceName": "mountain climber",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Reverse Calf Raises": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0763-ywaNfuh.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0763-ywaNfuh.jpg",
       "sourceName": "smith reverse calf raises",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Jump Squats": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0514-LIlE5Tn.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0514-LIlE5Tn.jpg",
+      "sourceName": "jump squat",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Sprints": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0858-Qoujh3Q.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0858-Qoujh3Q.jpg",
+      "sourceName": "wind sprints",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Bear Crawls": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3360-0Yz8WdV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3360-0Yz8WdV.jpg",
+      "sourceName": "bear crawl",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Standing Calf Twists": {
@@ -60,10 +84,28 @@
       "sourceName": "standing calf raise (on a staircase)",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "High Knee Runs": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3636-ealLwvX.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3636-ealLwvX.jpg",
+      "sourceName": "high knee against wall",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Calf Raises on Bosu Ball": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1705-T2fA5Ir.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1705-T2fA5Ir.jpg",
+      "sourceName": "squat on bosu ball",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Single-Leg Hops": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0727-fKZgDEO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0727-fKZgDEO.jpg",
       "sourceName": "single leg calf raise (on a dumbbell)",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Calf Raises on Balance Board": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0020-xAySMB0.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0020-xAySMB0.jpg",
+      "sourceName": "balance board",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     }
   }

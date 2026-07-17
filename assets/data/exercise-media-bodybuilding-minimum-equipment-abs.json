@@ -37,9 +37,9 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Mountain Climbers": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2466-9c6T1YX.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2466-9c6T1YX.jpg",
-      "sourceName": "bridge - mountain climber (cross body)",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
+      "sourceName": "mountain climber",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Hanging Leg Raises": {
@@ -72,6 +72,12 @@
       "sourceName": "band alternating v-up",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Flutter Kicks": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0459-UVo2Qs2.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0459-UVo2Qs2.jpg",
+      "sourceName": "flutter kicks",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Toe Touches": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0507-mbkgB44.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0507-mbkgB44.jpg",
@@ -96,6 +102,12 @@
       "sourceName": "oblique crunches floor",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Pike Push-Ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1296-sVvXT5J.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1296-sVvXT5J.jpg",
+      "sourceName": "exercise ball pike push up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Seated Russian Twist with Medicine Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
@@ -106,6 +118,12 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Flutter Kicks (Bosu Ball)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0459-UVo2Qs2.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0459-UVo2Qs2.jpg",
+      "sourceName": "flutter kicks",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Swiss Ball Russian Twist": {
@@ -138,6 +156,12 @@
       "sourceName": "seated leg raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Side Plank Hip Raises": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1775-VO2qeJg.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1775-VO2qeJg.jpg",
+      "sourceName": "side plank hip adduction",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Reverse Plank Leg Lifts": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
@@ -162,6 +186,12 @@
       "sourceName": "band lying straight leg raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Cross Body Mountain Climber Twist": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
+      "sourceName": "mountain climber",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Single-Leg Reverse Crunch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0872-nCU1Ekp.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0872-nCU1Ekp.jpg",
@@ -178,6 +208,12 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1014-H6ETwO9.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1014-H6ETwO9.jpg",
       "sourceName": "band v-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Cross Body Mountain Climber Plank": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
+      "sourceName": "mountain climber",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "L-Sit": {

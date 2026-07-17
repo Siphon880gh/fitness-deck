@@ -18,6 +18,18 @@
     ]
   },
   "byExercise": {
+    "Push-ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
+      "sourceName": "push-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Pike Push-ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1296-sVvXT5J.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1296-sVvXT5J.jpg",
+      "sourceName": "exercise ball pike push up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Dumbbell Shoulder Press": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0405-znQUdHY.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0405-znQUdHY.jpg",
@@ -48,6 +60,24 @@
       "sourceName": "dumbbell arnold press",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Dumbbell Shrugs": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0406-NJzBsGJ.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0406-NJzBsGJ.jpg",
+      "sourceName": "dumbbell shrug",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Handstand Holds": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3302-XooAdhl.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3302-XooAdhl.jpg",
+      "sourceName": "handstand",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Band Pull-aparts": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0991-VtTbiP3.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0991-VtTbiP3.jpg",
+      "sourceName": "band pull through",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Band Shoulder Dislocations": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0997-peAeMR3.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0997-peAeMR3.jpg",
@@ -66,6 +96,12 @@
       "sourceName": "dumbbell upright row",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
+    "Medicine Ball Push-ups": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0663-W8KAlkI.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0663-W8KAlkI.jpg",
+      "sourceName": "push-up medicine ball",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Band Shoulder Press with Lateral Raises": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0997-peAeMR3.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0997-peAeMR3.jpg",
@@ -76,6 +112,12 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0299-QfAKy1G.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0299-QfAKy1G.jpg",
       "sourceName": "dumbbell cuban press",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Dumbbell High Pulls": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1664-qAmNMJY.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1664-qAmNMJY.jpg",
+      "sourceName": "dumbbell high curl",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     }
   }

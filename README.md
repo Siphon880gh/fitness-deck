@@ -62,8 +62,12 @@ When you add or rename exercises in a markdown table, media mappings can go stal
 - Human guide: [README-Skill add images to new exercises.md](README-Skill%20add%20images%20to%20new%20exercises.md)
 
 ```bash
+# All pages: check state, then sync only what needs images
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
+
+# One page
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Bodybuilding - Minimum Equipment/Chest"
 ```
 
 In the app, pages with matches show demos on cards; **Credits** at the bottom opens attribution.

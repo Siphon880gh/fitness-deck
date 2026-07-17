@@ -1,11 +1,10 @@
 ---
 name: add-exercise-media
 description: >-
-  Sync open-source exercise GIFs/images onto Fitness Deck muscle pages using
-  ExerciseDB / Kaggle / GitHub datasets. Tracks md-file mtime+sha so new
-  exercises get matched without stale manifests. Use when adding exercise
-  images/animations, refreshing media after md-file edits, or when the user
-  asks about exercise media credits/sync.
+  Sync open-source exercise GIFs/images for one Fitness Deck page or all pages.
+  Checks exercise-media-index.json (md sha + exercise name snapshot) and only
+  updates pages that need new image matches. Use when adding/refreshing exercise
+  media, after md-file edits, or when asked to sync one page vs all pages.
 ---
 
 # Add exercise media
@@ -24,57 +23,79 @@ At the bottom of the exercise page, add a Credits link that opens a modal showin
 Example attribution:
 “Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.”
 
+## Scope: one page or all pages
+
+This skill supports both modes. Prefer the smallest scope that matches the user:
+
+| User intent | What to run |
+|-------------|-------------|
+| One page (e.g. “Chest”, “Stretch/Hips”) | `--page "Folder/File"` (optional `--check` first for that page) |
+| All exercise pages / “make sure everything has images” | `--check`, then sync **without** `--page` |
+| Rematch from scratch | add `--force` (one page or all) |
+
+**Internal state:** `assets/data/exercise-media-index.json` records each page’s markdown `mdSha256` and `exerciseNames` from the last sync. A normal sync (no `--force`) **skips pages that are already up to date** and only fetches/matches for pages that need it:
+
+- never synced, or
+- markdown content hash changed, or
+- new exercise row names appeared since last sync
+
+Permanently unmatched names alone do **not** mark a page stale.
+
 ## When to run
 
-- User asks to add images/animations to an exercise page
-- User edited `md-file/**/*.md` and media may be missing for new rows
-- User asks to refresh / re-sync exercise media
-- Before shipping after exercise catalog changes: run `--check`
+- User asks to add images/animations to **one** exercise page → use `--page`
+- User asks to cover **all** pages / refresh media globally → all-pages sync
+- User edited `md-file/**/*.md` → `--check`, then sync (page or all as appropriate)
+- Before shipping: `--check` (exit `0` = nothing to do)
 
-## Local sync (preferred)
+## Local sync
 
 From the repo root:
 
 ```bash
-# Report pages whose markdown changed or have unmatched new exercises
+# --- All pages: see what needs updating (reads index state) ---
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
 
-# Sync all configured Bodybuilding muscle pages (incremental: keeps existing matches)
+# --- All pages: sync only stale/new (skips up-to-date pages) ---
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py
 
-# Sync one page
+# --- One page: check ---
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check --page "Bodybuilding - Minimum Equipment/Back"
+
+# --- One page: sync if needed ---
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page "Bodybuilding - Minimum Equipment/Back"
 
-# Rematch everything on selected pages
+# --- Force rematch (ignores “already up to date”) ---
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
+python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force --page "Stretch/Hips"
 ```
 
-### Tracking (anti-stale)
+`--check` exit code `0` = no rerun needed; `1` = at least one selected page is stale.
 
-`assets/data/exercise-media-index.json` stores per page:
+### Tracking details
 
-- `mdMtimeMs` + `mdSha256` of the source markdown
-- `manifest` path
-- `matchedCount` / `unmatchedCount` / `lastSyncedAt`
+Index fields per page: `mdSha256`, `mdMtimeMs`, `exerciseNames`, `manifest`, `matchedCount`, `unmatchedCount`, `lastSyncedAt`.
 
-On sync:
+On sync for a page that needs work:
 
-1. Diff current md mtime/sha vs the index
-2. Parse exercise names from the markdown table
-3. Keep existing `byExercise` mappings for unchanged names
-4. Match only **new** names (unless `--force`)
-5. Drop mappings for removed names
-6. Rewrite the page manifest + update the index
+1. Parse exercise names from the markdown table
+2. Keep existing `byExercise` mappings for names still present
+3. Match only **new** names (unless `--force`)
+4. Drop mappings for removed names
+5. Rewrite that page’s manifest + update the index
+
+All-pages mode discovers every `md-file/**/*.md` except `.up.md`.
 
 Frontend loads media via the index (`pages[pageKey].manifest`). Credits UI is already implemented (Credits link → modal).
 
 ## Agent checklist
 
-1. Run the sync script (prefer `--check` first if unsure).
-2. If adding a **new** muscle page not in `PAGE_FILTERS` inside the script, add a filter config (`body_parts` / `targets` / optional `manual` aliases), then sync that page.
-3. Confirm Credits modal still shows attribution after media attaches.
-4. Do not vendor thousands of GIF binaries into the repo; use hosted URLs from the open dataset mirrors.
-5. Respect non-commercial / attribution terms from ExerciseDB / Gym visual.
+1. Decide **one page** vs **all pages** from the user request.
+2. Run `--check` (same scope) when unsure whether work is needed.
+3. Run sync **without** `--force` unless the user wants a full rematch.
+4. Optional: add/adjust `PAGE_FILTERS` / `manual` aliases in the script for better match quality; pages without a filter still sync via defaults.
+5. Do not vendor GIF binaries; use hosted open-dataset URLs.
+6. Respect non-commercial / attribution terms from ExerciseDB / Gym visual.
 
 ## Related docs
 
