@@ -18,6 +18,12 @@
     ]
   },
   "byExercise": {
+    "- Cross-Arm Stretch (aka Cross-Body Stretch)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1419-pZwUsKB.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1419-pZwUsKB.jpg",
+      "sourceName": "iron cross stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "- Behind-the-back Chest Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1259-QoHIhPl.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1259-QoHIhPl.jpg",
@@ -30,100 +36,16 @@
       "sourceName": "behind head chest stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "- Cross-Arm Stretch (aka Cross-Body Stretch)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1419-pZwUsKB.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1419-pZwUsKB.jpg",
-      "sourceName": "iron cross stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Lying Chest Stretch, Prone": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1713-YUYAMEj.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1713-YUYAMEj.jpg",
-      "sourceName": "assisted prone lying quads stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Lying Chest Stretch, Supine": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1167-3uj0Ozg.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1167-3uj0Ozg.jpg",
-      "sourceName": "dynamic chest stretch (male)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Lying Reverse Fly": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0993-sTfvVsG.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0993-sTfvVsG.jpg",
-      "sourceName": "band reverse fly",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Prone Handcuffs Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1713-YUYAMEj.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1713-YUYAMEj.jpg",
-      "sourceName": "assisted prone lying quads stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Reverse Plank": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
-      "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Reverse Plank with Leg Lift": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
-      "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Scapular Push-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Scapular Push-Ups, Prone (aka Scapular Protraction Push-Ups)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Scapular Wall Push (aka Scapular Protraction Against Wall) (Wall in front, arms straight in front, hands on wall)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1407-PzNxakt.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1407-PzNxakt.jpg",
-      "sourceName": "calf push stretch with hands against wall",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
     "- Shoulder Extension Stretch, Standing (Think Naruto run with the arms)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0794-1jXLYEw.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0794-1jXLYEw.jpg",
       "sourceName": "standing lateral stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "- Shoulder Extension Stretch, Seated (Floor Seated)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1390-17bqEXD.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1390-17bqEXD.jpg",
-      "sourceName": "seated calf stretch (male)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Side Bend Stretch, Seated (aka Side Reach)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1403-x2chWLO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1403-x2chWLO.jpg",
-      "sourceName": "neck side stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Side Bend Stretch, Standing (aka Side Reach)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1403-x2chWLO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1403-x2chWLO.jpg",
-      "sourceName": "neck side stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Side Plank (Also strength exercise)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3544-5VXmnV5.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3544-5VXmnV5.jpg",
-      "sourceName": "bodyweight incline side plank",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
     "-- Corner Wall Stretch (W pose approx)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1377-m0tCHqc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1377-m0tCHqc.jpg",
-      "sourceName": "calf stretch with hands against wall",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1167-3uj0Ozg.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1167-3uj0Ozg.jpg",
+      "sourceName": "dynamic chest stretch (male)",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "-- Doorway Chest Stretch (Low arm, one side, turn chest away)": {
@@ -144,16 +66,52 @@
       "sourceName": "dynamic chest stretch (male)",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "-+ Band Pull-Apart": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0991-VtTbiP3.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0991-VtTbiP3.jpg",
-      "sourceName": "band pull through",
+    "- Side Bend Stretch, Seated (aka Side Reach)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1403-x2chWLO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1403-x2chWLO.jpg",
+      "sourceName": "neck side stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "-+ Bent-Over Band Pull-Apart": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0980-wSScovH.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0980-wSScovH.jpg",
-      "sourceName": "band bent-over hip extension",
+    "- Side Bend Stretch, Standing (aka Side Reach)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0794-1jXLYEw.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0794-1jXLYEw.jpg",
+      "sourceName": "standing lateral stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Foam Roller Shoulder Stretch": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1271-Uto7l43.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1271-Uto7l43.jpg",
+      "sourceName": "chest and front of shoulder stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Lying Chest Stretch, Supine": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1167-3uj0Ozg.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1167-3uj0Ozg.jpg",
+      "sourceName": "dynamic chest stretch (male)",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Reverse Plank": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
+      "sourceName": "reverse plank with leg lift",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Reverse Plank with Leg Lift": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
+      "sourceName": "reverse plank with leg lift",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Shoulder Extension Stretch, Prone (Think Naruto run with the arms)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1271-Uto7l43.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1271-Uto7l43.jpg",
+      "sourceName": "chest and front of shoulder stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Side Plank (Also strength exercise)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3544-5VXmnV5.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3544-5VXmnV5.jpg",
+      "sourceName": "bodyweight incline side plank",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "--+ Side-Lying Chest Stretch (Outstretch other arm, not necessary knee to ground)": {

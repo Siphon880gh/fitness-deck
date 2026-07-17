@@ -18,37 +18,13 @@
     ]
   },
   "byExercise": {
-    "- Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0690-QFmz6ch.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0690-QFmz6ch.jpg",
-      "sourceName": "seated lower back stretch",
+    "Sphinx Pose": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1362-DIVyqrU.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1362-DIVyqrU.jpg",
+      "sourceName": "sphinx",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "- Knees-to-Chest Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1167-3uj0Ozg.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1167-3uj0Ozg.jpg",
-      "sourceName": "dynamic chest stretch (male)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Side Plank (Vasisthasana)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3664-X6ytgYZ.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3664-X6ytgYZ.jpg",
-      "sourceName": "dumbbell side plank with rear fly",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Spinal Twist, Seated (Floor) (Marichyasana)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1011-S1JXDAG.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1011-S1JXDAG.jpg",
-      "sourceName": "band seated twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "- Twisting Lower Back Stretch (Lying Spinal Twist without pulling leg to horizontal position)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0690-QFmz6ch.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0690-QFmz6ch.jpg",
-      "sourceName": "seated lower back stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Downward-Facing Dog (Adho Mukha Svanasana)": {
+    "Upward Facing Dog": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1366-01qpYSe.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1366-01qpYSe.jpg",
       "sourceName": "upward facing dog",
@@ -60,10 +36,34 @@
       "sourceName": "seated wide angle pose sequence",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "Sphinx Pose": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1362-DIVyqrU.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1362-DIVyqrU.jpg",
-      "sourceName": "sphinx",
+    "- Twisting Lower Back Stretch (Lying Spinal Twist without pulling leg to horizontal position)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0690-QFmz6ch.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0690-QFmz6ch.jpg",
+      "sourceName": "seated lower back stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1494-bWlZvXh.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1494-bWlZvXh.jpg",
+      "sourceName": "butterfly yoga pose",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Frog Pose, Diamond": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2571-2Dk4xQV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2571-2Dk4xQV.jpg",
+      "sourceName": "rocking frog stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Frog Pose, Half (Ardha Bhekasana) (Half or not Half)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2571-2Dk4xQV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2571-2Dk4xQV.jpg",
+      "sourceName": "rocking frog stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "- Reclined Hand-to-Big-Toe Pose (Supta Padangusthasana)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1582-K5xgdvI.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1582-K5xgdvI.jpg",
+      "sourceName": "reclining big toe pose with rope",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Standing Big Toe Pose (Padangusthasana)": {
@@ -72,10 +72,10 @@
       "sourceName": "reclining big toe pose with rope",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "Upward Facing Dog": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1366-01qpYSe.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1366-01qpYSe.jpg",
-      "sourceName": "upward facing dog",
+    "- Side Plank (Vasisthasana)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3544-5VXmnV5.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3544-5VXmnV5.jpg",
+      "sourceName": "bodyweight incline side plank",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     }
   }

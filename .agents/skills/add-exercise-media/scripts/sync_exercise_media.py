@@ -9,6 +9,7 @@ Modes:
 Internal state (assets/data/exercise-media-index.json):
   mdSha256 + exerciseNames from last sync. Without --force, only pages that
   need work are updated (never synced, sha changed, or new exercise names).
+  PAGE_FILTERS.manual may map a name to None/"" to force-unmatch (no GIF).
 
 Usage:
   python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --check
@@ -207,21 +208,256 @@ PAGE_FILTERS = {
             "Single-Leg Calf Raises on Bosu Ball": "one leg floor calf raise",
         },
     },
-    # Stretch — search full catalog; boost names containing stretch
-    "Stretch/Abs": {"body_parts": None, "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
-    "Stretch/Ankle": {"body_parts": None, "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "ankle"], "manual": {}},
-    "Stretch/Back": {"body_parts": ["back"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
-    "Stretch/Biceps": {"body_parts": ["upper arms"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
-    "Stretch/Calf": {"body_parts": ["lower legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "calf"], "manual": {}},
-    "Stretch/Chest": {"body_parts": ["chest"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
-    "Stretch/Hamstrings": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "hamstring"], "manual": {}},
-    "Stretch/Hips": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "hip"], "manual": {}},
-    "Stretch/Lats": {"body_parts": ["back"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "lat"], "manual": {}},
-    "Stretch/Neck": {"body_parts": ["neck"], "targets": None, "min_score": 0.5, "prefer_tokens": ["stretch", "neck"], "manual": {}},
-    "Stretch/Quadriceps": {"body_parts": ["upper legs"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "quad"], "manual": {}},
-    "Stretch/Shins": {"body_parts": ["lower legs"], "targets": None, "min_score": 0.5, "prefer_tokens": ["stretch", "shin", "tibialis"], "manual": {}},
-    "Stretch/Shoulders": {"body_parts": ["shoulders"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch"], "manual": {}},
-    "Stretch/Triceps": {"body_parts": ["upper arms"], "targets": None, "min_score": 0.55, "prefer_tokens": ["stretch", "tricep"], "manual": {}},
+    # Stretch — search full catalog; prefer correct stretch GIFs or no media.
+    # manual value None = force unmatch (catalog has no acceptable demo).
+    "Stretch/Abs": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "pose"],
+        "manual": {
+            "Sphinx Pose": "sphinx",
+            "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": "butterfly yoga pose",
+            "Downward Dog": None,
+            "- Standing Abdominal Stretch": "standing lateral stretch",
+            "- Standing Side Bend (Aka Standing Oblique Stretch)": "45° side bend",
+            "- Standing Quadriceps Stretch": "intermediate hip flexor and quad stretch",
+        },
+    },
+    "Stretch/Ankle": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "ankle"],
+        "manual": {
+            "Achilles Tendon Stretch, Standing": "standing calves calf stretch",
+            "Achilles Tendon Stretch, Seated": "seated calf stretch (male)",
+            "Achilles Tendon Stretch, Wall-Leaning": "calf stretch with hands against wall",
+            "Ankle Circles": "ankle circles",
+        },
+    },
+    "Stretch/Back": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "pose", "back"],
+        "manual": {
+            "Sphinx Pose": "sphinx",
+            "Upward Facing Dog": "upward facing dog",
+            "Downward-Facing Dog (Adho Mukha Svanasana)": None,
+            "Seated Wide Angle Pose (Upavistha Konasana)": "seated wide angle pose sequence",
+            "- Twisting Lower Back Stretch (Lying Spinal Twist without pulling leg to horizontal position)": "seated lower back stretch",
+            "- Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": "butterfly yoga pose",
+            "Frog Pose, Diamond": "rocking frog stretch",
+            "Frog Pose, Half (Ardha Bhekasana) (Half or not Half)": "rocking frog stretch",
+            "- Reclined Hand-to-Big-Toe Pose (Supta Padangusthasana)": "reclining big toe pose with rope",
+            "Standing Big Toe Pose (Padangusthasana)": "reclining big toe pose with rope",
+            "- Side Plank (Vasisthasana)": "bodyweight incline side plank",
+            "- Knees-to-Chest Stretch": None,
+            "Side Angle Pose (Utthita Parsvakonasana) (Aka Lateral Lunge)": None,
+        },
+    },
+    "Stretch/Biceps": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.72,
+        "prefer_tokens": ["stretch", "bicep", "wrist"],
+        "manual": {
+            "Wall Biceps Stretch (Flexed Wrist, straight arm)": None,
+            "Wall Biceps Stretch (Both arms against wall behind body)": None,
+            "Wall Biceps Stretch (Arm against wall)": None,
+            "Standing Biceps Stretch (Hands clasped behind, palms away from body)": None,
+            "Seated Biceps Stretch (Floor Seated)": None,
+            "Wrist Extension Stretch (Brachioradialis)": "side wrist pull stretch",
+            "Shoulder Flexion Stretch, Overheard Arms, Standing": "chest and front of shoulder stretch",
+            "Shoulder Flexion Stretch, Overheard Arms, Bent Over (Arms on wall or chair)": "chest and front of shoulder stretch",
+            "Shoulder Flexion Stretch, Overheard Arms, Supine": "chest and front of shoulder stretch",
+        },
+    },
+    "Stretch/Calf": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "calf"],
+        "manual": {
+            "Downward Dog Calf Stretch": None,
+            "Downward Dog Calf Stretch, Single Leg": None,
+            "Seated Calf Stretch (Floor Seated)": "seated calf stretch (male)",
+            "Seated Calf Stretch with Band (Floor Seated)": "seated calf stretch (male)",
+            "Seated Calf Stretch with Towel (Floor Seated)": "seated calf stretch (male)",
+            "Wall Calf Stretch, Foot Bent Against Wall": "calf stretch with hands against wall",
+            "Wall Calf Stretch, Foot Bent against Wall, PNF with Back Leg": "calf stretch with hands against wall",
+            "Wall Calf Stretch (Lunged, Back leg straight)": "calf stretch with hands against wall",
+            "Wall Soleus Stretch (Lunged, Back leg bent to relax calf, back leg closer to front leg, allowing focus on soleus)": "calf stretch with hands against wall",
+            "Stair Calf Stretch": "standing calves calf stretch",
+            "Calf Raises": "bodyweight standing calf raise",
+        },
+    },
+    "Stretch/Chest": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "chest"],
+        "manual": {
+            "Upward Facing Dog (Urdhva Mukha Svanasana)": "upward facing dog",
+            "- Behind-the-back Chest Stretch": "behind head chest stretch",
+            "- Behind-the-back Chest Stretch, Towl": "behind head chest stretch",
+            "- Doorway Chest Stretch (W pose approx, one side)": "dynamic chest stretch (male)",
+            "- Doorway Chest Stretch (Low arm, one side, turn chest away)": "dynamic chest stretch (male)",
+            "- Wall Chest Stretch (Bent at elbow for chest expansion/opener)": "dynamic chest stretch (male)",
+            "- Swiss Ball Kneeling Chest Stretch, Prone": "chest stretch with exercise ball",
+            "- Resistance Band Chest Stretch (Pull band apart in T pose approx)": "dynamic chest stretch (male)",
+            "- Scap Push-ups (Prone Protraction)": None,
+            "Pilates Spine Twist": "spine twist",
+        },
+    },
+    "Stretch/Hamstrings": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "hamstring"],
+        "manual": {
+            "Downward Dog Stretch": None,
+            "Downward Dog Stretch, Single Leg": None,
+            "Downward Dog Stretch, with Twist": None,
+            "Standing Hamstring Stretch": "hamstring stretch",
+            "Supine Hamstring Stretch": "hamstring stretch",
+            "Seated Hamstring Stretch (Floor Seated)": "exercise ball seated hamstring stretch",
+            "Seated Hamstring Stretch (Butt on chair)": "exercise ball seated hamstring stretch",
+            "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": "butterfly yoga pose",
+            "Wall Straddle Stretch": None,
+            "Reclined Hand-to-Big-Toe Pose (Supta Padangusthasana)": "reclining big toe pose with rope",
+        },
+    },
+    "Stretch/Hips": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "hip"],
+        "manual": {
+            "Downward Dog Calf Stretch": None,
+            "Downward Dog Calf Stretch, Single Leg": None,
+            "Downward Dog Stretch": None,
+            "Downward Dog Stretch, Single Leg": None,
+            "Downward Dog Stretch, with Twist": None,
+            "Standing Calf Stretch": "standing calves calf stretch",
+            "Standing Hamstring Stretch": "hamstring stretch",
+            "Standing Hamstring Stretch with Strap": "standing hamstring and calf stretch with strap",
+            "Standing Hip Flexor Stretch": "exercise ball hip flexor stretch",
+            "Kneeling Hip Flexor Stretch (Pushing forward)": "exercise ball hip flexor stretch",
+            "Standing Quad Stretch": "intermediate hip flexor and quad stretch",
+            "Standing Adductor Stretch": "assisted side lying adductor stretch",
+            "Kneeling Glute Stretch": "seated glute stretch",
+            "Wall Pigeon Stretch": None,
+            "Wall Hamstring Stretch": "hamstring stretch",
+            "Supine Hamstring Stretch": "hamstring stretch",
+            "Frog Pose (Half or not Half)": "rocking frog stretch",
+            "Squat, Sumo Squat": None,
+            "Lunge Twist": "world greatest stretch",
+            "Lunge Twist, Low Lunge": "world greatest stretch",
+            "Standing Crossover Stretch": "standing lateral stretch",
+            "Lunge Stretch, Side Lunge": "weighted stretch lunge",
+        },
+    },
+    "Stretch/Lats": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "lat"],
+        "manual": {
+            "Kneeling Lat Stretch, Hands on Floor (aka Quadruped Lat Stretch)": "kneeling lat stretch",
+            "Kneeling Lat Stretch, Hands on Bench/Box": "kneeling lat stretch",
+            "Kneeling Lat Stretch, Elbows on Bench/Box": "kneeling lat stretch",
+            "Side Lying Floor Stretch": "side lying floor stretch",
+            "Side Lying Swiss Ball Stretch": "exercise ball lying side lat stretch",
+            "Seated Side Bend Stretch on Swiss Ball": "exercise ball lying side lat stretch",
+            "Standing Side Bend": "45° side bend",
+            "Seated Side Bend (Chair or Floor)": "45° side bend",
+            "Seated Side Bend Stretch (Chair Seated)": "45° side bend",
+        },
+    },
+    "Stretch/Neck": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "neck"],
+        "manual": {
+            "Sphinx Pose": "sphinx",
+            "- Neck Circles (aka Head Rolls) (Careful)": "neck side stretch",
+            "-- Scalene Stretch, Self-Assisted (...Pull skin at end of muscle)": "side push neck stretch",
+            "- Bridge": None,
+            "Yoga Mudra Pose": None,
+        },
+    },
+    "Stretch/Quadriceps": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "quad"],
+        "manual": {
+            "Standing Quadriceps Stretch": "intermediate hip flexor and quad stretch",
+            "Prone Quadriceps Stretch": "assisted prone lying quads stretch",
+            "Wall Quadriceps Stretch": "lying (side) quads stretch",
+            "Kneeling Quadriceps Stretch": "assisted prone rectus femoris stretch",
+            "Dynamic Quadriceps Stretch": None,
+            "Seated Quadriceps Stretch (Floor Seated)": None,
+            "Overhead Reach Quadriceps Stretch": None,
+            "Chair Quadriceps Stretch": "chair leg extended stretch",
+            "Lunge Quadriceps Stretch": "weighted stretch lunge",
+            "Quadriceps Stretch with Stability Ball": "assisted prone lying quads stretch",
+        },
+    },
+    "Stretch/Shins": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "shin", "tibialis"],
+        "manual": {
+            "Anterior Tibialis Stretch, Kneeling": "posterior tibialis stretch",
+            "Toe Drag, Single Leg, Standing": None,
+        },
+    },
+    "Stretch/Shoulders": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "shoulder"],
+        "manual": {
+            "- Cross-Arm Stretch (aka Cross-Body Stretch)": "iron cross stretch",
+            "- Behind-the-back Chest Stretch": "behind head chest stretch",
+            "- Behind-the-back Chest Stretch, Towl": "behind head chest stretch",
+            "- Shoulder Extension Stretch, Standing (Think Naruto run with the arms)": "standing lateral stretch",
+            "- Shoulder Extension Stretch, Seated (Floor Seated)": None,
+            "- Scapular Push-Ups": None,
+            "- Scapular Push-Ups, Prone (aka Scapular Protraction Push-Ups)": None,
+            "- Scapular Wall Push (aka Scapular Protraction Against Wall) (Wall in front, arms straight in front, hands on wall)": None,
+            "-+ Band Pull-Apart": None,
+            "-+ Bent-Over Band Pull-Apart": None,
+            "- Lying Reverse Fly": None,
+            "-- Corner Wall Stretch (W pose approx)": "dynamic chest stretch (male)",
+            "-- Doorway Chest Stretch (Low arm, one side, turn chest away)": "dynamic chest stretch (male)",
+            "-- Doorway Chest Stretch (W pose approx, one side)": "dynamic chest stretch (male)",
+            "-- Wall Chest Stretch (Bent at elbow for chest expansion/opener)": "dynamic chest stretch (male)",
+            "- Side Bend Stretch, Seated (aka Side Reach)": "neck side stretch",
+            "- Side Bend Stretch, Standing (aka Side Reach)": "standing lateral stretch",
+            "- Lying Chest Stretch, Prone": None,
+            "- Prone Handcuffs Stretch": None,
+        },
+    },
+    "Stretch/Triceps": {
+        "body_parts": None,
+        "targets": None,
+        "min_score": 0.68,
+        "prefer_tokens": ["stretch", "tricep"],
+        "manual": {
+            "Cross-Body Triceps Stretch": "triceps stretch",
+            "Overheard Triceps Stretch, Seated or Standing": "overhead triceps stretch",
+            "Towel Triceps Stretch, Seated or Standing (May sub strap)": "triceps stretch",
+            "Wall Overhead Triceps Stretch": "overhead triceps stretch",
+            "Shoulder Extension Stretch, Standing (Think Naruto run with the arms)": "standing lateral stretch",
+            "Shoulder Extension Stretch, Seated (Floor Seated)": "exercise ball seated triceps stretch",
+        },
+    },
     "Mobility/Mobility": {
         "body_parts": None,
         "targets": None,
@@ -370,6 +606,127 @@ def filter_catalog(catalog: list[dict], body_parts, targets) -> list[dict]:
     return out
 
 
+# Tokens used to reject clearly wrong stretch media matches.
+_MUSCLE_TOKENS = {
+    "bicep",
+    "biceps",
+    "tricep",
+    "triceps",
+    "chest",
+    "pec",
+    "pectoralis",
+    "quad",
+    "quads",
+    "quadriceps",
+    "hamstring",
+    "hamstrings",
+    "calf",
+    "calves",
+    "lat",
+    "lats",
+    "shoulder",
+    "shoulders",
+    "deltoid",
+    "glute",
+    "glutes",
+    "hip",
+    "hips",
+    "neck",
+    "shin",
+    "shins",
+    "tibialis",
+    "achilles",
+    "soleus",
+    "ankle",
+    "wrist",
+    "adductor",
+    "abductor",
+    "abs",
+    "abdominal",
+    "oblique",
+    "back",
+    "spine",
+    "piriformis",
+    "peroneal",
+    "toe",
+    "toes",
+}
+_STRENGTH_TOKENS = {
+    "raise",
+    "raises",
+    "press",
+    "curl",
+    "curls",
+    "row",
+    "rows",
+    "squat",
+    "squats",
+    "deadlift",
+    "fly",
+    "flyes",
+    "pulldown",
+    "kickback",
+    "shrug",
+    "dip",
+    "dips",
+}
+_STRETCH_TOKENS = {"stretch", "pose", "yoga"}
+_RELATED_MUSCLES = (
+    {"calf", "calves", "achilles", "soleus", "ankle"},
+    {"hamstring", "hamstrings", "glute", "glutes", "hip", "hips"},
+    {"chest", "pec", "pectoralis", "shoulder", "shoulders"},
+    {"lat", "lats", "back", "spine"},
+    {"quad", "quads", "quadriceps", "hip", "hips"},
+    {"bicep", "biceps", "shoulder", "shoulders"},
+    {"tricep", "triceps", "shoulder", "shoulders"},
+    {"shin", "shins", "tibialis", "ankle", "toe", "toes"},
+    {"neck", "shoulder", "shoulders"},
+    {"abs", "abdominal", "oblique", "back"},
+)
+_OPPOSITE_PAIRS = (
+    ("downward", "upward"),
+    ("upward", "downward"),
+    ("prone", "supine"),
+    ("supine", "prone"),
+)
+_GENERIC_NAME_TOKENS = {
+    "stretch",
+    "stretches",
+    "pose",
+    "seated",
+    "standing",
+    "lying",
+    "floor",
+    "with",
+    "and",
+    "the",
+    "a",
+    "of",
+    "on",
+    "to",
+    "aka",
+    "male",
+    "female",
+    "single",
+    "leg",
+    "one",
+    "both",
+    "arms",
+    "arm",
+    "hands",
+    "hand",
+}
+
+
+def _muscle_tokens(tokens: set[str]) -> set[str]:
+    found = set(tokens & _MUSCLE_TOKENS)
+    for tok in tokens:
+        for m in _MUSCLE_TOKENS:
+            if tok.startswith(m) or m.startswith(tok):
+                found.add(m)
+    return found
+
+
 def score(our_n: str, ex: dict, prefer_tokens=None) -> float:
     a = set(our_n.split())
     b = set(ex["norm"].split())
@@ -390,6 +747,47 @@ def score(our_n: str, ex: dict, prefer_tokens=None) -> float:
     for tok in prefer_tokens or []:
         if tok and tok in ex["norm"]:
             s += 0.08
+
+    our_stretch = bool(a & _STRETCH_TOKENS) or "stretch" in our_n
+    ex_stretch = bool(b & _STRETCH_TOKENS) or "stretch" in ex["norm"]
+    ex_strength = bool(b & _STRENGTH_TOKENS) and not ex_stretch
+    if our_stretch and ex_strength:
+        s -= 0.55
+    elif our_stretch and not ex_stretch:
+        s -= 0.28
+    elif our_stretch and ex_stretch:
+        s += 0.1
+
+    our_m = _muscle_tokens(a)
+    ex_m = _muscle_tokens(b)
+    if our_m and ex_m and our_m.isdisjoint(ex_m):
+        related = any((our_m & group) and (ex_m & group) for group in _RELATED_MUSCLES)
+        if not related:
+            s -= 0.42
+
+    for left, right in _OPPOSITE_PAIRS:
+        if left in a and right in b:
+            s -= 0.65
+
+    # Prefer no GIF over a wrong pose family (catalog has upward dog only).
+    if "dog" in a and "dog" not in b:
+        s -= 0.55
+    if "butterfly" in a and "butterfly" not in b:
+        s -= 0.4
+    if "sphinx" in a and "sphinx" not in b:
+        s -= 0.4
+
+    # "wall + stretch" must not collapse every wall stretch onto wall calf stretch.
+    if "wall" in ex["norm"] and "calf" in ex["norm"]:
+        calfish = {"calf", "calves", "achilles", "soleus", "gastroc"}
+        if "wall" in a and not (a & calfish):
+            s -= 0.5
+
+    # Reject generic "… stretch" catch-alls that only share the word stretch.
+    distinctive = a - _GENERIC_NAME_TOKENS
+    if our_stretch and distinctive and not (distinctive & b):
+        s -= 0.22
+
     return s
 
 
@@ -398,9 +796,15 @@ def resolve_by_source_name(pool: list[dict], source_name: str, full_catalog_pool
     search_spaces = [pool]
     if full_catalog_pool is not None:
         search_spaces.append(full_catalog_pool)
+    # Exact name first so short catalog names cannot steal longer manual aliases
+    # (e.g. "standing calves" vs "standing calves calf stretch").
     for space in search_spaces:
         for ex in space:
-            if ex["norm"] == key or key in ex["norm"] or ex["norm"] in key:
+            if ex["norm"] == key:
+                return ex
+    for space in search_spaces:
+        for ex in space:
+            if key in ex["norm"] or ex["norm"] in key:
                 return ex
     best = None
     best_s = 0.0
@@ -418,9 +822,15 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
     prefer_tokens = cfg.get("prefer_tokens") or []
     result = {} if force else dict(existing)
     search_pool = pool if pool else (full_pool or [])
+    manual_locked = set()
 
     for our, src in manual.items():
         if our not in names:
+            continue
+        # None / "" = force-unmatch (prefer no media over a wrong GIF)
+        if src is None or src == "":
+            result.pop(our, None)
+            manual_locked.add(our)
             continue
         ex = resolve_by_source_name(search_pool, src, full_catalog_pool=full_pool)
         if not ex:
@@ -431,8 +841,11 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
             "sourceName": ex["name"],
             "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
         }
+        manual_locked.add(our)
 
     for name in names:
+        if name in manual_locked:
+            continue
         if name in result and not force:
             continue
         n = norm(name)
@@ -594,9 +1007,11 @@ def main() -> int:
             results.append(sync_page(page_key, catalog, index, force=args.force, check_only=False))
 
     if not args.check:
-        # Drop index entries for deleted pages
-        living = set(pages)
-        index["pages"] = {k: v for k, v in (index.get("pages") or {}).items() if k in living}
+        # Drop index entries for deleted pages only in all-pages mode.
+        # Single-page --page must not wipe unrelated index entries.
+        if not args.page:
+            living = set(pages)
+            index["pages"] = {k: v for k, v in (index.get("pages") or {}).items() if k in living}
         save_index(index)
 
     stale = [r for r in results if r.get("status") in ("stale", "synced")]

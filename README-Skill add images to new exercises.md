@@ -73,8 +73,8 @@ python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
 Edit `PAGE_FILTERS` in `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py`:
 
 - `body_parts` / `targets` — catalog filters
-- `min_score` — auto-match threshold
-- `manual` — `{ "Our Name": "catalog name" }`
+- `min_score` — auto-match threshold (Stretch pages use ~0.68+ plus stretch-aware scoring)
+- `manual` — `{ "Our Name": "catalog name" }`; use `None` or `""` to **force unmatch** (prefer no GIF over a wrong demo)
 - `prefer_tokens` — boost catalog names containing these tokens
 
 Pages without an entry still sync using defaults.

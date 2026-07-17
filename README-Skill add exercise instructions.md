@@ -18,6 +18,7 @@ Ask an agent to follow that skill, or run the sync script yourself locally.
 |------|---------|
 | See what needs updating (tracked pages) | `.../sync_exercise_instructions.py --check` |
 | Fill blanks / refresh index (tracked) | `.../sync_exercise_instructions.py` |
+| All exercise pages (add Instructions column where missing) | `.../sync_exercise_instructions.py --ensure-column` |
 | One page check | `.../sync_exercise_instructions.py --check --page "Bodybuilding - Minimum Equipment/Chest"` |
 | One page sync (adds Instructions column if missing) | `.../sync_exercise_instructions.py --page "…"` |
 | Rewrite every instruction on a page | add `--force` |
@@ -40,6 +41,9 @@ python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructi
 
 # Tracked pages — fill blanks / refresh index only where needed
 python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py
+
+# All exercise pages — add Instructions column where missing
+python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --ensure-column
 
 # One page
 python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --check --page "Bodybuilding - Minimum Equipment/Chest"
@@ -66,7 +70,7 @@ A page is stale when:
 - new exercise names appeared (index must refresh; blanks are filled), or
 - you pass `--force`
 
-All-pages mode only considers pages that **already have** an Instructions column or are **already listed** in the index. To start tracking a new page, run `--page "Folder/File"` once.
+All-pages mode only considers pages that **already have** an Instructions column or are **already listed** in the index. To start tracking a new page, run `--page "Folder/File"` once (implies `--ensure-column`). To add the column across every `md-file/**/*.md` page, run `--ensure-column` without `--page`.
 
 ## Frontend wiring
 

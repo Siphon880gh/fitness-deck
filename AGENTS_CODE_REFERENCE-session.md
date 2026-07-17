@@ -6,13 +6,14 @@ AI-oriented map of the **exercise session** UI (cards, marks, comments, filters,
 
 Parent overview: [AGENTS_CODE_REFERENCE.md](AGENTS_CODE_REFERENCE.md)  
 Session bar / history: [AGENTS_CODE_REFERENCE-session-history.md](AGENTS_CODE_REFERENCE-session-history.md)  
-Media/Credits: [AGENTS_CODE_REFERENCE-media.md](AGENTS_CODE_REFERENCE-media.md)
+Media/Credits: [AGENTS_CODE_REFERENCE-media.md](AGENTS_CODE_REFERENCE-media.md)  
+Instructions column sync: [AGENTS_CODE_REFERENCE-instructions.md](AGENTS_CODE_REFERENCE-instructions.md)
 
 ---
 
 ## What this module does
 
-Loads one markdown table page into an interactive card deck. Users mark difficulty steps (4 colors), edit comments, search/filter, jump via Outline notes (optional `.up.md`), pick a random unmarked card, and open Session tools (timer/reps/history—see session-history companion). Outline jump items show user comments and a brush icon for the card’s mark color.
+Loads one markdown table page into an interactive card deck. Users mark difficulty steps (4 colors), edit comments, read how-to Instructions from the markdown table, search/filter, jump via Outline notes (optional `.up.md`), pick a random unmarked card, and open Session tools (timer/reps/history—see session-history companion). Outline jump items show user comments and a brush icon for the card’s mark color.
 
 ---
 
@@ -21,8 +22,8 @@ Loads one markdown table page into an interactive card deck. Users mark difficul
 | File | ~lines |
 |------|--------|
 | `views/tabularize-exercises.php` | ~304 |
-| `assets/js/tabularize-exercises.js` | ~1616 |
-| `assets/css/tabularize-exercises.css` (+ `@import` includes) | ~1954 |
+| `assets/js/tabularize-exercises.js` | ~1704 |
+| `assets/css/tabularize-exercises.css` (+ `@import` includes) | ~2026 |
 | Session widgets | see [session-history companion](AGENTS_CODE_REFERENCE-session-history.md) |
 
 CDN: jQuery, markdown-it, DataTables CSS/JS (legacy; primary UI is `.fd-deck` cards).
@@ -79,11 +80,12 @@ Injects `filename`, `upMdExists`, `upMdFilename`. Conditionally renders Outline 
 From the rendered `<table>`:
 
 1. Headers matching `/variation/i` → ladder steps (`.fd-step`, `data-id` = `name-colIndex`).
-2. Column 0 → exercise name; last column → contentEditable `.fd-ex-comment`.
-3. Non-variation middle columns → `.fd-ex-meta`.
-4. Parentheses in names → `.text-parentheses` + Detail toggle.
-5. Google Images link (strips junk / parentheticals from query).
-6. Empty `.fd-ex-media` for GIF attach.
+2. Headers matching `/instruction/i` → `.fd-ex-instructions` how-to text (excluded from aesthetics meta).
+3. Column 0 → exercise name; last column → contentEditable `.fd-ex-comment`.
+4. Other non-variation middle columns → `.fd-ex-meta`.
+5. Parentheses in names → `.text-parentheses` + Detail toggle.
+6. Google Images link (strips junk / parentheticals from query).
+7. Empty `.fd-ex-media` for GIF attach.
 
 `hydrateDeckInteractions`: click cycles `addressed-1`→`4`→clear; contextmenu clears when marked; selection `is-selected`. Selecting a card also assigns Session via `sessionHistoryUi.setAssignedExercise` when present. After mark changes, `syncNotesMarks()` refreshes Outline icons.
 
@@ -118,10 +120,10 @@ localStorage `FitnessDeck__legendDismissed` controls `#first-run-legend`.
 ## Markdown table contract
 
 ```markdown
-| Exercise | …meta… | Easiest Variation | … | Hardest Variation |
+| Exercise | …meta… | Instructions | Easiest Variation | … | Hardest Variation |
 ```
 
-Runtime adds a Comments column. Variation headers must contain “Variation” (case-insensitive).
+Runtime adds a Comments column. Variation headers must contain “Variation” (case-insensitive). Instructions headers match `/instruction/i`. Filling/refreshing that column: [instructions companion](AGENTS_CODE_REFERENCE-instructions.md).
 
 ```
 md-file/Stretch/Back.md      # table
@@ -135,6 +137,7 @@ md-file/Stretch/Back.up.md   # Outline (headings + bullet exercise names)
 | Class / id | Role |
 |------------|------|
 | `.fd-deck` / `.fd-ex` | Card list / card |
+| `.fd-ex-instructions` | How-to copy from Instructions column |
 | `.fd-ladder` / `.fd-step` | Difficulty steps |
 | `.addressed-1`…`4` | Color marks |
 | `#toggle-btns` / `.fd-tool` | Bottom-right tools |

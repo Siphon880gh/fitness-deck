@@ -23,7 +23,7 @@ Maps exercise names on markdown pages to hosted GIF/image URLs from open Exercis
 |-------|----------|--------|
 | Frontend attach | `tabularize-exercises.js` (media block mid-file) | (shared) |
 | Index + manifests | `assets/data/exercise-media-index.json` + `exercise-media-*.json` | — |
-| Sync script | `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py` | ~627 |
+| Sync script | `.agents/skills/add-exercise-media/scripts/sync_exercise_media.py` | ~1041 |
 | Credits modal | near bottom of `views/tabularize-exercises.php` (`#credits-modal`) | — |
 
 ---
@@ -41,6 +41,8 @@ session page
 ```
 
 Default CLI with no `--page` processes **every** discovered md page. Tuned catalog filters live in `PAGE_FILTERS`; unknown pages use `default_page_filter` (full catalog, lower `min_score`).
+
+Stretch pages search the full catalog with higher `min_score` (~0.68+) and stretch-aware scoring (penalize strength moves / wrong muscle / opposite pose families). In `PAGE_FILTERS.manual`, value **`None` or `""` force-unmatches** that exercise (prefer no demo over a wrong GIF).
 
 ---
 
@@ -97,7 +99,7 @@ Credits bind once (`window.__fdCreditsModalBound`); Escape handled with other mo
 
 Near the top: `REPO_ROOT`, `CATALOG_URL`, `MEDIA_BASE`, `ATTRIBUTION`, `PAGE_FILTERS`.
 
-Around the middle: `default_page_filter`, `discover_page_keys` (all md except `.up.md`), match/score helpers, `sync_page`.
+Around the middle: stretch quality tokens / `score()` penalties, `default_page_filter`, `discover_page_keys` (all md except `.up.md`), `match_exercises` (manual lock + auto), `sync_page`.
 
 Typical CLI:
 
@@ -108,7 +110,7 @@ python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page 
 python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
 ```
 
-`--check` exit `0` = nothing to do; `1` = at least one selected page is stale. Incremental: keep existing `byExercise` for unchanged names; match new; drop removed; rewrite manifest + index. `--force` rematches selected pages.
+`--check` exit `0` = nothing to do; `1` = at least one selected page is stale. Incremental: keep existing `byExercise` for unchanged names; match new; drop removed; rewrite manifest + index. `--force` rematches selected pages. Manual `None` entries stay unmatched even after `--force` unless you change `PAGE_FILTERS`.
 
 ---
 
@@ -123,6 +125,6 @@ python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --force
 ## Safe-edit notes
 
 1. New page under `md-file/`: discovery picks it up automatically; add a `PAGE_FILTERS` entry when catalog body_parts/targets/manual aliases improve match quality.
-2. Renamed exercises: sync drops old keys; `manual` aliases help catalog mismatches.
+2. Renamed exercises: sync drops old keys; `manual` aliases help catalog mismatches. Use `"Our Name": None` when no acceptable catalog demo exists.
 3. Frontend matching is **exact string** on `byExercise` keys—typos in md names break demos.
 4. Discover the skill via `.agents/skills/*/SKILL.md` (see [AGENTS.md](AGENTS.md)); do not assume a fixed skill inventory.

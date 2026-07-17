@@ -18,10 +18,40 @@
     ]
   },
   "byExercise": {
-    "Downward Dog Stretch, Single Leg": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1576-sU5BrfP.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1576-sU5BrfP.jpg",
-      "sourceName": "leg up hamstring stretch",
+    "Standing Hamstring Stretch": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
+      "sourceName": "hamstring stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Supine Hamstring Stretch": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
+      "sourceName": "hamstring stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Seated Hamstring Stretch (Floor Seated)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
+      "sourceName": "exercise ball seated hamstring stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Seated Hamstring Stretch (Butt on chair)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
+      "sourceName": "exercise ball seated hamstring stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1494-bWlZvXh.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1494-bWlZvXh.jpg",
+      "sourceName": "butterfly yoga pose",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Reclined Hand-to-Big-Toe Pose (Supta Padangusthasana)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1582-K5xgdvI.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1582-K5xgdvI.jpg",
+      "sourceName": "reclining big toe pose with rope",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Hamstring Stretch on Stability Ball": {
@@ -96,34 +126,10 @@
       "sourceName": "hamstring stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1424-DeDThfG.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1424-DeDThfG.jpg",
-      "sourceName": "seated glute stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
     "Reverse Plank Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Reverse Plank Leg Lifts": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
-      "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Hamstring Stretch (Floor Seated)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
-      "sourceName": "exercise ball seated hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Hamstring Stretch (Butt on chair)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
-      "sourceName": "exercise ball seated hamstring stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Seated Hamstring Stretch with Twist (Floor Seated)": {
@@ -139,12 +145,6 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Standing Figure 4 Hamstring Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
-      "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Standing Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
@@ -174,22 +174,10 @@
       "sourceName": "hamstring stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "Supine Hamstring Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
-      "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
     "Wall Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Wall Straddle Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1377-m0tCHqc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1377-m0tCHqc.jpg",
-      "sourceName": "calf stretch with hands against wall",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Warrior III Hamstring Stretch": {

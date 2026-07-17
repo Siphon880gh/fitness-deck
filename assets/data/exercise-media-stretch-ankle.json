@@ -18,16 +18,22 @@
     ]
   },
   "byExercise": {
+    "Achilles Tendon Stretch, Standing": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1398-qOKcgVP.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1398-qOKcgVP.jpg",
+      "sourceName": "standing calves calf stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Achilles Tendon Stretch, Seated": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1390-17bqEXD.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1390-17bqEXD.jpg",
       "sourceName": "seated calf stretch (male)",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
-    "Achilles Tendon Stretch, Standing": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0794-1jXLYEw.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0794-1jXLYEw.jpg",
-      "sourceName": "standing lateral stretch",
+    "Achilles Tendon Stretch, Wall-Leaning": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1377-m0tCHqc.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1377-m0tCHqc.jpg",
+      "sourceName": "calf stretch with hands against wall",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Ankle Circles": {

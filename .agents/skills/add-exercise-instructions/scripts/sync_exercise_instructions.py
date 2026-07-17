@@ -15,6 +15,7 @@ Internal state (assets/data/exercise-instructions-index.json):
 Usage:
   python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --check
   python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py
+  python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --ensure-column
   python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --page "Bodybuilding - Minimum Equipment/Chest"
   python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --force --page "Bodybuilding - Minimum Equipment/Chest"
 """

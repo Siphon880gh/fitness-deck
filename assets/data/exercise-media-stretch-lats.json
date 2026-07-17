@@ -18,6 +18,60 @@
     ]
   },
   "byExercise": {
+    "Kneeling Lat Stretch, Hands on Floor (aka Quadruped Lat Stretch)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Kneeling Lat Stretch, Hands on Bench/Box": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Kneeling Lat Stretch, Elbows on Bench/Box": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
+      "sourceName": "kneeling lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Side Lying Floor Stretch": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1358-jDOKRM5.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1358-jDOKRM5.jpg",
+      "sourceName": "side lying floor stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Side Lying Swiss Ball Stretch": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1342-rTbyBYV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1342-rTbyBYV.jpg",
+      "sourceName": "exercise ball lying side lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Seated Side Bend Stretch on Swiss Ball": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1342-rTbyBYV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1342-rTbyBYV.jpg",
+      "sourceName": "exercise ball lying side lat stretch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Standing Side Bend": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0002-Hy9D21L.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0002-Hy9D21L.jpg",
+      "sourceName": "45\u00b0 side bend",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Seated Side Bend (Chair or Floor)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0002-Hy9D21L.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0002-Hy9D21L.jpg",
+      "sourceName": "45\u00b0 side bend",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
+    "Seated Side Bend Stretch (Chair Seated)": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0002-Hy9D21L.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0002-Hy9D21L.jpg",
+      "sourceName": "45\u00b0 side bend",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    },
     "Bent over Lat Stretch (wall or poll)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
@@ -49,24 +103,6 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Kneeling Lat Stretch Rollout on Swiss Ball, Unilateral": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
-      "sourceName": "kneeling lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Kneeling Lat Stretch, Elbows on Bench/Box": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
-      "sourceName": "kneeling lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Kneeling Lat Stretch, Hands on Bench/Box": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
-      "sourceName": "kneeling lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Kneeling Lat Stretch, Hands on Floor (aka Quadruped Lat Stretch)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
       "sourceName": "kneeling lat stretch",
@@ -106,54 +142,6 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1346-f38OEuO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1346-f38OEuO.jpg",
       "sourceName": "kneeling lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Side Bend (Chair or Floor)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0002-Hy9D21L.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0002-Hy9D21L.jpg",
-      "sourceName": "45\u00b0 side bend",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Side Bend Stretch (Chair Seated)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1342-rTbyBYV.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1342-rTbyBYV.jpg",
-      "sourceName": "exercise ball lying side lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Side Bend Stretch on Swiss Ball": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1342-rTbyBYV.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1342-rTbyBYV.jpg",
-      "sourceName": "exercise ball lying side lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Seated Side Bend with Dumbbell (Chair)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0407-IpONWYv.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0407-IpONWYv.jpg",
-      "sourceName": "dumbbell side bend",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Side Lying Floor Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1358-jDOKRM5.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1358-jDOKRM5.jpg",
-      "sourceName": "side lying floor stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Side Lying Swiss Ball Stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1342-rTbyBYV.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1342-rTbyBYV.jpg",
-      "sourceName": "exercise ball lying side lat stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Standing Side Bend": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0002-Hy9D21L.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0002-Hy9D21L.jpg",
-      "sourceName": "45\u00b0 side bend",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Standing Side Bend with Dumbbell (Chair)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0407-IpONWYv.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0407-IpONWYv.jpg",
-      "sourceName": "dumbbell side bend",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Supine Lat Stretch (Both arms overhead, elbow bent)": {

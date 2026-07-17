@@ -18,10 +18,10 @@
     ]
   },
   "byExercise": {
-    "- Bridge": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0609-bLyQokI.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0609-bLyQokI.jpg",
-      "sourceName": "london bridge",
+    "Sphinx Pose": {
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1362-DIVyqrU.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1362-DIVyqrU.jpg",
+      "sourceName": "sphinx",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "- Neck Circles (aka Head Rolls) (Careful)": {
@@ -31,21 +31,9 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "-- Scalene Stretch, Self-Assisted (...Pull skin at end of muscle)": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1708-GxDwDX0.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1708-GxDwDX0.jpg",
-      "sourceName": "assisted lying calves stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Sphinx Pose": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1362-DIVyqrU.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1362-DIVyqrU.jpg",
-      "sourceName": "sphinx",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
-    },
-    "Yoga Mudra Pose": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1494-bWlZvXh.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1494-bWlZvXh.jpg",
-      "sourceName": "butterfly yoga pose",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0716-oQRJYkC.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0716-oQRJYkC.jpg",
+      "sourceName": "side push neck stretch",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     }
   }

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T10:14:57+00:00",
+  "updatedAt": "2026-07-17T10:42:39+00:00",
   "catalogSource": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/data/exercises.json",
   "pages": {
     "Bodybuilding - Minimum Equipment/Chest": {
@@ -1349,8 +1349,8 @@
     },
     "Stretch/Abs": {
       "mdPath": "md-file/Stretch/Abs.md",
-      "mdMtimeMs": 1767432123725,
-      "mdSha256": "3be662e9608da12bee69bd5a67d4015fbc46d23e8898888be0d68da1ec714f53",
+      "mdMtimeMs": 1784283752603,
+      "mdSha256": "f2f7f3433abc6246e8e70e5bd09b3e3724846940df6aed66b2b3611b3df023b8",
       "manifest": "assets/data/exercise-media-stretch-abs.json",
       "bodyParts": null,
       "targets": null,
@@ -1384,15 +1384,15 @@
         "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)",
         "Sphinx Pose"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:01+00:00",
       "exerciseCount": 28,
-      "matchedCount": 10,
-      "unmatchedCount": 18
+      "matchedCount": 9,
+      "unmatchedCount": 19
     },
     "Stretch/Ankle": {
       "mdPath": "md-file/Stretch/Ankle.md",
-      "mdMtimeMs": 1767432123726,
-      "mdSha256": "62c9da7d80daeeab8c4daf1362da54ca8315826f1559e43e3a12ec5fe865c46d",
+      "mdMtimeMs": 1784283752606,
+      "mdSha256": "bee49ae0e75a621417cc5c33c171be7e162cb96019375e0126dbe77221128361",
       "manifest": "assets/data/exercise-media-stretch-ankle.json",
       "bodyParts": null,
       "targets": null,
@@ -1420,19 +1420,17 @@
         "Toe Flexion Stretch",
         "Towel Scrunches"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:04+00:00",
       "exerciseCount": 22,
-      "matchedCount": 3,
-      "unmatchedCount": 19
+      "matchedCount": 4,
+      "unmatchedCount": 18
     },
     "Stretch/Back": {
       "mdPath": "md-file/Stretch/Back.md",
-      "mdMtimeMs": 1767432123726,
-      "mdSha256": "0cf4667529367a634303e57d4463b462a006ddfb86c96708cb1472579b6febce",
+      "mdMtimeMs": 1784283752611,
+      "mdSha256": "495dad801008ccef4509120d76882caba2adb5fc5643e6aad496d13e14976195",
       "manifest": "assets/data/exercise-media-stretch-back.json",
-      "bodyParts": [
-        "back"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "- Butterfly Stretch, Reclining (Aka Bound Angle Pose)",
@@ -1502,19 +1500,17 @@
         "Wheel Pose (Urdhva Dhanurasana)",
         "Wild Thing (Camatkarasana)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:42:39+00:00",
       "exerciseCount": 66,
       "matchedCount": 10,
       "unmatchedCount": 56
     },
     "Stretch/Biceps": {
       "mdPath": "md-file/Stretch/Biceps.md",
-      "mdMtimeMs": 1767432123726,
-      "mdSha256": "c12381e4e9825e95f5b571b2a90b5fa1e0e9fa5981c3afd8877a10fb97f46310",
+      "mdMtimeMs": 1784283752613,
+      "mdSha256": "751cb2a483003d175c70ad44eb0db87339821a6267052848c54f60bdd38e8191",
       "manifest": "assets/data/exercise-media-stretch-biceps.json",
-      "bodyParts": [
-        "upper arms"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Biceps Self-Massage (Tennis ball, percussion gun, foam roller)",
@@ -1531,19 +1527,17 @@
         "Wall Biceps Stretch (Arm against wall)",
         "Wrist Extension Stretch (Brachioradialis)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:15+00:00",
       "exerciseCount": 13,
-      "matchedCount": 6,
-      "unmatchedCount": 7
+      "matchedCount": 4,
+      "unmatchedCount": 9
     },
     "Stretch/Calf": {
       "mdPath": "md-file/Stretch/Calf.md",
-      "mdMtimeMs": 1767432123726,
-      "mdSha256": "0ef2bc2e39e94ce3a482d286de71ccbdde9039732ca978f12806171fddbb1872",
+      "mdMtimeMs": 1784283752617,
+      "mdSha256": "a3637f16da46d3d17de08cab093e1ece17e94125c6f869bbb4a5139895ebefff",
       "manifest": "assets/data/exercise-media-stretch-calf.json",
-      "bodyParts": [
-        "lower legs"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Ankle Dorsiflexion Stretch",
@@ -1562,19 +1556,17 @@
         "Wall Calf Stretch (Lunged, Back leg straight)",
         "Wall Soleus Stretch (Lunged, Back leg bent to relax calf, back leg closer to front leg, allowing focus on soleus)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:16+00:00",
       "exerciseCount": 15,
-      "matchedCount": 12,
-      "unmatchedCount": 3
+      "matchedCount": 9,
+      "unmatchedCount": 6
     },
     "Stretch/Chest": {
       "mdPath": "md-file/Stretch/Chest.md",
-      "mdMtimeMs": 1714294907000,
-      "mdSha256": "0e0f1a779e906acf862644736ce35d778e1c9b1cb8759a0162fe67a6d31602d1",
+      "mdMtimeMs": 1784283752622,
+      "mdSha256": "e846f0eb9586e17c56958047792157863be01ee51cc4e34f6c48c7bd0af30f1c",
       "manifest": "assets/data/exercise-media-stretch-chest.json",
-      "bodyParts": [
-        "chest"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "- Arm Circles",
@@ -1634,19 +1626,17 @@
         "Wheel Pose (Urdhva Dhanurasana)",
         "Wild Thing (Camatkarasana)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:22+00:00",
       "exerciseCount": 56,
-      "matchedCount": 24,
-      "unmatchedCount": 32
+      "matchedCount": 23,
+      "unmatchedCount": 33
     },
     "Stretch/Hamstrings": {
       "mdPath": "md-file/Stretch/Hamstrings.md",
-      "mdMtimeMs": 1714113707000,
-      "mdSha256": "49dbaa6ac9b2b58a268fbda913bc7d2c9ea77439cf6f39217cd3d95308a09a2c",
+      "mdMtimeMs": 1784283752627,
+      "mdSha256": "77346148430daa1ddec96bb643d0332161b6895a6dbd3d2755413a50630aa274",
       "manifest": "assets/data/exercise-media-stretch-hamstrings.json",
-      "bodyParts": [
-        "upper legs"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Downward Dog Stretch",
@@ -1698,19 +1688,17 @@
         "Wall Straddle Stretch",
         "Warrior III Hamstring Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:26+00:00",
       "exerciseCount": 48,
-      "matchedCount": 30,
-      "unmatchedCount": 18
+      "matchedCount": 28,
+      "unmatchedCount": 20
     },
     "Stretch/Hips": {
       "mdPath": "md-file/Stretch/Hips.md",
-      "mdMtimeMs": 1714113598000,
-      "mdSha256": "955979f509f730067c70f3257f825780b4c6f1903b468df305e476c219aad379",
+      "mdMtimeMs": 1784283752634,
+      "mdSha256": "d398de17e422a01474e00f5b6c279c12b2eed1faebe7565387a593fc03f1babb",
       "manifest": "assets/data/exercise-media-stretch-hips.json",
-      "bodyParts": [
-        "upper legs"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "90/90 Stretch",
@@ -1781,19 +1769,17 @@
         "Wall Hamstring Stretch",
         "Wall Pigeon Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:42:18+00:00",
       "exerciseCount": 67,
-      "matchedCount": 25,
-      "unmatchedCount": 42
+      "matchedCount": 21,
+      "unmatchedCount": 46
     },
     "Stretch/Lats": {
       "mdPath": "md-file/Stretch/Lats.md",
-      "mdMtimeMs": 1714284960000,
-      "mdSha256": "af66d92e30787eef1af1472db6e727662ace565d1fe54f9245f9b1831ea5e88f",
+      "mdMtimeMs": 1784283752638,
+      "mdSha256": "b2da14f996d0110a15def0018b01a783f74216cf438098ceb19ae31a97d9e701",
       "manifest": "assets/data/exercise-media-stretch-lats.json",
-      "bodyParts": [
-        "back"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Bent over Lat Stretch (wall or poll)",
@@ -1837,19 +1823,17 @@
         "Unilateral Lat Stretch (Grab vertical bar, dowel, or overhanging strap)",
         "Prone Arm Lift (Like upper body superman)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:42:22+00:00",
       "exerciseCount": 40,
-      "matchedCount": 25,
-      "unmatchedCount": 15
+      "matchedCount": 23,
+      "unmatchedCount": 17
     },
     "Stretch/Neck": {
       "mdPath": "md-file/Stretch/Neck.md",
-      "mdMtimeMs": 1714294874000,
-      "mdSha256": "7b3e865d0d8292e4c131caf697b29633766707389142c0698c8f533076b0fb13",
+      "mdMtimeMs": 1784283752642,
+      "mdSha256": "0bc4065a2224d2a05f96203a3d868929dc2f35ec4b5c82b5acff74f39eb78955",
       "manifest": "assets/data/exercise-media-stretch-neck.json",
-      "bodyParts": [
-        "neck"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "- Bridge",
@@ -1905,19 +1889,17 @@
         "Thread the Needle",
         "Yoga Mudra Pose"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:42:29+00:00",
       "exerciseCount": 52,
-      "matchedCount": 5,
-      "unmatchedCount": 47
+      "matchedCount": 3,
+      "unmatchedCount": 49
     },
     "Stretch/Quadriceps": {
       "mdPath": "md-file/Stretch/Quadriceps.md",
-      "mdMtimeMs": 1714001800000,
-      "mdSha256": "e266ce876f00bac5e4748a0ca7b4a28105236aa90e9a3d3617baa94032ad02c3",
+      "mdMtimeMs": 1784283752645,
+      "mdSha256": "bc4f724ef2f5293817ffa74a5434b669f799db833448f47bd2ef998a4a31d335",
       "manifest": "assets/data/exercise-media-stretch-quadriceps.json",
-      "bodyParts": [
-        "upper legs"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Butterfly Stretch with Quadriceps Focus (Straight back, Bend forward)",
@@ -1938,19 +1920,17 @@
         "Standing Quadriceps Stretch",
         "Wall Quadriceps Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:46+00:00",
       "exerciseCount": 17,
-      "matchedCount": 10,
-      "unmatchedCount": 7
+      "matchedCount": 7,
+      "unmatchedCount": 10
     },
     "Stretch/Shins": {
       "mdPath": "md-file/Stretch/Shins.md",
-      "mdMtimeMs": 1714291276000,
-      "mdSha256": "c0f1afb6edcbe1790988452d90875eb2ec752fb0d322b3faf4901f3e2564cb94",
+      "mdMtimeMs": 1784283752646,
+      "mdSha256": "d13eae363154f8164ac7bf4bd3f1386e4dc421276947ac94d0a0f4a28bfd7ebd",
       "manifest": "assets/data/exercise-media-stretch-shins.json",
-      "bodyParts": [
-        "lower legs"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Ankle Plantar Flexion Stretch, Active (Perform ROM from ankle)",
@@ -1960,19 +1940,17 @@
         "Toe Drag, Single Leg, Standing",
         "Shin Foam Roller"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:56+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:47+00:00",
       "exerciseCount": 6,
-      "matchedCount": 2,
-      "unmatchedCount": 4
+      "matchedCount": 1,
+      "unmatchedCount": 5
     },
     "Stretch/Shoulders": {
       "mdPath": "md-file/Stretch/Shoulders.md",
-      "mdMtimeMs": 1714292763000,
-      "mdSha256": "2e9670874c867c17e20064af5817987393f6ddce369f55b121eb9a77cdadb846",
+      "mdMtimeMs": 1784283752653,
+      "mdSha256": "cc30e6455a2182cda7b00cc1c009c8610e0568dbffa8792e89c5a1d9ee7a1f4e",
       "manifest": "assets/data/exercise-media-stretch-shoulders.json",
-      "bodyParts": [
-        "shoulders"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "- 0 Degrees Cable Shoulder External Rotation (degree is based on frontal abduction)",
@@ -2068,19 +2046,17 @@
         "Triangle Pose",
         "Triangle Pose, Extended"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:57+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:57+00:00",
       "exerciseCount": 92,
-      "matchedCount": 25,
-      "unmatchedCount": 67
+      "matchedCount": 18,
+      "unmatchedCount": 74
     },
     "Stretch/Triceps": {
       "mdPath": "md-file/Stretch/Triceps.md",
-      "mdMtimeMs": 1714286513000,
-      "mdSha256": "e7f4412c7202a69eb02a0dc401423cbb7a8430e8b6e2df9c3af1166bf8f09754",
+      "mdMtimeMs": 1784283752655,
+      "mdSha256": "4c1ee4858df27278ee32d541fb802f79a58b55a8439be537325f1ec1ea33b90f",
       "manifest": "assets/data/exercise-media-stretch-triceps.json",
-      "bodyParts": [
-        "upper arms"
-      ],
+      "bodyParts": null,
       "targets": null,
       "exerciseNames": [
         "Cross-Body Triceps Stretch",
@@ -2096,7 +2072,7 @@
         "Towel Triceps Stretch, Seated or Standing (May sub strap)",
         "Wall Overhead Triceps Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:57+00:00",
+      "lastSyncedAt": "2026-07-17T10:41:59+00:00",
       "exerciseCount": 12,
       "matchedCount": 6,
       "unmatchedCount": 6

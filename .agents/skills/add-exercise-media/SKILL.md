@@ -93,7 +93,7 @@ Frontend loads media via the index (`pages[pageKey].manifest`). Credits UI is al
 1. Decide **one page** vs **all pages** from the user request.
 2. Run `--check` (same scope) when unsure whether work is needed.
 3. Run sync **without** `--force` unless the user wants a full rematch.
-4. Optional: add/adjust `PAGE_FILTERS` / `manual` aliases in the script for better match quality; pages without a filter still sync via defaults.
+4. Optional: add/adjust `PAGE_FILTERS` / `manual` aliases in the script for better match quality; pages without a filter still sync via defaults. Use `manual: { "Name": None }` to force-unmatch when the catalog has no acceptable demo (prefer no media over a wrong stretch GIF).
 5. Do not vendor GIF binaries; use hosted open-dataset URLs.
 6. Respect non-commercial / attribution terms from ExerciseDB / Gym visual.
 
