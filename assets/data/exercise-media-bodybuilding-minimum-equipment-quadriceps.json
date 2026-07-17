@@ -19,9 +19,9 @@
   },
   "byExercise": {
     "Squats": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2368-9E25EOx.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2368-9E25EOx.jpg",
-      "sourceName": "split squats",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0987-arsYEd3.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0987-arsYEd3.jpg",
+      "sourceName": "band one arm single leg split squat",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Lunges": {
@@ -37,15 +37,15 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Bulgarian split squats": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2368-9E25EOx.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2368-9E25EOx.jpg",
-      "sourceName": "split squats",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0410-qx4fgX7.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0410-qx4fgX7.jpg",
+      "sourceName": "dumbbell single leg split squat",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Jump squats": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0514-LIlE5Tn.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0514-LIlE5Tn.jpg",
-      "sourceName": "jump squat",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0053-1gFNTZV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0053-1gFNTZV.jpg",
+      "sourceName": "barbell jump squat",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Pistol squats": {
@@ -55,9 +55,9 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Walking Lunges": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1460-IZVHb27.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1460-IZVHb27.jpg",
-      "sourceName": "walking lunge",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1410-py1HSzx.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1410-py1HSzx.jpg",
+      "sourceName": "barbell lateral lunge",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Leg press": {

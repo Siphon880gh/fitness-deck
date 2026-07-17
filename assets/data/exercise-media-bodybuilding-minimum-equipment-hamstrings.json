@@ -19,9 +19,9 @@
   },
   "byExercise": {
     "Bodyweight Romanian Deadlift": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1459-rR0LJzx.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1459-rR0LJzx.jpg",
-      "sourceName": "dumbbell romanian deadlift",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0085-wQ2c4XD.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0085-wQ2c4XD.jpg",
+      "sourceName": "barbell romanian deadlift",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Swiss Ball Hamstring Curl": {
@@ -31,21 +31,21 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Bodyweight Glute Bridge": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3561-GibBPPg.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3561-GibBPPg.jpg",
-      "sourceName": "glute bridge march",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1409-qKBpF7I.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1409-qKBpF7I.jpg",
+      "sourceName": "barbell glute bridge",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Walking Lunges": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1460-IZVHb27.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1460-IZVHb27.jpg",
-      "sourceName": "walking lunge",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1410-py1HSzx.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1410-py1HSzx.jpg",
+      "sourceName": "barbell lateral lunge",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Bulgarian Split Squat": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0809-QpXqiq8.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0809-QpXqiq8.jpg",
-      "sourceName": "suspended split squat",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0410-qx4fgX7.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0410-qx4fgX7.jpg",
+      "sourceName": "dumbbell single leg split squat",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Dumbbell Stiff-Legged Deadlift": {

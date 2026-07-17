@@ -19,15 +19,15 @@
   },
   "byExercise": {
     "Pull-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0651-0V2YQjW.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0651-0V2YQjW.jpg",
-      "sourceName": "pull up (neutral grip)",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3293-72BC5Za.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3293-72BC5Za.jpg",
+      "sourceName": "archer pull up",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Chin-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
-      "sourceName": "chin-up",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1431-7OeHptV.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1431-7OeHptV.jpg",
+      "sourceName": "assisted standing chin-up",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Inverted Rows": {

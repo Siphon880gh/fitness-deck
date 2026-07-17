@@ -19,15 +19,15 @@
   },
   "byExercise": {
     "Standing Calf Raises": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1490-6HmFgmx.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1490-6HmFgmx.jpg",
-      "sourceName": "standing calf raise (on a staircase)",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0999-9JprnPh.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0999-9JprnPh.jpg",
+      "sourceName": "band single leg calf raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Seated Calf Raises": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1390-17bqEXD.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1390-17bqEXD.jpg",
-      "sourceName": "seated calf stretch (male)",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1379-r29jP7S.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1379-r29jP7S.jpg",
+      "sourceName": "dumbbell seated calf raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Donkey Calf Raises": {
@@ -37,15 +37,15 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Bodyweight Calf Raises": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1373-bJYHBIN.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1373-bJYHBIN.jpg",
-      "sourceName": "bodyweight standing calf raise",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0999-9JprnPh.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0999-9JprnPh.jpg",
+      "sourceName": "band single leg calf raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Single-Leg Calf Raises on Bosu Ball": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0727-fKZgDEO.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0727-fKZgDEO.jpg",
-      "sourceName": "single leg calf raise (on a dumbbell)",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1387-0jp9Rlz.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1387-0jp9Rlz.jpg",
+      "sourceName": "one leg floor calf raise",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Mountain Climbers": {

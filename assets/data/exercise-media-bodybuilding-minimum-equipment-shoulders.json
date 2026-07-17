@@ -19,9 +19,9 @@
   },
   "byExercise": {
     "Push-ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3294-A9qxk2F.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3294-A9qxk2F.jpg",
+      "sourceName": "archer push up",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Pike Push-ups": {
@@ -49,9 +49,9 @@
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Dumbbell Rear Deltoid Flyes": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0341-gSw59a4.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0341-gSw59a4.jpg",
-      "sourceName": "dumbbell lying one arm deltoid rear",
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0378-8DiFDVA.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0378-8DiFDVA.jpg",
+      "sourceName": "dumbbell rear fly",
       "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
     },
     "Dumbbell Arnold Press": {

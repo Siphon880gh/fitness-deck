@@ -37,6 +37,7 @@ Live demo path (production): `https://wengindustry.com/tools/fitness-deck/`
 | Persistence | IndexedDB (`fitness-deck` v4) + localStorage prefs |
 | Styling | CSS variables in `assets/css/tokens.css`; page CSS in `list-directories.css` / `tabularize-exercises.css` |
 | Media sync | Python script under `.agents/skills/add-exercise-media/` → JSON manifests in `assets/data/` |
+| Instructions sync | Python script under `.agents/skills/add-exercise-instructions/` → `exercise-instructions-index.json` |
 | CDN | Font Awesome, Remix Icon, jQuery, DataTables, markdown-it |
 
 ---

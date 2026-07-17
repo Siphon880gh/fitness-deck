@@ -73,7 +73,7 @@ Note: `.up.md` files are automatically hidden from the main directory listing.
 
 ## Agent skills
 
-Project agent skills live in [`.agents/skills/`](.agents/skills/). See [AGENTS.md](AGENTS.md) — agents should list skills by scanning that directory (not a hardcoded list).
+Project agent skills live in [`.agents/skills/`](.agents/skills/). See [AGENTS.md](AGENTS.md) — ask an agent “what skills are available?” or have it list skills by scanning that directory (not a hardcoded list).
 
 ### Exercise images / animations
 
@@ -92,6 +92,24 @@ python3 .agents/skills/add-exercise-media/scripts/sync_exercise_media.py --page 
 ```
 
 In the app, pages with matches show demos on cards; **Credits** at the bottom opens attribution.
+
+### Exercise instructions
+
+When you add exercises to a page that uses an **Instructions** column, cues can go stale (new rows blank). Use the **add-exercise-instructions** skill: it tracks mtime+sha+exercise names in JSON, diffs for new/blank rows, and fills only those.
+
+- Skill: [`.agents/skills/add-exercise-instructions/SKILL.md`](.agents/skills/add-exercise-instructions/SKILL.md)
+- Human guide: [README-Skill add exercise instructions.md](README-Skill%20add%20exercise%20instructions.md)
+
+```bash
+# Tracked pages: check state, then fill blanks / refresh index
+python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --check
+python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py
+
+# One page (adds Instructions column if missing)
+python3 .agents/skills/add-exercise-instructions/scripts/sync_exercise_instructions.py --page "Bodybuilding - Minimum Equipment/Chest"
+```
+
+Index file: `assets/data/exercise-instructions-index.json`.
 
 ## Future version
 

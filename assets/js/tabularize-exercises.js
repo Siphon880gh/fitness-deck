@@ -578,14 +578,17 @@ function buildExerciseDeck(tableEl) {
     }
 
     const variationIndexes = [];
+    const instructionIndexes = [];
     headers.forEach((h, i) => {
         if (/variation/i.test(h)) variationIndexes.push(i);
+        if (/instruction/i.test(h)) instructionIndexes.push(i);
     });
     const commentIndex = headers.length ? headers.length - 1 : -1;
     const nameIndex = 0;
     const metaIndexes = headers.map((h, i) => {
         if (i === nameIndex || i === commentIndex) return -1;
         if (/variation/i.test(h)) return -1;
+        if (/instruction/i.test(h)) return -1;
         return i;
     }).filter(i => i >= 0);
 
@@ -671,6 +674,16 @@ function buildExerciseDeck(tableEl) {
             meta.className = "fd-ex-meta";
             meta.textContent = metaParts.join(" · ");
             card.appendChild(meta);
+        }
+
+        const instructionParts = instructionIndexes
+            .map(i => (cells[i]?.textContent || "").trim())
+            .filter(t => !isEmptyVariation(t));
+        if (instructionParts.length) {
+            const instructions = document.createElement("p");
+            instructions.className = "fd-ex-instructions";
+            instructions.textContent = instructionParts.join(" ");
+            card.appendChild(instructions);
         }
 
         const ladder = document.createElement("ol");
@@ -866,7 +879,7 @@ window.rerenderAddressedStatistic = () => {
 };
 
 const animateSaved = () => {
-    $("#save-status").fadeIn(400, function () {
+    $("#save-status").stop(true, true).css("display", "inline-flex").hide().fadeIn(400, function () {
         $(this).delay(200).fadeOut(150);
     });
 };
