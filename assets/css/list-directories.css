@@ -61,23 +61,36 @@
 }
 
 .fd-continue-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.2rem;
-    padding: var(--fd-space-md) var(--fd-space-md);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
     background: var(--fd-accent);
     color: oklch(0.98 0.01 160);
-    text-decoration: none;
     border-radius: var(--fd-radius-lg);
     box-shadow: var(--fd-shadow);
     transition: transform 0.25s var(--fd-ease), background 0.2s ease;
+    overflow: hidden;
 }
 
 .fd-continue-card:hover,
-.fd-continue-card:focus-visible {
+.fd-continue-card:focus-within {
     background: var(--fd-accent-hover);
     transform: translateY(-2px);
+}
+
+.fd-continue-link {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+    padding: var(--fd-space-md);
+    color: inherit;
+    text-decoration: none;
+}
+
+.fd-continue-link:focus-visible,
+.fd-continue-date:focus-visible {
     outline: none;
+    box-shadow: inset 0 0 0 2px oklch(0.98 0.01 160);
 }
 
 .fd-continue-title {
@@ -88,9 +101,22 @@
     text-transform: uppercase;
 }
 
-.fd-continue-meta {
+.fd-continue-date {
+    align-self: stretch;
+    min-width: 5.75rem;
+    padding: 0.6rem 0.85rem;
+    border: 0;
+    border-left: 1px solid oklch(0.98 0.01 160 / 0.24);
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
     font-size: 0.9rem;
-    opacity: 0.85;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.fd-continue-date:hover {
+    background: oklch(0.98 0.01 160 / 0.1);
 }
 
 .fd-programs {
@@ -235,7 +261,7 @@ ul.dirs li.file {
 
 ul.dirs li.file a {
     display: block;
-    padding: 0.7rem 0.9rem;
+    padding: 0.7rem 7rem 0.7rem 0.9rem;
     color: var(--fd-ink);
     text-decoration: none;
     background: var(--fd-bg-elevated);
@@ -264,10 +290,28 @@ ul.dirs li.divider {
     right: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0;
+    padding: 0.25rem;
+    border: 0;
+    border-radius: 0.25rem;
+    background: transparent;
+    font-family: inherit;
     font-size: 0.7rem;
     font-weight: 500;
     color: var(--fd-ink-faint);
-    pointer-events: none;
+    cursor: pointer;
+}
+
+.last-opened:hover {
+    color: var(--fd-accent-hover);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.last-opened:focus-visible {
+    color: var(--fd-accent-hover);
+    outline: 2px solid var(--fd-accent);
+    outline-offset: 1px;
 }
 
 .fd-footer {

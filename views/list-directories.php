@@ -23,10 +23,12 @@
 
         <section id="continue-session" class="fd-continue" hidden>
             <p class="fd-section-label">Continue</p>
-            <a id="continue-link" class="fd-continue-card" href="#">
-                <span class="fd-continue-title"></span>
-                <span class="fd-continue-meta"></span>
-            </a>
+            <div class="fd-continue-card">
+                <a id="continue-link" class="fd-continue-link" href="#">
+                    <span class="fd-continue-title"></span>
+                </a>
+                <button id="continue-date" class="fd-continue-date" type="button"></button>
+            </div>
         </section>
 
         <nav class="fd-programs" aria-label="Programs">

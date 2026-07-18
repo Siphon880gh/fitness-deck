@@ -1,3 +1,70 @@
+let directoryDateMode = "calendar";
+
+function formatCalendarDate(date) {
+    return (date.getMonth() + 1) + "/" + date.getDate() + "/" + String(date.getFullYear()).slice(-2);
+}
+
+function getOpenedDate(item) {
+    if (!item) return null;
+
+    if (item.openedAt) {
+        const openedAt = new Date(item.openedAt);
+        if (!Number.isNaN(openedAt.getTime())) return openedAt;
+    }
+
+    const match = String(item.shortDate || "").match(/^(\d{1,2})\/(\d{1,2})(?:\/(\d{2}|\d{4}))?$/);
+    if (!match) return null;
+
+    const now = new Date();
+    let year = match[3] ? Number(match[3]) : now.getFullYear();
+    if (year < 100) year += 2000;
+
+    let openedAt = new Date(year, Number(match[1]) - 1, Number(match[2]));
+    if (!match[3] && openedAt > now) {
+        openedAt = new Date(year - 1, Number(match[1]) - 1, Number(match[2]));
+    }
+    return Number.isNaN(openedAt.getTime()) ? null : openedAt;
+}
+
+function formatRelativeDate(date) {
+    const now = new Date();
+    const todayUtc = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+    const openedUtc = Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
+    const days = Math.max(0, Math.floor((todayUtc - openedUtc) / 86400000));
+
+    if (days < 7) return days + " " + (days === 1 ? "day" : "days") + " ago";
+
+    if (days < 30) {
+        const weeks = Math.floor(days / 7);
+        return weeks + " " + (weeks === 1 ? "week" : "weeks") + " ago";
+    }
+
+    const months = Math.floor(days / 30);
+    return months + " " + (months === 1 ? "month" : "months") + " ago";
+}
+
+function renderDirectoryDate(dateEl, openedAt) {
+    dateEl.dataset.openedAt = String(openedAt.getTime());
+    dateEl.textContent = directoryDateMode === "relative"
+        ? formatRelativeDate(openedAt)
+        : formatCalendarDate(openedAt);
+    dateEl.setAttribute(
+        "aria-label",
+        (directoryDateMode === "relative" ? "Show calendar dates" : "Show relative dates") +
+            "; opened " + formatCalendarDate(openedAt)
+    );
+}
+
+function toggleDirectoryDates(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    directoryDateMode = directoryDateMode === "calendar" ? "relative" : "calendar";
+
+    document.querySelectorAll(".directory-date[data-opened-at]").forEach(dateEl => {
+        renderDirectoryDate(dateEl, new Date(Number(dateEl.dataset.openedAt)));
+    });
+}
+
 function getLastOpened() {
     const raw = localStorage.getItem("FitnessDeck__lastOpened");
     if (!raw) return [];
@@ -29,13 +96,21 @@ function renderContinueSession() {
 
     const latest = lastOpened[0];
     const titleEl = link.querySelector(".fd-continue-title");
-    const metaEl = link.querySelector(".fd-continue-meta");
+    const dateEl = document.getElementById("continue-date");
     const label = formatPathLabel(latest.path);
+    const openedAt = getOpenedDate(latest);
 
     titleEl.textContent = label;
-    metaEl.textContent = latest.shortDate ? "Opened " + latest.shortDate : "Resume your last table";
     link.href = "?md-file=" + latest.path;
     link.dataset.path = latest.path;
+    if (dateEl && openedAt) {
+        dateEl.hidden = false;
+        dateEl.classList.add("directory-date");
+        renderDirectoryDate(dateEl, openedAt);
+        dateEl.onclick = toggleDirectoryDates;
+    } else if (dateEl) {
+        dateEl.hidden = true;
+    }
     section.hidden = false;
 
     link.onclick = handleLastOpened;
@@ -45,11 +120,11 @@ function handleLastOpened(event) {
     const path = event.currentTarget.dataset.path;
     if (!path) return;
 
-    const shortDate = (new Date()).getMonth() + 1 + "/" + (new Date()).getDate();
+    const now = new Date();
     let lastOpened = getLastOpened();
     lastOpened = lastOpened.filter(item => item.path !== path);
     if (lastOpened.length >= 8) lastOpened.pop();
-    lastOpened = [{ path, shortDate }, ...lastOpened];
+    lastOpened = [{ path, shortDate: formatCalendarDate(now), openedAt: now.getTime() }, ...lastOpened];
     localStorage.setItem("FitnessDeck__lastOpened", JSON.stringify(lastOpened));
 }
 
@@ -67,11 +142,16 @@ window.annotateLastOpenedOnLinks = function annotateLastOpenedOnLinks() {
             el => el.dataset.path === obj.path
         );
         if (!link) return;
-        const spanEl = document.createElement("span");
-        spanEl.textContent = obj.shortDate;
-        spanEl.className = "last-opened";
-        spanEl.style.zIndex = zIndex;
-        link.insertAdjacentElement("afterend", spanEl);
+        const openedAt = getOpenedDate(obj);
+        if (!openedAt) return;
+
+        const dateEl = document.createElement("button");
+        dateEl.type = "button";
+        dateEl.className = "last-opened directory-date";
+        dateEl.style.zIndex = zIndex;
+        renderDirectoryDate(dateEl, openedAt);
+        dateEl.addEventListener("click", toggleDirectoryDates);
+        link.insertAdjacentElement("afterend", dateEl);
     });
 };
 
