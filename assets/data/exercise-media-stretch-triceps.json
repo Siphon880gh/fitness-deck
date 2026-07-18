@@ -1,7 +1,7 @@
 {
   "pageKey": "Stretch/Triceps",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,6 +14,14 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
@@ -22,37 +30,61 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0817-uOV3Itw.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0817-uOV3Itw.jpg",
       "sourceName": "triceps stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Overheard Triceps Stretch, Seated or Standing": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0643-Z5YStHW.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0643-Z5YStHW.jpg",
       "sourceName": "overhead triceps stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Towel Triceps Stretch, Seated or Standing (May sub strap)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0817-uOV3Itw.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0817-uOV3Itw.jpg",
       "sourceName": "triceps stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Wall Overhead Triceps Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0643-Z5YStHW.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0643-Z5YStHW.jpg",
       "sourceName": "overhead triceps stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Shoulder Extension Stretch, Standing (Think Naruto run with the arms)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0794-1jXLYEw.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0794-1jXLYEw.jpg",
       "sourceName": "standing lateral stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Shoulder Extension Stretch, Seated (Floor Seated)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1745-7ePTw4B.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1745-7ePTw4B.jpg",
       "sourceName": "exercise ball seated triceps stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     }
   }
 }

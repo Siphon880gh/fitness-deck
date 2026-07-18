@@ -1,7 +1,7 @@
 {
   "pageKey": "Bodybuilding - Minimum Equipment/Abs",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,213 +14,477 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
   "byExercise": {
     "Crunches": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0972-tZkGYZ9.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0972-tZkGYZ9.jpg",
-      "sourceName": "band bicycle crunch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0267-kjJ3VoQ.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0267-kjJ3VoQ.jpg",
+      "sourceName": "crunch (hands overhead)",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Plank": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3544-5VXmnV5.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3544-5VXmnV5.jpg",
-      "sourceName": "bodyweight incline side plank",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
     },
     "Russian Twists": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0014-r7cT9YD.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0014-r7cT9YD.jpg",
-      "sourceName": "assisted motion russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
+      "sourceName": "russian twist",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Mountain Climbers": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2466-9c6T1YX.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2466-9c6T1YX.jpg",
-      "sourceName": "bridge - mountain climber (cross body)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
+      "sourceName": "mountain climber",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hanging Leg Raises": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0472-I3tsCnC.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0472-I3tsCnC.jpg",
       "sourceName": "hanging leg raise",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Bicycle Crunches": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0972-tZkGYZ9.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0972-tZkGYZ9.jpg",
       "sourceName": "band bicycle crunch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse Crunches": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0873-RqOtqD7.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0873-RqOtqD7.jpg",
-      "sourceName": "cable reverse crunch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0872-nCU1Ekp.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0872-nCU1Ekp.jpg",
+      "sourceName": "reverse crunch",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Dead Bug": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0276-iny3m5y.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0276-iny3m5y.jpg",
       "sourceName": "dead bug",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Hollow Body Hold": {
+      "gifUrl": "https://wger.de/media/exercise-images/297/b10d3341-baa8-49ab-b462-5b3529389aac.png",
+      "imageUrl": "https://wger.de/media/exercise-images/297/b10d3341-baa8-49ab-b462-5b3529389aac.png.400x400_q85.png",
+      "sourceName": "Hollow Hold",
+      "source": "wger (CC-BY-SA 4; Behrooz)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Behrooz"
     },
     "V-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0969-ztAa1RK.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0969-ztAa1RK.jpg",
       "sourceName": "band alternating v-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Flutter Kicks": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0459-UVo2Qs2.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0459-UVo2Qs2.jpg",
       "sourceName": "flutter kicks",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Toe Touches": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0507-mbkgB44.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0507-mbkgB44.jpg",
       "sourceName": "jackknife sit-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Lying Leg Raises": {
+      "gifUrl": "https://wger.de/media/exercise-images/125/Leg-raises-2.png",
+      "imageUrl": "https://wger.de/media/exercise-images/125/Leg-raises-2.png.400x400_q85.png",
+      "sourceName": "Leg Raises, Lying",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Jackknife Sit-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0507-mbkgB44.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0507-mbkgB44.jpg",
       "sourceName": "jackknife sit-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Spiderman Plank": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
+    },
+    "Seated Knee Tucks": {
+      "gifUrl": "https://wger.de/media/exercise-images/1105/36776818-799a-40bf-9eca-aebb3aa5008f.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1105/36776818-799a-40bf-9eca-aebb3aa5008f.png.400x400_q85.png",
+      "sourceName": "Seated Knee Tuck",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
     },
     "Mountain Climber Twists": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2466-9c6T1YX.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2466-9c6T1YX.jpg",
       "sourceName": "bridge - mountain climber (cross body)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Oblique Crunches": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0635-QUDd8WS.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0635-QUDd8WS.jpg",
       "sourceName": "oblique crunches floor",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Pike Push-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1296-sVvXT5J.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1296-sVvXT5J.jpg",
-      "sourceName": "exercise ball pike push up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
+    },
+    "Bear Plank": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
+    },
+    "Commando Plank": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
     },
     "Seated Russian Twist with Medicine Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Plank Jacks": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
+    },
+    "Hanging Knee Raises": {
+      "gifUrl": "https://wger.de/media/exercise-images/978/d3ffe51f-7eb8-4cc9-9eae-105847af3005.png",
+      "imageUrl": "https://wger.de/media/exercise-images/978/d3ffe51f-7eb8-4cc9-9eae-105847af3005.png.400x400_q85.png",
+      "sourceName": "Knee Raises",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
     },
     "Russian Twist with Resistance Bands": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Seated Knee Raises": {
+      "gifUrl": "https://wger.de/media/exercise-images/978/d3ffe51f-7eb8-4cc9-9eae-105847af3005.png",
+      "imageUrl": "https://wger.de/media/exercise-images/978/d3ffe51f-7eb8-4cc9-9eae-105847af3005.png.400x400_q85.png",
+      "sourceName": "Knee Raises",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
+    },
+    "Cross Crunches": {
+      "gifUrl": "https://wger.de/media/exercise-images/91/Crunches-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/91/Crunches-1.png.400x400_q85.png",
+      "sourceName": "Crunches",
+      "source": "wger (CC-BY-SA 3; wger.de)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "wger.de"
     },
     "Flutter Kicks (Bosu Ball)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0459-UVo2Qs2.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0459-UVo2Qs2.jpg",
       "sourceName": "flutter kicks",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Swiss Ball Russian Twist": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Mountain Climber Sliders": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2466-9c6T1YX.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2466-9c6T1YX.jpg",
       "sourceName": "bridge - mountain climber (cross body)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Russian Twist with Dumbbell": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse Plank": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
       "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Plank Shoulder Taps": {
+      "gifUrl": "https://wger.de/media/exercise-images/1091/50c8912d-54ef-46c9-99d1-633b6196aa1e.jpg",
+      "imageUrl": "https://wger.de/media/exercise-images/1091/50c8912d-54ef-46c9-99d1-633b6196aa1e.jpg.400x400_q85.jpg",
+      "sourceName": "Plank Shoulder Taps",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
     },
     "Seated Leg Extensions": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0689-Hgs6Nl1.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0689-Hgs6Nl1.jpg",
       "sourceName": "seated leg raise",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Side Plank Hip Raises": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1775-VO2qeJg.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1775-VO2qeJg.jpg",
       "sourceName": "side plank hip adduction",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse Plank Leg Lifts": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
       "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Russian Twist with Medicine Ball Throw": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0687-XVDdcoj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0687-XVDdcoj.jpg",
       "sourceName": "russian twist",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Plank to Push-Up": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0664-KhHJ338.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0664-KhHJ338.jpg",
       "sourceName": "push-up to side plank",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Lying Leg Raise with Resistance Band": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1002-bbLR7fB.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1002-bbLR7fB.jpg",
       "sourceName": "band lying straight leg raise",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Cross Body Mountain Climber Twist": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
       "sourceName": "mountain climber",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Single-Leg Reverse Crunch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0872-nCU1Ekp.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0872-nCU1Ekp.jpg",
       "sourceName": "reverse crunch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Plank to Side Plank": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0664-KhHJ338.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0664-KhHJ338.jpg",
       "sourceName": "push-up to side plank",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "V-Up Hold": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1014-H6ETwO9.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1014-H6ETwO9.jpg",
       "sourceName": "band v-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Cross Body Mountain Climber Plank": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0630-RJgzwny.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0630-RJgzwny.jpg",
       "sourceName": "mountain climber",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "L-Sit": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3419-UpWmA5E.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3419-UpWmA5E.jpg",
       "sourceName": "l-sit on floor",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Scorpion Plank": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
     }
   }
 }

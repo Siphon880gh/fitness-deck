@@ -1,7 +1,7 @@
 {
   "pageKey": "Bodybuilding - Minimum Equipment/Quadriceps",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,6 +14,14 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
@@ -22,187 +30,531 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0987-arsYEd3.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0987-arsYEd3.jpg",
       "sourceName": "band one arm single leg split squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Lunges": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1410-py1HSzx.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1410-py1HSzx.jpg",
       "sourceName": "barbell lateral lunge",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Step-ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0431-aXtJhlg.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0431-aXtJhlg.jpg",
       "sourceName": "dumbbell step-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Bulgarian split squats": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0410-qx4fgX7.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0410-qx4fgX7.jpg",
       "sourceName": "dumbbell single leg split squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Jump squats": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0053-1gFNTZV.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0053-1gFNTZV.jpg",
-      "sourceName": "barbell jump squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0514-LIlE5Tn.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0514-LIlE5Tn.jpg",
+      "sourceName": "jump squat",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Pistol squats": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0544-5bpPTHv.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0544-5bpPTHv.jpg",
-      "sourceName": "kettlebell pistol squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/456/3b681e59-377b-40db-9113-ca5873ce084b.jpg",
+      "imageUrl": "https://wger.de/media/exercise-images/456/3b681e59-377b-40db-9113-ca5873ce084b.jpg.400x400_q85.jpg",
+      "sourceName": "Pistol Squat",
+      "source": "wger (CC-BY-SA 4; wakanda90)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "wakanda90"
     },
     "Walking Lunges": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1410-py1HSzx.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1410-py1HSzx.jpg",
       "sourceName": "barbell lateral lunge",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Leg press": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0760-7zdxRTl.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0760-7zdxRTl.jpg",
       "sourceName": "smith leg press",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Leg extensions": {
+      "gifUrl": "https://wger.de/media/exercise-images/369/78c915d1-e46d-4d30-8124-65d68664c3ef.png",
+      "imageUrl": "https://wger.de/media/exercise-images/369/78c915d1-e46d-4d30-8124-65d68664c3ef.png.400x400_q85.jpg",
+      "sourceName": "Leg Extension",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Sissy squats": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1489-xdYPUtE.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1489-xdYPUtE.jpg",
       "sourceName": "sissy squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "High knees": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3655-J9zIWig.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3655-J9zIWig.jpg",
       "sourceName": "walking high knees lunge",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Wall lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Glute bridge": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3561-GibBPPg.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3561-GibBPPg.jpg",
       "sourceName": "glute bridge march",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Cossack squats": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3643-GWoKnIm.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3643-GWoKnIm.jpg",
       "sourceName": "weighted cossack squats (male)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Reverse Nordic curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/909/159222d9-c1e4-46ae-89ee-6a2dfaab978d.png",
+      "imageUrl": "https://wger.de/media/exercise-images/909/159222d9-c1e4-46ae-89ee-6a2dfaab978d.png.400x400_q85.png",
+      "sourceName": "Reverse Nordic Curl",
+      "source": "wger (CC-BY-SA 4; karly)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "karly"
+    },
+    "Bicycle crunches": {
+      "gifUrl": "https://wger.de/media/exercise-images/91/Crunches-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/91/Crunches-1.png.400x400_q85.png",
+      "sourceName": "Crunches",
+      "source": "wger (CC-BY-SA 3; wger.de)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "wger.de"
     },
     "Split squat jumps": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0809-QpXqiq8.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0809-QpXqiq8.jpg",
       "sourceName": "suspended split squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Lateral lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Jump lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Side lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Box squats": {
+      "gifUrl": "https://wger.de/media/exercise-images/977/3124c091-6395-4377-96c5-56048b627ceb.png",
+      "imageUrl": "https://wger.de/media/exercise-images/977/3124c091-6395-4377-96c5-56048b627ceb.png.400x400_q85.png",
+      "sourceName": "Box squat",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
     },
     "Skater hops": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3361-zfNHMN9.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3361-zfNHMN9.jpg",
       "sourceName": "skater hops",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Curtsy lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Resistance band leg press": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3007-Y1MsI1l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3007-Y1MsI1l.jpg",
       "sourceName": "resistance band leg extension",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
-    "Standing quadriceps stretch": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0794-1jXLYEw.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0794-1jXLYEw.jpg",
-      "sourceName": "standing lateral stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+    "Reverse lunges with knee drive": {
+      "gifUrl": "https://wger.de/media/exercise-images/999/d0931eb3-8db0-4049-bb08-aa4036072056.jfif",
+      "imageUrl": "https://wger.de/media/exercise-images/999/d0931eb3-8db0-4049-bb08-aa4036072056.jfif.400x400_q85.jpg",
+      "sourceName": "Reverse lunges",
+      "source": "wger (CC-BY-SA 4; philip)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "philip"
+    },
+    "Clock lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Knee-to-chest lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/1452/85a6b9de-4eec-445b-8ebb-f1950b076aba.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1452/85a6b9de-4eec-445b-8ebb-f1950b076aba.png.400x400_q85.png",
+      "sourceName": "Knee to Chest Stretch",
+      "source": "wger (CC-BY-SA 4; Davidgj32)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Davidgj32"
     },
     "Reverse plank leg lifts": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
       "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Slideboard lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "High plank knee-to-elbow": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0443-jvp6DiD.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0443-jvp6DiD.jpg",
       "sourceName": "elbow-to-knee",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Sliding lateral lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/1604/7695428e-bfed-4021-b987-498d93153995.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1604/7695428e-bfed-4021-b987-498d93153995.png.400x400_q85.jpg",
+      "sourceName": "Sliding Lateral Lunge",
+      "source": "wger (CC-BY-SA 4; RiccaBaro)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "RiccaBaro"
     },
     "Single-leg squat": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0411-H6ybluc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0411-H6ybluc.jpg",
       "sourceName": "dumbbell single leg squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse plank leg swings": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
       "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse plank leg curl": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
-      "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png",
+      "imageUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png.400x400_q85.png",
+      "sourceName": "Leg Curl",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Plank Jacks": {
+      "gifUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png",
+      "imageUrl": "https://wger.de/media/exercise-images/458/b7bd9c28-9f1d-4647-bd17-ab6a3adf5770.png.400x400_q85.png",
+      "sourceName": "Plank",
+      "source": "wger (CC-BY-SA 4; utkb)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "utkb"
     },
     "Side Plank with Leg Lift": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3663-tFToB7l.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3663-tFToB7l.jpg",
       "sourceName": "reverse plank with leg lift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Single-Leg Deadlift": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1757-gKozT8X.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1757-gKozT8X.jpg",
       "sourceName": "dumbbell single leg deadlift",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Skater Lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Single-Leg Squat Jumps": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0411-H6ybluc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0411-H6ybluc.jpg",
       "sourceName": "dumbbell single leg squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Glute Bridge March": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3561-GibBPPg.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3561-GibBPPg.jpg",
       "sourceName": "glute bridge march",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Prone Leg Curl": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0496-ms7tjSG.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0496-ms7tjSG.jpg",
       "sourceName": "inverse leg curl (bench support)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Jumping Lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Standing Quad Stretch with Reach": {
+      "gifUrl": "https://wger.de/media/exercise-images/1873/c0ed299b-6d87-4d90-885d-bb3b5d85f1eb.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1873/c0ed299b-6d87-4d90-885d-bb3b5d85f1eb.png.400x400_q85.png",
+      "sourceName": "Quad Stretch",
+      "source": "wger (CC-BY-SA 4; Davidgj32)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Davidgj32"
     },
     "Single-Leg Squat Hold": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0411-H6ybluc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0411-H6ybluc.jpg",
       "sourceName": "dumbbell single leg squat",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Calf Raises": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0763-ywaNfuh.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0763-ywaNfuh.jpg",
-      "sourceName": "smith reverse calf raises",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/622/9a429bd0-afd3-4ad0-8043-e9beec901c81.jpeg",
+      "imageUrl": "https://wger.de/media/exercise-images/622/9a429bd0-afd3-4ad0-8043-e9beec901c81.jpeg.400x400_q85.jpg",
+      "sourceName": "Standing Calf Raises",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
+    },
+    "Kneeling Kickbacks": {
+      "gifUrl": "https://wger.de/media/exercise-images/990/de20457c-914a-45c9-8cf9-0ad9739759a1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/990/de20457c-914a-45c9-8cf9-0ad9739759a1.png.400x400_q85.png",
+      "sourceName": "Kneeling kickbacks",
+      "source": "wger (CC-BY-SA 4; wger contributor)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "wger contributor"
+    },
+    "Diagonal Lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
+    },
+    "Stability Ball Leg Curl (Hamstring Curl)": {
+      "gifUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png",
+      "imageUrl": "https://wger.de/media/exercise-images/364/b318dde9-f5f2-489f-940a-cd864affb9e3.png.400x400_q85.png",
+      "sourceName": "Leg Curl",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Bear Crawl": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3360-0Yz8WdV.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3360-0Yz8WdV.jpg",
       "sourceName": "bear crawl",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Pike Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3662-XPUDTt7.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3662-XPUDTt7.jpg",
       "sourceName": "pike-to-cobra push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Sprinter Lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png",
+      "imageUrl": "https://wger.de/media/exercise-images/984/5c7ffe68-e7b2-47f3-a22a-f9cc28640432.png.400x400_q85.jpg",
+      "sourceName": "Lunges",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Side Plank with Hip Abduction": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0710-7WaDzyL.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0710-7WaDzyL.jpg",
       "sourceName": "side hip abduction",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Incline Reverse Lunges": {
+      "gifUrl": "https://wger.de/media/exercise-images/999/d0931eb3-8db0-4049-bb08-aa4036072056.jfif",
+      "imageUrl": "https://wger.de/media/exercise-images/999/d0931eb3-8db0-4049-bb08-aa4036072056.jfif.400x400_q85.jpg",
+      "sourceName": "Reverse lunges",
+      "source": "wger (CC-BY-SA 4; philip)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "philip"
     }
   }
 }

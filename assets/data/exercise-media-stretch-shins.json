@@ -1,7 +1,7 @@
 {
   "pageKey": "Stretch/Shins",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,6 +14,14 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
@@ -22,7 +30,11 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1389-DEEqoI2.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1389-DEEqoI2.jpg",
       "sourceName": "posterior tibialis stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     }
   }
 }

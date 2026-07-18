@@ -1,7 +1,7 @@
 {
   "pageKey": "Stretch/Hamstrings",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,6 +14,14 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
@@ -22,169 +30,281 @@
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Supine Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Seated Hamstring Stretch (Floor Seated)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
       "sourceName": "exercise ball seated hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Seated Hamstring Stretch (Butt on chair)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1560-yRYyfdA.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1560-yRYyfdA.jpg",
       "sourceName": "exercise ball seated hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1494-bWlZvXh.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1494-bWlZvXh.jpg",
       "sourceName": "butterfly yoga pose",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reclined Hand-to-Big-Toe Pose (Supta Padangusthasana)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1582-K5xgdvI.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1582-K5xgdvI.jpg",
       "sourceName": "reclining big toe pose with rope",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch on Stability Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch on Swiss Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Bosu Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Pilates Ring": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Sliders": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Stability Ball": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Stability Ball Rollout": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with TRX Straps": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Hamstring Stretch with Yoga Wheel": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Kneeling Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Overhead-Reach Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "PNF Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Reverse Plank Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Seated Hamstring Stretch with Twist (Floor Seated)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Side-Lying Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Figure 4 Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Hamstring Stretch with Chair": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Hamstring Stretch with Resistance Band": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Hamstring Stretch, one leg forward": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Standing Split with Hamstring Stretch (Urdhva Prasarita)": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Wall Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Warrior III Hamstring Stretch": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1511-99rWm7w.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1511-99rWm7w.jpg",
       "sourceName": "hamstring stretch",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     }
   }
 }

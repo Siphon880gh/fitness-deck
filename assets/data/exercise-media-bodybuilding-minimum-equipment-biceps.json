@@ -1,7 +1,7 @@
 {
   "pageKey": "Bodybuilding - Minimum Equipment/Biceps",
   "attribution": {
-    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required.",
+    "text": "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; additional exercise images provided by wger under the Creative Commons license and author shown for each matched image.",
     "links": [
       {
         "label": "Kaggle dataset",
@@ -14,237 +14,547 @@
       {
         "label": "exercises-dataset",
         "url": "https://github.com/anil-g11h/exercises-dataset"
+      },
+      {
+        "label": "wger exercise database",
+        "url": "https://wger.de"
+      },
+      {
+        "label": "wger licensing",
+        "url": "https://wger.readthedocs.io/en/latest/"
       }
     ]
   },
   "byExercise": {
     "Chin-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1431-7OeHptV.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1431-7OeHptV.jpg",
-      "sourceName": "assisted standing chin-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
+      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
+      "sourceName": "chin-up",
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Resistance Band Curls": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0968-3omWx6P.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0968-3omWx6P.jpg",
       "sourceName": "band alternating biceps curl",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Diamond Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
       "sourceName": "diamond push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Dumbbell Bicep Curls": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/2402-GNhAeJ0.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/2402-GNhAeJ0.jpg",
       "sourceName": "dumbbell hammer curls (with arm blaster)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Inverted Rows": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0499-bZGHsAZ.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0499-bZGHsAZ.jpg",
-      "sourceName": "inverted row",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/1198/864906ac-4ac7-4e52-a886-c6bb97950a9f.jpg",
+      "imageUrl": "https://wger.de/media/exercise-images/1198/864906ac-4ac7-4e52-a886-c6bb97950a9f.jpg.400x400_q85.jpg",
+      "sourceName": "Inverted Rows",
+      "source": "wger (CC-BY-SA 4; Gavru)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Gavru"
     },
     "Close-Grip Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
       "sourceName": "close-grip push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Bosu Ball Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1307-wVompEp.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1307-wVompEp.jpg",
       "sourceName": "push up on bosu ball",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Towel Bicep Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/1012/8270fdb8-28f1-4eff-b410-af8642085b3f.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1012/8270fdb8-28f1-4eff-b410-af8642085b3f.png.400x400_q85.jpg",
+      "sourceName": "Alternating bicep curls",
+      "source": "wger (CC-BY-SA 4; Franpol)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Franpol"
     },
     "Spiderman Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Resistance Band Hammer Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.400x400_q85.png",
+      "sourceName": "Hammer Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Dive Bomber Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Dumbbell Concentration Curls": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0297-gvsWLQw.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0297-gvsWLQw.jpg",
       "sourceName": "dumbbell concentration curl",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Resistance Band Preacher Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png.400x400_q85.png",
+      "sourceName": "Preacher Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Pike Push-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1296-sVvXT5J.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1296-sVvXT5J.jpg",
-      "sourceName": "exercise ball pike push up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Push-Up Variations with Resistance Bands": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Elevated Pike Push-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Diamond Pike Push-Ups": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0283-soIB2rj.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0283-soIB2rj.jpg",
-      "sourceName": "diamond push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Push-Up Hold with Knee Tucks": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Resistance Band Hammer Curls (Seated)": {
+      "gifUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.400x400_q85.png",
+      "sourceName": "Hammer Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
+    },
+    "Tuck Planche Holds": {
+      "gifUrl": "https://wger.de/media/exercise-images/1916/e7d97b4b-9fe4-4378-aea3-5a9d93b6eb8d.png",
+      "imageUrl": "https://wger.de/media/exercise-images/1916/e7d97b4b-9fe4-4378-aea3-5a9d93b6eb8d.png.400x400_q85.jpg",
+      "sourceName": "Tuck planche",
+      "source": "wger (CC-BY-SA 4; ISSACS)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "ISSACS"
     },
     "Wall Handstand Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
       "sourceName": "handstand push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Towel Grip Pull-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0651-0V2YQjW.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0651-0V2YQjW.jpg",
       "sourceName": "pull up (neutral grip)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Resistance Band Concentration Curls": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0976-kmVVAfu.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0976-kmVVAfu.jpg",
       "sourceName": "band concentration curl",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "High Plank Shoulder Taps": {
+      "gifUrl": "https://wger.de/media/exercise-images/1091/50c8912d-54ef-46c9-99d1-633b6196aa1e.jpg",
+      "imageUrl": "https://wger.de/media/exercise-images/1091/50c8912d-54ef-46c9-99d1-633b6196aa1e.jpg.400x400_q85.jpg",
+      "sourceName": "Plank Shoulder Taps",
+      "source": "wger (CC-BY-SA 4; clafal)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "clafal"
     },
     "Pike Push-Up Hold": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
+    },
+    "Bodyweight Preacher Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png.400x400_q85.png",
+      "sourceName": "Preacher Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Wall Handstand Hold": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3302-XooAdhl.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3302-XooAdhl.jpg",
       "sourceName": "handstand",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Prone Incline Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0493-B1EVP9F.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0493-B1EVP9F.jpg",
       "sourceName": "incline push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "L-Sit Pull-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/3418-d1GgzTU.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/3418-d1GgzTU.jpg",
       "sourceName": "l-pull-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Pike Push-Up Variations": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Handstand Push-Up Variations": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
       "sourceName": "handstand push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Prone Close-Grip Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
       "sourceName": "close-grip push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Typewriter Pull-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0140-guT8YnS.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0140-guT8YnS.jpg",
       "sourceName": "biceps pull-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Swiss Ball Hammer Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.400x400_q85.png",
+      "sourceName": "Hammer Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Pike Push-Up with Shoulder Taps": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
-      "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Handstand Push-Up Variations on Bosu": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0471-rQxwMxO.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0471-rQxwMxO.jpg",
       "sourceName": "handstand push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Prone Close-Grip Push-Ups on Bosu": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0259-x6KpKpq.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0259-x6KpKpq.jpg",
       "sourceName": "close-grip push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Typewriter Pull-Ups on Bosu": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0651-0V2YQjW.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0651-0V2YQjW.jpg",
       "sourceName": "pull up (neutral grip)",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     },
     "Towel Chin-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
       "sourceName": "chin-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Seated Resistance Band Preacher Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/193/Preacher-curl-3-1.png.400x400_q85.png",
+      "sourceName": "Preacher Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Tempo Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Pike Push-Up Hold with Knee Tucks": {
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Eccentric Chin-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
       "sourceName": "chin-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Elevated Pike Push-Ups with Shoulder Taps": {
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
+    },
+    "Diamond Pike Push-Ups with Shoulder Taps": {
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
+    },
+    "Swiss Ball Hammer Curls and Leg Curls": {
+      "gifUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.400x400_q85.png",
+      "sourceName": "Hammer Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Towel Hangs with Towel Chin-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
       "sourceName": "chin-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Decline Pike Push-Ups with Shoulder Taps": {
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Swiss Ball Push-Ups": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/0662-I4hDWkc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/0662-I4hDWkc.jpg",
       "sourceName": "push-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
+    },
+    "Resistance Band Hammer Curls with Bosu": {
+      "gifUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png",
+      "imageUrl": "https://wger.de/media/exercise-images/86/Bicep-hammer-curl-1.png.400x400_q85.png",
+      "sourceName": "Hammer Curls",
+      "source": "wger (CC-BY-SA 3; Everkinetic)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "license": "CC-BY-SA 3",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/deed.en",
+      "author": "Everkinetic"
     },
     "Pike Push-Up Variations on Bosu": {
-      "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1307-wVompEp.gif",
-      "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1307-wVompEp.jpg",
-      "sourceName": "push up on bosu ball",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "gifUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png",
+      "imageUrl": "https://wger.de/media/exercise-images/454/447f3c17-405f-46e0-b138-65c2a8caaab0.png.400x400_q85.png",
+      "sourceName": "Pike Push Ups",
+      "source": "wger (CC-BY-SA 4; Nash)",
+      "sourceUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "license": "CC-BY-SA 4",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/deed.en",
+      "author": "Nash"
     },
     "Eccentric Chin-Ups on Bosu": {
       "gifUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/videos/1326-T2mxWqc.gif",
       "imageUrl": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/images/1326-T2mxWqc.jpg",
       "sourceName": "chin-up",
-      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+      "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+      "sourceUrl": "https://github.com/anil-g11h/exercises-dataset",
+      "license": "",
+      "licenseUrl": "",
+      "author": ""
     }
   }
 }

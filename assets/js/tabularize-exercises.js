@@ -999,7 +999,16 @@ function bindCreditsModalOnce() {
     });
 }
 
-function renderMediaAttribution(attribution, count) {
+function escapeMediaCreditHtml(value) {
+    return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+function renderMediaAttribution(attribution, count, byExercise = {}) {
     bindCreditsModalOnce();
 
     let bar = document.getElementById("fd-media-attribution");
@@ -1025,12 +1034,27 @@ function renderMediaAttribution(attribution, count) {
     const linksHtml = (attribution.links || []).map(l =>
         `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label}</a></li>`
     ).join("");
+    const wgerCredits = Object.entries(byExercise)
+        .filter(([, media]) => media?.source?.startsWith("wger ("))
+        .map(([exerciseName, media]) => {
+            const exercise = escapeMediaCreditHtml(exerciseName);
+            const sourceExercise = escapeMediaCreditHtml(media.sourceName || "Exercise image");
+            const author = escapeMediaCreditHtml(media.author || "wger contributor");
+            const license = escapeMediaCreditHtml(media.license || "Creative Commons");
+            const licenseUrl = escapeMediaCreditHtml(media.licenseUrl || media.sourceUrl || "https://wger.de");
+            return `<li>${exercise}: ${sourceExercise} — ${author} — <a href="${licenseUrl}" target="_blank" rel="noopener">${license}</a></li>`;
+        })
+        .join("");
+    const wgerCreditsHtml = wgerCredits
+        ? `<p class="fd-credits-sources-label">wger image credits</p><ul class="fd-credits-links">${wgerCredits}</ul>`
+        : "";
 
     body.innerHTML = `
         <p class="fd-credits-lead">${attribution.text || ""}</p>
         <p class="fd-media-attr-meta">${count} exercises on this page matched to open demo media.</p>
         <p class="fd-credits-sources-label">Sources</p>
         <ul class="fd-credits-links">${linksHtml}</ul>
+        ${wgerCreditsHtml}
         <p class="fd-credits-note">Media © Gym visual via AscendAPI ExerciseDB. Intended for non-commercial use; credit required.</p>
     `;
 }
@@ -1056,7 +1080,7 @@ function loadExerciseMediaForPage(root = document) {
             const attached = attachExerciseMedia(manifest, root);
             bindExerciseGifLazyLoad(root);
             if (manifest.attribution && attached > 0) {
-                renderMediaAttribution(manifest.attribution, attached);
+                renderMediaAttribution(manifest.attribution, attached, manifest.byExercise);
             }
         });
 }
@@ -1112,7 +1136,7 @@ function renderMDFile() {
             if (manifest) {
                 bindExerciseGifLazyLoad(deck);
                 if (manifest.attribution && attached > 0) {
-                    renderMediaAttribution(manifest.attribution, attached);
+                    renderMediaAttribution(manifest.attribution, attached, manifest.byExercise);
                 }
             }
 

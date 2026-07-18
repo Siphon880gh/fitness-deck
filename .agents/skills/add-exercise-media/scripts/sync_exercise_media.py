@@ -38,11 +38,15 @@ CATALOG_URL = (
     "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/data/exercises.json"
 )
 MEDIA_BASE = "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main"
+WGER_CATALOG_URL = "https://wger.de/api/v2/exerciseinfo/?limit=1000&language=2"
+WGER_LICENSE_URL = "https://wger.de/api/v2/license/?limit=100"
+CATALOG_URLS = [CATALOG_URL, WGER_CATALOG_URL, WGER_LICENSE_URL]
 
 ATTRIBUTION = {
     "text": (
-        "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset. "
-        "Gym visuals via AscendAPI ExerciseDB. Non-commercial use; attribution required."
+        "Exercise animations provided by ExerciseDB / Fitness Exercises Dataset; "
+        "additional exercise images provided by wger under the Creative Commons "
+        "license and author shown for each matched image."
     ),
     "links": [
         {
@@ -56,6 +60,14 @@ ATTRIBUTION = {
         {
             "label": "exercises-dataset",
             "url": "https://github.com/anil-g11h/exercises-dataset",
+        },
+        {
+            "label": "wger exercise database",
+            "url": "https://wger.de",
+        },
+        {
+            "label": "wger licensing",
+            "url": "https://wger.readthedocs.io/en/latest/",
         },
     ],
 }
@@ -532,13 +544,14 @@ def file_mtime_ms(path: Path) -> int:
 def load_index() -> dict:
     if INDEX_PATH.exists():
         return json.loads(INDEX_PATH.read_text())
-    return {"updatedAt": None, "catalogSource": CATALOG_URL, "pages": {}}
+    return {"updatedAt": None, "catalogSource": CATALOG_URL, "catalogSources": CATALOG_URLS, "pages": {}}
 
 
 def save_index(index: dict) -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     index["updatedAt"] = utc_now()
     index["catalogSource"] = CATALOG_URL
+    index["catalogSources"] = CATALOG_URLS
     INDEX_PATH.write_text(json.dumps(index, indent=2) + "\n")
 
 
@@ -573,10 +586,66 @@ def norm(s: str) -> str:
     return s
 
 
-def fetch_catalog() -> list[dict]:
-    req = urllib.request.Request(CATALOG_URL, headers={"User-Agent": "fitness-deck-sync"})
+def fetch_json(url: str):
+    req = urllib.request.Request(url, headers={"User-Agent": "fitness-deck-sync"})
     with urllib.request.urlopen(req, timeout=90) as resp:
         return json.loads(resp.read().decode())
+
+
+def fetch_catalog() -> list[dict]:
+    catalog = fetch_json(CATALOG_URL)
+    for ex in catalog:
+        ex["_source"] = "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)"
+        ex["_source_url"] = "https://github.com/anil-g11h/exercises-dataset"
+
+    wger_licenses = {
+        item["id"]: item
+        for item in (fetch_json(WGER_LICENSE_URL).get("results") or [])
+    }
+    wger_payload = fetch_json(WGER_CATALOG_URL)
+    for ex in wger_payload.get("results") or []:
+        translations = ex.get("translations") or []
+        english = next((item for item in translations if item.get("language") == 2 and item.get("name")), None)
+        images = ex.get("images") or []
+        image = next((item for item in images if item.get("is_main")), images[0] if images else None)
+        if not english or not image or not image.get("image"):
+            continue
+
+        license_info = wger_licenses.get(image.get("license")) or ex.get("license") or {}
+        license_name = license_info.get("short_name") or license_info.get("full_name") or "Creative Commons"
+        license_url = license_info.get("url") or "https://wger.readthedocs.io/en/latest/"
+        author = (
+            image.get("license_author")
+            or english.get("license_author")
+            or ex.get("license_author")
+            or "wger contributor"
+        )
+        aliases = [item.get("alias") for item in (english.get("aliases") or []) if item.get("alias")]
+        name = english["name"]
+
+        catalog.append(
+            {
+                "name": name,
+                "_match_name": f"{name} {' '.join(aliases)}",
+                "body_part": "",
+                "target": "",
+                "equipment": ", ".join(item.get("name", "") for item in (ex.get("equipment") or [])),
+                "gif_url": image["image"],
+                "image": (image.get("thumbnails") or {}).get("medium") or image["image"],
+                "_source": f"wger ({license_name}; {author})",
+                "_source_url": image.get("license_object_url") or license_url,
+                "_license": license_name,
+                "_license_url": license_url,
+                "_author": author,
+            }
+        )
+    return catalog
+
+
+def media_url(base: str, path: str) -> str:
+    if path.startswith(("https://", "http://")):
+        return path
+    return f"{base}/{path.lstrip('/')}"
 
 
 def filter_catalog(catalog: list[dict], body_parts, targets) -> list[dict]:
@@ -595,12 +664,17 @@ def filter_catalog(catalog: list[dict], body_parts, targets) -> list[dict]:
         out.append(
             {
                 "name": ex["name"],
-                "norm": norm(ex["name"]),
-                "gifUrl": f"{MEDIA_BASE}/{gif_path}",
-                "imageUrl": f"{MEDIA_BASE}/{img_path}" if img_path else "",
+                "norm": norm(ex.get("_match_name") or ex["name"]),
+                "gifUrl": media_url(MEDIA_BASE, gif_path),
+                "imageUrl": media_url(MEDIA_BASE, img_path) if img_path else "",
                 "equipment": (ex.get("equipment") or "").lower(),
                 "target": tg,
                 "body_part": bp,
+                "source": ex.get("_source") or "ExerciseDB",
+                "sourceUrl": ex.get("_source_url") or "",
+                "license": ex.get("_license") or "",
+                "licenseUrl": ex.get("_license_url") or "",
+                "author": ex.get("_author") or "",
             }
         )
     return out
@@ -839,7 +913,11 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
             "gifUrl": ex["gifUrl"],
             "imageUrl": ex["imageUrl"],
             "sourceName": ex["name"],
-            "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+            "source": ex["source"],
+            "sourceUrl": ex["sourceUrl"],
+            "license": ex["license"],
+            "licenseUrl": ex["licenseUrl"],
+            "author": ex["author"],
         }
         manual_locked.add(our)
 
@@ -868,7 +946,11 @@ def match_exercises(names: list[str], pool: list[dict], cfg: dict, existing: dic
                 "gifUrl": best["gifUrl"],
                 "imageUrl": best["imageUrl"],
                 "sourceName": best["name"],
-                "source": "anil-g11h/exercises-dataset (ExerciseDB / Gym visual media)",
+                "source": best["source"],
+                "sourceUrl": best["sourceUrl"],
+                "license": best["license"],
+                "licenseUrl": best["licenseUrl"],
+                "author": best["author"],
             }
 
     name_set = set(names)

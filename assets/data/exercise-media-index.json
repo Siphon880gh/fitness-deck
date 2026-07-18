@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-17T10:42:39+00:00",
+  "updatedAt": "2026-07-18T05:55:47+00:00",
   "catalogSource": "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/data/exercises.json",
   "pages": {
     "Bodybuilding - Minimum Equipment/Chest": {
@@ -135,15 +135,15 @@
         "Swiss Ball Push-Up with Knee Tucks",
         "Diamond Push-Ups on Medicine Ball"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:54+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:42+00:00",
       "exerciseCount": 122,
-      "matchedCount": 57,
-      "unmatchedCount": 65
+      "matchedCount": 59,
+      "unmatchedCount": 63
     },
     "Bodybuilding - Minimum Equipment/Abs": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Abs.md",
-      "mdMtimeMs": 1688117714000,
-      "mdSha256": "ff03278171a691a42a7d7fa74804d77e76da2ce580623bf29ff4be25c1854959",
+      "mdMtimeMs": 1784283752521,
+      "mdSha256": "f1ed0db148da8d9bff31740ec71a0e1cf67e62dc9055edb69ea3f2f9ef07c0b1",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-abs.json",
       "bodyParts": [
         "waist"
@@ -249,15 +249,15 @@
         "Alternating Heel Touches",
         "Swiss Ball Knee Tucks"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:53+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:10+00:00",
       "exerciseCount": 98,
-      "matchedCount": 34,
-      "unmatchedCount": 64
+      "matchedCount": 46,
+      "unmatchedCount": 52
     },
     "Bodybuilding - Minimum Equipment/Back": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Back.md",
-      "mdMtimeMs": 1685418496000,
-      "mdSha256": "2a6fdf365fe0bab82189f3d5d12929ae91193b2c8fed40c118e4a8d009437329",
+      "mdMtimeMs": 1784283752530,
+      "mdSha256": "737eb9b60d8313bad9bc7a3f0e3f2c3ee3e09131161743b5881fcd595730335b",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-back.json",
       "bodyParts": [
         "back"
@@ -351,15 +351,15 @@
         "Prone Shoulder Taps",
         "T-Raises with Resistance Band"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:53+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:17+00:00",
       "exerciseCount": 86,
-      "matchedCount": 28,
-      "unmatchedCount": 58
+      "matchedCount": 30,
+      "unmatchedCount": 56
     },
     "Bodybuilding - Minimum Equipment/Biceps": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Biceps.md",
-      "mdMtimeMs": 1685425571000,
-      "mdSha256": "d8270192e4b7b9a5cc804c6f799b2e3ff0cb6dad286d3bdda52a12e10ba2168e",
+      "mdMtimeMs": 1784283752540,
+      "mdSha256": "709088f3cc24fc430047c732af316865df67022c06b5b76eca962078eda7a2f5",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-biceps.json",
       "bodyParts": [
         "upper arms"
@@ -469,15 +469,15 @@
         "Swiss Ball Hammer Curls and Leg Curls with Bosu",
         "Push-Up Variations on Bosu with Resistance Bands"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:53+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:28+00:00",
       "exerciseCount": 100,
-      "matchedCount": 38,
-      "unmatchedCount": 62
+      "matchedCount": 53,
+      "unmatchedCount": 47
     },
     "Bodybuilding - Minimum Equipment/Calf": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Calf.md",
-      "mdMtimeMs": 1685425111000,
-      "mdSha256": "61867d1163e29d61f92a684b5f4d8d4b7a47fdb0191508b45b2da1f012665bc1",
+      "mdMtimeMs": 1784283752545,
+      "mdSha256": "4036a3525e25cda573af80dcfe293e93d32e21a1d0ae47c5c318f66453cb54a3",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-calf.json",
       "bodyParts": [
         "lower legs"
@@ -535,15 +535,15 @@
         "Calf Raises on Incline Surface",
         "Calf Raises with Towel"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:54+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:32+00:00",
       "exerciseCount": 50,
-      "matchedCount": 15,
-      "unmatchedCount": 35
+      "matchedCount": 19,
+      "unmatchedCount": 31
     },
     "Bodybuilding - Minimum Equipment/Hamstrings": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Hamstrings.md",
-      "mdMtimeMs": 1685428302000,
-      "mdSha256": "9e3e5562414e93e79fd6a4dac812e2d2222d72ccdefb07800ad93ad906620ace",
+      "mdMtimeMs": 1784283752550,
+      "mdSha256": "0180275c3cacf710c2111e0798d549e4091c25bee196117c7a383bc5321438e4",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-hamstrings.json",
       "bodyParts": [
         "upper legs"
@@ -601,15 +601,15 @@
         "Standing Hamstring Stretch",
         "Swiss Ball Hamstring Curl with Medicine Ball"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:54+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:46+00:00",
       "exerciseCount": 50,
-      "matchedCount": 21,
-      "unmatchedCount": 29
+      "matchedCount": 27,
+      "unmatchedCount": 23
     },
     "Bodybuilding - Minimum Equipment/Lats": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Lats.md",
-      "mdMtimeMs": 1685427290000,
-      "mdSha256": "0615515ceca0d4be8ce22ccde7ca700540fd20fc3d69df6d8369bb1f6a3fa70f",
+      "mdMtimeMs": 1784283752556,
+      "mdSha256": "5ce01a3fbb4a0d0192bfaf57554dad44a7d3af1f68f9d215cbef2c5430111c2e",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-lats.json",
       "bodyParts": [
         "back"
@@ -704,15 +704,15 @@
         "Bear Hugs",
         "Resistance Band Lat Pushdowns"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:54+00:00",
+      "lastSyncedAt": "2026-07-18T05:53:55+00:00",
       "exerciseCount": 87,
-      "matchedCount": 27,
-      "unmatchedCount": 60
+      "matchedCount": 31,
+      "unmatchedCount": 56
     },
     "Bodybuilding - Minimum Equipment/Quadriceps": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Quadriceps.md",
-      "mdMtimeMs": 1688112209000,
-      "mdSha256": "7df4bcfd7c8b8868b9827f2eef80e85497a2ba3bc11c92b7e56e5355caa25f5a",
+      "mdMtimeMs": 1784283752567,
+      "mdSha256": "a733923f3633006617aa1bb37fe64fc9c3f900990e9e25961d018dd410274f5f",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-quadriceps.json",
       "bodyParts": [
         "upper legs"
@@ -871,15 +871,15 @@
         "Incline Reverse Lunges",
         "Wall Sit with Knee Extensions"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:54+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:10+00:00",
       "exerciseCount": 151,
-      "matchedCount": 31,
-      "unmatchedCount": 120
+      "matchedCount": 53,
+      "unmatchedCount": 98
     },
     "Bodybuilding - Minimum Equipment/Shoulders": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Shoulders.md",
-      "mdMtimeMs": 1688116729000,
-      "mdSha256": "a5f894e02a594cdf3ead55a73ffe5a2f2dde3c9ce7b7d5b372b2873360c3c6c8",
+      "mdMtimeMs": 1784283752571,
+      "mdSha256": "c360378818e9344d6bf344e52293250a98727599cbfc3eeeb983d2c1bd5214d2",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-shoulders.json",
       "bodyParts": [
         "shoulders"
@@ -917,15 +917,15 @@
         "Dumbbell Around-the-Worlds",
         "Resistance Band Shoulder External Rotations"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:55+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:12+00:00",
       "exerciseCount": 30,
-      "matchedCount": 17,
-      "unmatchedCount": 13
+      "matchedCount": 18,
+      "unmatchedCount": 12
     },
     "Bodybuilding - Minimum Equipment/Triceps": {
       "mdPath": "md-file/Bodybuilding - Minimum Equipment/Triceps.md",
-      "mdMtimeMs": 1685418210000,
-      "mdSha256": "c1eed31e057e76e5642818dd3831db1a79514994de71b6aceedff460aa62ce3f",
+      "mdMtimeMs": 1784283752579,
+      "mdSha256": "d92c57a2cfe03b250d2c24f233b495b5369904b672c62c0e479cc2785fd17f16",
       "manifest": "assets/data/exercise-media-bodybuilding-minimum-equipment-triceps.json",
       "bodyParts": [
         "upper arms"
@@ -1035,15 +1035,15 @@
         "Diamond Push-Ups on Bosu with Resistance Band",
         "Resistance Band Tricep Pulldowns with Bosu and Resistance Band"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:55+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:22+00:00",
       "exerciseCount": 100,
-      "matchedCount": 42,
-      "unmatchedCount": 58
+      "matchedCount": 44,
+      "unmatchedCount": 56
     },
     "Cardio/10-Minute Burns": {
       "mdPath": "md-file/Cardio/10-Minute Burns.md",
-      "mdMtimeMs": 1688123105000,
-      "mdSha256": "91e3dded15edfb33b67065922a3f920a7a72950c20fec3f823bc64ce4d4ec29d",
+      "mdMtimeMs": 1784283752593,
+      "mdSha256": "ff979087bccf5fc3e2ea01beaac154b0c956e614ece3dee05d86d1a62a7c6e3b",
       "manifest": "assets/data/exercise-media-cardio-10-minute-burns.json",
       "bodyParts": [
         "cardio"
@@ -1249,15 +1249,15 @@
         "Zumba",
         "Zumba Toning"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:55+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:38+00:00",
       "exerciseCount": 198,
-      "matchedCount": 45,
-      "unmatchedCount": 153
+      "matchedCount": 57,
+      "unmatchedCount": 141
     },
     "Mobility/Mobility": {
       "mdPath": "md-file/Mobility/Mobility.md",
-      "mdMtimeMs": 1784272299997,
-      "mdSha256": "46d87ea31aebc812586a0103a2bc2f05072621aac9cb1784959ef927faf6af98",
+      "mdMtimeMs": 1784283752599,
+      "mdSha256": "2f173ab98115311f7842e8cd1b65e790256a5e85aecc53dd6e53f43db639c2e5",
       "manifest": "assets/data/exercise-media-mobility-mobility.json",
       "bodyParts": null,
       "targets": null,
@@ -1314,15 +1314,15 @@
         "Push-ups",
         "Bench presses"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:55+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:44+00:00",
       "exerciseCount": 51,
-      "matchedCount": 14,
-      "unmatchedCount": 37
+      "matchedCount": 23,
+      "unmatchedCount": 28
     },
     "Rehab - Shin Splints/Rehab Shin Splints": {
       "mdPath": "md-file/Rehab - Shin Splints/Rehab Shin Splints.md",
-      "mdMtimeMs": 1688119297000,
-      "mdSha256": "af6a0cf90739e4db9ed44780c2f53ab1f73f7d8c51d12e015b26c4c24f45cbb7",
+      "mdMtimeMs": 1784283752600,
+      "mdSha256": "7611f640bdc5f08871b435f48abdfbeb2083a16dc9fc97ecee929c1df6a9b84f",
       "manifest": "assets/data/exercise-media-rehab-shin-splints-rehab-shin-splints.json",
       "bodyParts": [
         "lower legs"
@@ -1342,7 +1342,7 @@
         "Low-Impact Cardio Exercises",
         "Strengthening Exercises (Lower Body)"
       ],
-      "lastSyncedAt": "2026-07-17T10:14:55+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:45+00:00",
       "exerciseCount": 12,
       "matchedCount": 3,
       "unmatchedCount": 9
@@ -1384,10 +1384,10 @@
         "Butterfly Stretch, Seated (Floor Seated) (Aka Bound Angle Pose)",
         "Sphinx Pose"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:01+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:48+00:00",
       "exerciseCount": 28,
-      "matchedCount": 9,
-      "unmatchedCount": 19
+      "matchedCount": 11,
+      "unmatchedCount": 17
     },
     "Stretch/Ankle": {
       "mdPath": "md-file/Stretch/Ankle.md",
@@ -1420,7 +1420,7 @@
         "Toe Flexion Stretch",
         "Towel Scrunches"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:04+00:00",
+      "lastSyncedAt": "2026-07-18T05:54:51+00:00",
       "exerciseCount": 22,
       "matchedCount": 4,
       "unmatchedCount": 18
@@ -1500,10 +1500,10 @@
         "Wheel Pose (Urdhva Dhanurasana)",
         "Wild Thing (Camatkarasana)"
       ],
-      "lastSyncedAt": "2026-07-17T10:42:39+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:00+00:00",
       "exerciseCount": 66,
-      "matchedCount": 10,
-      "unmatchedCount": 56
+      "matchedCount": 11,
+      "unmatchedCount": 55
     },
     "Stretch/Biceps": {
       "mdPath": "md-file/Stretch/Biceps.md",
@@ -1527,7 +1527,7 @@
         "Wall Biceps Stretch (Arm against wall)",
         "Wrist Extension Stretch (Brachioradialis)"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:15+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:00+00:00",
       "exerciseCount": 13,
       "matchedCount": 4,
       "unmatchedCount": 9
@@ -1556,7 +1556,7 @@
         "Wall Calf Stretch (Lunged, Back leg straight)",
         "Wall Soleus Stretch (Lunged, Back leg bent to relax calf, back leg closer to front leg, allowing focus on soleus)"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:16+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:01+00:00",
       "exerciseCount": 15,
       "matchedCount": 9,
       "unmatchedCount": 6
@@ -1626,7 +1626,7 @@
         "Wheel Pose (Urdhva Dhanurasana)",
         "Wild Thing (Camatkarasana)"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:22+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:07+00:00",
       "exerciseCount": 56,
       "matchedCount": 23,
       "unmatchedCount": 33
@@ -1688,7 +1688,7 @@
         "Wall Straddle Stretch",
         "Warrior III Hamstring Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:26+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:12+00:00",
       "exerciseCount": 48,
       "matchedCount": 28,
       "unmatchedCount": 20
@@ -1769,10 +1769,10 @@
         "Wall Hamstring Stretch",
         "Wall Pigeon Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:42:18+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:19+00:00",
       "exerciseCount": 67,
-      "matchedCount": 21,
-      "unmatchedCount": 46
+      "matchedCount": 25,
+      "unmatchedCount": 42
     },
     "Stretch/Lats": {
       "mdPath": "md-file/Stretch/Lats.md",
@@ -1823,10 +1823,10 @@
         "Unilateral Lat Stretch (Grab vertical bar, dowel, or overhanging strap)",
         "Prone Arm Lift (Like upper body superman)"
       ],
-      "lastSyncedAt": "2026-07-17T10:42:22+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:23+00:00",
       "exerciseCount": 40,
-      "matchedCount": 23,
-      "unmatchedCount": 17
+      "matchedCount": 26,
+      "unmatchedCount": 14
     },
     "Stretch/Neck": {
       "mdPath": "md-file/Stretch/Neck.md",
@@ -1889,7 +1889,7 @@
         "Thread the Needle",
         "Yoga Mudra Pose"
       ],
-      "lastSyncedAt": "2026-07-17T10:42:29+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:31+00:00",
       "exerciseCount": 52,
       "matchedCount": 3,
       "unmatchedCount": 49
@@ -1920,10 +1920,10 @@
         "Standing Quadriceps Stretch",
         "Wall Quadriceps Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:46+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:33+00:00",
       "exerciseCount": 17,
-      "matchedCount": 7,
-      "unmatchedCount": 10
+      "matchedCount": 8,
+      "unmatchedCount": 9
     },
     "Stretch/Shins": {
       "mdPath": "md-file/Stretch/Shins.md",
@@ -1940,7 +1940,7 @@
         "Toe Drag, Single Leg, Standing",
         "Shin Foam Roller"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:47+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:34+00:00",
       "exerciseCount": 6,
       "matchedCount": 1,
       "unmatchedCount": 5
@@ -2046,10 +2046,10 @@
         "Triangle Pose",
         "Triangle Pose, Extended"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:57+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:45+00:00",
       "exerciseCount": 92,
-      "matchedCount": 18,
-      "unmatchedCount": 74
+      "matchedCount": 20,
+      "unmatchedCount": 72
     },
     "Stretch/Triceps": {
       "mdPath": "md-file/Stretch/Triceps.md",
@@ -2072,10 +2072,15 @@
         "Towel Triceps Stretch, Seated or Standing (May sub strap)",
         "Wall Overhead Triceps Stretch"
       ],
-      "lastSyncedAt": "2026-07-17T10:41:59+00:00",
+      "lastSyncedAt": "2026-07-18T05:55:47+00:00",
       "exerciseCount": 12,
       "matchedCount": 6,
       "unmatchedCount": 6
     }
-  }
+  },
+  "catalogSources": [
+    "https://raw.githubusercontent.com/anil-g11h/exercises-dataset/main/data/exercises.json",
+    "https://wger.de/api/v2/exerciseinfo/?limit=1000&language=2",
+    "https://wger.de/api/v2/license/?limit=100"
+  ]
 }
